@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export default function Hero() {
     return (
-        <div className="relative isolate min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 sm:pt-40 lg:pt-16">
+        <div id="hero" className="relative isolate min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 sm:pt-40 lg:pt-16">
             {/* Background Effects */}
             <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
             <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-500 opacity-20 blur-[100px]"></div>

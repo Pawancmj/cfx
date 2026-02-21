@@ -2,24 +2,31 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ShieldCheck } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (path: string) => pathname === path;
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Industries", href: "/industries" },
+  ];
 
   return (
     <nav
@@ -38,52 +45,22 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Home
-          </Link>
-          <div className="relative group">
-            <button className="text-sm font-medium text-gray-300 hover:text-white transition-colors flex items-center gap-1">
-              Services
-              <svg
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="opacity-50 group-hover:opacity-100 transition-opacity"
-              >
-                <path
-                  d="M1 1L5 5L9 1"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            {/* Dropdown Placeholder */}
-            {/* <div className="absolute top-full left-0 mt-2 w-48 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0">
-               <div className="p-2 flex flex-col gap-1">
-                 <Link href="/services/web" className="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-zinc-800 rounded-md">Web Dev</Link>
-               </div>
-            </div> */}
-          </div>
-          <Link
-            href="/case-studies"
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Case Studies & Contact
-          </Link>
+        <div className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`text-base font-semibold transition-colors ${isActive(link.href) ? "text-blue-500" : "text-gray-300 hover:text-white"}`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/audit" className="btn-primary text-sm">
-            Free Audit
+          <Link href="/case-studies" className="btn-primary text-base font-bold px-8">
+            Contact
           </Link>
         </div>
 
@@ -99,33 +76,22 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl animate-in slide-in-from-top-4 duration-200">
-          <Link
-            href="/"
-            className="text-lg font-medium text-gray-300 hover:text-white"
-            onClick={() => setIsOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            href="/services"
-            className="text-lg font-medium text-gray-300 hover:text-white"
-            onClick={() => setIsOpen(false)}
-          >
-            Services
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`text-xl font-bold transition-colors ${isActive(link.href) ? "text-blue-500" : "text-gray-300 hover:text-white"}`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
           <Link
             href="/case-studies"
-            className="text-lg font-medium text-gray-300 hover:text-white"
+            className="btn-primary text-center w-full text-lg font-bold"
             onClick={() => setIsOpen(false)}
           >
-            Case Studies & Contact
-          </Link>
-          <Link
-            href="/audit"
-            className="btn-primary text-center w-full"
-            onClick={() => setIsOpen(false)}
-          >
-            Free Audit
+            Contact
           </Link>
         </div>
       )}
