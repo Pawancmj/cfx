@@ -47,7 +47,7 @@ export default function Hero() {
                             Get a Free Audit
                         </Link>
                         <Link
-                            href="/case-studies"
+                            href="/contact"
                             className="text-sm font-semibold leading-6 text-white hover:text-blue-400 transition-colors duration-300 flex items-center gap-2"
                         >
                             View Work <ArrowRight className="w-4 h-4" />

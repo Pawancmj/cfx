@@ -59,7 +59,7 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/case-studies" className="btn-primary text-base font-bold px-8">
+          <Link href="/contact" className="btn-primary text-base font-bold px-8">
             Contact
           </Link>
         </div>
@@ -87,7 +87,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/case-studies"
+            href="/contact"
             className="btn-primary text-center w-full text-lg font-bold"
             onClick={() => setIsOpen(false)}
           >

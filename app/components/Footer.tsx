@@ -16,36 +16,38 @@ export default function Footer() {
                             <span className="text-xl font-bold text-white">Cyberforenx</span>
                         </Link>
                         <p className="text-zinc-400 leading-relaxed text-sm">
-                            Securing your digital future with cutting-edge web & app development, digital forensics, and BPO solutions.
+                            Empowering enterprise growth through strategic digital transformation, advanced forensics, and high-performance technical solutions.
                         </p>
                         <div className="flex gap-4">
                             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
                                 <Link
                                     key={i}
                                     href="#"
-                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition-all"
+                                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-zinc-900/50 border border-white/5 text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/10 transition-all duration-300"
                                 >
-                                    <Icon className="w-4 h-4" />
+                                    <Icon className="w-5 h-5" />
                                 </Link>
                             ))}
                         </div>
                     </div>
 
-                    {/* Column 2: Quick Links */}
+                    {/* Column 2: Ecosystem */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Quick Links</h3>
+                        <h3 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Ecosystem</h3>
                         <ul className="flex flex-col gap-4">
                             {[
                                 { label: "Home", href: "/" },
+                                { label: "About Us", href: "/about" },
                                 { label: "Services", href: "/services" },
-                                { label: "Case Studies & Contact", href: "/case-studies" },
+                                { label: "Industries", href: "/industries" },
+                                { label: "Contact", href: "/contact" },
                             ].map((link) => (
                                 <li key={link.label}>
                                     <Link
                                         href={link.href}
-                                        className="text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group text-sm"
+                                        className="text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group text-sm font-medium"
                                     >
-                                        <ArrowRight className="w-3 h-3 opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-blue-500" />
                                         {link.label}
                                     </Link>
                                 </li>
@@ -53,59 +55,59 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Our Services */}
+                    {/* Column 3: Expertise */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Our Services</h3>
+                        <h3 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Expertise</h3>
                         <ul className="flex flex-col gap-4">
                             {[
-                                "Web & App Development",
-                                "Digital Forensics",
-                                "BPO/BPS",
-                                "Cybersecurity"
+                                "Digital Transformation",
+                                "Strategic Consulting",
+                                "Enterprise Security",
+                                "Forensic Analysis",
+                                "Cloud Infrastructure"
                             ].map((service) => (
-                                <li key={service}>
-                                    <Link
-                                        href="#"
-                                        className="text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group text-sm"
-                                    >
-                                        <ArrowRight className="w-3 h-3 opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                        {service}
-                                    </Link>
+                                <li key={service} className="text-zinc-400 flex items-center gap-2 text-sm">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/40" />
+                                    {service}
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Column 4: Contact Us */}
+                    {/* Column 4: Global Headquarters */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Contact Us</h3>
+                        <h3 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Connect</h3>
                         <ul className="flex flex-col gap-6 text-sm">
-                            <li className="flex items-start gap-3">
-                                <Phone className="w-5 h-5 text-blue-500 mt-0.5" />
-                                <span className="text-zinc-400">+1 (555) 123-4567</span>
+                            <li className="flex items-start gap-4 group">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 border border-white/5 group-hover:border-blue-500/30 transition-colors">
+                                    <Phone className="w-4 h-4 text-blue-500" />
+                                </div>
+                                <div>
+                                    <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-tighter mb-1">Corporate Hotline</p>
+                                    <span className="text-zinc-300 font-medium">+1 (555) 123-4567</span>
+                                </div>
                             </li>
-                            <li className="flex items-start gap-3">
-                                <Mail className="w-5 h-5 text-blue-500 mt-0.5" />
-                                <span className="text-zinc-400">info@cyberforenx.com</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-blue-500 mt-0.5" />
-                                <span className="text-zinc-400 leading-relaxed">
-                                    123 Security Blvd, Suite 100, Tech City, TX 78701
-                                </span>
+                            <li className="flex items-start gap-4 group">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 border border-white/5 group-hover:border-blue-500/30 transition-colors">
+                                    <Mail className="w-4 h-4 text-blue-500" />
+                                </div>
+                                <div>
+                                    <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-tighter mb-1">Inquiries</p>
+                                    <span className="text-zinc-300 font-medium">solutions@cyberforenx.com</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
 
                 </div>
 
-                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-zinc-500 text-sm">
-                        &copy; 2026 Cyberforenx. All rights reserved.
+                <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p className="text-zinc-500 text-[12px] font-medium tracking-wide">
+                        &copy; 2026 CYBERFORENX SYSTEMS. ARCHITECTING THE FUTURE.
                     </p>
-                    <div className="flex gap-6 text-sm text-zinc-500">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                    <div className="flex gap-8 text-[12px] font-bold text-zinc-500 uppercase tracking-tighter">
+                        <Link href="#" className="hover:text-blue-400 transition-colors">Privacy Framework</Link>
+                        <Link href="#" className="hover:text-blue-400 transition-colors">Terms of Engagement</Link>
                     </div>
                 </div>
             </div>
