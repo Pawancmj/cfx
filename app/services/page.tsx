@@ -2,7 +2,6 @@
 
 import {
   motion,
-  AnimatePresence,
   useInView,
   useMotionValue,
   useSpring,
@@ -15,7 +14,6 @@ import {
   Search,
   Database,
   ArrowRight,
-  ChevronDown,
   Monitor,
   Server,
   Cloud,
@@ -29,16 +27,9 @@ const services = [
   {
     id: "web-app",
     title: "Web & App Development",
-    description:
-      "Custom, scalable, and secure applications tailored to your business needs.",
-    extendedDescription:
-      "From high-performance React/Next.js platforms to complex backend architectures, we build software that scales globally. Our focus is on clean code, responsive design, and uncompromised security.",
-    features: [
-      "React / Next.js",
-      "Node.js / Express",
-      "Custom UX/UI",
-      "API Integration",
-    ],
+    description: "Custom, scalable, and secure applications tailored to your business needs.",
+    extendedDescription: "From high-performance React/Next.js platforms to complex backend architectures, we build software that scales globally. Our focus is on clean code, responsive design, and uncompromised security.",
+    features: ["React / Next.js", "Node.js / Express", "Custom UX/UI", "API Integration"],
     icon: Code,
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
@@ -48,16 +39,9 @@ const services = [
   {
     id: "forensics",
     title: "Digital Forensics",
-    description:
-      "Advanced investigation and recovery of digital evidence for legal needs.",
-    extendedDescription:
-      "We provide comprehensive forensic imaging, malware analysis, and eDiscovery. Our certified experts ensure the chain of custody is maintained to provide court-admissible evidence.",
-    features: [
-      "Data Recovery",
-      "Malware Analysis",
-      "eDiscovery",
-      "Incident Response",
-    ],
+    description: "Advanced investigation and recovery of digital evidence for legal needs.",
+    extendedDescription: "We provide comprehensive forensic imaging, malware analysis, and eDiscovery. Our certified experts ensure the chain of custody is maintained to provide court-admissible evidence.",
+    features: ["Data Recovery", "Malware Analysis", "eDiscovery", "Incident Response"],
     icon: Search,
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
@@ -67,16 +51,9 @@ const services = [
   {
     id: "bpo",
     title: "BPO Solutions",
-    description:
-      "Streamline operations with our dedicated business process outsourcing teams.",
-    extendedDescription:
-      "Reduce operational overhead while maintaining high standards. We offer dedicated support teams, virtual assistants, and data entry specialists trained specifically for tech and security industries.",
-    features: [
-      "24/7 Support",
-      "Data Processing",
-      "Virtual Assistants",
-      "IT Helpdesk",
-    ],
+    description: "Streamline operations with dedicated teams.",
+    extendedDescription: "Reduce operational overhead while maintaining high standards. We offer dedicated support teams, virtual assistants, and data entry specialists tailored for tech industries.",
+    features: ["24/7 Support", "Data Processing", "Virtual Assistants", "IT Helpdesk"],
     icon: Headphones,
     color: "text-cyan-400",
     bgColor: "bg-cyan-500/10",
@@ -85,17 +62,10 @@ const services = [
   },
   {
     id: "cyber-audit",
-    title: "Cybersecurity Audits",
-    description:
-      "Comprehensive vulnerability assessments and penetration testing.",
-    extendedDescription:
-      "Stay ahead of threats with regular security posture reviews. We simulate real-world attacks to find vulnerabilities before malicious actors do, providing detailed remediation reports.",
-    features: [
-      "Penetration Testing",
-      "Compliance Audits",
-      "Source Code Review",
-      "Social Engineering",
-    ],
+    title: "Cyber Audits",
+    description: "Comprehensive vulnerability assessments and penetration testing.",
+    extendedDescription: "Stay ahead of threats with regular security posture reviews. We simulate real-world attacks to find vulnerabilities before malicious actors do, providing detailed remediation reports.",
+    features: ["Penetration Testing", "Compliance Audits", "Source Code Review", "Social Engineering"],
     icon: ShieldCheck,
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
@@ -105,16 +75,9 @@ const services = [
   {
     id: "mobile",
     title: "Mobile Solutions",
-    description:
-      "Engaging native and cross-platform mobile experiences for iOS and Android.",
-    extendedDescription:
-      "We craft seamless fluid applications using React Native and Flutter. Get to market faster with a single codebase without sacrificing the native iOS or Android feel.",
-    features: [
-      "React Native",
-      "Flutter",
-      "App Store Optimization",
-      "Offline Support",
-    ],
+    description: "Engaging native and cross-platform mobile experiences for iOS and Android.",
+    extendedDescription: "We craft seamless fluid applications using React Native and Flutter. Get to market faster with a single codebase without sacrificing the native iOS or Android feel.",
+    features: ["React Native", "Flutter", "App Store Optimization", "Offline Support"],
     icon: Smartphone,
     color: "text-orange-400",
     bgColor: "bg-orange-500/10",
@@ -124,16 +87,9 @@ const services = [
   {
     id: "data",
     title: "Data Analytics",
-    description:
-      "Transform raw data into actionable intelligence and strategic business insights.",
-    extendedDescription:
-      "Harness the power of your data. We build custom dashboards, implement predictive modeling, and design data pipelines to help you make data-driven decisions.",
-    features: [
-      "Predictive Modeling",
-      "Custom Dashboards",
-      "Data Pipelines",
-      "Machine Learning",
-    ],
+    description: "Transform raw data into intelligence.",
+    extendedDescription: "Harness the power of your data. We build custom dashboards, implement predictive modeling, and design data pipelines to help you make data-driven decisions.",
+    features: ["Predictive Modeling", "Custom Dashboards", "Data Pipelines", "Machine Learning"],
     icon: Database,
     color: "text-pink-400",
     bgColor: "bg-pink-500/10",
@@ -214,15 +170,13 @@ function AnimatedCounter({
 }
 
 export default function ServicesPage() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-
   return (
-    <main className="min-h-screen bg-zinc-950 pt-32 pb-20 overflow-hidden relative isolate">
+    <main className="relative min-h-screen bg-zinc-950 pt-32 pb-24 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       <div className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 h-[400px] w-[800px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -230,8 +184,9 @@ export default function ServicesPage() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400">
-            Our <span className="text-blue-500">Services</span>
+          <h2 className="text-base font-bold uppercase tracking-widest text-blue-500 mb-4">Capabilities</h2>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl mb-6">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Services</span>
           </h1>
           <p className="text-lg leading-8 text-zinc-400">
             Comprehensive digital solutions designed to propel your business
@@ -241,7 +196,7 @@ export default function ServicesPage() {
         </motion.div>
 
         {/* 1. Animated Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           {[
             {
               title: "Uptime Guaranteed",
@@ -298,82 +253,65 @@ export default function ServicesPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32 items-start">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const isExpanded = expandedId === service.id;
 
             return (
               <motion.div
-                layout
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                onClick={() => setExpandedId(isExpanded ? null : service.id)}
                 className={cn(
-                  "cursor-pointer flex flex-col gap-4 p-6 sm:p-8 rounded-2xl bg-zinc-900/50 border backdrop-blur-sm transition-all duration-300",
-                  isExpanded
-                    ? service.activeBorder
-                    : "border-white/5 hover:-translate-y-1",
-                  !isExpanded && service.borderColor,
+                  "group relative overflow-hidden flex flex-col rounded-2xl bg-zinc-900/50 border backdrop-blur-sm transition-all duration-500 min-h-[340px]",
+                  "border-white/5 hover:-translate-y-1 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-zinc-900/50",
+                  service.borderColor
                 )}
               >
-                <motion.div layout className="flex justify-between items-start">
-                  <div className={cn("p-4 w-fit rounded-xl", service.bgColor)}>
-                    <Icon
-                      className={cn("w-6 h-6 sm:w-8 sm:h-8", service.color)}
-                    />
+                {/* Default Visible Card content (Icon, Title, Short Desc) */}
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col transition-all duration-500 group-hover:opacity-0 group-hover:-translate-y-8">
+                  <div className={cn("p-4 w-fit rounded-xl mb-6", service.bgColor)}>
+                    <Icon className={cn("w-6 h-6 sm:w-8 sm:h-8", service.color)} />
                   </div>
-                  <motion.div
-                    animate={{ rotate: isExpanded ? 180 : 0 }}
-                    className="p-2 rounded-full hover:bg-white/5 text-zinc-500"
-                  >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </motion.div>
 
-                <motion.h3
-                  layout
-                  className="text-xl sm:text-2xl font-bold text-white"
-                >
-                  {service.title}
-                </motion.h3>
-                <motion.p
-                  layout
-                  className="text-zinc-400 leading-relaxed text-sm sm:text-base"
-                >
-                  {service.description}
-                </motion.p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                    {service.description}
+                  </p>
 
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-4 mt-2 border-t border-white/10">
-                        <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                          {service.extendedDescription}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {service.features.map((f) => (
-                            <span
-                              key={f}
-                              className="px-2 py-1 text-xs font-medium bg-white/5 text-zinc-300 rounded-md border border-white/10"
-                            >
-                              {f}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  {/* Decorative element to balance the bottom of the card */}
+                  <div className="mt-auto flex items-center text-sm font-semibold text-zinc-500 tracking-wide uppercase pt-4 border-t border-white/5">
+                    Hover to explore
+                    <ArrowRight className="w-4 h-4 ml-2 opacity-50 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
+
+                {/* Hover Details Content (Extended Desc, Features) */}
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col opacity-0 translate-y-8 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 h-full pointer-events-none group-hover:pointer-events-auto">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-6 flex-grow">
+                    {service.extendedDescription}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {service.features.map((f) => (
+                      <span
+                        key={f}
+                        className={cn(
+                          "px-2 py-1 text-xs font-semibold bg-white/5 text-zinc-300 rounded-md border transition-colors",
+                          service.borderColor
+                        )}
+                      >
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             );
           })}
@@ -454,9 +392,9 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         {/* 4. How We Work (Process Timeline) */}
-        <div className="mb-32 max-w-5xl mx-auto">
+        <div className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -509,41 +447,39 @@ export default function ServicesPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mb-20 max-w-5xl mx-auto px-4 sm:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="rounded-3xl bg-zinc-900/40 border border-white/10 p-8 sm:p-14 text-center relative overflow-hidden backdrop-blur-md"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-purple-900/10 pointer-events-none"></div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 relative z-10">
-              Ready to secure your digital{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                future?
-              </span>
-            </h2>
-            <p className="text-lg text-zinc-300 mb-10 max-w-2xl mx-auto relative z-10">
-              Let&apos;s discuss how our tailored solutions can accelerate your
-              growth and protect your assets.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 relative z-10">
-              <Link
-                href="/contact"
-                className="rounded-full bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all duration-300 hover:scale-105"
-              >
-                Get in Touch
-              </Link>
-              <Link
-                href="/audit"
-                className="rounded-full bg-white/10 border border-white/20 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-              >
-                Request Audit <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 rounded-3xl bg-zinc-900/40 border border-white/10 p-8 sm:p-14 text-center relative overflow-hidden backdrop-blur-md"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-purple-900/10 pointer-events-none"></div>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 relative z-10">
+            Ready to secure your digital{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+              future?
+            </span>
+          </h2>
+          <p className="text-lg text-zinc-300 mb-10 max-w-2xl mx-auto relative z-10">
+            Let&apos;s discuss how our tailored solutions can accelerate your
+            growth and protect your assets.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 relative z-10">
+            <Link
+              href="/contact"
+              className="rounded-full bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all duration-300 hover:scale-105"
+            >
+              Get in Touch
+            </Link>
+            <Link
+              href="/audit"
+              className="rounded-full bg-white/10 border border-white/20 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+            >
+              Request Audit <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </main>
   );
