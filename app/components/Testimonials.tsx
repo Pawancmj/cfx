@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import Image from "next/image";
+
 
 const testimonials = [
     {
@@ -63,7 +63,7 @@ export default function Testimonials() {
                                     ))}
                                 </div>
                                 <blockquote className="text-zinc-300 leading-relaxed relative z-10 italic">
-                                    "{testimonial.content}"
+                                    &quot;{testimonial.content}&quot;
                                 </blockquote>
                                 <div className="mt-8 flex items-center gap-x-4">
                                     <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg ring-2 ring-zinc-900">

@@ -38,7 +38,7 @@ export default function CareersPage() {
     const handleApply = (roleTitle: string) => {
         const subject = `Career Application: ${roleTitle} - Cyberforenx`;
         const mailtoUrl = `mailto:forsatyam2018@gmail.com?subject=${encodeURIComponent(subject)}`;
-        window.location.href = mailtoUrl;
+        window.location.assign(mailtoUrl);
     };
 
     return (

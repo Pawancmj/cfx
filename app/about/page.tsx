@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, Target, Users, Zap, ShieldCheck, Globe, Trophy, TrendingUp, Lightbulb } from "lucide-react";
+import { Eye, Target, Users, Zap, ShieldCheck, Globe, Trophy, Lightbulb } from "lucide-react";
 
 const values = [
     {
@@ -68,7 +68,7 @@ export default function AboutPage() {
                         </div>
                         <h3 className="text-3xl font-bold text-white mb-6">Our Vision</h3>
                         <p className="text-zinc-400 text-lg leading-relaxed">
-                            To be the world's most trusted partner in digital forensics and strategic technology, empowering every organization to navigate the digital landscape with absolute certainty and security.
+                            To be the world&apos;s most trusted partner in digital forensics and strategic technology, empowering every organization to navigate the digital landscape with absolute certainty and security.
                         </p>
                     </motion.div>
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
                             <h3 className="text-4xl font-bold text-white leading-tight">Delivering Impact Through Strategic Innovation</h3>
                         </div>
                         <p className="text-zinc-400 max-w-md">
-                            We don't just build software or solve crimes; we create the technological backbone that allows our clients to lead their industries.
+                            We don&apos;t just build software or solve crimes; we create the technological backbone that allows our clients to lead their industries.
                         </p>
                     </div>
 

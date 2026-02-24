@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { ShieldCheck, Facebook, Twitter, Linkedin, Instagram, Phone, Mail, ArrowRight } from "lucide-react";
 
 export default function Footer() {
     return (

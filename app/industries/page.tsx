@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Landmark, HeartPulse, ShoppingCart, Factory, ShieldCheck, Globe, Zap, Headset } from "lucide-react";
+import { Landmark, HeartPulse, ShoppingCart, Factory, Globe, Zap, BookOpen, Network, Truck } from "lucide-react";
 
 const industries = [
     {
@@ -33,25 +33,41 @@ const industries = [
         bg: "bg-emerald-500/10",
     },
     {
-        title: "Public Sector",
-        description: "Modernizing government services with secure, transparent, and citizens-first digital portals.",
-        icon: Building2,
+        title: "Logistics & Supply Chain",
+        description: "Intelligent tracking, fleet management, and automated supply chain operations.",
+        icon: Truck,
         color: "text-indigo-500",
         bg: "bg-indigo-500/10",
     },
     {
         title: "Technology & SaaS",
         description: "Accelerating innovation for tech startups and enterprises with robust product engineering.",
-        icon: Zap,
+        icon: Globe,
         color: "text-cyan-500",
         bg: "bg-cyan-500/10",
     },
     {
-        title: "BPO & BPS Services",
-        description: "Optimizing business processes with high-quality outsourcing and intelligent support solutions.",
-        icon: Headset,
+        title: "Energy & Utilities",
+        description: "Smart grid software, resource management, and critical infrastructure cybersecurity.",
+        icon: Zap,
         color: "text-blue-400",
         bg: "bg-blue-400/10",
+    },
+
+    {
+        title: "Government & Legal",
+        description: "Secure, compliant, and transparent digital infrastructure for government agencies and legal institutions.",
+        icon: BookOpen,
+        color: "text-violet-500",
+        bg: "bg-violet-500/10",
+    },
+
+    {
+        title: "Telecommunications",
+        description: "High-availability network solutions and scalable communication frameworks for modern telcos.",
+        icon: Network,
+        color: "text-fuchsia-500",
+        bg: "bg-fuchsia-500/10",
     }
 ];
 
@@ -113,7 +129,7 @@ export default function IndustriesPage() {
                     viewport={{ once: true }}
                     className="mt-20 p-12 rounded-[3rem] bg-gradient-to-br from-blue-600 to-cyan-600 text-center text-white"
                 >
-                    <h2 className="text-3xl font-bold mb-4 text-white">Don't see your industry?</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-white">Don&apos;t see your industry?</h2>
                     <p className="text-blue-100 mb-8 max-w-xl mx-auto">
                         Our experts can build custom solutions for any sector. Reach out to discuss your specific needs.
                     </p>
