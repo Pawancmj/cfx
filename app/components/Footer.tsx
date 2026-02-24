@@ -40,6 +40,7 @@ export default function Footer() {
                                 { label: "About Us", href: "/about" },
                                 { label: "Services", href: "/services" },
                                 { label: "Industries", href: "/industries" },
+                                { label: "Careers", href: "/careers" },
                                 { label: "Contact", href: "/contact" },
                             ].map((link) => (
                                 <li key={link.label}>
@@ -71,6 +72,14 @@ export default function Footer() {
                                     {service}
                                 </li>
                             ))}
+                            <li className="flex items-center gap-3 text-zinc-400 text-sm">
+                                <ArrowRight className="w-4 h-4 text-blue-500" />
+                                <Link href="/careers" className="hover:text-blue-400 transition-colors">Join Our Team (Internships)</Link>
+                            </li>
+                            <li className="flex items-center gap-3 text-zinc-400 text-sm">
+                                <ArrowRight className="w-4 h-4 text-blue-500" />
+                                <span>Available 24/7 for Global Support</span>
+                            </li>
                         </ul>
                     </div>
 

@@ -35,16 +35,16 @@ export default function Hero() {
                         <span className="text-blue-500">Unlock Potential.</span>
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-zinc-300 max-w-2xl mx-auto">
-                        At Cyberforenx, we deliver advanced web and app development, digital forensics, and BPO solutions, built on a foundation of unyielding security and innovative design.
+                        Cyberforenx specializes in <span className="text-white">Full Stack Development</span>, <span className="text-white">Advanced Data Analytics</span>, and Digital Forensic investigations, architecting resilient digital ecosystems for the modern enterprise.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link
-                            href="/audit"
+                            href="/contact"
                             className={cn(
                                 "rounded-full bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-300 hover:scale-105"
                             )}
                         >
-                            Get a Free Audit
+                            Work With Us
                         </Link>
                         <Link
                             href="/contact"
