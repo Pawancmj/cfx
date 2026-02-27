@@ -31,57 +31,62 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-zinc-950/80 backdrop-blur-md border-b border-white/10 h-16 shadow-lg" : "bg-zinc-950/50 backdrop-blur-sm border-b border-white/5 h-20"
-        } flex items-center justify-center`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-full ${scrolled
+        ? "glass-nav h-16 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-white/20"
+        : "bg-transparent h-20 border-transparent"
+        } flex items-center justify-between px-4 md:px-8`}
     >
-      <div className="container mx-auto px-6 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-blue-600 p-1.5 rounded-lg group-hover:bg-blue-500 transition-colors">
-            <ShieldCheck className="w-6 h-6 text-white" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">
-            Cyberforenx
-          </span>
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-base font-semibold transition-colors ${isActive(link.href) ? "text-blue-500" : "text-gray-300 hover:text-white"}`}
-            >
-              {link.name}
-            </Link>
-          ))}
+      {/* Logo */}
+      <Link href="/" className="flex items-center gap-2 group">
+        <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:scale-110 transition-transform">
+          <ShieldCheck className="w-6 h-6 text-background" />
         </div>
+        <span className="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
+          Cyberforenx
+        </span>
+      </Link>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Link href="/contact" className="btn-primary text-base font-bold px-8">
-            Contact
+      {/* Desktop Links */}
+      <div className="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={`text-xs font-bold uppercase tracking-widest transition-all relative group ${isActive(link.href)
+              ? "text-primary"
+              : "text-zinc-400 hover:text-white"
+              }`}
+          >
+            {link.name}
+            <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${isActive(link.href) ? "w-full" : ""}`}></span>
           </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-300 hover:text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        ))}
       </div>
+
+      {/* CTA Button */}
+      <div className="hidden md:block">
+        <Link href="/contact" className="btn-primary text-xs uppercase tracking-widest px-8">
+          Get Started
+        </Link>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden text-zinc-300 hover:text-primary transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl animate-in slide-in-from-top-4 duration-200">
+        <div className="absolute top-full left-0 w-full mt-4 glass-card p-6 flex flex-col gap-6 md:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`text-xl font-bold transition-colors ${isActive(link.href) ? "text-blue-500" : "text-gray-300 hover:text-white"}`}
+              className={`text-lg font-bold transition-colors ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"
+                }`}
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -89,13 +94,14 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="btn-primary text-center w-full text-lg font-bold"
+            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold"
             onClick={() => setIsOpen(false)}
           >
-            Contact
+            Contact Us
           </Link>
         </div>
       )}
     </nav>
   );
 }
+

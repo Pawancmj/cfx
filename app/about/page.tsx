@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, Target, Users, Zap, ShieldCheck, Globe, Trophy, Lightbulb } from "lucide-react";
+import { Eye, Target, Users, Zap, ShieldCheck, Globe, Trophy, Lightbulb, Sparkles } from "lucide-react";
 
 const values = [
     {
@@ -28,65 +28,74 @@ const values = [
 
 export default function AboutPage() {
     return (
-        <main className="relative min-h-screen bg-zinc-950 pt-32 pb-24 overflow-hidden">
+        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
             {/* Background Decor */}
-            <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-            <div className="absolute left-1/2 top-0 -z-10 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[120px]"></div>
+            <div className="absolute inset-0 bg-grid opacity-20"></div>
+            <div className="absolute left-1/4 top-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[160px]"></div>
+            <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] bg-secondary/10 blur-[140px] rounded-full"></div>
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
                 {/* Hero Section: Who We Are */}
-                <div className="text-center max-w-4xl mx-auto mb-24">
+                <div className="text-center max-w-5xl mx-auto mb-24">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <h2 className="text-base font-bold uppercase tracking-widest text-blue-500 mb-4">Our Identity</h2>
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-tight">
-                            Pioneering the Future of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Digital Intelligence</span>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
+                        >
+                            <Sparkles className="w-4 h-4 text-primary" />
+                            <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
+                        </motion.div>
+                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                            Pioneering the Future of <br />
+                            <span className="text-gradient italic text-glow">Digital Intelligence</span>
                         </h1>
-                        <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto">
+                        <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                             Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Vision & Mission Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="group relative p-10 rounded-[2.5rem] bg-zinc-900/50 border border-white/10 hover:border-blue-500/40 transition-all duration-500"
+                        transition={{ duration: 1 }}
+                        className="group relative p-8 sm:p-12 rounded-3xl glass-card hover:bg-white/10 hover:border-primary/40"
                     >
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Eye className="w-24 h-24 text-blue-500" />
+                        <div className="absolute top-10 right-10 p-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Eye className="w-24 h-24 text-primary" />
                         </div>
-                        <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-500/10 mb-8 group-hover:scale-110 transition-transform">
-                            <Eye className="h-8 w-8 text-blue-500" />
+                        <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mb-10 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,242,255,0.2)]">
+                            <Eye className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-6">Our Vision</h3>
-                        <p className="text-zinc-400 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">Our Vision</h3>
+                        <p className="text-zinc-400 text-lg leading-relaxed font-medium italic group-hover:text-zinc-200 transition-colors">
                             To be the world&apos;s most trusted partner in digital forensics and strategic technology, empowering every organization to navigate the digital landscape with absolute certainty and security.
                         </p>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="group relative p-10 rounded-[2.5rem] bg-zinc-900/50 border border-white/10 hover:border-cyan-500/40 transition-all duration-500"
+                        transition={{ duration: 1 }}
+                        className="group relative p-8 sm:p-12 rounded-3xl glass-card hover:bg-white/10 hover:border-secondary/40"
                     >
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Target className="w-24 h-24 text-cyan-500" />
+                        <div className="absolute top-10 right-10 p-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Target className="w-24 h-24 text-secondary" />
                         </div>
-                        <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 mb-8 group-hover:scale-110 transition-transform">
-                            <Target className="h-8 w-8 text-cyan-500" />
+                        <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10 mb-10 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(112,0,255,0.2)]">
+                            <Target className="h-8 w-8 text-secondary" />
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-6">Our Mission</h3>
-                        <p className="text-zinc-400 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">Our Mission</h3>
+                        <p className="text-zinc-400 text-lg leading-relaxed font-medium italic group-hover:text-zinc-200 transition-colors">
                             Our mission is to architect resilient digital ecosystems through precise forensic analysis, innovative software engineering, and strategic business process optimization that drives measurable growth.
                         </p>
                     </motion.div>
@@ -94,12 +103,12 @@ export default function AboutPage() {
 
                 {/* What We Do Section */}
                 <div className="mb-32">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
-                        <div className="max-w-2xl">
-                            <h2 className="text-base font-bold uppercase tracking-widest text-blue-500 mb-4">Expertise</h2>
-                            <h3 className="text-4xl font-bold text-white leading-tight">Delivering Impact Through Strategic Innovation</h3>
+                    <div className="flex flex-col md:flex-row items-center text-center md:text-left justify-between mb-20 gap-10">
+                        <div className="max-w-3xl">
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Expertise</h2>
+                            <h3 className="text-4xl font-extrabold text-white leading-tight uppercase tracking-tight text-glow">Delivering Impact Through Strategic Innovation</h3>
                         </div>
-                        <p className="text-zinc-400 max-w-md">
+                        <p className="text-zinc-400 max-w-xl text-lg font-medium leading-relaxed">
                             We don&apos;t just build software or solve crimes; we create the technological backbone that allows our clients to lead their industries.
                         </p>
                     </div>
@@ -110,45 +119,48 @@ export default function AboutPage() {
                                 title: "Digital Forensic Investigations",
                                 desc: "Uncovering truth in the digital realm with military-grade precision and legal compliance.",
                                 icon: ShieldCheck,
-                                accent: "text-blue-500"
+                                accent: "text-primary"
                             },
                             {
                                 title: "Enterprise Software Engineering",
                                 desc: "Building scalable, high-performance applications that redefine user experience and operational efficiency.",
                                 icon: Zap,
-                                accent: "text-cyan-500"
+                                accent: "text-secondary"
                             },
                             {
                                 title: "Strategic BPO & Consulting",
                                 desc: "Optimizing business processes with intelligent support systems and data-driven strategic advisory.",
                                 icon: Globe,
-                                accent: "text-indigo-500"
+                                accent: "text-accent"
                             }
                         ].map((item, i) => (
                             <motion.div
                                 key={item.title}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                className="bg-zinc-900/30 border border-white/5 p-8 rounded-3xl hover:bg-zinc-900/50 transition-colors"
+                                transition={{ duration: 0.8, delay: i * 0.1 }}
+                                className="glass-card p-10 hover:-translate-y-2 group"
                             >
-                                <item.icon className={`h-8 w-8 ${item.accent} mb-6`} />
-                                <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                                <p className="text-zinc-400 leading-relaxed">{item.desc}</p>
+                                <div className="p-4 rounded-xl bg-white/5 w-fit mb-8 group-hover:bg-white/10 transition-colors">
+                                    <item.icon className={`h-8 w-8 ${item.accent}`} />
+                                </div>
+                                <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">{item.title}</h4>
+                                <p className="text-zinc-400 leading-relaxed text-base font-medium group-hover:text-zinc-300 transition-colors">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
 
                 {/* What We Believe In (Core Values) */}
-                <div className="relative p-12 lg:p-20 rounded-[4rem] bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-white/10 overflow-hidden">
-                    <div className="absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-blue-500/20 blur-[100px]"></div>
+                <div className="relative p-12 lg:p-20 rounded-[3rem] section-bg-alt border border-white/5 overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 bg-dots opacity-10"></div>
+                    <div className="absolute -right-20 -bottom-20 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]"></div>
 
-                    <div className="text-center max-w-2xl mx-auto mb-16 relative z-10">
-                        <h2 className="text-base font-bold uppercase tracking-widest text-blue-400 mb-4">Our Values</h2>
-                        <h3 className="text-4xl font-bold text-white mb-6">The Beliefs That Drive Us</h3>
-                        <p className="text-blue-100/70">
+                    <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
+                        <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Our Values</h2>
+                        <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">The Beliefs That Drive Us</h3>
+                        <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">
                             Our culture is anchored in a set of core beliefs that guide every decision we make and every project we undertake.
                         </p>
                     </div>
@@ -157,15 +169,15 @@ export default function AboutPage() {
                         {values.map((v, i) => (
                             <motion.div
                                 key={v.title}
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                className="bg-zinc-950/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-white/20 transition-all group"
+                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                className="glass-card p-10 hover:bg-white/10 transition-all group border-white/5"
                             >
-                                <v.icon className="h-6 w-6 text-blue-400 mb-6 group-hover:scale-110 transition-transform" />
-                                <h4 className="text-lg font-bold text-white mb-3">{v.title}</h4>
-                                <p className="text-zinc-400 text-sm leading-relaxed">{v.description}</p>
+                                <v.icon className="h-7 w-7 text-primary mb-8 group-hover:scale-125 transition-transform" />
+                                <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">{v.title}</h4>
+                                <p className="text-zinc-400 text-xs leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">{v.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -174,3 +186,4 @@ export default function AboutPage() {
         </main>
     );
 }
+

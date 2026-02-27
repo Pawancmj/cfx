@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 
 const testimonials = [
@@ -27,51 +27,44 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="bg-zinc-950 py-24 sm:py-32 relative overflow-hidden">
-            {/* Background blobs */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]"></div>
-                <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-purple-600/10 rounded-full blur-[100px]"></div>
-            </div>
-
+        <section className="relative py-24 section-bg-gradient overflow-hidden border-t border-white/5">
+            <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-                <div className="mx-auto max-w-xl text-center">
-                    <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Testimonials</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                <div className="mx-auto max-w-2xl text-center mb-16">
+                    <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Success Stories</h2>
+                    <p className="text-3xl font-extrabold tracking-tight text-white sm:text-6xl text-glow leading-tight">
                         Trusted by Innovative Companies
                     </p>
                 </div>
-                <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mx-auto mt-20 flow-root max-w-2xl sm:mt-24 lg:mx-0 lg:max-w-none">
+                    <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
                         {testimonials.map((testimonial, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="relative rounded-2xl bg-zinc-900/80 p-8 ring-1 ring-white/10 hover:ring-blue-500/40 transition duration-300 backdrop-blur-sm"
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                className="relative glass-card p-10 hover:bg-white/10 hover:border-primary/40 group"
                             >
                                 {/* Decorative Quote Mark */}
-                                <div className="absolute top-4 right-8 text-6xl text-blue-500/10 font-serif leading-none">
-                                    &rdquo;
-                                </div>
+                                <Quote className="absolute top-10 right-10 w-16 h-16 text-primary/5 group-hover:text-primary/10 transition-colors" />
 
-                                <div className="flex gap-1 text-yellow-500 mb-6 relative">
+                                <div className="flex gap-1.5 text-primary mb-10 relative">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-current drop-shadow-lg" />
+                                        <Star key={i} className="w-5 h-5 fill-current drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]" />
                                     ))}
                                 </div>
-                                <blockquote className="text-zinc-300 leading-relaxed relative z-10 italic">
+                                <blockquote className="text-zinc-400 leading-relaxed relative z-10 text-lg font-medium italic mb-12 group-hover:text-zinc-200 transition-colors">
                                     &quot;{testimonial.content}&quot;
                                 </blockquote>
-                                <div className="mt-8 flex items-center gap-x-4">
-                                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg ring-2 ring-zinc-900">
+                                <div className="flex items-center gap-x-6 border-t border-white/10 pt-10">
+                                    <div className="h-14 w-14 rounded-2xl bg-primary flex items-center justify-center text-background font-bold text-xl shadow-[0_0_15px_rgba(0,242,255,0.4)]">
                                         {testimonial.author.charAt(0)}
                                     </div>
                                     <div>
-                                        <div className="font-bold text-white tracking-wide">{testimonial.author}</div>
-                                        <div className="text-xs text-blue-400 uppercase tracking-wider font-semibold">{testimonial.role}</div>
+                                        <div className="font-bold text-white uppercase tracking-[0.1em] text-sm">{testimonial.author}</div>
+                                        <div className="text-xs text-primary uppercase tracking-[0.2em] font-bold mt-2">{testimonial.role}</div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -82,3 +75,4 @@ export default function Testimonials() {
         </section>
     );
 }
+
