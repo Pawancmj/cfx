@@ -177,6 +177,54 @@ export const solutionsCategories: MegaCategory[] = [
     },
 ];
 
+export const resourceCategories: MegaCategory[] = [
+    {
+        title: "Latest",
+        links: [
+            { name: "Digital Forensics & Cyber Investigation", href: "/resources/latest/digital-forensics-cyber-investigation" },
+            { name: "How Digital Evidence Supports Government Investigations", href: "/resources/latest/how-digital-evidence-supports" },
+            { name: "Best Practices for Secure Evidence Collection & Reporting", href: "/resources/latest/best-practices-secure-evidence" },
+            { name: "Cybersecurity & Risk Management", href: "/resources/latest/cybersecurity-risk-management" },
+            { name: "Modern Cyber Threats Every Business Should Prepare For", href: "/resources/latest/modern-cyber-threats" },
+            { name: "Enterprise Security Strategies for 2026 and Beyond", href: "/resources/latest/enterprise-security-strategies" },
+        ],
+    },
+    {
+        title: "Blogs",
+        links: [
+            { name: "Digital Forensics in Government Investigations: Process & Best Practices", href: "/resources/blogs/digital-forensics-government" },
+            { name: "Cybersecurity Essentials for Modern Enterprises", href: "/resources/blogs/cybersecurity-essentials" },
+            { name: "Data Analytics for Smarter Business Decisions", href: "/resources/blogs/data-analytics-business-decisions" },
+            { name: "How BPO/BPS Services Improve Operational Efficiency", href: "/resources/blogs/how-bpo-bps-improve-efficiency" },
+            { name: "Building Scalable Web & App Platforms for Growing Businesses", href: "/resources/blogs/scalable-web-app-platforms" },
+            { name: "Compliance, Risk & Digital Investigation in Financial Sectors", href: "/resources/blogs/compliance-risk-financial-sectors" },
+            { name: "Secure Digital Transformation for Enterprises", href: "/resources/blogs/secure-digital-transformation" },
+            { name: "The Role of Automation in Business Operations", href: "/resources/blogs/role-automation-business" },
+        ],
+    },
+    {
+        title: "Articles / Insights",
+        links: [
+            { name: "Understanding Digital Evidence & Chain of Custody", href: "/resources/articles/understanding-digital-evidence" },
+            { name: "Web Security Best Practices for Business Platforms", href: "/resources/articles/web-security-best-practices" },
+            { name: "Data-Driven Decision Making for Enterprises", href: "/resources/articles/data-driven-decision-making" },
+            { name: "Why Organizations Need Continuous Cyber Risk Assessment", href: "/resources/articles/continuous-cyber-risk-assessment" },
+            { name: "Modern Business Process Automation Strategies", href: "/resources/articles/modern-bpa-strategies" },
+            { name: "Digital Compliance & Regulatory Intelligence Explained", href: "/resources/articles/digital-compliance-explained" },
+        ],
+    },
+    {
+        title: "News & Updates",
+        links: [
+            { name: "New Digital Investigation Engagements with Regulatory Agencies", href: "/resources/news/new-digital-investigation-engagements" },
+            { name: "Enterprise Cybersecurity Audit Projects Delivered", href: "/resources/news/enterprise-cybersecurity-audit" },
+            { name: "Expansion of BPO / Business Process Services", href: "/resources/news/expansion-bpo-bps" },
+            { name: "Launch of New Digital Platform Solutions", href: "/resources/news/launch-new-digital-platform" },
+            { name: "Technology & Innovation Updates from Our Team", href: "/resources/news/technology-innovation-updates" },
+        ],
+    },
+];
+
 export const mainNavLinks: NavLink[] = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
