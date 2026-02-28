@@ -18,7 +18,6 @@ import {
   Monitor,
   Server,
   Cloud,
-  Lock,
   Sparkles,
   Cpu,
   Shield,
