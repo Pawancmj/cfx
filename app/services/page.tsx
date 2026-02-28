@@ -479,10 +479,10 @@ export default function ServicesPage() {
               Initiate Project
             </Link>
             <Link
-              href="/industries"
+              href="/solutions"
               className="glass-card border border-white/20 px-10 py-5 text-xs font-black uppercase tracking-[0.3em] text-white hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-300 rounded-xl"
             >
-              Strategic Industries
+              Strategic Solutions
             </Link>
           </div>
         </motion.div>

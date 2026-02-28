@@ -241,12 +241,83 @@ function ProcessSection() {
 }
 
 
+const articles = [
+  {
+    title: "AI & The Future of Cybersecurity",
+    excerpt: "Exploring how artificial intelligence is shaping proactive threat intelligence.",
+    date: "Feb 24, 2026",
+    readTime: "5 min read",
+  },
+  {
+    title: "Zero Trust Architecture Explained",
+    excerpt: "Why enterprises are moving towards strict access controls and continuous verification.",
+    date: "Feb 18, 2026",
+    readTime: "7 min read",
+  },
+  {
+    title: "Cloud Migration Strategies",
+    excerpt: "Best practices for moving legacy monoliths into cloud-native microservices.",
+    date: "Feb 10, 2026",
+    readTime: "6 min read",
+  },
+];
+
+function RecentArticlesSection() {
+  return (
+    <section className="relative py-16 section-bg-dark border-b border-white/5">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="flex justify-between items-end mb-10">
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
+            <h3 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow">
+              Recent Articles
+            </h3>
+          </div>
+          <Link href="/resources" className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-primary transition-colors">
+            View All <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {articles.map((article, i) => (
+            <motion.div
+              key={article.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group glass-card p-6 flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 hover:border-primary/30 transition-all cursor-pointer border-white/5 rounded-3xl"
+            >
+              <div>
+                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">
+                  <span>{article.date}</span>
+                  <span>{article.readTime}</span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                  {article.title}
+                </h4>
+                <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
+                  {article.excerpt}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 mt-auto">
+                <span className="text-xs font-black tracking-widest uppercase text-primary/60 group-hover:text-primary transition-colors flex items-center gap-2">Read Article <ArrowUpRight className="w-3 h-3" /></span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // --- Main Page Component ---
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
+      <RecentArticlesSection />
       <StatsSection />
       <ExpertiseSection />
       <ProcessSection />
