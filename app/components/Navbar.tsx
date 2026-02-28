@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
 import DesktopMegaMenu from "./navbar/DesktopMegaMenu";
 import MobileAccordion from "./navbar/MobileAccordion";
-import { mainNavLinks, serviceCategories, solutionsCategories } from "@/app/constants/navigation";
+import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategories } from "@/app/constants/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,6 +77,20 @@ export default function Navbar() {
                 categories={solutionsCategories}
                 exploreLinkPrefix="solutions"
                 exploreText="Explore Hubs"
+                isActive={isActive(link.href)}
+              />
+            );
+          }
+
+          if (link.name === "Resources") {
+            return (
+              <DesktopMegaMenu
+                key={link.name}
+                label="Resources"
+                href={link.href}
+                categories={resourceCategories}
+                exploreLinkPrefix="resources"
+                exploreText="Explore Resources"
                 isActive={isActive(link.href)}
               />
             );
@@ -197,6 +211,21 @@ export default function Navbar() {
                   categories={solutionsCategories}
                   exploreLinkPrefix="solutions"
                   exploreText="Explore Solutions"
+                  isActive={isActive(link.href)}
+                  onNavigate={() => setIsOpen(false)}
+                />
+              );
+            }
+
+            if (link.name === "Resources") {
+              return (
+                <MobileAccordion
+                  key={link.name}
+                  label="Resources"
+                  href={link.href}
+                  categories={resourceCategories}
+                  exploreLinkPrefix="resources"
+                  exploreText="Explore Resources"
                   isActive={isActive(link.href)}
                   onNavigate={() => setIsOpen(false)}
                 />
