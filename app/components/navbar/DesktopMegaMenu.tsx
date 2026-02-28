@@ -64,8 +64,8 @@ export default function DesktopMegaMenu({
                                         key={category.title}
                                         onMouseEnter={() => setActiveCategory(category.title)}
                                         className={`w-full text-left px-5 h-12 rounded-xl text-[13px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-between group/catbtn relative overflow-hidden ${isActiveCategory
-                                                ? "text-white border-transparent bg-white/5 shadow-inner"
-                                                : "text-zinc-400 hover:text-zinc-200 border-transparent"
+                                            ? "text-white border-transparent bg-white/5 shadow-inner"
+                                            : "text-zinc-400 hover:text-zinc-200 border-transparent"
                                             }`}
                                     >
                                         {/* Hover Gradient Background */}
@@ -82,8 +82,8 @@ export default function DesktopMegaMenu({
                                         </span>
                                         <ChevronDown
                                             className={`w-4 h-4 -rotate-90 transition-transform relative z-10 shrink-0 ${isActiveCategory
-                                                    ? "text-primary translate-x-1"
-                                                    : "opacity-0 group-hover/catbtn:opacity-50 group-hover/catbtn:translate-x-1"
+                                                ? "text-primary translate-x-1"
+                                                : "opacity-0 group-hover/catbtn:opacity-50 group-hover/catbtn:translate-x-1"
                                                 }`}
                                         />
                                     </button>
@@ -98,7 +98,7 @@ export default function DesktopMegaMenu({
                                     {activeCategory}
                                 </h3>
                                 <Link
-                                    href={`/${exploreLinkPrefix}/${toSlug(activeCategory)}`}
+                                    href={`/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`}
                                     className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-colors flex items-center gap-2 group/viewall"
                                 >
                                     {exploreText}

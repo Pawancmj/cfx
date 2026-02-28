@@ -5,6 +5,7 @@ export interface NavLink {
 
 export interface MegaCategory {
     title: string;
+    slug?: string;
     links: NavLink[];
 }
 
@@ -17,7 +18,7 @@ export const serviceCategories: MegaCategory[] = [
             { name: "Custom Web Application Development", href: "/services/web-app-development/custom-web-application-development" },
             { name: "Enterprise Software Solutions", href: "/services/web-app-development/enterprise-software-solutions" },
             { name: "Mobile App Development (Android / iOS)", href: "/services/web-app-development/mobile-app-development" },
-            { name: "UI/UX Design & Prototyping", href: "/services/web-app-development/ui-ux-design" },
+            { name: "UI/UX Design & Prototyping", href: "/services/web-app-development/ui-ux-design-prototyping" },
             { name: "SaaS Platform Development", href: "/services/web-app-development/saas-platform-development" },
             { name: "API Development & Integration", href: "/services/web-app-development/api-development-integration" },
             { name: "E-Commerce Solutions", href: "/services/web-app-development/e-commerce-solutions" },
@@ -52,6 +53,7 @@ export const serviceCategories: MegaCategory[] = [
     },
     {
         title: "BPO / BPS Services",
+        slug: "bpo",
         links: [
             { name: "Customer Support Services", href: "/services/bpo/customer-support-services" },
             { name: "Technical Support Operations", href: "/services/bpo/technical-support-operations" },
@@ -65,6 +67,7 @@ export const serviceCategories: MegaCategory[] = [
     },
     {
         title: "Data Analytics & Intelligence",
+        slug: "analytics",
         links: [
             { name: "Business Intelligence Dashboards", href: "/services/analytics/business-intelligence-dashboards" },
             { name: "Data Visualization", href: "/services/analytics/data-visualization" },
@@ -77,6 +80,7 @@ export const serviceCategories: MegaCategory[] = [
     },
     {
         title: "Digital Marketing",
+        slug: "marketing",
         links: [
             { name: "Search Engine Optimization (SEO)", href: "/services/marketing/seo" },
             { name: "Social Media Marketing", href: "/services/marketing/social-media-marketing" },
