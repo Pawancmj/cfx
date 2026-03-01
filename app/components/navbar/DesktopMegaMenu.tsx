@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, LayoutGrid } from "lucide-react";
 import { MegaCategory, toSlug } from "@/app/constants/navigation";
 
@@ -21,9 +22,19 @@ export default function DesktopMegaMenu({
     isActive
 }: DesktopMegaMenuProps) {
     const [activeCategory, setActiveCategory] = useState(categories[0]?.title || "");
+    const pathname = usePathname();
+    const [isForceHidden, setIsForceHidden] = useState(false);
+
+    useEffect(() => {
+        setIsForceHidden(true);
+    }, [pathname]);
 
     return (
-        <div className="group h-full flex items-center">
+        <div
+            className="group h-full flex items-center"
+            onMouseEnter={() => setIsForceHidden(false)}
+            onMouseLeave={() => setIsForceHidden(false)}
+        >
             <Link
                 href={href}
                 className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-2 ${isActive ? "text-primary" : "text-zinc-400 hover:text-white"
@@ -32,13 +43,13 @@ export default function DesktopMegaMenu({
                 {label}
                 <ChevronDown className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-300" />
                 <span
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${isActive ? "w-full" : ""
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? "w-full" : ""
                         }`}
                 ></span>
             </Link>
 
             {/* Mega Menu Dropdown */}
-            <div className="absolute top-[calc(100%+0.5rem)] left-0 w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div className={`absolute top-[calc(100%+0.5rem)] left-0 w-full opacity-0 invisible ${!isForceHidden ? "group-hover:opacity-100 group-hover:visible" : ""} transition-all duration-300 z-50`}>
                 <div className="glass-card p-8 rounded-[2rem] shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/10 w-full section-bg-dark backdrop-blur-3xl relative overflow-hidden group/mega">
                     {/* Dynamic Background Effects */}
                     <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none transition-opacity group-hover/mega:opacity-20"></div>

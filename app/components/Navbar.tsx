@@ -11,6 +11,7 @@ import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategorie
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [forceHidden, setForceHidden] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -21,6 +22,10 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setForceHidden(true);
+  }, [pathname]);
 
   const isActive = (path: string) => pathname === path || pathname.startsWith(path + "/");
 
@@ -98,7 +103,12 @@ export default function Navbar() {
 
           if (link.name === "Company") {
             return (
-              <div key={link.name} className="group/nav h-full flex items-center">
+              <div
+                key={link.name}
+                className="group/nav h-full flex items-center"
+                onMouseEnter={() => setForceHidden(false)}
+                onMouseLeave={() => setForceHidden(false)}
+              >
                 <Link
                   href={link.href}
                   className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href)
@@ -108,10 +118,10 @@ export default function Navbar() {
                 >
                   {link.name}
                   <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover/nav:rotate-180" />
-                  <span className={`absolute bottom-4 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/nav:w-full ${isActive(link.href) ? "w-full" : ""}`}></span>
+                  <span className={`absolute bottom-4 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""}`}></span>
                 </Link>
 
-                <div className="absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50">
+                <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none ${!forceHidden ? "group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto" : ""} transition-all duration-300 z-50`}>
                   {/* Invisible bridge to keep hover active */}
                   <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
 
@@ -159,7 +169,7 @@ export default function Navbar() {
             >
               {link.name}
               <span
-                className={`absolute bottom-[calc(50%-1.25rem)] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${isActive(link.href) ? "w-full" : ""
+                className={`absolute bottom-[calc(50%-1.25rem)] left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""
                   }`}
               ></span>
             </Link>
