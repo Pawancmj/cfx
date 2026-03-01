@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Code, Shield, Zap, Smartphone, Layout, Database, Search, FileText, ShieldCheck, Target, Lock, Activity, ArrowUpRight } from "lucide-react";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
@@ -42,46 +43,92 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
     return (
         <main className="min-h-screen relative overflow-hidden text-zinc-100 section-bg-dark pt-28 sm:pt-40 pb-32">
-            {/* Global Ambient Glows */}
-            <div className="absolute inset-0 bg-grid opacity-20"></div>
-            <div className="absolute right-0 top-0 -z-10 h-[800px] w-[800px] bg-primary/10 blur-[160px] rounded-full"></div>
-            <div className="absolute left-0 bottom-0 -z-10 h-[600px] w-[600px] bg-secondary/10 blur-[140px] rounded-full"></div>
+            {/* Global Ambient Glows - Static for Performance */}
+            <div className="absolute inset-0 bg-grid opacity-20 z-0"></div>
+
+            <div
+                className="absolute right-[10%] top-[-10%] -z-10 h-[800px] w-[800px] bg-primary/20 blur-[160px] rounded-full opacity-40"
+            />
+            <div
+                className="absolute left-[5%] top-[20%] -z-10 h-[600px] w-[600px] bg-secondary/20 blur-[140px] rounded-full opacity-30"
+            />
+            <div
+                className="absolute left-[40%] bottom-[-20%] -z-10 h-[700px] w-[700px] bg-purple-500/10 blur-[150px] rounded-full opacity-20"
+            />
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
-                {/* Header Section */}
-                <div className="text-center max-w-4xl mx-auto mb-24 relative">
-                    <MotionDiv
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    >
+                {/* Full Height Hero Section */}
+                <div className="w-full min-h-[calc(100vh-8rem)] flex items-center mb-0 pb-20 relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+                        {/* Left Side: Text Content */}
                         <MotionDiv
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
+                            initial={{ opacity: 0, x: -40 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-left lg:col-span-7"
                         >
-                            <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">Enterprise Service Hub</span>
+                            <MotionDiv
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
+                            >
+                                <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">Enterprise Service Hub</span>
+                            </MotionDiv>
+
+                            <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl mb-8 leading-[1.2] lg:leading-[1.1]">
+                                {categoryData.title.split(" ").slice(0, -1).join(" ")}{" "}
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary italic drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]">{categoryData.title.split(" ").slice(-1)}</span>
+                            </h1>
+                            <p className="text-xl leading-relaxed text-zinc-400 max-w-2xl font-medium mb-10">
+                                {categoryData.overview}
+                            </p>
+
+                            <div className="flex flex-wrap items-center gap-6 relative z-10">
+                                <Link href="/contact" className="inline-flex items-center gap-4 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-zinc-100 transition-all shadow-2xl hover:scale-105 active:scale-95 group">
+                                    Consult an Expert <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
                         </MotionDiv>
 
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
-                            {categoryData.title.split(" ").slice(0, -1).join(" ")} <br />
-                            <span className="text-gradient italic text-glow">{categoryData.title.split(" ").slice(-1)}</span>
-                        </h1>
-                        <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium mb-12">
-                            {categoryData.overview}
-                        </p>
-
-                        <div className="flex flex-wrap items-center justify-center gap-6 relative z-10">
-                            <Link href="/contact" className="inline-flex items-center gap-4 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-zinc-100 transition-all shadow-2xl hover:scale-105 active:scale-95 group">
-                                Consult an Expert <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                        </div>
-                    </MotionDiv>
+                        {/* Right Side: 3D Visual */}
+                        {categoryData.heroImage ? (
+                            <MotionDiv
+                                initial={{ opacity: 0, x: 40, scale: 0.9 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                                className="relative hidden lg:flex items-center justify-end lg:col-span-5"
+                            >
+                                {/* Performance-optimized image container */}
+                                <div
+                                    className="relative w-full aspect-square max-w-[550px] ml-auto animate-float will-change-transform"
+                                    style={{
+                                        WebkitMaskImage: 'radial-gradient(circle at center, black 50%, transparent 80%)',
+                                        maskImage: 'radial-gradient(circle at center, black 50%, transparent 80%)'
+                                    }}
+                                >
+                                    <Image
+                                        src={categoryData.heroImage}
+                                        alt={`${categoryData.title} concept visual`}
+                                        fill
+                                        className="object-contain drop-shadow-[0_0_50px_rgba(0,242,255,0.2)]"
+                                        priority
+                                        sizes="(max-width: 1024px) 100vw, 550px"
+                                    />
+                                    {/* Simplified static ambient glow (removed pulse animation to save GPU) */}
+                                    <div className="absolute inset-0 bg-primary/10 blur-[80px] -z-10 rounded-full"></div>
+                                </div>
+                            </MotionDiv>
+                        ) : (
+                            <div className="hidden lg:block relative w-full aspect-square max-w-[550px] justify-end">
+                                {/* Placeholder */}
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Subcategories Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[1fr] relative mb-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[1fr] relative mb-32 z-20 pt-10">
                     {categoryData.subcategories.map((sub, idx) => {
                         return (
                             <MotionDiv
@@ -152,8 +199,8 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
                 {/* Our Process */}
                 {categoryData.process && (
-                    <div className="mb-32">
-                        <div className="text-center max-w-3xl mx-auto mb-16">
+                    <div className="mb-32 relative">
+                        <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
                             <MotionDiv
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
@@ -196,17 +243,46 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
                 {/* Technologies */}
                 {categoryData.technologies && (
-                    <div className="mb-32">
+                    <div className="mb-32 overflow-hidden">
                         <div className="text-center md:flex md:items-center md:justify-between mb-12">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4 md:mb-0">Core Technologies</h2>
                             <div className="h-px bg-white/10 flex-grow md:ml-8"></div>
                         </div>
-                        <div className="flex flex-wrap gap-4">
-                            {categoryData.technologies?.map((tech, idx) => (
-                                <span key={idx} className="px-6 py-2 bg-white/5 text-xs sm:text-sm uppercase font-bold tracking-[0.2em] text-primary border border-primary/20 hover:border-primary hover:bg-primary/10 transition-colors rounded-full">
-                                    {tech}
-                                </span>
-                            ))}
+
+                        {/* Infinite Marquee Container */}
+                        <div className="relative flex overflow-x-hidden group">
+                            <div className="animate-marquee flex whitespace-nowrap gap-4 group-hover:[animation-play-state:paused]">
+                                {/* Original List */}
+                                {categoryData.technologies?.map((tech, idx) => (
+                                    <span key={idx} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
+                                        {tech}
+                                    </span>
+                                ))}
+                                {/* Duplicated List for Seamless Loop */}
+                                {categoryData.technologies?.map((tech, idx) => (
+                                    <span key={`dup-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Duplicate Marquee for continuous flow */}
+                            <div className="absolute top-0 animate-marquee2 flex whitespace-nowrap gap-4 group-hover:[animation-play-state:paused]">
+                                {categoryData.technologies?.map((tech, idx) => (
+                                    <span key={`dup2-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
+                                        {tech}
+                                    </span>
+                                ))}
+                                {categoryData.technologies?.map((tech, idx) => (
+                                    <span key={`dup3-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Gradient Masks */}
+                            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-950 to-transparent z-10"></div>
+                            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-950 to-transparent z-10"></div>
                         </div>
                     </div>
                 )}

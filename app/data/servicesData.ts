@@ -10,6 +10,7 @@ export interface ServiceCategory {
     title: string;
     slug: string;
     heroDescription: string;
+    heroImage?: string;
     overview: string;
     whyChooseUs?: { title: string; desc: string; icon: string }[];
     testimonials?: { content: string; author: string; role: string; rating: number }[];
@@ -25,6 +26,7 @@ export const servicesData: Record<string, ServiceCategory> = {
         title: "Web & App Development",
         slug: "web-app-development",
         heroDescription: "Build scalable, secure, and beautiful digital experiences.",
+        heroImage: "/hero_web_app.png",
         overview: "Our engineering team specializes in crafting high-performance enterprise applications and mobile platforms tailored to your business needs.",
         whyChooseUs: [
             { title: "Modern Tech Stacks", desc: "We use the latest frameworks like Next.js and React to ensure blazing-fast performance.", icon: "Code" },
@@ -160,6 +162,7 @@ export const servicesData: Record<string, ServiceCategory> = {
         title: "Cybersecurity",
         slug: "cybersecurity",
         heroDescription: "Protect your digital assets with military-grade security protocols.",
+        heroImage: "/hero_cybersecurity.png",
         overview: "Comprehensive threat detection, risk assessment, and incident response to keep your operations secure.",
         whyChooseUs: [
             { title: "Zero-Day Intelligence", desc: "Proactive monitoring to identify and neutralize threats before they execute.", icon: "Target" },
@@ -295,6 +298,7 @@ export const servicesData: Record<string, ServiceCategory> = {
         title: "Digital Forensics",
         slug: "digital-forensics",
         heroDescription: "Uncover hidden truths with precise digital evidence investigation.",
+        heroImage: "/hero_forensics.png",
         overview: "Our certified forensic investigators utilize state-of-the-art technology to extract, analyze, and preserve electronic evidence for litigation, compliance, and incident response.",
         whyChooseUs: [
             { title: "Defensible Evidence", desc: "We maintain strict chain-of-custody protocols ensuring all findings hold up in court.", icon: "Shield" },
@@ -429,12 +433,33 @@ export const servicesData: Record<string, ServiceCategory> = {
     "bpo": {
         title: "BPO / BPS Services",
         slug: "bpo",
-        heroDescription: "Scale your operations seamlessly with our elite business process outsourcing.",
-        overview: "We provide highly trained, dedicated offshore teams to handle your customer support, technical operations, and back-office management, allowing you to focus on core growth.",
+        heroDescription: "Scale your operations with premium offshore talent.",
+        heroImage: "/hero_bpo.png",
+        overview: "We construct dedicated, college-educated teams to handle your back-office, customer success, and technical support operations seamlessly.",
         whyChooseUs: [
             { title: "Top 1% Talent", desc: "We hire college-educated professionals with fluent English and specific domain expertise.", icon: "Target" },
             { title: "Seamless Integration", desc: "Our teams use your software and adapt to your company culture as an extension of your brand.", icon: "Activity" },
             { title: "Data Privacy", desc: "Strict clean-desk policies and enterprise security protocols protect your customer data.", icon: "ShieldCheck" }
+        ],
+        testimonials: [
+            {
+                content: "Their offshore support team feels like a natural extension of our brand. Our CSAT scores have improved by 25% since we partnered with CyberForenX.",
+                author: "Sarah Thompson",
+                role: "Director of Operations, RetailFlow",
+                rating: 5
+            },
+            {
+                content: "Professional, punctual, and highly skilled in technical troubleshooting. They handled our Tier 1 support transition flawlessly.",
+                author: "David Miller",
+                role: "Head of Support, TechStream SaaS",
+                rating: 5
+            },
+            {
+                content: "Significant cost savings without any compromise on quality. Their document verification team is extremely thorough and accurate.",
+                author: "Elena Rodriguez",
+                role: "Compliance Officer, FinSecure Ltd",
+                rating: 5
+            }
         ],
         process: [
             { step: "01", title: "Consultation", desc: "We audit your current processes and identify outsourcing opportunities." },
@@ -544,12 +569,33 @@ export const servicesData: Record<string, ServiceCategory> = {
     "analytics": {
         title: "Data Analytics & Intelligence",
         slug: "analytics",
-        heroDescription: "Transform raw data into actionable enterprise intelligence.",
-        overview: "Our data scientists build robust pipelines and interactive dashboards that uncover hidden patterns, forecast trends, and drive strategic decision-making.",
+        heroDescription: "Transform raw data into actionable business intelligence.",
+        heroImage: "/hero_analytics.png",
+        overview: "Our data scientists engineer custom dashboarding and predictive models to help you make informed, revenue-generating decisions.",
         whyChooseUs: [
             { title: "Predictive Models", desc: "We utilize advanced machine learning algorithms to forecast future market behaviors.", icon: "Activity" },
             { title: "Beautiful Visualizations", desc: "Say goodbye to clunky spreadsheets; we build intuitive, interactive heatmaps and charts.", icon: "Layout" },
             { title: "Data Security", desc: "End-to-end encryption ensures your proprietary business intelligence remains strictly confidential.", icon: "Lock" }
+        ],
+        testimonials: [
+            {
+                content: "We went from guessing our quarterly projections to having 98% accuracy thanks to their predictive models. A complete game-changer for our finance team.",
+                author: "Mark Henderson",
+                role: "CFO, Global Ventures",
+                rating: 5
+            },
+            {
+                content: "The real-time dashboards allow us to respond to market shifts in minutes rather than days. The level of insight they provide is incredible.",
+                author: "Emily Chen",
+                role: "VP of Marketing, Alpha Retail",
+                rating: 5
+            },
+            {
+                content: "They took a decade of messy, disparate data and turned it into a pristine warehouse. Their ETL pipelines are robust and perfectly engineered.",
+                author: "Gregory Vance",
+                role: "Chief Data Officer, InsureCorp",
+                rating: 5
+            }
         ],
         process: [
             { step: "01", title: "Audit", desc: "Assessing your current data lakes, pipelines, and reporting tools." },
@@ -648,12 +694,33 @@ export const servicesData: Record<string, ServiceCategory> = {
     "marketing": {
         title: "Digital Marketing",
         slug: "marketing",
-        heroDescription: "Drive explosive growth with data-backed, high-conversion campaigns.",
-        overview: "Our performance marketing division bridges the gap between creative storytelling and algorithmic precision to scale your customer acquisition on autopilot.",
+        heroDescription: "Data-driven marketing to dominate your market share.",
+        heroImage: "/hero_marketing.png",
+        overview: "We execute highly targeted, omnichannel marketing campaigns built on technical precision and creative excellence to drive measurable ROI.",
         whyChooseUs: [
             { title: "ROI Obsessed", desc: "We track every dollar spent down to the final conversion event.", icon: "Target" },
             { title: "Omnichannel Approach", desc: "Seamless campaigns running across Search, Social, and Programmatic.", icon: "Activity" },
             { title: "Technical SEO", desc: "Leveraging our engineering background to build technically flawless, ranking websites.", icon: "Code" }
+        ],
+        testimonials: [
+            {
+                content: "CyberForenX didn't just run ads; they built a conversion engine. Our ROAS has stayed consistently above 4x for the last six months.",
+                author: "Julian Drake",
+                role: "Marketing Director, LuxStay",
+                rating: 5
+            },
+            {
+                content: "Technically brilliant SEO. We moved from page 4 to the top 3 spots for our most competitive keywords in less than a quarter.",
+                author: "Sophia Martinez",
+                role: "E-commerce Manager, Trendify",
+                rating: 5
+            },
+            {
+                content: "Their omnichannel approach synchronized our message across platforms. We've seen a 30% reduction in CPA while scaling our budget.",
+                author: "Alan Wright",
+                role: "Founder, NexGen Fitness",
+                rating: 5
+            }
         ],
         process: [
             { step: "01", title: "Research", desc: "Deep competitor analysis and keyword volume mapping." },
