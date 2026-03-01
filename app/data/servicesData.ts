@@ -12,6 +12,7 @@ export interface ServiceCategory {
     heroDescription: string;
     overview: string;
     whyChooseUs?: { title: string; desc: string; icon: string }[];
+    testimonials?: { content: string; author: string; role: string; rating: number }[];
     process?: { step: string; title: string; desc: string }[];
     technologies?: string[];
     metrics?: { value: string; label: string }[];
@@ -29,6 +30,26 @@ export const servicesData: Record<string, ServiceCategory> = {
             { title: "Modern Tech Stacks", desc: "We use the latest frameworks like Next.js and React to ensure blazing-fast performance.", icon: "Code" },
             { title: "Agile Methodology", desc: "Iterative development cycles guarantee flexibility and alignment with your goals.", icon: "Activity" },
             { title: "Enterprise Security", desc: "Security is baked into our architecture from day one, not bolted on later.", icon: "Shield" }
+        ],
+        testimonials: [
+            {
+                content: "CyberForenX delivered our SaaS platform 3 weeks ahead of schedule. Their technical depth in Next.js and AWS is truly world-class.",
+                author: "James Wilson",
+                role: "CTO, CloudScale AI",
+                rating: 5
+            },
+            {
+                content: "The custom dashboard they built for our logistics team has reduced operational friction by 60%. Highly recommend their enterprise solutions.",
+                author: "Sarah Jenkins",
+                role: "COO, Global Logistics Corp",
+                rating: 5
+            },
+            {
+                content: "Intuitive UI and robust backend. They didn't just write code; they understood our business model and improved it.",
+                author: "Michael Chen",
+                role: "Founder, Fintech Synergy",
+                rating: 5
+            }
         ],
         process: [
             { step: "01", title: "Discovery", desc: "We analyze your business requirements and technical feasibility." },
@@ -145,6 +166,26 @@ export const servicesData: Record<string, ServiceCategory> = {
             { title: "Certified Experts", desc: "Our team consists of CEH, CISSP, and OSCP certified security professionals.", icon: "ShieldCheck" },
             { title: "24/7 Global SOC", desc: "Round-the-clock monitoring and rapid incident response capabilities.", icon: "Activity" }
         ],
+        testimonials: [
+            {
+                content: "After a major breach attempt, CyberForenX stabilized our entire network within 4 hours. Their incident response is unmatched.",
+                author: "Robert Taylor",
+                role: "CIO, Apex Bank",
+                rating: 5
+            },
+            {
+                content: "The most thorough VAPT we've ever had. They found critical vulnerabilities that our previous providers had missed for years.",
+                author: "Lisa Moore",
+                role: "Security Lead, HealthLink Systems",
+                rating: 5
+            },
+            {
+                content: "Military-grade protection and professional advisory. They helped us achieve SOC2 compliance in record time.",
+                author: "David Vane",
+                role: "CEO, SecureData Solutions",
+                rating: 5
+            }
+        ],
         process: [
             { step: "01", title: "Assessment", desc: "Deep-dive vulnerability scanning and penetration testing of your infrastructure." },
             { step: "02", title: "Strategy", desc: "Development of a customized security architecture and risk mitigation plan." },
@@ -259,6 +300,26 @@ export const servicesData: Record<string, ServiceCategory> = {
             { title: "Defensible Evidence", desc: "We maintain strict chain-of-custody protocols ensuring all findings hold up in court.", icon: "Shield" },
             { title: "Rapid Deployment", desc: "Our emergency response teams can be mobilized within hours of a cyber incident.", icon: "Zap" },
             { title: "Advanced Extraction", desc: "Proprietary methods to recover hidden, deleted, or encrypted data from any device.", icon: "Database" }
+        ],
+        testimonials: [
+            {
+                content: "Their expert witness testimony was the turning point in our litigation. Extreme technical depth explained simply.",
+                author: "Katherine Ross",
+                role: "Senior Partner, Ross & Associates Law",
+                rating: 5
+            },
+            {
+                content: "Recovered encrypted evidence that we thought was gone forever. A truly elite forensic capability.",
+                author: "William Grant",
+                role: "Director of Investigations, Federal Agency",
+                rating: 5
+            },
+            {
+                content: "Impeccable chain of custody and professional reporting. CyberForenX is our first call for any digital investigation.",
+                author: "Marcus Thorne",
+                role: "Head of Compliance, Fortune 500 Retailer",
+                rating: 5
+            }
         ],
         process: [
             { step: "01", title: "Preservation", desc: "Securing the device and creating a forensically sound bit-by-bit image." },

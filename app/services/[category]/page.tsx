@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Code, Shield, Zap, Smartphone, Layout, Database, Search, FileText, ShieldCheck, Target, Lock, Activity, ArrowUpRight } from "lucide-react";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
+import TestimonialStack from "@/app/components/TestimonialStack";
 
 // Map string icon names to Lucide icons
 const iconMap: Record<string, React.ReactNode> = {
@@ -114,6 +115,8 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                         );
                     })}
                 </div>
+
+
 
                 {/* Why Choose Us */}
                 {categoryData.whyChooseUs && (
@@ -232,6 +235,12 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                     </div>
                 )}
 
+
+                {/* Testimonial Section */}
+                {categoryData.testimonials && (
+                    <TestimonialStack testimonials={categoryData.testimonials} />
+                )}
+
                 {/* Certifications & Compliance - Skip for now to save space, or use standard inline styling */}
 
                 {/* Global CTA */}
@@ -254,6 +263,6 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                 </MotionDiv>
 
             </div>
-        </main>
+        </main >
     );
 }
