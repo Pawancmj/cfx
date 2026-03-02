@@ -37,15 +37,11 @@ export default function DesktopMegaMenu({
         >
             <Link
                 href={href}
-                className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-2 ${isActive ? "text-primary" : "text-zinc-400 hover:text-white"
-                    }`}
+                className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-2 ${isActive ? "text-primary" : "text-zinc-400 hover:text-white"}`}
             >
                 {label}
                 <ChevronDown className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-300" />
-                <span
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? "w-full" : ""
-                        }`}
-                ></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? "w-full" : ""}`}></span>
             </Link>
 
             {/* Mega Menu Dropdown */}
@@ -74,10 +70,7 @@ export default function DesktopMegaMenu({
                                     <button
                                         key={category.title}
                                         onMouseEnter={() => setActiveCategory(category.title)}
-                                        className={`w-full text-left px-5 h-12 rounded-xl text-[13px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-between group/catbtn relative overflow-hidden ${isActiveCategory
-                                            ? "text-white border-transparent bg-white/5 shadow-inner"
-                                            : "text-zinc-400 hover:text-zinc-200 border-transparent"
-                                            }`}
+                                        className={`w-full text-left px-5 h-12 rounded-xl text-[13px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-between group/catbtn relative overflow-hidden ${isActiveCategory ? "text-white border-transparent bg-white/5 shadow-inner" : "text-zinc-400 hover:text-zinc-200 border-transparent"}`}
                                     >
                                         {/* Hover Gradient Background */}
                                         {isActiveCategory && (
@@ -86,16 +79,12 @@ export default function DesktopMegaMenu({
 
                                         <span className="relative z-10 flex items-center gap-3">
                                             <LayoutGrid
-                                                className={`w-4 h-4 transition-colors ${isActiveCategory ? "text-primary" : "text-zinc-600 group-hover/catbtn:text-zinc-400"
-                                                    }`}
+                                                className={`w-4 h-4 transition-colors ${isActiveCategory ? "text-primary" : "text-zinc-600 group-hover/catbtn:text-zinc-400"}`}
                                             />
                                             <span className="truncate">{category.title}</span>
                                         </span>
                                         <ChevronDown
-                                            className={`w-4 h-4 -rotate-90 transition-transform relative z-10 shrink-0 ${isActiveCategory
-                                                ? "text-primary translate-x-1"
-                                                : "opacity-0 group-hover/catbtn:opacity-50 group-hover/catbtn:translate-x-1"
-                                                }`}
+                                            className={`w-4 h-4 -rotate-90 transition-transform relative z-10 shrink-0 ${isActiveCategory ? "text-primary translate-x-1" : "opacity-0 group-hover/catbtn:opacity-50 group-hover/catbtn:translate-x-1"}`}
                                         />
                                     </button>
                                 );

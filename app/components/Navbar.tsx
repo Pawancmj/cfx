@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
 import DesktopMegaMenu from "./navbar/DesktopMegaMenu";
 import MobileAccordion from "./navbar/MobileAccordion";
-import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategories } from "@/app/constants/navigation";
+import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategories, caseStudiesCategories } from "@/app/constants/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,6 +101,20 @@ export default function Navbar() {
             );
           }
 
+          if (link.name === "Case Studies") {
+            return (
+              <DesktopMegaMenu
+                key={link.name}
+                label="Case Studies"
+                href={link.href}
+                categories={caseStudiesCategories}
+                exploreLinkPrefix="case-studies"
+                exploreText="Explore Case Studies"
+                isActive={isActive(link.href)}
+              />
+            );
+          }
+
           if (link.name === "Company") {
             return (
               <div
@@ -111,10 +125,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href)
-                    ? "text-primary"
-                    : "text-zinc-400 hover:text-white"
-                    }`}
+                  className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                 >
                   {link.name}
                   <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover/nav:rotate-180" />
@@ -125,7 +136,7 @@ export default function Navbar() {
                   {/* Invisible bridge to keep hover active */}
                   <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
 
-                  <div className="bg-[#05080a] flex w-full max-w-7xl mx-auto rounded-[2rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] overflow-hidden relative p-4">
+                  <div className="bg-[#05080a] flex w-full max-w-7xl mx-auto rounded-[2rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] overflow-hidden relative p-4 section-bg-dark backdrop-blur-3xl glass-card">
 
                     {/* Left Featured Column (Webority Style) */}
                     <div className="w-1/3 bg-white/5 rounded-2xl p-10 flex flex-col justify-end relative overflow-hidden group/feat cursor-default border border-white/5">
@@ -164,14 +175,10 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-xs font-bold uppercase tracking-widest transition-all relative group h-full flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"
-                }`}
+              className={`text-xs font-bold uppercase tracking-widest transition-all relative group h-full flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
             >
               {link.name}
-              <span
-                className={`absolute bottom-[calc(50%-1.25rem)] left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""
-                  }`}
-              ></span>
+              <span className={`absolute bottom-[calc(50%-1.25rem)] left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""}`}></span>
             </Link>
           );
         })}
@@ -242,12 +249,26 @@ export default function Navbar() {
               );
             }
 
+            if (link.name === "Case Studies") {
+              return (
+                <MobileAccordion
+                  key={link.name}
+                  label="Case Studies"
+                  href={link.href}
+                  categories={caseStudiesCategories}
+                  exploreLinkPrefix="case-studies"
+                  exploreText="Explore Case Studies"
+                  isActive={isActive(link.href)}
+                  onNavigate={() => setIsOpen(false)}
+                />
+              );
+            }
+
             return (
               <div key={link.name} className="flex flex-col gap-4 border-b border-white/5 pb-2">
                 <Link
                   href={link.href}
-                  className={`text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"
-                    }`}
+                  className={`text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -259,8 +280,7 @@ export default function Navbar() {
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"
-                          }`}
+                        className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                         onClick={() => setIsOpen(false)}
                       >
                         {sub.name}

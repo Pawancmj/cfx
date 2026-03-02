@@ -225,6 +225,50 @@ export const resourceCategories: MegaCategory[] = [
     },
 ];
 
+export const caseStudiesCategories: MegaCategory[] = [
+    {
+        title: "Latest",
+        links: [
+            { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/latest/government-digital-investigation" },
+            { name: "Financial Compliance & Tax Investigation Support (Income Tax / TDS)", href: "/case-studies/latest/financial-compliance-tax-investigation" },
+            { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/latest/enterprise-cybersecurity-risk-assessment" },
+            { name: "Business Process Automation & BPO Operations", href: "/case-studies/latest/business-process-automation" },
+            { name: "Scaling Digital Learning Platforms – PrepEdu", href: "/case-studies/latest/scaling-digital-learning-platforms" },
+            { name: "Modern Real Estate Experience – Neev Realty", href: "/case-studies/latest/modern-real-estate-experience" },
+        ],
+    },
+    {
+        title: "Case Studies",
+        links: [
+            { name: "Government Agency Digital Forensic Investigation Support", href: "/case-studies/government-agency-digital-forensic" },
+            { name: "Financial Data Analysis & Regulatory Compliance Solutions", href: "/case-studies/financial-data-analysis-regulatory" },
+            { name: "Cybersecurity Audits & Risk Management Implementations", href: "/case-studies/cybersecurity-audits-risk-management" },
+            { name: "Business Process Services & Operational Support Systems", href: "/case-studies/business-process-services-operational" },
+            { name: "Building Scalable Education Platforms for Modern Learning", href: "/case-studies/building-scalable-education-platforms" },
+            { name: "Transforming Real Estate Brands into Digital Experiences", href: "/case-studies/transforming-real-estate-brands" },
+            { name: "Crafting High-Performance E-Commerce Platforms", href: "/case-studies/crafting-high-performance-ecommerce" },
+            { name: "Corporate Website & Digital Platform Development", href: "/case-studies/corporate-website-digital-platform" },
+            { name: "Fitness & Wellness Business Website Solutions (Multi-Project Delivery)", href: "/case-studies/fitness-wellness-business-website" },
+            { name: "Secure Business Platform Development & Automation Systems", href: "/case-studies/secure-business-platform-development" },
+        ],
+    },
+    {
+        title: "Clients",
+        links: [
+            { name: "Government & Regulatory Agencies", href: "/case-studies/clients/government-regulatory-agencies" },
+            { name: "Income Tax & Compliance Departments", href: "/case-studies/clients/income-tax-compliance-departments" },
+            { name: "Financial & Investigation Authorities", href: "/case-studies/clients/financial-investigation-authorities" },
+            { name: "Enterprise & Corporate Organizations", href: "/case-studies/clients/enterprise-corporate-organizations" },
+            { name: "Education & Learning Platforms", href: "/case-studies/clients/education-learning-platforms" },
+            { name: "Real Estate & Property Businesses", href: "/case-studies/clients/real-estate-property-businesses" },
+            { name: "E-Commerce & Retail Brands", href: "/case-studies/clients/ecommerce-retail-brands" },
+            { name: "Publishing & Media Companies", href: "/case-studies/clients/publishing-media-companies" },
+            { name: "Fitness & Wellness Organizations", href: "/case-studies/clients/fitness-wellness-organizations" },
+            { name: "Private Business & Startup Clients", href: "/case-studies/clients/private-business-startup-clients" },
+        ],
+    },
+];
+
 export const mainNavLinks: NavLink[] = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
