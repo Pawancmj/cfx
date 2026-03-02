@@ -2,30 +2,30 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronRight, CheckCircle2, ShieldCheck, Database, Cpu, Search, Briefcase } from "lucide-react";
-import { caseStudiesCategories } from "@/app/constants/navigation";
+import { solutionsCategories } from "@/app/constants/navigation";
 
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug?: string[] }> }) {
+export default async function SolutionPage({ params }: { params: Promise<{ slug?: string[] }> }) {
     const resolvedParams = await params;
 
     // Reconstruct the intended URL from slug array. Default to empty array if undefined.
     const safeSlug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug : (resolvedParams.slug ? [resolvedParams.slug as unknown as string] : []);
-    const fullPath = `/case-studies/${safeSlug.join("/")}`;
+    const fullPath = `/solutions/${safeSlug.join("/")}`;
 
-    // Find the current case study details
-    let currentStudy = null;
+    // Find the current solution details
+    let currentSolution = null;
     let currentCategory = null;
 
-    for (const category of caseStudiesCategories) {
+    for (const category of solutionsCategories) {
         const found = category.links.find(link => link.href === fullPath);
         if (found) {
-            currentStudy = found;
+            currentSolution = found;
             currentCategory = category;
             break;
         }
     }
 
-    const title = currentStudy?.name || "Strategic Industry Engagement";
-    const categoryName = currentCategory?.title || "Case Studies";
+    const title = currentSolution?.name || "Enterprise Digital Solution";
+    const categoryName = currentCategory?.title || "Solutions";
     const titleLower = title.toLowerCase();
 
     // Dynamic graphic selection based on keywords in title
@@ -34,46 +34,46 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     let bgGradientClass = "bg-primary/5 border-primary/20";
     let blurColorClass = "bg-primary/20";
     let Icon = Briefcase;
-    let badgeText = "Business Strategy";
+    let badgeText = "Enterprise Platform";
 
-    if (titleLower.includes("cyber") || titleLower.includes("security") || titleLower.includes("risk")) {
+    if (titleLower.includes("security") || titleLower.includes("vulnerability") || titleLower.includes("threat") || titleLower.includes("access")) {
         graphicSrc = "/hero_cybersecurity.png";
         themeColorClass = "text-emerald-400";
         bgGradientClass = "bg-emerald-500/5 border-emerald-500/20";
         blurColorClass = "bg-emerald-500/10";
         Icon = ShieldCheck;
-        badgeText = "Security Implementation";
-    } else if (titleLower.includes("data") || titleLower.includes("financial") || titleLower.includes("tax")) {
+        badgeText = "Security Infrastructure";
+    } else if (titleLower.includes("data") || titleLower.includes("financial") || titleLower.includes("analytics") || titleLower.includes("dashboard")) {
         graphicSrc = "/hero_analytics.png";
         themeColorClass = "text-blue-400";
         bgGradientClass = "bg-blue-500/5 border-blue-500/20";
         blurColorClass = "bg-blue-500/10";
         Icon = Database;
-        badgeText = "Data Intelligence";
-    } else if (titleLower.includes("forensic") || titleLower.includes("government") || titleLower.includes("evidence")) {
+        badgeText = "Business Intelligence";
+    } else if (titleLower.includes("evidence") || titleLower.includes("investigation") || titleLower.includes("forensic") || titleLower.includes("recovery")) {
         graphicSrc = "/hero_forensics.png";
         themeColorClass = "text-rose-400";
         bgGradientClass = "bg-rose-500/5 border-rose-500/20";
         blurColorClass = "bg-rose-500/10";
         Icon = Search;
-        badgeText = "Investigation & Compliance";
-    } else if (titleLower.includes("platform") || titleLower.includes("web") || titleLower.includes("e-commerce") || titleLower.includes("digital experience")) {
+        badgeText = "Digital Investigation";
+    } else if (titleLower.includes("platform") || titleLower.includes("infrastructure") || titleLower.includes("portal") || titleLower.includes("system")) {
         graphicSrc = "/hero_web_app.png";
         themeColorClass = "text-purple-400";
         bgGradientClass = "bg-purple-500/5 border-purple-500/20";
         blurColorClass = "bg-purple-500/10";
         Icon = Cpu;
-        badgeText = "Digital Transformation";
-    } else if (titleLower.includes("bpo") || titleLower.includes("process") || titleLower.includes("support")) {
+        badgeText = "Core Infrastructure";
+    } else if (titleLower.includes("automation") || titleLower.includes("workflow") || titleLower.includes("process") || titleLower.includes("support")) {
         graphicSrc = "/hero_bpo.png";
         themeColorClass = "text-cyan-400";
         bgGradientClass = "bg-cyan-500/5 border-cyan-500/20";
         blurColorClass = "bg-cyan-500/10";
         Icon = Briefcase;
-        badgeText = "Operational Excellence";
+        badgeText = "Process Optimization";
     }
 
-    // Pseudo-random layout direction based on string length remainder
+    // Pseudo-random layout direction
     const isReversedLayout = title.length % 2 === 0;
 
     return (
@@ -86,7 +86,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 mb-20">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold uppercase tracking-widest text-zinc-300 mb-8">
-                        <Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
+                        <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
                         <ChevronRight className="w-3 h-3 text-zinc-500" />
                         <span className={themeColorClass}>{categoryName}</span>
                     </div>
@@ -95,7 +95,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                         {title}
                     </h1>
                     <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mb-10 leading-relaxed font-medium">
-                        Discover how Cyberforenx implements leading-edge strategies to solve complex challenges, ensuring operational integrity and digital resilience in {title.toLowerCase()}.
+                        Explore how our {title.toLowerCase()} empowers organizations to scale securely and operate with total efficiency tailored to your specific industry demands.
                     </p>
                 </div>
             </div>
@@ -122,7 +122,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                                             <Icon className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-1">Focus Area</div>
+                                            <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-1">Implementation</div>
                                             <div className="text-sm font-bold text-white tracking-wide">{badgeText}</div>
                                         </div>
                                     </div>
@@ -135,22 +135,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     <div className="w-full lg:w-1/2 flex flex-col justify-center">
                         <div className="inline-flex items-center gap-2 mb-6">
                             <div className="w-8 h-[2px] bg-primary"></div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Project Overview</span>
+                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Solution Overview</span>
                         </div>
-                        <h2 className="text-3xl font-extrabold text-white mb-6 leading-tight">Architecting the Exact Solution for Operational Bottlenecks.</h2>
+                        <h2 className="text-3xl font-extrabold text-white mb-6 leading-tight">Future-Proof Architecture Designed for Scale.</h2>
                         <p className="text-zinc-400 leading-relaxed mb-8 text-lg">
-                            Our implementation team worked rigorously to dissect the specific requirements of
-                            this engagement. By establishing a deep understanding of operational bottlenecks,
-                            compliance requirements, and scalability needs, we architected a solution perfectly
-                            tailored to long-term success.
+                            Deploying robust systems requires a deep understanding of modern architecture.
+                            Our {title.toLowerCase()} framework integrates directly into your existing ecosystem,
+                            eliminating technical debt and unlocking immediate operational value.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                             {[
-                                "Enhanced Operational Security",
-                                "Seamless Regulatory Compliance",
-                                "Scalable Infrastructure Design",
-                                "24/7 Monitored Workflows"
+                                "Custom Integrated Workflows",
+                                "Secure Data Processing",
+                                "Highly Scalable Cloud Architecture",
+                                "Enterprise-Grade Reliability"
                             ].map((item, i) => (
                                 <div key={i} className={`flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:${bgGradientClass} transition-colors group/feat`}>
                                     <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 text-zinc-500 group-hover/feat:${themeColorClass} transition-colors`} />
@@ -160,10 +159,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                         </div>
 
                         <Link href="/contact" className={`inline-flex items-center gap-3 group w-fit`}>
-                            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${bgGradientClass} ${themeColorClass}  border`}>
+                            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${bgGradientClass} ${themeColorClass} border border-white/10`}>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-primary transition-colors">Discuss Your Requirements</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-primary transition-colors">Start Your Project</span>
                         </Link>
                     </div>
 
