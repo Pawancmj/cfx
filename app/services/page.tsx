@@ -31,8 +31,9 @@ const services = [
   {
     id: "web-app",
     title: "Web & App Development",
-    description: "Custom, scalable, and secure applications tailored to your business needs.",
-    extendedDescription: "From high-performance React/Next.js platforms to complex backend architectures, we build software that scales globally. Our focus is on clean code, responsive design, and uncompromised security.",
+    slug: "web-app-development",
+    description: "Build scalable, secure, and beautiful digital experiences.",
+    extendedDescription: "Our engineering team specializes in crafting high-performance enterprise applications and mobile platforms tailored to your business needs.",
     features: ["React / Next.js", "Node.js / Express", "Custom UX/UI", "API Integration"],
     icon: Code,
     color: "text-primary",
@@ -43,8 +44,9 @@ const services = [
   {
     id: "forensics",
     title: "Digital Forensics",
-    description: "Advanced investigation and recovery of digital evidence for legal needs.",
-    extendedDescription: "We provide comprehensive forensic imaging, malware analysis, and eDiscovery. Our certified experts ensure the chain of custody is maintained to provide court-admissible evidence.",
+    slug: "digital-forensics",
+    description: "Uncover hidden truths with precise digital evidence investigation.",
+    extendedDescription: "Our certified forensic investigators utilize state-of-the-art technology to extract, analyze, and preserve electronic evidence for litigation, compliance, and incident response.",
     features: ["Data Recovery", "Malware Analysis", "eDiscovery", "Incident Response"],
     icon: Search,
     color: "text-secondary",
@@ -54,9 +56,10 @@ const services = [
   },
   {
     id: "bpo",
-    title: "BPO Solutions",
-    description: "Streamline operations with dedicated teams.",
-    extendedDescription: "Reduce operational overhead while maintaining high standards. We offer dedicated support teams, virtual assistants, and data entry specialists tailored for tech industries.",
+    title: "BPO / BPS Services",
+    slug: "bpo",
+    description: "Scale your operations with premium offshore talent.",
+    extendedDescription: "We construct dedicated, college-educated teams to handle your back-office, customer success, and technical support operations seamlessly.",
     features: ["24/7 Support", "Data Processing", "Virtual Assistants", "IT Helpdesk"],
     icon: Headphones,
     color: "text-accent",
@@ -66,9 +69,10 @@ const services = [
   },
   {
     id: "cyber-audit",
-    title: "Cyber Audits",
-    description: "Comprehensive vulnerability assessments and penetration testing.",
-    extendedDescription: "Stay ahead of threats with regular security posture reviews. We simulate real-world attacks to find vulnerabilities before malicious actors do, providing detailed remediation reports.",
+    title: "Cybersecurity",
+    slug: "cybersecurity",
+    description: "Protect your digital assets with military-grade security protocols.",
+    extendedDescription: "Comprehensive threat detection, risk assessment, and incident response to keep your operations secure.",
     features: ["Penetration Testing", "Compliance Audits", "Source Code Review", "Social Engineering"],
     icon: ShieldCheck,
     color: "text-primary",
@@ -77,24 +81,26 @@ const services = [
     activeBorder: "border-primary/50",
   },
   {
-    id: "mobile",
-    title: "Mobile Solutions",
-    description: "Engaging native and cross-platform mobile experiences for iOS and Android.",
-    extendedDescription: "We craft seamless fluid applications using React Native and Flutter. Get to market faster with a single codebase without sacrificing the native iOS or Android feel.",
-    features: ["React Native", "Flutter", "App Store Optimization", "Offline Support"],
-    icon: Smartphone,
+    id: "analytics",
+    title: "Data Analytics & Intelligence",
+    slug: "analytics",
+    description: "Transform raw data into actionable business intelligence.",
+    extendedDescription: "Our data scientists engineer custom dashboarding and predictive models to help you make informed, revenue-generating decisions.",
+    features: ["Predictive Modeling", "Custom Dashboards", "Data Pipelines", "Machine Learning"],
+    icon: Database,
     color: "text-secondary",
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
   },
   {
-    id: "data",
-    title: "Data Analytics",
-    description: "Transform raw data into intelligence.",
-    extendedDescription: "Harness the power of your data. We build custom dashboards, implement predictive modeling, and design data pipelines to help you make data-driven decisions.",
-    features: ["Predictive Modeling", "Custom Dashboards", "Data Pipelines", "Machine Learning"],
-    icon: Database,
+    id: "marketing",
+    title: "Digital Marketing",
+    slug: "marketing",
+    description: "Data-driven marketing to dominate your market share.",
+    extendedDescription: "We execute highly targeted, omnichannel marketing campaigns built on technical precision and creative excellence to drive measurable ROI.",
+    features: ["SEO / SEM", "Paid Media", "Content Strategy", "Performance Ops"],
+    icon: Sparkles,
     color: "text-accent",
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
@@ -276,11 +282,11 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 className={cn(
                   "group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[380px] border-white/5",
-                  "hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-white/10"
+                  "lg:hover:-translate-y-3 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] lg:hover:bg-white/10"
                 )}
               >
                 {/* Default Visible Card content */}
-                <div className="absolute inset-0 p-8 flex flex-col transition-all duration-500 group-hover:opacity-0 group-hover:-translate-y-12">
+                <div className="absolute inset-0 p-8 flex flex-col transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
                   <div className={cn("p-4 w-fit rounded-2xl mb-8", "bg-white/5 group-hover:bg-primary/10 transition-colors shadow-inner")}>
                     <Icon className={cn("w-8 h-8", service.color)} />
                   </div>
@@ -292,14 +298,17 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
 
-                  <div className="mt-auto flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-8 border-t border-white/5">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="mt-auto flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-8 border-t border-white/5 hover:text-white transition-colors group/link"
+                  >
                     Explore Details
-                    <ArrowRight className="w-5 h-5 ml-3 opacity-50 transition-transform duration-300 group-hover:translate-x-2" />
-                  </div>
+                    <ArrowRight className="w-5 h-5 ml-3 opacity-50 transition-transform duration-300 group-hover/link:translate-x-2" />
+                  </Link>
                 </div>
 
-                {/* Hover Details Content */}
-                <div className="absolute inset-0 p-8 flex flex-col opacity-0 translate-y-12 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 h-full pointer-events-none group-hover:pointer-events-auto bg-primary/5 backdrop-blur-3xl">
+                {/* Hover Details Content - Only visible on desktop/large screens */}
+                <div className="absolute inset-0 p-8 flex flex-col opacity-0 translate-y-12 transition-all duration-500 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 h-full pointer-events-none lg:group-hover:pointer-events-auto bg-primary/5 backdrop-blur-3xl hidden lg:flex">
                   <div className="flex items-center gap-4 mb-6">
                     <Icon className={cn("w-6 h-6", service.color)} />
                     <h3 className="text-lg font-bold text-white uppercase tracking-wider text-glow">
@@ -309,18 +318,26 @@ export default function ServicesPage() {
                   <p className="text-zinc-300 text-sm leading-relaxed mb-8 flex-grow font-medium italic">
                     {service.extendedDescription}
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {service.features.map((f) => (
                       <span
                         key={f}
                         className={cn(
-                          "px-3 py-1.5 text-xs font-extrabold uppercase tracking-widest bg-white/5 text-primary rounded-lg border border-primary/20 transition-all hover:bg-primary/10"
+                          "px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-widest bg-white/5 text-primary rounded-lg border border-primary/20 transition-all hover:bg-primary/10"
                         )}
                       >
                         {f}
                       </span>
                     ))}
                   </div>
+
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary/20 hover:bg-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl border border-primary/20 transition-all group/btn active:scale-[0.98]"
+                  >
+                    View Category Hub
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Link>
                 </div>
               </motion.div>
             );
