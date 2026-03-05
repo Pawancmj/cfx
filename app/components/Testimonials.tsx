@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionValueEvent, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const testimonials = [
     {
@@ -44,79 +44,109 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-    const targetRef = useRef<HTMLElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const motionRef = useRef<HTMLDivElement>(null);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const x = useMotionValue(0);
     const [scrollRange, setScrollRange] = useState(0);
+    const [cardWidth, setCardWidth] = useState(0);
+    const CARDS_VISIBLE = 3;
+    const GAP = 40; // gap-10 = 2.5rem = 40px
 
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-    });
-
+    // Measure the container's inner width (minus padding) and calculate card width
     useEffect(() => {
-        const updateRange = () => {
-            if (containerRef.current && motionRef.current) {
-                // Add 24px (1.5rem) to ensure the last card fully fits and doesn't clip
-                setScrollRange(motionRef.current.scrollWidth - containerRef.current.clientWidth + 24);
+        const updateDimensions = () => {
+            if (scrollContainerRef.current) {
+                const container = scrollContainerRef.current;
+                const styles = getComputedStyle(container);
+                const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+                const paddingRight = parseFloat(styles.paddingRight) || 0;
+                const innerWidth = container.clientWidth - paddingLeft - paddingRight;
+                const calculatedCardWidth = (innerWidth - GAP * (CARDS_VISIBLE - 1)) / CARDS_VISIBLE;
+                setCardWidth(calculatedCardWidth);
             }
         };
 
-        updateRange();
-        setTimeout(updateRange, 150); // Fallback for font load reflows
-        window.addEventListener("resize", updateRange);
-        return () => window.removeEventListener("resize", updateRange);
+        updateDimensions();
+        setTimeout(updateDimensions, 150);
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
-    // We use a spring/tween for smooth scrolling
-    const xBase = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
+    // Recalculate scroll range whenever cardWidth changes
+    useEffect(() => {
+        const recalc = () => {
+            if (scrollContainerRef.current) {
+                const container = scrollContainerRef.current;
+                const styles = getComputedStyle(container);
+                const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+                const paddingRight = parseFloat(styles.paddingRight) || 0;
+                const innerWidth = container.clientWidth - paddingLeft - paddingRight;
+                const totalContentWidth = cardWidth * testimonials.length + GAP * (testimonials.length - 1);
+                const maxScroll = Math.max(0, totalContentWidth - innerWidth);
+                setScrollRange(maxScroll);
+            }
+        };
+        // Wait a frame for card widths to apply in DOM
+        requestAnimationFrame(recalc);
+    }, [cardWidth]);
 
-    // For drag support
-    const dragX = useMotionValue(0);
-    const [isDragging, setIsDragging] = useState(false);
+    // Clamp x value within bounds
+    const clampX = useCallback((val: number) => {
+        return Math.max(-scrollRange, Math.min(0, val));
+    }, [scrollRange]);
 
-    // Combine scroll and drag smoothly, taking precedence from drag if actively dragging
-    const x = useTransform(() => {
-        // If we dragged perfectly horizontally just use that offset applied over the base
-        return isDragging ? dragX.get() : xBase.get();
-    });
+    // Handle mouse wheel on the testimonial section — scroll cards horizontally
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
 
-    // When vertical scroll happens, sync our drag internal state so it doesn't jump
-    useMotionValueEvent(scrollYProgress, "change", () => {
-        if (!isDragging) {
-            dragX.set(xBase.get());
-        }
-    });
+        const handleWheel = (e: WheelEvent) => {
+            const currentX = x.get();
+            const delta = e.deltaY || e.deltaX;
+
+            const atStart = currentX >= 0 && delta < 0;
+            const atEnd = currentX <= -scrollRange && delta > 0;
+
+            if (atStart || atEnd) {
+                return;
+            }
+
+            e.preventDefault();
+            const newX = clampX(currentX - delta);
+            animate(x, newX, { type: "spring", stiffness: 300, damping: 40 });
+        };
+
+        container.addEventListener("wheel", handleWheel, { passive: false });
+        return () => container.removeEventListener("wheel", handleWheel);
+    }, [scrollRange, x, clampX]);
 
     return (
-        <section ref={targetRef} className="relative h-[250vh] section-bg-gradient border-t border-white/5">
-            <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        <section className="relative py-24 section-bg-gradient overflow-hidden border-t border-white/5">
+            <div className="flex flex-col justify-center">
                 <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
 
-                <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full mb-12 shrink-0 pointer-events-none">
+                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-16 shrink-0">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Success Stories</h2>
-                        <p className="text-3xl font-extrabold tracking-tight text-white mb-2 sm:text-5xl text-glow leading-tight">
+                        <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
                             Trusted by Innovative Companies
-                        </p>
+                        </h3>
                     </div>
                 </div>
 
-                <div ref={containerRef} className="mx-auto max-w-7xl px-6 lg:px-8 w-full overflow-hidden">
+                <div ref={scrollContainerRef} className="container mx-auto px-6 lg:px-8 w-full overflow-hidden">
                     <motion.div
-                        ref={motionRef}
-                        style={{ x: isDragging ? dragX : xBase }}
+                        style={{ x }}
                         drag="x"
                         dragConstraints={{ left: -scrollRange, right: 0 }}
                         dragElastic={0.05}
                         dragMomentum={false}
-                        onDragStart={() => setIsDragging(true)}
-                        onDragEnd={() => setIsDragging(false)}
-                        className={`flex gap-6 w-max pb-4 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+                        className="flex gap-10 w-max pb-4 cursor-grab active:cursor-grabbing"
                     >
                         {testimonials.map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="w-[calc(100vw-3rem)] md:w-[calc((min(1280px,100vw)-6rem)/3)] shrink-0 flex flex-col relative glass-card p-6 sm:p-8 hover:bg-white/10 hover:border-primary/40 group transition-all select-none"
+                                style={{ width: cardWidth > 0 ? cardWidth : undefined }}
+                                className="shrink-0 flex flex-col relative glass-card p-6 sm:p-10 hover:bg-white/10 hover:border-primary/40 group transition-all select-none"
                             >
                                 <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none" />
 
@@ -125,7 +155,7 @@ export default function Testimonials() {
                                         <Star key={i} className="w-4 h-4 fill-current drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]" />
                                     ))}
                                 </div>
-                                <blockquote className="text-zinc-400 leading-relaxed relative z-10 text-sm font-medium italic mb-8 group-hover:text-zinc-200 transition-colors flex-grow pointer-events-none">
+                                <blockquote className="text-zinc-400 leading-relaxed relative z-10 text-base font-medium italic mb-8 group-hover:text-zinc-300 transition-colors flex-grow pointer-events-none">
                                     &quot;{testimonial.content}&quot;
                                 </blockquote>
                                 <div className="mt-auto flex items-center gap-x-4 border-t border-white/10 pt-6 pointer-events-none">
@@ -145,5 +175,4 @@ export default function Testimonials() {
         </section>
     );
 }
-
 
