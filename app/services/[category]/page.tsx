@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Code, Shield, Zap, Smartphone, Layout, Databa
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
 import TestimonialStack from "@/app/components/TestimonialStack";
+import TechCategories from "@/app/components/TechCategories";
 
 // Map string icon names to Lucide icons
 const iconMap: Record<string, React.ReactNode> = {
@@ -243,47 +244,13 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
                 {/* Technologies */}
                 {categoryData.technologies && (
-                    <div className="mb-32 overflow-hidden">
+                    <div className="mb-32">
                         <div className="text-center md:flex md:items-center md:justify-between mb-12">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4 md:mb-0">Core Technologies</h2>
                             <div className="h-px bg-white/10 flex-grow md:ml-8"></div>
                         </div>
 
-                        {/* Infinite Marquee Container */}
-                        <div className="relative flex overflow-x-hidden group">
-                            <div className="animate-marquee flex whitespace-nowrap gap-4 group-hover:[animation-play-state:paused]">
-                                {/* Original List */}
-                                {categoryData.technologies?.map((tech, idx) => (
-                                    <span key={idx} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
-                                        {tech}
-                                    </span>
-                                ))}
-                                {/* Duplicated List for Seamless Loop */}
-                                {categoryData.technologies?.map((tech, idx) => (
-                                    <span key={`dup-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-
-                            {/* Duplicate Marquee for continuous flow */}
-                            <div className="absolute top-0 animate-marquee2 flex whitespace-nowrap gap-4 group-hover:[animation-play-state:paused]">
-                                {categoryData.technologies?.map((tech, idx) => (
-                                    <span key={`dup2-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
-                                        {tech}
-                                    </span>
-                                ))}
-                                {categoryData.technologies?.map((tech, idx) => (
-                                    <span key={`dup3-${idx}`} className="inline-flex px-8 py-3 bg-white/5 text-sm uppercase font-bold tracking-[0.2em] text-zinc-300 border border-white/10 hover:border-primary hover:text-primary transition-colors rounded-full whitespace-nowrap">
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-
-                            {/* Gradient Masks */}
-                            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-950 to-transparent z-10"></div>
-                            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-950 to-transparent z-10"></div>
-                        </div>
+                        <TechCategories technologies={categoryData.technologies} />
                     </div>
                 )}
 

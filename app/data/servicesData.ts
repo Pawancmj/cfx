@@ -15,7 +15,7 @@ export interface ServiceCategory {
     whyChooseUs?: { title: string; desc: string; icon: string }[];
     testimonials?: { content: string; author: string; role: string; rating: number }[];
     process?: { step: string; title: string; desc: string }[];
-    technologies?: string[];
+    technologies?: Record<string, { name: string; desc: string }[]>;
     metrics?: { value: string; label: string }[];
     certifications?: string[];
     subcategories: ServiceDetail[];
@@ -59,7 +59,35 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Development", desc: "Agile coding sprints with continuous integration and testing." },
             { step: "04", title: "Deployment", desc: "Secure launch and ongoing maintenance and performance optimization." }
         ],
-        technologies: ["React", "Next.js", "Node.js", "TypeScript", "AWS", "PostgreSQL"],
+        technologies: {
+            "Frontend": [
+                { name: "React", desc: "Component-based UI library" },
+                { name: "Next.js", desc: "React framework for production" },
+                { name: "TypeScript", desc: "Strongly typed JavaScript" },
+                { name: "Tailwind CSS", desc: "Utility-first CSS framework" },
+                { name: "HTML5 / CSS3", desc: "Core web technologies" }
+            ],
+            "Backend": [
+                { name: "Node.js", desc: "JavaScript runtime environment" },
+                { name: "Express", desc: "Fast, unopinionated web framework" },
+                { name: "PostgreSQL", desc: "Advanced relational database" },
+                { name: "MongoDB", desc: "Document-based NoSQL database" },
+                { name: "GraphQL", desc: "Query language for APIs" }
+            ],
+            "Cloud & DevOps": [
+                { name: "AWS", desc: "Comprehensive cloud platform" },
+                { name: "Docker", desc: "Containerization platform" },
+                { name: "Kubernetes", desc: "Container orchestration system" },
+                { name: "CI/CD", desc: "Continuous integration & deployment" },
+                { name: "Vercel", desc: "Frontend cloud platform" }
+            ],
+            "Mobile": [
+                { name: "React Native", desc: "Cross-platform mobile framework" },
+                { name: "Flutter", desc: "UI toolkit by Google" },
+                { name: "Swift", desc: "Native iOS development" },
+                { name: "Kotlin", desc: "Native Android development" }
+            ]
+        },
         metrics: [
             { value: "99.9%", label: "SLA UPTIME" },
             { value: "SOC 2", label: "READY ARCHITECTURE" },
@@ -195,7 +223,32 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Remediation", desc: "Patching vulnerabilities, implementing WAFs, and hardening systems." },
             { step: "04", title: "Monitoring", desc: "Continuous 24/7 threat hunting and compliance management." }
         ],
-        technologies: ["Splunk", "CrowdStrike", "Kali Linux", "Wireshark", "Tenable", "AWS Security"],
+        technologies: {
+            "SIEM & Monitoring": [
+                { name: "Splunk", desc: "Data platform for security" },
+                { name: "CrowdStrike", desc: "Endpoint security platform" },
+                { name: "QRadar", desc: "Enterprise SIEM solution" },
+                { name: "Elastic SIEM", desc: "Security intelligence platform" }
+            ],
+            "Penetration Testing": [
+                { name: "Kali Linux", desc: "Advanced penetration testing OS" },
+                { name: "Burp Suite", desc: "Web vulnerability scanner" },
+                { name: "Metasploit", desc: "Penetration testing framework" },
+                { name: "Nmap", desc: "Network discovery & security auditing" }
+            ],
+            "Network Analysis": [
+                { name: "Wireshark", desc: "Network protocol analyzer" },
+                { name: "Snort", desc: "Network intrusion detection" },
+                { name: "Suricata", desc: "Network threat detection engine" },
+                { name: "Zeek", desc: "Network security monitor" }
+            ],
+            "Cloud Security": [
+                { name: "AWS Security Hub", desc: "Cloud security posture management" },
+                { name: "Azure Sentinel", desc: "Cloud-native SIEM" },
+                { name: "GCP Security", desc: "Google Cloud security tools" },
+                { name: "Tenable", desc: "Vulnerability management platform" }
+            ]
+        },
         metrics: [
             { value: "100%", label: "THREAT DETECTION" },
             { value: "ISO 27001", label: "CERTIFIED EXPERTS" },
@@ -331,7 +384,32 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Analysis", desc: "Deep-dive investigation to reconstruct timelines and identify anomalies." },
             { step: "04", title: "Reporting", desc: "Delivering a comprehensive, courtroom-ready expert witness report." }
         ],
-        technologies: ["EnCase", "Cellebrite", "Magnet AXIOM", "FTK Imager", "Wireshark", "Volatility"],
+        technologies: {
+            "Disk & Image": [
+                { name: "EnCase", desc: "Digital forensics suite" },
+                { name: "FTK Imager", desc: "Forensic image creation tool" },
+                { name: "X-Ways Forensics", desc: "Advanced data recovery" },
+                { name: "dd / dcfldd", desc: "Command-line secure copying" }
+            ],
+            "Mobile Forensics": [
+                { name: "Cellebrite", desc: "Mobile device extraction" },
+                { name: "Magnet AXIOM", desc: "Digital investigation platform" },
+                { name: "Oxygen Forensic", desc: "Mobile device data extraction" },
+                { name: "MOBILedit", desc: "Mobile forensics tool" }
+            ],
+            "Memory & Network": [
+                { name: "Volatility", desc: "Memory forensics framework" },
+                { name: "Wireshark", desc: "Network protocol analyzer" },
+                { name: "NetworkMiner", desc: "Network forensics analysis" },
+                { name: "Autopsy", desc: "Digital forensics platform" }
+            ],
+            "Malware Analysis": [
+                { name: "IDA Pro", desc: "Reverse engineering tool" },
+                { name: "Ghidra", desc: "Software reverse engineering" },
+                { name: "YARA", desc: "Malware identification tool" },
+                { name: "Cuckoo Sandbox", desc: "Automated malware analysis" }
+            ]
+        },
         metrics: [
             { value: "100%", label: "CHAIN OF CUSTODY" },
             { value: "0", label: "DATA TAMPERING" },
@@ -467,7 +545,32 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Training", desc: "Intensive 4-week onboarding to master your SOPs and software tools." },
             { step: "04", title: "Live Ops", desc: "Go-live with continuous QA monitoring and daily performance reports." }
         ],
-        technologies: ["Zendesk", "Salesforce", "Jira", "Intercom", "Five9", "HubSpot"],
+        technologies: {
+            "CRM & Helpdesk": [
+                { name: "Zendesk", desc: "Customer service platform" },
+                { name: "Salesforce", desc: "Enterprise CRM solution" },
+                { name: "Freshdesk", desc: "Cloud-based support software" },
+                { name: "HubSpot", desc: "Inbound marketing CRM" }
+            ],
+            "Communication": [
+                { name: "Intercom", desc: "Customer communication platform" },
+                { name: "Five9", desc: "Cloud contact center" },
+                { name: "Twilio", desc: "Cloud communications platform" },
+                { name: "RingCentral", desc: "Cloud-based communications" }
+            ],
+            "Project & Workflow": [
+                { name: "Jira", desc: "Issue & project tracking" },
+                { name: "Asana", desc: "Work management platform" },
+                { name: "Monday.com", desc: "Work OS platform" },
+                { name: "Slack", desc: "Business communication platform" }
+            ],
+            "Automation": [
+                { name: "UiPath", desc: "Robotic process automation" },
+                { name: "Zapier", desc: "App automation platform" },
+                { name: "Power Automate", desc: "Microsoft workflow automation" },
+                { name: "Make", desc: "Visual automation platform" }
+            ]
+        },
         metrics: [
             { value: "40%", label: "COST REDUCTION" },
             { value: "<30s", label: "AVG RESPONSE TIME" },
@@ -603,7 +706,32 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Development", desc: "Building custom ML models and hooking data into BI visualization software." },
             { step: "04", title: "Insights", desc: "Training your executive team on how to read and leverage the new dashboards." }
         ],
-        technologies: ["Tableau", "Power BI", "Python", "Snowflake", "Apache Spark", "TensorFlow"],
+        technologies: {
+            "Visualization": [
+                { name: "Tableau", desc: "Interactive data visualization" },
+                { name: "Power BI", desc: "Microsoft business analytics" },
+                { name: "Looker", desc: "Enterprise BI platform" },
+                { name: "D3.js", desc: "JavaScript library for data-driven documents" }
+            ],
+            "Data Engineering": [
+                { name: "Snowflake", desc: "Cloud data platform" },
+                { name: "Apache Spark", desc: "Unified analytics engine" },
+                { name: "Airflow", desc: "Workflow automation platform" },
+                { name: "dbt", desc: "Data transformation framework" }
+            ],
+            "Languages & ML": [
+                { name: "Python", desc: "Primary data science language" },
+                { name: "R", desc: "Statistical computing language" },
+                { name: "TensorFlow", desc: "Machine learning framework" },
+                { name: "PyTorch", desc: "Deep learning research platform" }
+            ],
+            "Cloud Data": [
+                { name: "AWS Redshift", desc: "Cloud data warehouse" },
+                { name: "BigQuery", desc: "Serverless enterprise analytics" },
+                { name: "Azure Synapse", desc: "Enterprise analytics service" },
+                { name: "Databricks", desc: "Unified data & AI platform" }
+            ]
+        },
         metrics: [
             { value: "10x", label: "FASTER REPORTING" },
             { value: "99%", label: "DATA ACCURACY" },
@@ -728,7 +856,32 @@ export const servicesData: Record<string, ServiceCategory> = {
             { step: "03", title: "Execution", desc: "Launching campaigns, publishing content, and rapid A/B testing." },
             { step: "04", title: "Optimization", desc: "Cutting underperforming keywords and scaling winning creatives." }
         ],
-        technologies: ["Google Ads", "Meta Ads", "Ahrefs", "Semrush", "HubSpot", "Google Analytics 4"],
+        technologies: {
+            "Paid Media": [
+                { name: "Google Ads", desc: "Search engine advertising" },
+                { name: "Meta Ads", desc: "Social media advertising" },
+                { name: "LinkedIn Ads", desc: "B2B advertising platform" },
+                { name: "TikTok Ads", desc: "Short-form video advertising" }
+            ],
+            "SEO & Research": [
+                { name: "Ahrefs", desc: "SEO toolset" },
+                { name: "Semrush", desc: "Online visibility management" },
+                { name: "Screaming Frog", desc: "Website crawler" },
+                { name: "Moz", desc: "SEO software suite" }
+            ],
+            "Analytics": [
+                { name: "Google Analytics 4", desc: "Cross-platform analytics" },
+                { name: "Hotjar", desc: "Website heatmaps & behavior" },
+                { name: "Mixpanel", desc: "Product analytics platform" },
+                { name: "Looker Studio", desc: "Data visualization tool" }
+            ],
+            "Marketing Ops": [
+                { name: "HubSpot", desc: "Marketing automation CRM" },
+                { name: "Mailchimp", desc: "Email marketing platform" },
+                { name: "Klaviyo", desc: "Marketing automation platform" },
+                { name: "ActiveCampaign", desc: "Customer experience automation" }
+            ]
+        },
         metrics: [
             { value: "3x", label: "AVG ROAS" },
             { value: "50%", label: "LOWER CPA" },
