@@ -48,8 +48,7 @@ export default function Testimonials() {
     const x = useMotionValue(0);
     const [scrollRange, setScrollRange] = useState(0);
     const [cardWidth, setCardWidth] = useState(0);
-    const CARDS_VISIBLE = 3;
-    const GAP = 40; // gap-10 = 2.5rem = 40px
+    const [gap, setGap] = useState(40);
 
     // Measure the container's inner width (minus padding) and calculate card width
     useEffect(() => {
@@ -60,7 +59,21 @@ export default function Testimonials() {
                 const paddingLeft = parseFloat(styles.paddingLeft) || 0;
                 const paddingRight = parseFloat(styles.paddingRight) || 0;
                 const innerWidth = container.clientWidth - paddingLeft - paddingRight;
-                const calculatedCardWidth = (innerWidth - GAP * (CARDS_VISIBLE - 1)) / CARDS_VISIBLE;
+
+                // Dynamic visibility based on width
+                let cardsVisible = 3;
+                let gap = 40; // Desktop default
+
+                if (window.innerWidth < 640) {
+                    cardsVisible = 1;
+                    gap = 16;
+                } else if (window.innerWidth < 1024) {
+                    cardsVisible = 2;
+                    gap = 24;
+                }
+
+                const calculatedCardWidth = (innerWidth - gap * (cardsVisible - 1)) / cardsVisible;
+                setGap(gap);
                 setCardWidth(calculatedCardWidth);
             }
         };
@@ -80,7 +93,7 @@ export default function Testimonials() {
                 const paddingLeft = parseFloat(styles.paddingLeft) || 0;
                 const paddingRight = parseFloat(styles.paddingRight) || 0;
                 const innerWidth = container.clientWidth - paddingLeft - paddingRight;
-                const totalContentWidth = cardWidth * testimonials.length + GAP * (testimonials.length - 1);
+                const totalContentWidth = cardWidth * testimonials.length + gap * (testimonials.length - 1);
                 const maxScroll = Math.max(0, totalContentWidth - innerWidth);
                 setScrollRange(maxScroll);
             }
@@ -93,6 +106,16 @@ export default function Testimonials() {
     const clampX = useCallback((val: number) => {
         return Math.max(-scrollRange, Math.min(0, val));
     }, [scrollRange]);
+
+    // Snap to the nearest card
+    const snapToNearest = useCallback(() => {
+        const step = cardWidth + gap;
+        const index = Math.round(x.get() / -step);
+        const newX = clampX(-(index * step));
+        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    }, [cardWidth, gap, x, clampX]);
+
+    const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     // Handle mouse wheel on the testimonial section — scroll cards horizontally
     useEffect(() => {
@@ -113,11 +136,18 @@ export default function Testimonials() {
             e.preventDefault();
             const newX = clampX(currentX - delta);
             animate(x, newX, { type: "spring", stiffness: 300, damping: 40 });
+
+            // Debounced snap after scrolling stops
+            if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
+            wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 150);
         };
 
         container.addEventListener("wheel", handleWheel, { passive: false });
-        return () => container.removeEventListener("wheel", handleWheel);
-    }, [scrollRange, x, clampX]);
+        return () => {
+            container.removeEventListener("wheel", handleWheel);
+            if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
+        };
+    }, [scrollRange, x, clampX, snapToNearest]);
 
     return (
         <section className="relative py-24 section-bg-gradient overflow-hidden border-t border-white/5">
@@ -135,12 +165,13 @@ export default function Testimonials() {
 
                 <div ref={scrollContainerRef} className="container mx-auto px-6 lg:px-8 w-full overflow-hidden">
                     <motion.div
-                        style={{ x }}
+                        className="flex w-max pb-4 cursor-grab active:cursor-grabbing"
+                        style={{ x, gap: `${gap}px` }}
                         drag="x"
                         dragConstraints={{ left: -scrollRange, right: 0 }}
                         dragElastic={0.05}
                         dragMomentum={false}
-                        className="flex gap-10 w-max pb-4 cursor-grab active:cursor-grabbing"
+                        onDragEnd={snapToNearest}
                     >
                         {testimonials.map((testimonial, index) => (
                             <div
