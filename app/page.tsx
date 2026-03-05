@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import {
   ShieldCheck, Users, Globe, Zap,
   ArrowUpRight, Cpu, Search,
-  PenTool, Terminal, RefreshCw
+  PenTool, Terminal, RefreshCw,
+  Award, BadgeCheck, FileCheck, Layers, Settings, FlaskConical
 } from "lucide-react";
 import Link from "next/link";
 import Hero from "./components/Hero";
@@ -80,6 +81,92 @@ function StatsSection() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+const certifications = [
+  {
+    name: "ISO 27001",
+    description: "Information Security Management System. Ensures the highest standards in protecting sensitive data and mitigating cyber threats.",
+    icon: ShieldCheck,
+    color: "text-blue-400",
+  },
+  {
+    name: "ISO 9001",
+    description: "Quality Management System. Demonstrates our commitment to consistent quality, customer satisfaction, and continuous improvement.",
+    icon: BadgeCheck,
+    color: "text-cyan-400",
+  },
+  {
+    name: "ISO 20000-1",
+    description: "IT Service Management System. Validates our excellence in IT service delivery, support, and operational efficiency.",
+    icon: Settings,
+    color: "text-indigo-400",
+  },
+  {
+    name: "CMMI Level 3 / 5",
+    description: "Capability Maturity Model Integration. Demonstrated high maturity in software development and service delivery processes.",
+    icon: Layers,
+    color: "text-purple-400",
+  },
+  {
+    name: "SOC 2 Type II",
+    description: "Service Organization Control. Stringent independent audits verifying our security, availability, and processing integrity.",
+    icon: FileCheck,
+    color: "text-emerald-400",
+  },
+  {
+    name: "ISO 17025",
+    description: "Testing and Calibration Laboratories. Proven competence, impartiality, and consistent operation in laboratory results.",
+    icon: FlaskConical,
+    color: "text-amber-400",
+  },
+];
+
+function CertificationsSection() {
+  return (
+    <section className="relative py-24 section-bg-gradient overflow-hidden border-y border-white/5">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Accreditations</h2>
+          <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
+            Industry-Leading Certifications
+          </h3>
+          <p className="text-zinc-400 text-lg font-medium mt-6">
+            Our team maintains the highest standards of compliance and security through globally recognized certifications.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              className="group glass-card p-6 sm:p-10 hover:bg-white/10 hover:border-primary/40 transition-all text-center"
+            >
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-8 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
+                <cert.icon className={`h-8 w-8 ${cert.color} group-hover:text-background transition-colors`} />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors uppercase">
+                {cert.name}
+              </h4>
+              <p className="text-zinc-400 text-sm leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">
+                {cert.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -322,6 +409,7 @@ export default function Home() {
       <ExpertiseSection />
       <ProcessSection />
       <Testimonials />
+      <CertificationsSection />
       <CTA />
     </main>
   );
