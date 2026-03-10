@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Send, MessageSquare, User, AtSign, Building2, Linkedin, Github, Twitter, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, User, AtSign, Building2, Linkedin, Instagram, Twitter, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../../lib/utils";
 
@@ -125,7 +125,7 @@ export default function ContactPage() {
                                             type="email"
                                             required
                                             value={formState.email}
-                                            placeholder="john@example.com"
+                                            placeholder="john@cyberforenx.in"
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all font-medium"
                                             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                                         />
@@ -204,8 +204,8 @@ export default function ContactPage() {
                                 icon={<Mail className="w-7 h-7" />}
                                 title="Corporation Email"
                                 description="Our dedicated team is ready to assist."
-                                value="solutions@cyberforenx.com"
-                                href="mailto:solutions@cyberforenx.com"
+                                value="contact@cyberforenx.in"
+                                href="mailto:contact@cyberforenx.in"
                                 accentColor="text-primary"
                                 shadowColor="rgba(0,242,255,0.2)"
                             />
@@ -213,8 +213,8 @@ export default function ContactPage() {
                                 icon={<Phone className="w-7 h-7" />}
                                 title="Direct Line"
                                 description="Global Support: Mon-Fri"
-                                value="+1 (555) 000-0000"
-                                href="tel:+15550000000"
+                                value="+91 9990751991"
+                                href="tel:+919990751991"
                                 accentColor="text-secondary"
                                 shadowColor="rgba(112,0,255,0.2)"
                             />
@@ -240,13 +240,15 @@ export default function ContactPage() {
                             <h3 className="text-xs font-black text-primary uppercase tracking-[0.4em] mb-8 relative z-10">Corporate Presence</h3>
                             <div className="flex gap-6 relative z-10">
                                 {[
-                                    { icon: <Linkedin className="w-6 h-6" />, href: "#", name: "LinkedIn" },
-                                    { icon: <Github className="w-6 h-6" />, href: "#", name: "GitHub" },
-                                    { icon: <Twitter className="w-6 h-6" />, href: "#", name: "Twitter" },
+                                    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/company/cyberforenx-associate/?viewAsMember=true", name: "LinkedIn" },
+                                    { icon: <Twitter className="w-6 h-6" />, href: "https://x.com/Cyber_ForenX", name: "Twitter" },
+                                    { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/cyberforenx/", name: "Instagram" },
                                 ].map((social) => (
                                     <Link
                                         key={social.name}
                                         href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-primary/40 hover:bg-primary/10 transition-all duration-500 shadow-inner group"
                                     >
                                         <div className="group-hover:scale-110 transition-transform">

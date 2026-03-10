@@ -20,10 +20,16 @@ export default function Footer() {
                             Empowering enterprise growth through strategic digital transformation, advanced forensics, and high-performance technical solutions.
                         </p>
                         <div className="flex gap-5">
-                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                            {[
+                                { Icon: Twitter, href: "https://x.com/Cyber_ForenX" },
+                                { Icon: Linkedin, href: "https://www.linkedin.com/company/cyberforenx-associate/?viewAsMember=true" },
+                                { Icon: Instagram, href: "https://www.instagram.com/cyberforenx/" }
+                            ].map(({ Icon, href }, i) => (
                                 <Link
                                     key={i}
-                                    href="#"
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-12 h-12 flex items-center justify-center rounded-full glass-card border-white/10 text-zinc-400 hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 shadow-xl"
                                 >
                                     <Icon className="w-5 h-5" />
@@ -86,7 +92,7 @@ export default function Footer() {
                                 </div>
                                 <div className="pt-1">
                                     <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Corporate Hotline</p>
-                                    <span className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">+1 (555) 123-4567</span>
+                                    <a href="tel:+919990751991" className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">+91 9990751991</a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-5 group">
@@ -95,7 +101,7 @@ export default function Footer() {
                                 </div>
                                 <div className="pt-1">
                                     <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Inquiries</p>
-                                    <span className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">solutions@cyberforenx.com</span>
+                                    <a href="mailto:contact@cyberforenx.in" className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">contact@cyberforenx.in</a>
                                 </div>
                             </li>
                         </ul>

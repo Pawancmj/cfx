@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, GraduationCap, X, Send } from "lucide-react";
+import { ArrowLeft, GraduationCap, X, Send, XCircle } from "lucide-react";
 import Link from "next/link";
 import CTA from "@/app/components/CTA";
 
@@ -15,8 +15,24 @@ export default function InternshipsPage() {
     const [resumeFile, setResumeFile] = useState<File | null>(null);
     const [errorMsg, setErrorMsg] = useState("");
     const [mounted, setMounted] = useState(false);
+    const [vacancies, setVacancies] = useState<any[]>([]);
+    const [loadingVacancies, setLoadingVacancies] = useState(true);
 
     useEffect(() => {
+        const fetchVacancies = async () => {
+            try {
+                const res = await fetch("/api/internships/vacancies");
+                const json = await res.json();
+                if (json.success) {
+                    setVacancies(json.data.filter((v: any) => v.is_active));
+                }
+            } catch (err) {
+                console.error("Failed to fetch vacancies:", err);
+            } finally {
+                setLoadingVacancies(false);
+            }
+        };
+        fetchVacancies();
         setMounted(true);
     }, []);
 
@@ -109,30 +125,48 @@ export default function InternshipsPage() {
                     <h2 className="text-2xl font-bold text-white mb-8 relative z-10">Open Internship Tracks</h2>
 
                     <div className="space-y-6 relative z-10">
-                        {[
-                            { role: "Software Engineering Intern", team: "Core Development", location: "Remote", duration: "6 Months" },
-                            { role: "Cyber Security Analyst Intern", team: "Threat Intelligence", location: "Hybrid", duration: "6 Months" },
-                            { role: "Product Design Intern", team: "UX/UI", location: "Remote", duration: "3 Months" }
-                        ].map((job) => (
-                            <div key={job.role} className="flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/30 transition-colors group">
-                                <div>
-                                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">{job.role}</h3>
-                                    <div className="flex items-center gap-4 text-xs font-medium uppercase tracking-widest text-zinc-500">
-                                        <span>{job.team}</span>
-                                        <span>•</span>
-                                        <span>{job.location}</span>
-                                        <span>•</span>
-                                        <span>{job.duration}</span>
-                                    </div>
+                        {loadingVacancies ? (
+                            <div className="py-12 text-center text-zinc-500 italic">Finding available opportunities...</div>
+                        ) : vacancies.length === 0 ? (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="py-20 text-center glass-card border-white/5 bg-white/5 rounded-[2rem]"
+                            >
+                                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                                    <XCircle className="w-10 h-10 text-primary" />
                                 </div>
-                                <button
-                                    onClick={() => handleApplyClick(job.role)}
-                                    className="mt-4 md:mt-0 px-6 py-2 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-colors"
-                                >
-                                    Apply
-                                </button>
-                            </div>
-                        ))}
+                                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-tight">No Active Openings</h3>
+                                <p className="text-zinc-500 font-medium max-w-sm mx-auto">
+                                    We don't have any internship tracks open at the moment. Please check back soon or follow our social channels for updates!
+                                </p>
+                            </motion.div>
+                        ) : (
+                            vacancies.map((job) => (
+                                <div key={job.id} className="flex flex-col md:flex-row md:items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/30 transition-colors group">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">{job.title}</h3>
+                                        <div className="flex items-center gap-4 text-xs font-medium uppercase tracking-widest text-zinc-500">
+                                            <span>{job.location}</span>
+                                            <span>•</span>
+                                            <span>{job.type}</span>
+                                            {job.description && (
+                                                <>
+                                                    <span>•</span>
+                                                    <span className="normal-case tracking-normal line-clamp-1">{job.description}</span>
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => handleApplyClick(job.title)}
+                                        className="mt-4 md:mt-0 px-6 py-2 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-colors shrink-0"
+                                    >
+                                        Apply
+                                    </button>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </div>
@@ -185,11 +219,11 @@ export default function InternshipsPage() {
                                             </div>
                                             <div className="space-y-1">
                                                 <label className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Email Address *</label>
-                                                <input name="email" required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="john@example.com" />
+                                                <input name="email" required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="yourname@cyberforenx.in" />
                                             </div>
                                             <div className="space-y-1">
                                                 <label className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Phone Number *</label>
-                                                <input name="phone" required type="tel" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="+1 (555) 000-0000" />
+                                                <input name="phone" required type="tel" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="+91 9990751991" />
                                             </div>
                                             <div className="space-y-1">
                                                 <label className="text-xs font-medium text-zinc-400 uppercase tracking-wider">College / University *</label>

@@ -14,12 +14,27 @@ export default function Navbar() {
   const [forceHidden, setForceHidden] = useState(false);
   const pathname = usePathname();
 
+  const [vacancyCount, setVacancyCount] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
 
+    const fetchVacancyCount = async () => {
+      try {
+        const res = await fetch("/api/internships/count");
+        const json = await res.json();
+        if (json.success) {
+          setVacancyCount(json.count);
+        }
+      } catch (err) {
+        console.error("Failed to fetch vacancy count:", err);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
+    fetchVacancyCount();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,7 +51,7 @@ export default function Navbar() {
     { name: "Culture", href: "/company/culture" },
     { name: "Partner Program", href: "/company/partner-program" },
     { name: "Careers", href: "/careers" },
-    { name: "Internships", href: "/careers/internships" }
+    { name: "Internships", href: "/careers/internships", count: vacancyCount }
   ];
 
   return (
@@ -157,10 +172,17 @@ export default function Navbar() {
                           href={sub.href}
                           className="group/sub flex flex-col p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 hover:shadow-lg"
                         >
-                          <h6 className="text-sm font-bold text-white group-hover/sub:text-primary transition-colors tracking-widest uppercase mb-1">
+                          <h6 className="text-sm font-bold text-white group-hover/sub:text-primary transition-colors tracking-widest uppercase mb-1 flex items-center gap-2">
                             {sub.name}
+                            {sub.name === "Internships" && sub.count === 0 && (
+                              <span className="text-[8px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full border border-red-500/20 lowercase tracking-normal">
+                                Not Available
+                              </span>
+                            )}
                           </h6>
-                          <span className="text-[10px] text-zinc-500 font-medium tracking-wide">Explore perfectly crafted solutions</span>
+                          <span className="text-[10px] text-zinc-500 font-medium tracking-wide">
+                            {sub.name === "Internships" && sub.count === 0 ? "Check back soon for new openings" : "Explore perfectly crafted solutions"}
+                          </span>
                         </Link>
                       ))}
                     </div>
@@ -280,10 +302,15 @@ export default function Navbar() {
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
+                        className={`text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                         onClick={() => setIsOpen(false)}
                       >
                         {sub.name}
+                        {sub.name === "Internships" && sub.count === 0 && (
+                          <span className="text-[9px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full border border-red-500/20 lowercase tracking-normal font-medium">
+                            Not Available
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>

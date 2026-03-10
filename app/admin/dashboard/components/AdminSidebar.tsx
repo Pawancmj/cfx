@@ -20,6 +20,11 @@ export default function AdminSidebar() {
             icon: <GraduationCap className="w-5 h-5" />,
             href: "/admin/dashboard/internships",
         },
+        {
+            name: "Manage Vacancies",
+            icon: <LayoutDashboard className="w-5 h-5" />,
+            href: "/admin/dashboard/vacancies",
+        },
     ];
 
     const handleLogout = async () => {
