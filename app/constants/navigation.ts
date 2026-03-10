@@ -97,6 +97,7 @@ export const serviceCategories: MegaCategory[] = [
 export const solutionsCategories: MegaCategory[] = [
     {
         title: "Digital Commerce & Platform Businesses",
+        slug: "digital-commerce",
         links: [
             { name: "Custom Web & Mobile Platforms", href: "/solutions/digital-commerce/custom-web-mobile-platforms" },
             { name: "Client & Vendor Portal Development", href: "/solutions/digital-commerce/client-vendor-portal" },
@@ -110,6 +111,7 @@ export const solutionsCategories: MegaCategory[] = [
     },
     {
         title: "Government & Regulatory Agencies",
+        slug: "government",
         links: [
             { name: "Digital Evidence Identification & Collection", href: "/solutions/government/digital-evidence-collection" },
             { name: "On-Site Investigation & Forensic Support", href: "/solutions/government/on-site-investigation" },
@@ -125,6 +127,7 @@ export const solutionsCategories: MegaCategory[] = [
     },
     {
         title: "Financial & Tax Compliance",
+        slug: "finance",
         links: [
             { name: "TDS & Financial Data Examination", href: "/solutions/finance/tds-financial-examination" },
             { name: "Transaction & Fraud Pattern Analysis", href: "/solutions/finance/fraud-pattern-analysis" },
@@ -138,6 +141,7 @@ export const solutionsCategories: MegaCategory[] = [
     },
     {
         title: "Security-Sensitive Organizations",
+        slug: "security",
         links: [
             { name: "Security Risk Assessment", href: "/solutions/security/security-risk-assessment" },
             { name: "Vulnerability & Compliance Audits", href: "/solutions/security/vulnerability-audits" },
@@ -151,6 +155,7 @@ export const solutionsCategories: MegaCategory[] = [
     },
     {
         title: "Enterprise & Corporate Operations",
+        slug: "enterprise",
         links: [
             { name: "Business Process Automation", href: "/solutions/enterprise/business-process-automation" },
             { name: "Back Office & Workflow Management", href: "/solutions/enterprise/back-office-management" },
@@ -164,6 +169,7 @@ export const solutionsCategories: MegaCategory[] = [
     },
     {
         title: "Data-Driven Enterprises",
+        slug: "data",
         links: [
             { name: "Business Intelligence Dashboards", href: "/solutions/data/bi-dashboards" },
             { name: "Data Analytics & Visualization", href: "/solutions/data/data-analytics" },

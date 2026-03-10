@@ -214,7 +214,7 @@ export default function SolutionsPage() {
                                 
                                 {/* Add Link to the main Category Page itself */}
                                 <Link 
-                                    href={`/solutions/${activeCategoryData.title.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}
+                                    href={`/solutions/${activeCategoryData.slug}`}
                                     className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 text-primary uppercase text-xs font-bold tracking-widest hover:bg-primary hover:text-black transition-colors"
                                 >
                                     Explore All {activeCategoryData.title} <ArrowRight className="w-4 h-4" />

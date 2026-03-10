@@ -8,6 +8,7 @@ export interface ServiceDetail {
     features: { icon: string; title: string; desc: string }[];
     process?: { step: string; title: string; desc: string }[];
     portfolio?: { title: string; metrics: { label: string; value: string }[] }[];
+    challengesVsSolutions?: { challenge: string; solution: string }[];
 }
 
 export interface ServiceCategory {
