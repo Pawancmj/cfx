@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Code, Shield, Zap, Smartphone, Layout, Database, Search, FileText, ShieldCheck, Target, Lock, Activity } from "lucide-react";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
@@ -88,9 +89,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                             </div>
                             {detailData.heroImage && (
                                 <div className="flex-1 w-full max-w-lg mx-auto lg:max-w-none">
-                                    <div className="relative rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl flex items-center justify-center p-8 bg-zinc-900/50">
-                                        <div className="w-full text-center py-20 text-zinc-500 font-mono text-sm border-2 border-dashed border-zinc-700 rounded-xl">
-                                            [Mockup Image: {detailData.heroImage}]
+                                    <div className="relative rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl flex items-center justify-center p-2 bg-zinc-900/50 aspect-video lg:aspect-[4/3]">
+                                        <div className="w-full h-full relative rounded-2xl overflow-hidden bg-zinc-950">
+                                            <Image 
+                                                src={detailData.heroImage} 
+                                                alt={detailData.title}
+                                                fill
+                                                className="object-cover opacity-80 mix-blend-lighten"
+                                                priority
+                                            />
                                         </div>
                                     </div>
                                 </div>
