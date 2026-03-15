@@ -46,12 +46,8 @@ export default function Navbar() {
 
   const companySubLinks = [
     { name: "About Us", href: "/company" },
-    { name: "Leadership", href: "/company/leadership" },
-    { name: "Certifications", href: "/company/certifications" },
-    { name: "Culture", href: "/company/culture" },
     { name: "Partner Program", href: "/company/partner-program" },
-    { name: "Careers", href: "/careers" },
-    { name: "Internships", href: "/careers/internships", count: vacancyCount }
+    { name: "Careers", href: "/careers" }
   ];
 
   return (
@@ -174,14 +170,9 @@ export default function Navbar() {
                         >
                           <h6 className="text-sm font-bold text-white group-hover/sub:text-primary transition-colors tracking-widest uppercase mb-1 flex items-center gap-2">
                             {sub.name}
-                            {sub.name === "Internships" && sub.count === 0 && (
-                              <span className="text-[8px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full border border-red-500/20 lowercase tracking-normal">
-                                Not Available
-                              </span>
-                            )}
                           </h6>
                           <span className="text-[10px] text-zinc-500 font-medium tracking-wide">
-                            {sub.name === "Internships" && sub.count === 0 ? "Check back soon for new openings" : "Explore perfectly crafted solutions"}
+                            {"Explore perfectly crafted solutions"}
                           </span>
                         </Link>
                       ))}
@@ -306,11 +297,6 @@ export default function Navbar() {
                         onClick={() => setIsOpen(false)}
                       >
                         {sub.name}
-                        {sub.name === "Internships" && sub.count === 0 && (
-                          <span className="text-[9px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full border border-red-500/20 lowercase tracking-normal font-medium">
-                            Not Available
-                          </span>
-                        )}
                       </Link>
                     ))}
                   </div>
