@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, Facebook, Twitter, Linkedin, Instagram, Phone, Mail, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ShieldCheck, Facebook, Twitter, Linkedin, Instagram, Phone, Mail, ArrowRight, MapPin } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -102,6 +102,20 @@ export default function Footer() {
                                 <div className="pt-1">
                                     <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Inquiries</p>
                                     <a href="mailto:contact@cyberforenx.in" className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">contact@cyberforenx.in</a>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-5 group">
+                                <div className="p-3 rounded-2xl glass-card border-white/10 group-hover:border-primary/40 transition-all duration-300 shadow-xl group-hover:bg-primary/5 mt-1">
+                                    <MapPin className="w-5 h-5 text-primary shrink-0" />
+                                </div>
+                                <div className="pt-1">
+                                    <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Office</p>
+                                    <address className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white not-italic leading-relaxed">
+                                        74A, Avni Vihar,<br />
+                                        Near Guldhar Metro Station,<br />
+                                        Meerut Road, Ghaziabad,<br />
+                                        Uttar Pradesh, India
+                                    </address>
                                 </div>
                             </li>
                         </ul>

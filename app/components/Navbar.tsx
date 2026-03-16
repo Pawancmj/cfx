@@ -14,27 +14,12 @@ export default function Navbar() {
   const [forceHidden, setForceHidden] = useState(false);
   const pathname = usePathname();
 
-  const [vacancyCount, setVacancyCount] = useState(0);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    const fetchVacancyCount = async () => {
-      try {
-        const res = await fetch("/api/internships/count");
-        const json = await res.json();
-        if (json.success) {
-          setVacancyCount(json.count);
-        }
-      } catch (err) {
-        console.error("Failed to fetch vacancy count:", err);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    fetchVacancyCount();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -46,8 +31,9 @@ export default function Navbar() {
 
   const companySubLinks = [
     { name: "About Us", href: "/company" },
-    { name: "Partner Program", href: "/company/partner-program" },
-    { name: "Careers", href: "/careers" }
+    { name: "Certification", href: "/certification" },
+    { name: "Careers", href: "/careers" },
+    { name: "Partner Program", href: "/company/partner-program" }
   ];
 
   return (
@@ -62,7 +48,7 @@ export default function Navbar() {
         <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:scale-110 transition-transform">
           <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
         </div>
-        <span className="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
+        <span className="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
           Cyberforenx
         </span>
       </Link>
