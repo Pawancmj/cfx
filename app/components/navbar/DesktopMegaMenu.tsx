@@ -45,8 +45,8 @@ export default function DesktopMegaMenu({
             </Link>
 
             {/* Mega Menu Dropdown */}
-            <div className={`absolute top-[calc(100%+0.5rem)] left-0 w-full opacity-0 invisible ${!isForceHidden ? "group-hover:opacity-100 group-hover:visible" : ""} transition-all duration-300 z-50`}>
-                <div className="glass-card p-8 rounded-[2rem] shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/10 w-full section-bg-dark backdrop-blur-3xl relative overflow-hidden group/mega">
+            <div className={`absolute top-full left-0 w-full opacity-0 invisible ${!isForceHidden ? "group-hover:opacity-100 group-hover:visible" : ""} transition-all duration-300 z-50 pt-4`}>
+                <div className="bg-[#080c10]/95 backdrop-blur-3xl p-8 rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,1),0_0_50px_rgba(0,242,255,0.05)] border border-white/20 w-full relative overflow-hidden group/mega">
                     {/* Dynamic Background Effects */}
                     <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none transition-opacity group-hover/mega:opacity-20"></div>
                     <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none transition-all duration-700 ease-out group-hover/mega:translate-y-10 group-hover/mega:-translate-x-10"></div>

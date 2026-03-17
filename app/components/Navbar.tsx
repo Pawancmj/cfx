@@ -126,7 +126,7 @@ export default function Navbar() {
                   {/* Invisible bridge to keep hover active */}
                   <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
 
-                  <div className="bg-[#05080a] flex w-full max-w-7xl mx-auto rounded-[2rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] overflow-hidden relative p-4 section-bg-dark backdrop-blur-3xl glass-card">
+                  <div className="bg-[#080c10]/95 backdrop-blur-3xl flex w-full max-w-7xl mx-auto rounded-[2.5rem] border border-white/20 shadow-[0_30px_100px_rgba(0,0,0,1),0_0_50px_rgba(0,242,255,0.05)] overflow-hidden relative p-4">
 
                     {/* Left Featured Column (Webority Style) */}
                     <div className="w-1/3 bg-white/5 rounded-2xl p-10 flex flex-col justify-end relative overflow-hidden group/feat cursor-default border border-white/5">
