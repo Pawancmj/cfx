@@ -44,14 +44,14 @@ export default function ContactClient() {
     };
 
     return (
-        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
+        <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="absolute left-1/3 top-1/4 -z-10 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[160px]"></div>
             <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] bg-secondary/10 blur-[140px] rounded-full"></div>
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-4xl mx-auto mb-20">
+                <div className="text-center max-w-4xl mx-auto mb-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function ContactClient() {
                         </motion.div>
                         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
                             Architecting the <br />
-                            <span className="text-gradient italic text-glow">Future</span>
+                            <span className="text-gradient italic text-glow inline-block pr-6">Future</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                             Partner with our global experts to drive innovation through secure, scalable, and mission-critical technology solutions tailored for enterprise success.
@@ -75,7 +75,7 @@ export default function ContactClient() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                     {/* Contact Form */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -193,7 +193,7 @@ export default function ContactClient() {
                     </motion.div>
 
                     {/* Contact Info */}
-                    <div className="space-y-12">
+                    <div className="space-y-8">
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -234,7 +234,7 @@ export default function ContactClient() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
-                            className="glass-card p-10 rounded-[2rem] border-white/5 relative overflow-hidden"
+                            className="glass-card p-8 rounded-[2rem] border-white/5 relative overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-dots opacity-10"></div>
                             <h3 className="text-xs font-black text-primary uppercase tracking-[0.4em] mb-8 relative z-10">Corporate Presence</h3>
@@ -275,7 +275,7 @@ function ContactInfoCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group glass-card p-10 rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5"
+            className="block group glass-card p-8 rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5"
         >
             <div className="flex items-center gap-8">
                 <div className={cn(

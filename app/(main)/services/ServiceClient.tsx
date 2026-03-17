@@ -182,7 +182,7 @@ function AnimatedCounter({
 
 export default function ServicesClient() {
   return (
-    <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
+    <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="absolute left-1/4 top-1/4 -z-10 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[160px]"></div>
@@ -194,7 +194,7 @@ export default function ServicesClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-20"
+          className="text-center max-w-4xl mx-auto mb-12"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -206,7 +206,7 @@ export default function ServicesClient() {
           </motion.div>
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-[1.2] sm:leading-[1.1]">
             Uncompromising <br />
-            <span className="text-gradient italic text-glow">Service Models</span>
+            <span className="text-gradient italic text-glow inline-block pr-6">Service Models</span>
           </h1>
           <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
             Comprehensive digital solutions designed to propel your business forward. From internal software systems to global enterprise security architecture.
@@ -214,7 +214,7 @@ export default function ServicesClient() {
         </motion.div>
 
         {/* 1. Animated Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
             {
               title: "Uptime Guaranteed",
@@ -268,7 +268,7 @@ export default function ServicesClient() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 items-start">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -345,7 +345,7 @@ export default function ServicesClient() {
       </div>
 
       {/* Tech Marquee Section */}
-      <div className="w-full mb-48 section-bg-alt py-32 border-y border-white/5 relative">
+      <div className="w-full mb-32 section-bg-alt py-20 border-y border-white/5 relative">
         <div className="absolute inset-0 bg-dots opacity-10"></div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -355,7 +355,7 @@ export default function ServicesClient() {
           className="text-center mb-24 max-w-3xl mx-auto px-6 relative z-10"
         >
           <h2 className="text-5xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow">
-            Technologies We <br /> <span className="text-gradient italic">Command</span>
+            Technologies We <br /> <span className="text-gradient italic inline-block pr-6">Command</span>
           </h2>
           <p className="text-zinc-400 text-xl font-medium tracking-wide">
             Leveraging industry-leading tools and frameworks to build, scale, and secure your digital infrastructure.
@@ -413,7 +413,7 @@ export default function ServicesClient() {
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="mb-32">
+        <div className="mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -465,7 +465,7 @@ export default function ServicesClient() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-32 rounded-[3.5rem] section-bg-gradient p-16 sm:p-24 text-center relative overflow-hidden shadow-2xl border border-white/10 group"
+          className="mb-20 rounded-[3.5rem] section-bg-gradient p-12 sm:p-20 text-center relative overflow-hidden shadow-2xl border border-white/10 group"
         >
           <div className="absolute inset-0 bg-dots opacity-20 group-hover:opacity-30 transition-opacity"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-50"></div>
@@ -481,7 +481,7 @@ export default function ServicesClient() {
 
           <h2 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-10 relative z-10 leading-tight">
             Ready to secure your <br />
-            <span className="text-gradient italic text-glow">digital future?</span>
+            <span className="text-gradient italic text-glow inline-block pr-6">digital future?</span>
           </h2>
           <p className="text-xl text-zinc-300 mb-16 max-w-2xl mx-auto relative z-10 font-medium tracking-wide leading-relaxed">
             Let&apos;s discuss how our tailored solutions can accelerate your growth and protect your enterprise assets globally.

@@ -43,7 +43,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen relative overflow-hidden text-zinc-100 section-bg-dark pt-28 sm:pt-40 pb-32">
+        <main className="relative min-h-screen overflow-hidden text-zinc-100 section-bg-dark pt-20 sm:pt-32 pb-20">
             {/* Global Ambient Glows - Static for Performance */}
             <div className="absolute inset-0 bg-grid opacity-20 z-0"></div>
 
@@ -79,7 +79,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
 
                             <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl mb-8 leading-[1.2] lg:leading-[1.1]">
                                 {categoryData.title.split(" ").slice(0, -1).join(" ")}{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary italic drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]">{categoryData.title.split(" ").slice(-1)}</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary italic drop-shadow-[0_0_15px_rgba(0,242,255,0.4)] pb-1 inline-block pr-4">{categoryData.title.split(" ").slice(-1)}</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-2xl font-medium mb-10">
                                 {categoryData.overview}
@@ -128,7 +128,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                 </div>
 
                 {/* Subcategories Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[1fr] relative mb-32 z-20 pt-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[1fr] relative mb-20 z-20 pt-10">
                     {categoryData.subcategories.map((sub: any, idx: number) => {
                         return (
                             <MotionDiv
@@ -171,14 +171,14 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="p-10 sm:p-16 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden shadow-2xl border border-white/5 mb-32"
+                        className="p-10 sm:p-16 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden shadow-2xl border border-white/5 mb-20"
                     >
                         <div className="absolute inset-0 bg-dots opacity-20"></div>
                         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
                         <div className="relative z-10">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Domain Authority</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-16 uppercase tracking-tighter italic text-glow">
+                            <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-16 uppercase tracking-tighter italic text-glow inline-block pr-8">
                                 The <span className="text-gradient">CyberForenX Advantage</span>
                             </h3>
 
@@ -199,7 +199,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
 
                 {/* Our Process */}
                 {categoryData.process && (
-                    <div className="mb-32 relative">
+                    <div className="mb-20 relative">
                         <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
                             <MotionDiv
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -208,8 +208,8 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Execution Methodology</h2>
-                                <h3 className="text-3xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
-                                    Strategic <span className="text-gradient italic">Delivery Model</span>
+                                <h3 className="text-3xl font-extrabold text-white sm:text-6xl mb-6 leading-tight px-2">
+                                    Strategic <span className="text-gradient italic pb-1 inline-block pr-6">Delivery Model</span>
                                </h3>
                             </MotionDiv>
                         </div>
@@ -243,7 +243,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
 
                 {/* Technologies */}
                 {categoryData.technologies && (
-                    <div className="mb-32">
+                    <div className="mb-20">
                         <div className="text-center md:flex md:items-center md:justify-between mb-12">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4 md:mb-0">Core Technologies</h2>
                             <div className="h-px bg-white/10 flex-grow md:ml-8"></div>
@@ -255,7 +255,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
 
                 {/* Enterprise Standards & Metrics */}
                 {categoryData.metrics && (
-                    <div className="mb-32">
+                    <div className="mb-20">
                         <MotionDiv
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +293,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                     <div className="absolute inset-0 bg-dots opacity-20"></div>
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                    <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow">Find Your Solution</h2>
+                    <h2 className="text-3xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-8">Find Your Solution</h2>
                     <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                         Connect with our domain experts to architect a scalable, zero-trust solution tailored directly to your ecosystem&apos;s needs.
                     </p>

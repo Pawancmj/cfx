@@ -141,7 +141,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-16 max-w-2xl mx-auto">
                          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Pillars</h2>
-                         <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow">The Cyberforenx Advantage</h3>
+                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The Cyberforenx Advantage</h3>
                          <p className="text-zinc-400 font-medium">Why world-leading organizations trust us out-of-the-box.</p>
                     </div>
 
@@ -172,7 +172,7 @@ export default function SolutionsClient() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Suite</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow">Tailored Solutions</h3>
+                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Tailored Solutions</h3>
                          </div>
                          <p className="text-zinc-400 font-medium max-w-md">
                             Select a sector below to explore precision-engineered solutions designed explicitly for your domain's challenges.
@@ -252,7 +252,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-24 max-w-3xl mx-auto">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-secondary mb-4">How It Works</h2>
-                        <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow">Seamless Integration Strategy</h3>
+                        <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">Seamless Integration Strategy</h3>
                         <p className="text-zinc-400 font-medium">
                             Our battle-tested deployment methodology ensures zero downtime and rapid capability integration for mission-critical environments.
                         </p>
@@ -298,7 +298,7 @@ export default function SolutionsClient() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Proven Results</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow">Featured Case Studies</h3>
+                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Featured Case Studies</h3>
                          </div>
                          <Link href="/case-studies" className="btn-outline w-max inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm group shrink-0">
                              View All Reports <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -382,7 +382,7 @@ export default function SolutionsClient() {
                         <div className="absolute inset-0 bg-dots opacity-20"></div>
                         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow">Find Your Solution</h2>
+                        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-6">Find Your Solution</h2>
                         <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                             Connect with our domain experts to architect a scalable, zero-trust solution tailored directly to your ecosystem's needs.
                         </p>

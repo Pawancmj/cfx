@@ -29,7 +29,7 @@ const values = [
 
 export default function AboutClient() {
     return (
-        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
+        <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
             {/* Background Decor */}
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="absolute left-1/4 top-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[160px]"></div>
@@ -37,7 +37,7 @@ export default function AboutClient() {
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
                 {/* Hero Section: Who We Are */}
-                <div className="text-center max-w-5xl mx-auto mb-24">
+                <div className="text-center max-w-5xl mx-auto mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export default function AboutClient() {
                         </motion.div>
                         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
                             Pioneering the Future of <br />
-                            <span className="text-gradient italic text-glow">Digital Intelligence</span>
+                            <span className="text-gradient italic text-glow inline-block pr-6">Digital Intelligence</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                             Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
@@ -62,7 +62,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* Vision & Mission Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* What We Believe In (Core Values) */}
-                <div className="relative p-12 lg:p-20 rounded-[3rem] section-bg-alt border border-white/5 overflow-hidden shadow-2xl mb-24">
+                <div className="relative p-12 lg:p-20 rounded-[3rem] section-bg-alt border border-white/5 overflow-hidden shadow-2xl mb-16">
                     <div className="absolute inset-0 bg-dots opacity-10"></div>
                     <div className="absolute -right-20 -bottom-20 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]"></div>
 
@@ -134,7 +134,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* --- Culture Section --- */}
-                <div className="mb-24">
+                <div className="mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* --- Leadership Section --- */}
-                <div className="mb-24">
+                <div className="mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +198,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* What We Do Section */}
-                <div className="mb-32 mt-12 relative z-10">
+                <div className="mb-20 mt-12 relative z-10">
                     <div className="flex flex-col md:flex-row items-center text-center md:text-left justify-between mb-20 gap-10">
                         <div className="max-w-3xl">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Expertise</h2>

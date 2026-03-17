@@ -141,7 +141,7 @@ export default function CareersClient() {
                         </motion.div>
                         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
                             Scale Your <br />
-                            <span className="text-gradient italic text-glow">Potential</span>
+                            <span className="text-gradient italic text-glow inline-block pr-6">Potential</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                             Cyberforenx is a hub for high-performance innovation. We are looking for passionate individuals to join our global team and work on solving mission-critical technical challenges.

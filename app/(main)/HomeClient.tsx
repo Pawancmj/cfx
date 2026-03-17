@@ -8,6 +8,7 @@ import {
   BadgeCheck, FileCheck, Layers, Settings, FlaskConical
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/app/components/Hero";
 import Testimonials from "@/app/components/Testimonials";
 import CTA from "@/app/components/CTA";
@@ -48,7 +49,7 @@ const stats = [
 
 function StatsSection() {
   return (
-    <section className="relative py-16 md:py-24 section-bg-alt overflow-hidden">
+    <section className="relative py-8 md:py-12 section-bg-alt overflow-hidden">
       <div className="absolute inset-0 bg-dots opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -128,14 +129,14 @@ const certifications = [
 
 function CertificationsSection() {
   return (
-    <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-8 md:py-10 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-10"
         >
           <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Accreditations</h2>
           <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
@@ -196,28 +197,32 @@ const expertise = [
 
 function ExpertiseSection() {
   return (
-    <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-8 md:py-10 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-10"
+          className="flex flex-col lg:flex-row items-center justify-between mb-12 gap-10"
         >
           <div className="max-w-2xl border-l-4 border-primary pl-6">
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Capabilities</h2>
             <h3 className="text-3xl font-extrabold text-white sm:text-6xl leading-tight">
               Bridging the Gap Between <br />
-              <span className="text-gradient italic">Technology & Profitability</span>
+              <span className="text-gradient italic pb-1 inline-block pr-4">Technology & Profitability</span>
             </h3>
           </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-3 text-zinc-400 hover:text-white transition-all group font-bold uppercase tracking-[0.2em] text-xs glass-card px-6 py-3 border-white/5"
-          >
-            Explore Full Suite <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-primary" />
-          </Link>
+          
+          <div className="hidden lg:block relative w-full max-w-md h-[250px] group">
+            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
+            <Image 
+              src="/images/illustrations/core-capabilities.png" 
+              alt="Technology and Profitability" 
+              fill
+              className="object-cover rounded-3xl border border-white/10 shadow-2xl relative z-10 brightness-75 group-hover:brightness-100 transition-all duration-700"
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -277,10 +282,10 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative py-16 md:py-24 section-bg-dark overflow-hidden">
+    <section className="relative py-8 md:py-12 section-bg-dark overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -289,7 +294,7 @@ function ProcessSection() {
           >
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Method</h2>
             <h3 className="text-3xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
-              The Strategic <span className="text-gradient italic">Delivery Model</span>
+              The Strategic <span className="text-gradient italic pb-1 inline-block pr-6">Delivery Model</span>
             </h3>
             <p className="text-zinc-400 text-lg font-medium">
               We follow a battle-tested roadmap to ensure your project moves from vision to reality with absolute security and efficiency.
@@ -357,7 +362,7 @@ const articles = [
 
 function RecentArticlesSection() {
   return (
-    <section className="relative py-16 section-bg-dark border-b border-white/5">
+    <section className="relative py-8 section-bg-dark border-b border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-end mb-10">
           <div>

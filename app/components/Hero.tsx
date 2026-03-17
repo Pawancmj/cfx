@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 export default function Hero() {
     return (
-        <div id="hero" className="relative isolate min-h-screen pt-24 sm:pt-32 md:pt-40 pb-16 overflow-hidden section-bg-dark flex items-center">
+        <div id="hero" className="relative isolate min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 overflow-hidden section-bg-dark flex items-center">
             {/* Background Effects */}
             <div className="absolute inset-0 -z-10 bg-grid"></div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
                         className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.1] lg:leading-[1.05]"
                     >
                         Secure Your Vision, <br className="hidden sm:block" />
-                        <span className="text-gradient italic text-glow">Unlock Potential.</span>
+                        <span className="text-gradient italic text-glow inline-block pr-6">Unlock Potential.</span>
                     </motion.h1>
 
                     <motion.p

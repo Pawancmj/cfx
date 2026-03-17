@@ -91,8 +91,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                                 {/* Decorative line */}
                                 <div className="absolute -left-8 top-2 bottom-2 w-1 bg-gradient-to-b from-primary to-transparent rounded-full hidden md:block"></div>
 
-                                <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
-                                    <span className="text-gradient italic text-glow">{detailData.heroTitle || detailData.title}</span>
+                                <h1 className="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
+                                    <span className="text-gradient italic text-glow inline-block pr-8">{detailData.heroTitle || detailData.title}</span>
                                 </h1>
                                 <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl leading-relaxed font-medium mb-12 italic">
                                     {detailData.heroDescription}
@@ -317,7 +317,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
                         <h2 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-10 relative z-10 leading-tight">
                             Ready to secure your <br />
-                            <span className="text-gradient italic text-glow">digital future?</span>
+                            <span className="text-gradient italic text-glow inline-block pr-6">digital future?</span>
                         </h2>
                         <p className="text-xl text-zinc-300 mb-16 max-w-2xl mx-auto relative z-10 font-medium tracking-wide leading-relaxed">
                             Let&apos;s discuss how our specialized {detailData.title} teams can accelerate your enterprise objectives without compromising security.

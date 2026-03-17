@@ -49,7 +49,7 @@ export default function CaseStudiesClient() {
                         transition={{ duration: 1 }}
                     >
                         <h1 className="text-4xl font-extrabold tracking-tight text-white flex flex-col items-center sm:text-7xl mb-8 leading-[1.2]">
-                            Case  <br /> <span className="text-gradient italic text-glow">Studies</span>
+                            Case  <br /> <span className="text-gradient italic text-glow inline-block pr-6">Studies</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
                             Explore how we have engineered success for our partners through strategic innovation and uncompromising digital security.
