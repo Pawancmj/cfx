@@ -173,7 +173,7 @@ export default function TechCategories({ technologies }: TechCategoriesProps) {
                                         </div>
                                     ) : (
                                         /* SLEEK RECTANGULAR HUD MODULE FOR GENERIC TOOLS */
-                                        <div className="group/mod relative w-[110px] h-[54px] md:w-[130px] md:h-[62px] cursor-pointer bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-300 overflow-hidden flex items-center px-4 gap-2.5">
+                                        <div className="group/mod relative min-w-[110px] w-auto h-[54px] md:min-w-[130px] md:w-auto md:h-[62px] cursor-pointer bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-300 overflow-hidden flex items-center px-4 gap-2.5">
                                             {/* Scanning Line Animation */}
                                             <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/40 opacity-0 group-hover/mod:opacity-100 group-hover/mod:animate-[scan_2s_linear_infinite]" />
 

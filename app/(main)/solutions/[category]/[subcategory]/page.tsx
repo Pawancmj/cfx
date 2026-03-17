@@ -29,8 +29,8 @@ const iconMap: Record<string, React.ReactNode> = {
 export default async function SolutionDetailPage({ params }: PageProps) {
     const resolvedParams = await params;
     const categoryData = solutionsData[resolvedParams.category];
-    const detailData = categoryData?.subcategories.find(s => s.slug === resolvedParams.subcategory);
-    const relatedSolutions = categoryData?.subcategories.filter(s => s.slug !== resolvedParams.subcategory).slice(0, 3);
+    const detailData = categoryData?.subcategories.find((s: any) => s.slug === resolvedParams.subcategory);
+    const relatedSolutions = categoryData?.subcategories.filter((s: any) => s.slug !== resolvedParams.subcategory).slice(0, 3);
 
     if (!categoryData || !detailData) {
         return (
@@ -144,7 +144,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                         </MotionDiv>
 
                         <div className="grid gap-8 lg:grid-cols-2">
-                            {detailData.challengesVsSolutions.map((item, idx) => (
+                            {detailData.challengesVsSolutions.map((item: any, idx: number) => (
                                 <MotionDiv
                                     key={idx}
                                     initial={{ opacity: 0, y: 20 }}
@@ -203,7 +203,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                         </MotionDiv>
 
                         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            {detailData.features.map((feature, idx) => (
+                            {detailData.features.map((feature: any, idx: number) => (
                                 <MotionDiv
                                     key={idx}
                                     initial={{ opacity: 0, x: -30 }}
@@ -246,7 +246,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                             </MotionDiv>
 
                             <div className="relative space-y-16 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-white/5">
-                                {detailData.process.map((step, index) => {
+                                {detailData.process.map((step: any, index: number) => {
                                     // Extract just the number from the step string, defaulting to index + 1 if no number
                                     const stepNum = step.step.replace(/\D/g, '') || `0${index + 1}`;
                                     const formattedNum = stepNum.length === 1 ? `0${stepNum}` : stepNum;
@@ -302,7 +302,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                         </MotionDiv>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {detailData.portfolio.map((item, idx) => (
+                            {detailData.portfolio.map((item: any, idx: number) => (
                                 <MotionDiv
                                     key={idx}
                                     initial={{ opacity: 0, y: 20 }}
@@ -318,7 +318,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                     </h3>
 
                                     <div className="grid grid-cols-2 gap-6 relative z-10 mt-auto">
-                                        {item.metrics.map((metric, mIdx) => (
+                                        {item.metrics.map((metric: any, mIdx: number) => (
                                             <div key={mIdx}>
                                                 <div className="text-3xl font-black text-primary text-glow drop-shadow-[0_0_15px_rgba(0,242,255,0.6)] mb-2 tracking-tighter">
                                                     {metric.value}
@@ -351,7 +351,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                         </MotionDiv>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {relatedSolutions.map((solution, idx) => (
+                            {relatedSolutions.map((solution: any, idx: number) => (
                                 <Link href={`/solutions/${categoryData.slug}/${solution.slug}`} key={idx} className="block group h-full">
                                     <MotionDiv
                                         initial={{ opacity: 0, y: 20 }}

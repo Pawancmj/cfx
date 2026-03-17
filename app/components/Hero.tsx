@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 export default function Hero() {
     return (
-        <div id="hero" className="relative isolate min-h-screen pt-28 sm:pt-40 pb-16 overflow-hidden section-bg-dark flex items-center">
+        <div id="hero" className="relative isolate min-h-screen pt-24 sm:pt-32 md:pt-40 pb-16 overflow-hidden section-bg-dark flex items-center">
             {/* Background Effects */}
             <div className="absolute inset-0 -z-10 bg-grid"></div>
 
@@ -20,7 +20,7 @@ export default function Hero() {
                     y: [0, -30, 0]
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10"
+                className="absolute top-1/4 -left-20 w-72 h-72 md:w-96 md:h-96 bg-primary/20 blur-[80px] md:blur-[120px] rounded-full -z-10"
             />
             <motion.div
                 animate={{
@@ -30,7 +30,7 @@ export default function Hero() {
                     y: [0, 30, 0]
                 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full -z-10"
+                className="absolute bottom-1/4 -right-20 w-72 h-72 md:w-96 md:h-96 bg-secondary/20 blur-[80px] md:blur-[120px] rounded-full -z-10"
             />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
@@ -54,7 +54,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.8 }}
-                        className="text-4xl sm:text-7xl font-extrabold tracking-tight text-white leading-[1.1] sm:leading-[1.05]"
+                        className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.1] lg:leading-[1.05]"
                     >
                         Secure Your Vision, <br className="hidden sm:block" />
                         <span className="text-gradient italic text-glow">Unlock Potential.</span>

@@ -29,21 +29,21 @@ export default function MobileAccordion({
 
     return (
         <div className="flex flex-col border-b border-white/5 pb-4">
-            <div
-                className="flex justify-between items-center cursor-pointer py-2"
+            <button
+                className="flex justify-between items-center cursor-pointer py-2 w-full"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span
-                    className={`text-lg font-bold tracking-widest uppercase transition-colors ${isActive && !isOpen ? "text-primary" : "text-zinc-300 hover:text-primary"
+                    className={`text-base sm:text-lg font-bold tracking-widest uppercase transition-colors ${isActive && !isOpen ? "text-primary" : "text-zinc-300 hover:text-primary"
                         }`}
                 >
                     {label}
                 </span>
                 <ChevronDown
-                    className={`w-5 h-5 text-zinc-400 transition-transform duration-300 ${isOpen ? "rotate-180 text-primary" : ""
+                    className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180 text-primary" : "text-zinc-500"
                         }`}
                 />
-            </div>
+            </button>
 
             <div
                 className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[2000px] mt-4 opacity-100" : "max-h-0 opacity-0"
@@ -91,16 +91,19 @@ export default function MobileAccordion({
                                         >
                                             {exploreText} <ArrowRight className="w-3 h-3" />
                                         </Link>
-                                        {cat.links.map((l) => (
-                                            <Link
-                                                key={l.name}
-                                                href={l.href}
-                                                className="text-[13px] font-medium text-zinc-400 hover:text-white transition-colors block py-0.5"
-                                                onClick={onNavigate}
-                                            >
-                                                {l.name}
-                                            </Link>
-                                        ))}
+                                        <div className="flex flex-col gap-3">
+                                            {cat.links.map((l) => (
+                                                <Link
+                                                    key={l.name}
+                                                    href={l.href}
+                                                    onClick={onNavigate}
+                                                    className="text-[11px] sm:text-sm font-medium text-zinc-400 hover:text-primary transition-colors py-1 flex items-center gap-2"
+                                                >
+                                                    <div className="w-1 h-1 bg-primary/30 rounded-full shrink-0" />
+                                                    <span className="leading-tight">{l.name}</span>
+                                                </Link>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import CertificationClient from "./CertificationClient";
 
 export const metadata: Metadata = {
-  title: "Compliance & Certifications | Security Standards",
-  description: "Cyberforenx is committed to the highest security standards. Explore our elite international certifications including ISO 27001, ISO 9001, SOC 2 Type II, and more.",
-  keywords: ["Cyberforenx Certifications", "ISO 27001", "ISO 9001", "SOC 2 Type II", "Security Compliance", "Quality Management"],
+  title: "Careers | Join the Global Intelligence Team",
+  description: "Explore career opportunities at Cyberforenx. Join a world-class team of experts in digital forensics, web development, and cybersecurity. Grow your potential with us.",
+  keywords: ["Careers", "Jobs", "Hiring", "Cyberforenx", "Tech Opportunities", "Forensics Jobs", "Development Roles"],
 };
 
 export default function CertificationPage() {

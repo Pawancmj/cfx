@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Code, Shield, Zap, Smartphone, Layout, Database, Search, FileText, ShieldCheck, Target, Lock, Activity, ArrowUpRight } from "lucide-react";
+import { Metadata } from "next";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
 import TestimonialStack from "@/app/components/TestimonialStack";
@@ -26,6 +27,25 @@ interface PageProps {
     params: Promise<{
         category: string;
     }>;
+}
+
+import { constructMetadata } from "@/app/constants/seo";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const resolvedParams = await params;
+    const categoryData = servicesData[resolvedParams.category];
+    
+    if (!categoryData) {
+        return constructMetadata({
+            title: "Service Hub",
+            description: "Expert digital solutions by Cyberforenx."
+        });
+    }
+
+    return constructMetadata({
+        title: `${categoryData.title} | Service Hub`,
+        description: categoryData.overview,
+    });
 }
 
 export default async function ServiceCategoryPage({ params }: PageProps) {
@@ -77,7 +97,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                 <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">Enterprise Service Hub</span>
                             </MotionDiv>
 
-                            <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl mb-8 leading-[1.2] lg:leading-[1.1]">
+                            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl mb-8 leading-[1.2] lg:leading-[1.1] break-words">
                                 {categoryData.title.split(" ").slice(0, -1).join(" ")}{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary italic drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]">{categoryData.title.split(" ").slice(-1)}</span>
                             </h1>

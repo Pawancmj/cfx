@@ -11,7 +11,6 @@ import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategorie
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [forceHidden, setForceHidden] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -22,10 +21,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setForceHidden(true);
-  }, [pathname]);
 
   const isActive = (path: string) => pathname === path || pathname.startsWith(path + "/");
 
@@ -38,17 +33,17 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-full ${scrolled
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[92%] sm:w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-full ${scrolled
         ? "glass-nav h-16 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-white/20"
         : "bg-transparent h-20 border-transparent"
-        } flex items-center justify-between px-4 md:px-8`}
+        } flex items-center justify-between px-4 sm:px-6 md:px-8`}
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group shrink-0 w-auto">
         <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:scale-110 transition-transform">
           <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
         </div>
-        <span className="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
+        <span className="text-base sm:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors whitespace-nowrap">
           Cyberforenx
         </span>
       </Link>
@@ -117,19 +112,17 @@ export default function Navbar() {
               <div
                 key={link.name}
                 className="group/nav h-full flex items-center"
-                onMouseEnter={() => setForceHidden(false)}
-                onMouseLeave={() => setForceHidden(false)}
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
+                  className={`flex items-center gap-1 text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                 >
                   {link.name}
                   <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover/nav:rotate-180" />
                   <span className={`absolute bottom-4 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""}`}></span>
                 </Link>
 
-                <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none ${!forceHidden ? "group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto" : ""} transition-all duration-300 z-50`}>
+                <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50`}>
                   {/* Invisible bridge to keep hover active */}
                   <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
 
@@ -174,7 +167,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-xs font-bold uppercase tracking-widest transition-all relative group h-full flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
+              className={`text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all relative group h-full flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
             >
               {link.name}
               <span className={`absolute bottom-[calc(50%-1.25rem)] left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""}`}></span>
@@ -201,7 +194,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full mt-4 glass-card p-6 flex flex-col gap-6 lg:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[2rem] max-h-[85vh] overflow-y-auto section-bg-dark">
+        <div className="absolute top-full left-0 right-0 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 lg:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
@@ -267,7 +260,7 @@ export default function Navbar() {
               <div key={link.name} className="flex flex-col gap-4 border-b border-white/5 pb-2">
                 <Link
                   href={link.href}
-                  className={`text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
+                  className={`text-base sm:text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -292,11 +285,13 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-2"
+            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-2 py-4 shadow-[0_10px_30px_rgba(0,242,255,0.2)]"
             onClick={() => setIsOpen(false)}
           >
             Contact Us
           </Link>
+          {/* Bottom Spacer for rounded corners */}
+          <div className="h-4 w-full shrink-0" />
         </div>
       )}
     </nav>

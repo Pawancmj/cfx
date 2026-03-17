@@ -129,7 +129,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
 
                 {/* Subcategories Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[1fr] relative mb-32 z-20 pt-10">
-                    {categoryData.subcategories.map((sub, idx) => {
+                    {categoryData.subcategories.map((sub: any, idx: number) => {
                         return (
                             <MotionDiv
                                 key={sub.slug}
@@ -183,7 +183,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                             </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                                {categoryData.whyChooseUs?.map((item, idx) => (
+                                {categoryData.whyChooseUs?.map((item: any, idx: number) => (
                                     <div key={idx} className="glass-card p-10 hover:bg-white/10 transition-all duration-300 relative group border-white/5">
                                         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 group-hover:bg-primary transition-all duration-500 shadow-xl mx-auto mb-8">
                                             {iconMap[item.icon] || <CheckCircle2 className="h-8 w-8 text-primary group-hover:text-background transition-colors" />}
@@ -214,7 +214,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                             </MotionDiv>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                            {categoryData.process?.map((step, idx) => (
+                            {categoryData.process?.map((step: any, idx: number) => (
                                 <MotionDiv
                                     key={idx}
                                     initial={{ opacity: 0, y: 40 }}
@@ -263,7 +263,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10"
                         >
-                            {categoryData.metrics?.map((metric, idx) => (
+                            {categoryData.metrics?.map((metric: any, idx: number) => (
                                 <div key={idx} className="text-center group p-6 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/30">
                                     <div className="text-4xl font-extrabold text-white mb-2 tracking-tighter text-glow">
                                         {metric.value}

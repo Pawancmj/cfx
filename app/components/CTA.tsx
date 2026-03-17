@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 export default function CTA() {
     return (
-        <section className="relative isolate overflow-hidden section-bg-alt py-24 border-t border-white/5">
+        <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-t border-white/5">
             <div className="absolute inset-0 bg-dots opacity-20"></div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-center">

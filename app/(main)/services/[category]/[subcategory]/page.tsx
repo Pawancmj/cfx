@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Code, Shield, Zap, Smartphone, Layout, Database, Search, FileText, ShieldCheck, Target, Lock, Activity } from "lucide-react";
+import { Metadata } from "next";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
 
@@ -9,6 +10,26 @@ interface PageProps {
         category: string;
         subcategory: string;
     }>;
+}
+
+import { constructMetadata } from "@/app/constants/seo";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const resolvedParams = await params;
+    const categoryData = servicesData[resolvedParams.category];
+    const detailData = categoryData?.subcategories.find(s => s.slug === resolvedParams.subcategory);
+
+    if (!categoryData || !detailData) {
+        return constructMetadata({
+            title: "Expert Service Detail",
+            description: "Deep-dive into Cyberforenx specialized service capabilities."
+        });
+    }
+
+    return constructMetadata({
+        title: `${detailData.title} | ${categoryData.title}`,
+        description: detailData.heroDescription,
+    });
 }
 
 // Map string icon names to Lucide icons

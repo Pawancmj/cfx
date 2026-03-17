@@ -14,26 +14,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Cyberforenx - Digital Forensics & Web Development",
+    default: "Cyberforenx | Digital Forensics, Web Development & IT Security",
     template: "%s | Cyberforenx"
   },
-  description: "Securing your digital future with cutting-edge web & app development, digital forensics, and BPO solutions. Expert IT consulting and security across the globe.",
-  keywords: ["Cyberforenx", "CFX", "Digital Forensics", "Cybersecurity", "Web Development", "App Development", "BPO Solutions", "IT Consulting", "Forensic Investigation", "Data Recovery", "Cyber Investigation India"],
+  description: "Cyberforenx is a premier digital forensics and web development firm. We provide expert cybersecurity, data recovery, and custom software solutions to secure your digital vision.",
+  keywords: ["Cyberforenx", "Digital Forensics", "Cybersecurity", "Web Development", "App Development", "IT Consulting", "Data Recovery", "India"],
   authors: [{ name: "Cyberforenx Team" }],
   creator: "Cyberforenx",
   publisher: "Cyberforenx",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://cyberforenx.com"), // Replace with actual domain when live
+  metadataBase: new URL("https://cyberforenx.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Cyberforenx - Digital Forensics & Web Development",
-    description: "Securing your digital future with cutting-edge web & app development and digital forensics.",
+    description: "Securing your digital future with cutting-edge web development and forensic intelligence.",
     url: "https://cyberforenx.com",
     siteName: "Cyberforenx",
     locale: "en_US",
@@ -41,20 +36,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cyberforenx - Digital Forensics & Web Development",
-    description: "Securing your digital future with cutting-edge web & app development and digital forensics.",
+    title: "Cyberforenx | Securing Your Digital Vision",
+    description: "Expert Digital Forensics, Web Development, and Cybersecurity solutions.",
     creator: "@cyberforenx",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 };
 

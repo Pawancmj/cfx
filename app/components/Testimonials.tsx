@@ -150,7 +150,7 @@ export default function Testimonials() {
     }, [scrollRange, x, clampX, snapToNearest]);
 
     return (
-        <section className="relative py-24 section-bg-gradient overflow-hidden border-t border-white/5">
+        <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-t border-white/5">
             <div className="flex flex-col justify-center">
                 <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
 

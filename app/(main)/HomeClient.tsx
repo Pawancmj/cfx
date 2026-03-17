@@ -48,7 +48,7 @@ const stats = [
 
 function StatsSection() {
   return (
-    <section className="relative py-24 section-bg-alt overflow-hidden">
+    <section className="relative py-16 md:py-24 section-bg-alt overflow-hidden">
       <div className="absolute inset-0 bg-dots opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -56,7 +56,7 @@ function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-10"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -65,18 +65,18 @@ function StatsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center group p-6 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/30"
+              className="text-center group p-4 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/30"
             >
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-8 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
                 <stat.icon className={`h-8 w-8 ${stat.color} group-hover:text-background transition-colors`} />
               </div>
-              <div className="text-4xl font-extrabold text-white mb-2 tracking-tighter text-glow">
+              <div className="text-2xl sm:text-4xl font-extrabold text-white mb-2 tracking-tighter text-glow">
                 {stat.value}
               </div>
               <div className="text-xs font-bold uppercase tracking-[0.4em] text-primary/60 mb-5 group-hover:text-primary transition-colors">
                 {stat.label}
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed max-w-[220px] mx-auto font-medium italic">
+              <p className="text-zinc-400 text-[10px] sm:text-sm leading-relaxed max-w-[220px] mx-auto font-medium italic">
                 {stat.description}
               </p>
             </motion.div>
@@ -128,7 +128,7 @@ const certifications = [
 
 function CertificationsSection() {
   return (
-    <section className="relative py-24 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -196,7 +196,7 @@ const expertise = [
 
 function ExpertiseSection() {
   return (
-    <section className="relative py-24 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -277,7 +277,7 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative py-24 section-bg-dark overflow-hidden">
+    <section className="relative py-16 md:py-24 section-bg-dark overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -334,24 +334,24 @@ const articles = [
     excerpt: "Exploring how artificial intelligence is shaping proactive threat intelligence.",
     date: "Feb 24, 2026",
     readTime: "5 min read",
-    color: "group-hover:border-vibrant-pink/50",
-    iconColor: "text-vibrant-pink"
+    color: "group-hover:border-primary/50",
+    iconColor: "text-primary"
   },
   {
     title: "Zero Trust Architecture Explained",
     excerpt: "Why enterprises are moving towards strict access controls and continuous verification.",
     date: "Feb 18, 2026",
     readTime: "7 min read",
-    color: "group-hover:border-vibrant-indigo/50",
-    iconColor: "text-vibrant-indigo"
+    color: "group-hover:border-secondary/50",
+    iconColor: "text-secondary"
   },
   {
     title: "Cloud Migration Strategies",
     excerpt: "Best practices for moving legacy monoliths into cloud-native microservices.",
     date: "Feb 10, 2026",
     readTime: "6 min read",
-    color: "group-hover:border-vibrant-mint/50",
-    iconColor: "text-vibrant-mint"
+    color: "group-hover:border-accent/50",
+    iconColor: "text-accent"
   },
 ];
 
