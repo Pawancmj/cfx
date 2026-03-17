@@ -1,139 +1,148 @@
+"use client";
+
 import Link from "next/link";
-import { ShieldCheck, Facebook, Twitter, Linkedin, Instagram, Phone, Mail, ArrowRight, MapPin } from "lucide-react";
+import { 
+    ShieldCheck, Twitter, Linkedin, Instagram, 
+    Phone, Mail, MapPin, ArrowUpRight, 
+    Globe, Shield, Zap, Heart
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
-        <footer className="bg-background text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <footer className="relative pt-24 pb-12 overflow-hidden bg-[#05080a]">
+            {/* Olipop-inspired Vibrant Background Blobs */}
+            <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-[40%] left-[30%] w-[30%] h-[30%] bg-secondary/10 blur-[100px] rounded-full"></div>
+            </div>
 
-                    {/* Column 1: Brand */}
-                    <div className="flex flex-col gap-8">
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] transition-transform group-hover:scale-110">
-                                <ShieldCheck className="w-6 h-6 text-background" />
-                            </div>
-                            <span className="text-2xl font-bold tracking-tight text-glow">Cyberforenx</span>
-                        </Link>
-                        <p className="text-zinc-400 leading-relaxed text-sm font-medium">
-                            Empowering enterprise growth through strategic digital transformation, advanced forensics, and high-performance technical solutions.
-                        </p>
-                        <div className="flex gap-5">
-                            {[
-                                { Icon: Twitter, href: "https://x.com/Cyber_ForenX" },
-                                { Icon: Linkedin, href: "https://www.linkedin.com/company/cyberforenx-associate/?viewAsMember=true" },
-                                { Icon: Instagram, href: "https://www.instagram.com/cyberforenx/" }
-                            ].map(({ Icon, href }, i) => (
-                                <Link
-                                    key={i}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-12 h-12 flex items-center justify-center rounded-full glass-card border-white/10 text-zinc-400 hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 shadow-xl"
-                                >
-                                    <Icon className="w-5 h-5" />
+            <div className="container mx-auto px-6 relative z-10">
+                {/* Main Content Card */}
+                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3.5rem] p-8 md:p-16 mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
+                    {/* Floating Accent Line at top of card */}
+                    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                        
+                        {/* Brand Section */}
+                        <div className="lg:col-span-5 flex flex-col gap-10">
+                            <div>
+                                <Link href="/" className="flex items-center gap-3 group mb-8">
+                                    <div className="bg-primary p-2.5 rounded-2xl shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
+                                        <ShieldCheck className="w-7 h-7 text-black" />
+                                    </div>
+                                    <span className="text-3xl font-black tracking-tighter text-white uppercase italic">
+                                        Cyber<span className="text-primary">forenx</span>
+                                    </span>
                                 </Link>
-                            ))}
+                                <p className="text-xl font-medium text-zinc-400 leading-relaxed italic max-w-md">
+                                    Global Intelligence. <br />
+                                    <span className="text-white not-italic font-bold">Absolute Security.</span> <br />
+                                    <span className="text-accent uppercase text-xs tracking-[0.3em] font-black">Digital Guardians for the Modern Age.</span>
+                                </p>
+                            </div>
+
+                            <div className="flex gap-4">
+                                {[
+                                    { Icon: Twitter, href: "https://x.com/Cyber_ForenX", color: "hover:bg-primary hover:text-black" },
+                                    { Icon: Linkedin, href: "https://www.linkedin.com/company/cyberforenx-associate/", color: "hover:bg-secondary" },
+                                    { Icon: Instagram, href: "https://www.instagram.com/cyberforenx/", color: "hover:bg-accent hover:text-black" }
+                                ].map(({ Icon, href, color }, i) => (
+                                    <Link
+                                        key={i}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`w-14 h-14 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-zinc-300 transition-all duration-500 hover:text-white hover:-translate-y-2 hover:shadow-2xl ${color}`}
+                                    >
+                                        <Icon className="w-6 h-6" />
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Navigation Links Group */}
+                        <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
+                            {/* Ecosystem */}
+                            <div className="flex flex-col gap-8">
+                                <h4 className="text-xs font-black uppercase tracking-[0.4em] text-primary">Ecosystem</h4>
+                                <ul className="flex flex-col gap-4">
+                                    {['Home', 'Services', 'Solutions', 'Careers', 'Company'].map((item) => (
+                                        <li key={item}>
+                                            <Link 
+                                                href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
+                                                className="text-sm font-bold text-zinc-500 hover:text-accent transition-colors tracking-widest uppercase flex items-center gap-2 group"
+                                            >
+                                                <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-3"></span>
+                                                {item}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Expertise */}
+                            <div className="flex flex-col gap-8">
+                                <h4 className="text-xs font-black uppercase tracking-[0.4em] text-secondary">Expertise</h4>
+                                <ul className="flex flex-col gap-4">
+                                    {['Forensics', 'Security', 'Cloud', 'Analytics', 'DevOps'].map((item) => (
+                                        <li key={item} className="text-sm font-bold text-zinc-500 cursor-default hover:text-secondary transition-colors tracking-widest uppercase">
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Contact Card Inside Footer */}
+                            <div className="col-span-2 md:col-span-1 flex flex-col gap-8">
+                                <h4 className="text-xs font-black uppercase tracking-[0.4em] text-accent">Connect</h4>
+                                <div className="flex flex-col gap-6">
+                                    <div className="group cursor-pointer">
+                                        <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Direct Line</p>
+                                        <a href="tel:+919990751991" className="text-sm font-bold text-white group-hover:text-accent transition-colors">+91 9990751991</a>
+                                    </div>
+                                    <div className="group cursor-pointer">
+                                        <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Official Mail</p>
+                                        <a href="mailto:contact@cyberforenx.in" className="text-sm font-bold text-white group-hover:text-accent transition-colors truncate block">contact@cyberforenx.in</a>
+                                    </div>
+                                    <div className="group cursor-pointer">
+                                        <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Global HQ</p>
+                                        <address className="text-xs font-bold text-zinc-400 leading-relaxed not-italic group-hover:text-white transition-colors">
+                                            74A, Avni Vihar, Ghaziabad,<br />Uttar Pradesh, India
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Column 2: Ecosystem */}
-                    <div>
-                        <h3 className="text-white font-bold uppercase tracking-[0.4em] text-xs mb-8 border-l-4 border-primary pl-4">Ecosystem</h3>
-                        <ul className="flex flex-col gap-5">
-                            {[
-                                { label: "Home", href: "/" },
-                                { label: "Services", href: "/services" },
-                                { label: "Solutions", href: "/solutions" },
-                                { label: "Case Studies", href: "/case-studies" },
-                                { label: "Resources", href: "/resources" },
-                                { label: "Company", href: "/company" },
-                            ].map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-zinc-400 hover:text-primary transition-all flex items-center gap-3 group text-xs font-bold uppercase tracking-[0.2em]"
-                                    >
-                                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-primary" />
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                    {/* Fun Floating Icons Background Decoration */}
+                    <div className="absolute bottom-[-20px] right-[10%] opacity-5 -z-10 group-hover:bg-red-500">
+                         <Shield className="w-64 h-64 text-white rotate-12" />
                     </div>
-
-                    {/* Column 3: Expertise */}
-                    <div>
-                        <h3 className="text-white font-bold uppercase tracking-[0.4em] text-xs mb-8 border-l-4 border-primary pl-4">Expertise</h3>
-                        <ul className="flex flex-col gap-5">
-                            {[
-                                "Digital Transformation",
-                                "Strategic Consulting",
-                                "Enterprise Security",
-                                "Forensic Analysis",
-                                "Cloud Infrastructure"
-                            ].map((service) => (
-                                <li key={service} className="text-zinc-400 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.15em] group cursor-default">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,242,255,0.6)] group-hover:scale-150 transition-transform" />
-                                    {service}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Column 4: Connect */}
-                    <div>
-                        <h3 className="text-white font-bold uppercase tracking-[0.4em] text-xs mb-8 border-l-4 border-primary pl-4">Connect</h3>
-                        <ul className="flex flex-col gap-8 text-sm">
-                            <li className="flex items-start gap-5 group">
-                                <div className="p-3 rounded-2xl glass-card border-white/10 group-hover:border-primary/40 transition-all duration-300 shadow-xl group-hover:bg-primary/5">
-                                    <Phone className="w-5 h-5 text-primary" />
-                                </div>
-                                <div className="pt-1">
-                                    <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Corporate Hotline</p>
-                                    <a href="tel:+919990751991" className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">+91 9990751991</a>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-5 group">
-                                <div className="p-3 rounded-2xl glass-card border-white/10 group-hover:border-primary/40 transition-all duration-300 shadow-xl group-hover:bg-primary/5">
-                                    <Mail className="w-5 h-5 text-primary" />
-                                </div>
-                                <div className="pt-1">
-                                    <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Inquiries</p>
-                                    <a href="mailto:contact@cyberforenx.in" className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white">contact@cyberforenx.in</a>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-5 group">
-                                <div className="p-3 rounded-2xl glass-card border-white/10 group-hover:border-primary/40 transition-all duration-300 shadow-xl group-hover:bg-primary/5 mt-1">
-                                    <MapPin className="w-5 h-5 text-primary shrink-0" />
-                                </div>
-                                <div className="pt-1">
-                                    <p className="text-zinc-500 text-xs uppercase font-bold tracking-[0.2em] mb-2">Office</p>
-                                    <address className="text-zinc-200 font-bold uppercase tracking-[0.1em] text-xs transition-colors group-hover:text-white not-italic leading-relaxed">
-                                        74A, Avni Vihar,<br />
-                                        Near Guldhar Metro Station,<br />
-                                        Meerut Road, Ghaziabad,<br />
-                                        Uttar Pradesh, India
-                                    </address>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
                 </div>
 
-                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-zinc-500 text-xs font-bold uppercase tracking-[0.4em]">
-                        &copy; 2026 CYBERFORENX SYSTEMS. <span className="text-primary/40">ARCHITECTING THE FUTURE.</span>
-                    </p>
-                    <div className="flex gap-8 text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">
-                        <Link href="#" className="hover:text-primary transition-colors hover:tracking-[0.3em]">Privacy Framework</Link>
-                        <Link href="#" className="hover:text-primary transition-colors hover:tracking-[0.3em]">Terms of Engagement</Link>
+                {/* Bottom Bar */}
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-6 border-t border-white/5">
+                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
+                        <span>&copy; 2026 CYBERFORENX</span>
+                        <span className="h-1 w-1 rounded-full bg-zinc-700"></span>
+                        <span className="text-primary">DESIGNED WITH PASSION</span>
+                    </div>
+                    
+                    <div className="flex gap-8">
+                        <Link href="#" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</Link>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 group cursor-default">
+                        <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 group-hover:text-accent transition-colors">Systems Operational</span>
                     </div>
                 </div>
             </div>
         </footer>
     );
 }
-

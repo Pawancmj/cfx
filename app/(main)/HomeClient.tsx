@@ -11,6 +11,7 @@ import Link from "next/link";
 import Hero from "@/app/components/Hero";
 import Testimonials from "@/app/components/Testimonials";
 import CTA from "@/app/components/CTA";
+import { cn } from "@/lib/utils";
 
 // --- Consolidated Home Components ---
 
@@ -333,18 +334,24 @@ const articles = [
     excerpt: "Exploring how artificial intelligence is shaping proactive threat intelligence.",
     date: "Feb 24, 2026",
     readTime: "5 min read",
+    color: "group-hover:border-vibrant-pink/50",
+    iconColor: "text-vibrant-pink"
   },
   {
     title: "Zero Trust Architecture Explained",
     excerpt: "Why enterprises are moving towards strict access controls and continuous verification.",
     date: "Feb 18, 2026",
     readTime: "7 min read",
+    color: "group-hover:border-vibrant-indigo/50",
+    iconColor: "text-vibrant-indigo"
   },
   {
     title: "Cloud Migration Strategies",
     excerpt: "Best practices for moving legacy monoliths into cloud-native microservices.",
     date: "Feb 10, 2026",
     readTime: "6 min read",
+    color: "group-hover:border-vibrant-mint/50",
+    iconColor: "text-vibrant-mint"
   },
 ];
 
@@ -372,14 +379,17 @@ function RecentArticlesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group glass-card p-6 flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 hover:border-primary/30 transition-all cursor-pointer border-white/5 rounded-3xl"
+              className={cn(
+                "group glass-card p-6 flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all cursor-pointer border-white/5 rounded-3xl",
+                article.color
+              )}
             >
               <div>
                 <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>
                 </div>
-                <h4 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                <h4 className={cn("text-lg font-bold text-white mb-3 transition-colors leading-tight", `group-hover:${article.iconColor}`)}>
                   {article.title}
                 </h4>
                 <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
@@ -387,7 +397,7 @@ function RecentArticlesSection() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-2 mt-auto">
-                <span className="text-xs font-black tracking-widest uppercase text-primary/60 group-hover:text-primary transition-colors flex items-center gap-2">Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2 transition-colors", `${article.iconColor}/60 group-hover:${article.iconColor}`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
               </div>
             </motion.div>
           ))}
