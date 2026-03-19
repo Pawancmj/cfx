@@ -117,7 +117,7 @@ export default function CareersClient() {
     };
 
     return (
-        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
+        <main className="relative min-h-screen section-bg-dark pt-24 sm:pt-32 pb-10 overflow-hidden text-zinc-100">
             {/* Background effects */}
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="absolute right-0 top-0 -z-10 h-[800px] w-[800px] bg-primary/10 blur-[160px] rounded-full"></div>
@@ -125,7 +125,7 @@ export default function CareersClient() {
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
                 {/* Hero Section */}
-                <div className="text-center max-w-4xl mx-auto mb-20">
+                <div className="text-center max-w-4xl mx-auto mb-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ export default function CareersClient() {
                 </div>
 
                 {/* Cultural Benefits Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
                     {benefits.map((item, i) => (
                         <motion.div
                             key={item.title}
@@ -170,8 +170,8 @@ export default function CareersClient() {
                 </div>
 
                 {/* Openings Section - Now Dynamic */}
-                <div className="mb-32">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+                <div className="mb-10">
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-6 gap-6">
                         <div className="flex items-center gap-4">
                             <div className="h-10 w-1.5 bg-primary rounded-full shadow-[0_0_15px_rgba(0,242,255,0.5)]"></div>
                             <h2 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow">Active Opportunities</h2>
@@ -246,8 +246,8 @@ export default function CareersClient() {
                 </div>
 
                 {/* Hiring Process Section */}
-                <div className="mb-32">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="mb-10">
+                    <div className="text-center max-w-3xl mx-auto mb-8">
                         <h2 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow mb-6">Our Selection Process</h2>
                         <p className="text-zinc-500 font-medium tracking-wide">Straightforward, transparent, and focused on finding the next generation of technical leaders.</p>
                     </div>
@@ -275,7 +275,7 @@ export default function CareersClient() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="p-16 sm:p-20 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden group shadow-2xl border border-white/10"
+                    className="p-8 sm:p-10 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden group shadow-2xl border border-white/10"
                 >
                     <div className="absolute inset-0 bg-dots opacity-20"></div>
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
-        <footer className="relative pt-24 pb-12 overflow-hidden bg-[#05080a]">
+        <footer className="relative pt-10 pb-6 overflow-hidden bg-[#05080a]">
             {/* Olipop-inspired Vibrant Background Blobs */}
             <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
@@ -20,14 +20,14 @@ export default function Footer() {
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Main Content Card */}
-                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3.5rem] p-8 md:p-16 mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
+                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3.5rem] p-6 md:p-10 mb-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
                     {/* Floating Accent Line at top of card */}
                     <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-secondary to-accent"></div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
                         
                         {/* Brand Section */}
-                        <div className="lg:col-span-5 flex flex-col gap-10">
+                        <div className="lg:col-span-5 flex flex-col gap-6">
                             <div>
                                 <Link href="/" className="flex items-center gap-3 group mb-8">
                                     <div className="bg-primary p-2.5 rounded-2xl shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
@@ -64,7 +64,7 @@ export default function Footer() {
                         </div>
 
                         {/* Navigation Links Group */}
-                        <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
+                        <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-6">
                             {/* Ecosystem */}
                             <div className="flex flex-col gap-8">
                                 <h4 className="text-xs font-black uppercase tracking-[0.4em] text-primary">Ecosystem</h4>

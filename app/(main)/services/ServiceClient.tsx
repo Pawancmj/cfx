@@ -182,7 +182,7 @@ function AnimatedCounter({
 
 export default function ServicesClient() {
   return (
-    <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
+    <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-28 pb-10 overflow-hidden text-zinc-100">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="absolute left-1/4 top-1/4 -z-10 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[160px]"></div>
@@ -214,7 +214,7 @@ export default function ServicesClient() {
         </motion.div>
 
         {/* 1. Animated Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {[
             {
               title: "Uptime Guaranteed",
@@ -268,7 +268,7 @@ export default function ServicesClient() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-start">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -345,14 +345,14 @@ export default function ServicesClient() {
       </div>
 
       {/* Tech Marquee Section */}
-      <div className="w-full mb-32 section-bg-alt py-20 border-y border-white/5 relative">
+      <div className="w-full mb-10 section-bg-alt py-8 border-y border-white/5 relative">
         <div className="absolute inset-0 bg-dots opacity-10"></div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-24 max-w-3xl mx-auto px-6 relative z-10"
+          className="text-center mb-8 max-w-3xl mx-auto px-6 relative z-10"
         >
           <h2 className="text-5xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow">
             Technologies We <br /> <span className="text-gradient italic inline-block pr-6">Command</span>
@@ -413,12 +413,12 @@ export default function ServicesClient() {
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="mb-20">
+        <div className="mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-20 max-w-3xl mx-auto"
+            className="text-center mb-10 max-w-3xl mx-auto"
           >
             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Process</h2>
             <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">How We Deliver</h3>
@@ -465,7 +465,7 @@ export default function ServicesClient() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20 rounded-[3.5rem] section-bg-gradient p-12 sm:p-20 text-center relative overflow-hidden shadow-2xl border border-white/10 group"
+          className="mb-10 rounded-[3.5rem] section-bg-gradient p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl border border-white/10 group"
         >
           <div className="absolute inset-0 bg-dots opacity-20 group-hover:opacity-30 transition-opacity"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-50"></div>

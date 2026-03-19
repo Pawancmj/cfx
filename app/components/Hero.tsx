@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 export default function Hero() {
     return (
-        <div id="hero" className="relative isolate min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 overflow-hidden section-bg-dark flex items-center">
+        <div id="hero" className="relative isolate min-h-screen pt-20 sm:pt-24 md:pt-28 pb-8 overflow-hidden section-bg-dark flex items-center">
             {/* Background Effects */}
             <div className="absolute inset-0 -z-10 bg-grid"></div>
 
@@ -20,7 +20,7 @@ export default function Hero() {
                     y: [0, -30, 0]
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/4 -left-20 w-72 h-72 md:w-96 md:h-96 bg-primary/20 blur-[80px] md:blur-[120px] rounded-full -z-10"
+                className="absolute top-1/4 left-0 w-64 h-64 md:w-80 md:h-80 bg-primary/20 blur-[80px] md:blur-[120px] rounded-full -z-10 pointer-events-none"
             />
             <motion.div
                 animate={{
@@ -30,7 +30,7 @@ export default function Hero() {
                     y: [0, 30, 0]
                 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-1/4 -right-20 w-72 h-72 md:w-96 md:h-96 bg-secondary/20 blur-[80px] md:blur-[120px] rounded-full -z-10"
+                className="absolute bottom-1/4 right-0 w-64 h-64 md:w-80 md:h-80 bg-secondary/20 blur-[80px] md:blur-[120px] rounded-full -z-10 pointer-events-none"
             />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
@@ -57,7 +57,7 @@ export default function Hero() {
                         className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.1] lg:leading-[1.05]"
                     >
                         Secure Your Vision, <br className="hidden sm:block" />
-                        <span className="text-gradient italic text-glow inline-block pr-6">Unlock Potential.</span>
+                        <span className="text-gradient italic text-glow inline-block">Unlock Potential.</span>
                     </motion.h1>
 
                     <motion.p
@@ -73,7 +73,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
-                        className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-8"
+                        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
                     >
                         <Link
                             href="/contact"

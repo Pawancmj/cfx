@@ -44,7 +44,7 @@ export default function ContactClient() {
     };
 
     return (
-        <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
+        <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-24 pb-10 overflow-hidden text-zinc-100">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-grid opacity-20"></div>
             <div className="absolute left-1/3 top-1/4 -z-10 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[160px]"></div>
@@ -75,13 +75,13 @@ export default function ContactClient() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     {/* Contact Form */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="glass-card p-6 sm:p-10 rounded-[2rem] border-white/10 shadow-3xl relative overflow-hidden"
+                        className="glass-card p-6 sm:p-8 rounded-[2rem] border-white/10 shadow-3xl relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full"></div>
 

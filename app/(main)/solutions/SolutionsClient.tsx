@@ -49,7 +49,7 @@ export default function SolutionsClient() {
         <main className="min-h-screen bg-black text-white selection:bg-primary/30 font-sans">
             
             {/* HERO SECTION */}
-            <section className="relative isolate min-h-screen pt-28 sm:pt-40 pb-16 overflow-hidden section-bg-dark flex items-center border-b border-white/5">
+            <section className="relative isolate min-h-screen pt-24 sm:pt-32 pb-10 overflow-hidden section-bg-dark flex items-center border-b border-white/5">
                 <div className="absolute inset-0 -z-10 bg-grid"></div>
 
                 <motion.div
@@ -105,7 +105,7 @@ export default function SolutionsClient() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-14"
+                        className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
                     >
                         <div className="text-center group">
                             <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">100+</div>
@@ -136,10 +136,10 @@ export default function SolutionsClient() {
             </section>
 
             {/* 1. THE CYBERFORENX ADVANTAGE */}
-            <section className="py-24 section-bg-alt border-b border-white/5 relative overflow-hidden">
+            <section className="py-10 section-bg-alt border-b border-white/5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-dots opacity-20"></div>
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-16 max-w-2xl mx-auto">
+                    <div className="text-center mb-8 max-w-2xl mx-auto">
                          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Pillars</h2>
                           <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The Cyberforenx Advantage</h3>
                          <p className="text-zinc-400 font-medium">Why world-leading organizations trust us out-of-the-box.</p>
@@ -167,9 +167,9 @@ export default function SolutionsClient() {
             </section>
 
             {/* 2. INTERACTIVE SOLUTION SELECTOR */}
-            <section id="solutions" className="py-32 relative section-bg-dark border-b border-white/5">
+            <section id="solutions" className="py-12 relative section-bg-dark border-b border-white/5">
                 <div className="container mx-auto px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Suite</h2>
                             <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Tailored Solutions</h3>
@@ -180,7 +180,7 @@ export default function SolutionsClient() {
                     </div>
 
                     {/* Filter Tabs */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
                         {solutionsCategories.map((cat) => (
                             <button
                                 key={cat.title}
@@ -247,10 +247,10 @@ export default function SolutionsClient() {
             </section>
 
             {/* 3. DEPLOYMENT PROCESS (TIMELINE) */}
-            <section className="py-32 section-bg-alt border-b border-white/5 relative overflow-hidden">
+            <section className="py-10 section-bg-alt border-b border-white/5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-dots opacity-20"></div>
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-24 max-w-3xl mx-auto">
+                    <div className="text-center mb-10 max-w-3xl mx-auto">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-secondary mb-4">How It Works</h2>
                         <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">Seamless Integration Strategy</h3>
                         <p className="text-zinc-400 font-medium">
@@ -292,10 +292,10 @@ export default function SolutionsClient() {
             </section>
 
             {/* 4. FEATURED CASE STUDIES (GRID) */}
-            <section className="py-32 section-bg-dark relative overflow-hidden">
+            <section className="py-10 section-bg-dark relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-20"></div>
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Proven Results</h2>
                             <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Featured Case Studies</h3>
@@ -305,7 +305,7 @@ export default function SolutionsClient() {
                          </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                         {[
                             { title: "Global Financial Infrastructure", metric: "$85M", metricLabel: "Capital Protected", tags: ["Finance", "Zero-Trust"] },
                             { title: "National Defense Network", metric: "99.9%", metricLabel: "Threat Mitigation", tags: ["Gov", "Forensics"] },
@@ -377,7 +377,7 @@ export default function SolutionsClient() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="p-16 sm:p-20 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden group shadow-2xl border border-white/10 mt-32"
+                        className="p-8 sm:p-12 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden group shadow-2xl border border-white/10 mt-10"
                     >
                         <div className="absolute inset-0 bg-dots opacity-20"></div>
                         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>

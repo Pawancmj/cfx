@@ -49,7 +49,7 @@ const stats = [
 
 function StatsSection() {
   return (
-    <section className="relative py-8 md:py-12 section-bg-alt overflow-hidden">
+    <section className="relative py-6 md:py-8 section-bg-alt overflow-hidden">
       <div className="absolute inset-0 bg-dots opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -57,7 +57,7 @@ function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-10"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -66,15 +66,15 @@ function StatsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center group p-4 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/30"
+              className="text-center group p-4 sm:p-6 glass-card hover:bg-white/10 hover:border-primary/30"
             >
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-8 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-4 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
                 <stat.icon className={`h-8 w-8 ${stat.color} group-hover:text-background transition-colors`} />
               </div>
               <div className="text-2xl sm:text-4xl font-extrabold text-white mb-2 tracking-tighter text-glow">
                 {stat.value}
               </div>
-              <div className="text-xs font-bold uppercase tracking-[0.4em] text-primary/60 mb-5 group-hover:text-primary transition-colors">
+              <div className="text-xs font-bold uppercase tracking-[0.4em] text-primary/60 mb-2 group-hover:text-primary transition-colors">
                 {stat.label}
               </div>
               <p className="text-zinc-400 text-[10px] sm:text-sm leading-relaxed max-w-[220px] mx-auto font-medium italic">
@@ -129,14 +129,14 @@ const certifications = [
 
 function CertificationsSection() {
   return (
-    <section className="relative py-8 md:py-10 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-6 md:py-8 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-2xl mx-auto mb-10"
+          className="text-center max-w-2xl mx-auto mb-8"
         >
           <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Accreditations</h2>
           <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
@@ -147,7 +147,7 @@ function CertificationsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
@@ -155,9 +155,9 @@ function CertificationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="group glass-card p-6 sm:p-10 hover:bg-white/10 hover:border-primary/40 transition-all text-center"
+              className="group glass-card p-5 sm:p-7 hover:bg-white/10 hover:border-primary/40 transition-all text-center"
             >
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-8 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-4 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
                 <cert.icon className={`h-8 w-8 ${cert.color} group-hover:text-background transition-colors`} />
               </div>
               <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors uppercase">
@@ -197,14 +197,14 @@ const expertise = [
 
 function ExpertiseSection() {
   return (
-    <section className="relative py-8 md:py-10 section-bg-gradient overflow-hidden border-y border-white/5">
+    <section className="relative py-6 md:py-8 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col lg:flex-row items-center justify-between mb-12 gap-10"
+          className="flex flex-col lg:flex-row items-center justify-between mb-8 gap-6"
         >
           <div className="max-w-2xl border-l-4 border-primary pl-6">
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Capabilities</h2>
@@ -225,7 +225,7 @@ function ExpertiseSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {expertise.map((item, index) => (
             <motion.div
               key={item.title}
@@ -233,9 +233,9 @@ function ExpertiseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="glass-card p-6 sm:p-10 hover:bg-white/10 hover:border-primary/40 group relative"
+              className="glass-card p-5 sm:p-7 hover:bg-white/10 hover:border-primary/40 group relative"
             >
-              <div className="mb-12 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 group-hover:bg-primary transition-all duration-500 shadow-xl">
+              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10 group-hover:bg-primary transition-all duration-500 shadow-xl">
                 <item.icon className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
               </div>
               <h4 className="text-xl sm:text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-primary transition-colors">{item.title}</h4>
@@ -282,10 +282,10 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative py-8 md:py-12 section-bg-dark overflow-hidden">
+    <section className="relative py-6 md:py-8 section-bg-dark overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -301,7 +301,7 @@ function ProcessSection() {
             </p>
           </motion.div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -309,10 +309,10 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="relative group text-center p-8 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/50"
+              className="relative group text-center p-5 sm:p-7 glass-card hover:bg-white/10 hover:border-primary/50"
             >
-              <div className="mb-10 relative inline-flex">
-                <div className={`h-24 w-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500 relative z-10 shadow-2xl`}>
+              <div className="mb-5 relative inline-flex">
+                <div className={`h-20 w-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500 relative z-10 shadow-2xl`}>
                   <step.icon className={`h-10 w-10 text-primary group-hover:text-background transition-colors`} />
                 </div>
                 <div className="absolute -top-2 -right-2 h-10 w-10 rounded-full bg-primary text-background flex items-center justify-center text-sm font-bold shadow-2xl z-20 group-hover:bg-white transition-colors">
@@ -362,9 +362,9 @@ const articles = [
 
 function RecentArticlesSection() {
   return (
-    <section className="relative py-8 section-bg-dark border-b border-white/5">
+    <section className="relative py-6 section-bg-dark border-b border-white/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="flex justify-between items-end mb-10">
+        <div className="flex justify-between items-end mb-6">
           <div>
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
             <h3 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow">
