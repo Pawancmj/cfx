@@ -182,77 +182,74 @@ function AnimatedCounter({
 
 export default function ServicesClient() {
   return (
-    <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-28 pb-10 overflow-hidden text-zinc-100">
+    <main className="min-h-screen bg-black text-white selection:bg-primary/30 font-sans">
+      <section className="relative isolate min-h-screen pt-24 sm:pt-32 pb-10 overflow-hidden section-bg-dark flex items-center border-b border-white/5">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-grid opacity-20"></div>
       <div className="absolute left-1/4 top-1/4 -z-10 h-[800px] w-[800px] rounded-full bg-primary/10 blur-[160px]"></div>
       <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] bg-secondary/10 blur-[140px] rounded-full"></div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
         {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-8"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Capabilities</span>
-          </motion.div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-8 leading-[1.2] sm:leading-[1.1]">
-            Uncompromising <br />
-            <span className="text-gradient italic text-glow inline-block pr-6">Service Models</span>
-          </h1>
-          <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
-            Comprehensive digital solutions designed to propel your business forward. From internal software systems to global enterprise security architecture.
-          </p>
+          <Sparkles className="w-4 h-4 text-primary" />
+          <span className="text-xs font-bold uppercase tracking-widest text-primary/80">Global Capabilities</span>
         </motion.div>
+        
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.2] lg:leading-[1.1]"
+        >
+          Uncompromising <br className="hidden sm:block" />
+          <span className="text-gradient italic text-glow inline-block pr-6">Service Models</span>
+        </motion.h1>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap flex items-center justify-center gap-2"
+        >
+          Comprehensive digital solutions designed to propel your business forward. From internal software systems to global enterprise security architecture.
+        </motion.p>
 
         {/* 1. Animated Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {[
-            {
-              title: "Uptime Guaranteed",
-              value: 99.9,
-              suffix: "%",
-              desc: "Enterprise Infrastructure",
-            },
-            {
-              title: "Successful Projects",
-              value: 50,
-              suffix: "+",
-              desc: "Global Delivery",
-            },
-            {
-              title: "Security Monitoring",
-              value: 24,
-              suffix: "/7",
-              desc: "Active Threat Protection",
-            },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="glass-card p-8 sm:p-10 text-center group border-white/5"
-            >
-              <div className="text-4xl sm:text-6xl font-black text-primary mb-6 text-glow group-hover:scale-110 transition-transform">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              </div>
-              <h3 className="text-xs font-bold text-white uppercase tracking-[0.3em] mb-4 border-t border-white/10 pt-8 w-full">
-                {stat.title}
-              </h3>
-              <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest">{stat.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
+        >
+          <div className="text-center group">
+            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+              <AnimatedCounter value={99.9} suffix="%" />
+            </div>
+            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Uptime Guaranteed</div>
+          </div>
+          <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+          <div className="text-center group">
+            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+              <AnimatedCounter value={50} suffix="+" />
+            </div>
+            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Successful Projects</div>
+          </div>
+          <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+          <div className="text-center group">
+            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+              <AnimatedCounter value={24} suffix="/7" />
+            </div>
+            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Security Monitoring</div>
+          </div>
+        </motion.div>
+      </div>
+      </section>
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-16">
 
         {/* 2. Expandable Services Grid */}
         <motion.div
