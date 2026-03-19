@@ -79,13 +79,17 @@ export default async function ResourceDynamicPage({ params }: Props) {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-[#05080a]/60 to-transparent z-10"></div>
                     <img
                         src={
-                            category === 'blogs'
-                                ? 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600&h=900' // Cyber/Tech
-                                : category === 'news'
-                                    ? 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600&h=900' // Global/Network
-                                    : category === 'articles'
-                                        ? 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600&h=900' // Data/Globe
-                                        : 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600&h=900' // Matrix/Code
+                            slug.includes('ai') || slug.includes('automation')
+                                ? 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600'
+                                : slug.includes('cloud') || slug.includes('migration')
+                                    ? 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600'
+                                    : slug.includes('fintech') || slug.includes('upi') || slug.includes('payment')
+                                        ? 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1600'
+                                        : slug.includes('cyber') || slug.includes('security') || slug.includes('trust')
+                                            ? 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600'
+                                            : slug.includes('data') || slug.includes('analytics')
+                                                ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600'
+                                                : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600'
                         }
                         alt={`${title} banner`}
                         loading="lazy"
@@ -108,14 +112,14 @@ export default async function ResourceDynamicPage({ params }: Props) {
 
                         {category === 'blogs' && (
                             <div className="mt-12 bg-[#0a0f14] p-8 rounded-3xl border border-white/5 shadow-lg">
-                                <h3 className="text-2xl font-semibold mb-4 text-white mt-0">Industry Perspectives</h3>
+                                <h3 className="text-2xl font-semibold mb-4 text-white mt-0">Strategic Insights</h3>
                                 <p className="text-zinc-400 mb-8">
-                                    Our analysts dive deep into the microservices and macroeconomic trends dictating modern security postures. As <span className="text-zinc-300">{title}</span> becomes a focal point for C-suite discussions, integrating these insights natively into your workflow remains paramount.
+                                    As digital transformation accelerates across India, businesses must stay ahead of the curve. Whether it's the <strong>UPI revolution</strong> or <strong>Zero Trust security</strong>, our deep-dive analysis provides the clarity needed for executive decision-making.
                                 </p>
                                 <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl">
                                     <img
-                                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800&h=600"
-                                        alt="Analytics dashboard showing cyber trends"
+                                        src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800"
+                                        alt="Fintech and Digital Transformation"
                                         loading="lazy"
                                         className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 m-0"
                                     />
@@ -125,23 +129,23 @@ export default async function ResourceDynamicPage({ params }: Props) {
 
                         {category === 'articles' && (
                             <div className="mt-12">
-                                <h3 className="text-2xl font-semibold mb-4 text-white">Research & Methodology</h3>
+                                <h3 className="text-2xl font-semibold mb-4 text-white">Methodology & Performance</h3>
                                 <p className="mb-8">
-                                    Backed by extensive field research, this article deconstructs the mechanisms driving {title}. We evaluate real-world scenarios to extract actionable data points that form the bedrock of resilient enterprise infrastructure.
+                                    Our research deconstructs the mechanisms driving {title}. In a landscape governed by the <strong>DPDP Act</strong> and rapid technological shifts, we provide actionable data points that form the bedrock of resilient enterprise infrastructure.
                                 </p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-10">
                                     <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0a0f14]">
                                         <img
-                                            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=400&h=400"
-                                            alt="Hardware Code execution"
+                                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400"
+                                            alt="Cloud Infrastructure"
                                             loading="lazy"
                                             className="w-full h-[250px] object-cover hover:scale-110 transition-transform duration-700 m-0"
                                         />
                                     </div>
                                     <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0a0f14]">
                                         <img
-                                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400&h=400"
-                                            alt="Secure Server Racks"
+                                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400"
+                                            alt="Data Analytics"
                                             loading="lazy"
                                             className="w-full h-[250px] object-cover hover:scale-110 transition-transform duration-700 m-0"
                                         />

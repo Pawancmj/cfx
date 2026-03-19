@@ -7,32 +7,44 @@ import { cn } from "../../../lib/utils";
 
 const resources = [
     {
-        title: "Cyber Security Threat Report 2026",
+        title: "AI Adoption Framework 2026",
         type: "Whitepaper",
-        description: "An in-depth analysis of emerging digital threats and how enterprises can build resilient defense mechanisms.",
+        description: "A strategic roadmap for Indian businesses to implement generative AI and automation to slash operational costs.",
         icon: FileText,
-        color: "text-primary"
+        color: "text-primary",
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
     },
     {
-        title: "Modernizing Legacy Systems",
+        title: "Cloud & Hybrid Migration Guide",
         type: "Guide",
-        description: "A comprehensive step-by-step framework for transitioning monoliths to cloud-native microservices.",
+        description: "Expert framework for navigating scalability and data sovereignty in the modern Indian cloud landscape.",
         icon: Book,
-        color: "text-secondary"
+        color: "text-secondary",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
     },
     {
-        title: "Incident Response Playbook",
-        type: "Template",
-        description: "Downloadable templates and checklists that our forensics team uses during critical data breaches.",
-        icon: Download,
-        color: "text-accent"
-    },
-    {
-        title: "The Future of BPO Operations",
-        type: "Webinar",
-        description: "Watch our executives discuss how AI is transforming business process outsourcing on a global scale.",
+        title: "UPI & Fintech Innovation Report",
+        type: "Analysis",
+        description: "Deep dive into India's global leadership in digital payments, digital lending, and embedded finance.",
         icon: PlayCircle,
-        color: "text-primary"
+        color: "text-accent",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+        title: "Zero Trust Security Playbook",
+        type: "Template",
+        description: "Essential protocols for protecting enterprise assets against evolving ransomware and phishing threats.",
+        icon: Download,
+        color: "text-primary",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+        title: "Data Analytics & Growth Strategy",
+        type: "Case Study",
+        description: "How leading Indian brands leverage predictive analytics for hyper-personalization and customer retention.",
+        icon: Book,
+        color: "text-secondary",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
     }
 ];
 
@@ -66,19 +78,27 @@ export default function ResourcesClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.8 }}
-                            className="group flex flex-col sm:flex-row gap-8 items-start p-8 glass-card rounded-3xl hover:bg-white/10 transition-all border-white/5 hover:border-white/10"
+                            className="group flex flex-col sm:flex-row gap-8 items-stretch p-0 glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full"
                         >
-                            <div className={cn("p-4 shrink-0 rounded-2xl bg-white/5 group-hover:bg-primary/10 transition-colors")}>
-                                <resource.icon className={cn("w-8 h-8", resource.color)} />
+                            <div className="relative w-full sm:w-1/3 min-h-[200px] overflow-hidden">
+                                <img 
+                                    src={resource.image} 
+                                    alt={resource.title} 
+                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                                <div className={cn("absolute top-6 left-6 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 z-10")}>
+                                    <resource.icon className={cn("w-6 h-6", resource.color)} />
+                                </div>
                             </div>
 
-                            <div className="flex-grow">
-                                <span className={cn("text-xs font-black uppercase tracking-[0.3em] mb-3 block", resource.color)}>{resource.type}</span>
-                                <h3 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 group-hover:text-primary transition-colors">{resource.title}</h3>
-                                <p className="text-zinc-400 leading-relaxed font-medium mb-6">
+                            <div className="flex-grow p-8 flex flex-col justify-center">
+                                <span className={cn("text-[10px] font-black uppercase tracking-[0.3em] mb-4 block", resource.color)}>{resource.type}</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-4 group-hover:text-primary transition-colors leading-tight">{resource.title}</h3>
+                                <p className="text-zinc-400 leading-relaxed font-medium mb-8 text-sm sm:text-base">
                                     {resource.description}
                                 </p>
-                                <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors">
+                                <button className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors">
                                     Access Resource <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
                                 </button>
                             </div>

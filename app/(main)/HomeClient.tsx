@@ -335,28 +335,31 @@ function ProcessSection() {
 
 const articles = [
   {
-    title: "AI & The Future of Cybersecurity",
-    excerpt: "Exploring how artificial intelligence is shaping proactive threat intelligence.",
-    date: "Feb 24, 2026",
+    title: "AI & Automation in Indian Enterprises",
+    excerpt: "How AI is slashing costs and boosting productivity for SMEs across the subcontinent.",
+    date: "Mar 19, 2026",
     readTime: "5 min read",
     color: "group-hover:border-primary/50",
-    iconColor: "text-primary"
+    iconColor: "text-primary",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800&h=450"
   },
   {
-    title: "Zero Trust Architecture Explained",
-    excerpt: "Why enterprises are moving towards strict access controls and continuous verification.",
-    date: "Feb 18, 2026",
+    title: "The UPI Revolution & Fintech Growth",
+    excerpt: "Exploring India's global leadership in digital payments and the future of embedded finance.",
+    date: "Mar 15, 2026",
     readTime: "7 min read",
     color: "group-hover:border-secondary/50",
-    iconColor: "text-secondary"
+    iconColor: "text-secondary",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800&h=450"
   },
   {
-    title: "Cloud Migration Strategies",
-    excerpt: "Best practices for moving legacy monoliths into cloud-native microservices.",
-    date: "Feb 10, 2026",
+    title: "Cybersecurity in the Age of AI",
+    excerpt: "Adapting to sophisticated threats with Zero Trust architecture and DPDP compliance.",
+    date: "Mar 10, 2026",
     readTime: "6 min read",
     color: "group-hover:border-accent/50",
-    iconColor: "text-accent"
+    iconColor: "text-accent",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800&h=450"
   },
 ];
 
@@ -385,12 +388,21 @@ function RecentArticlesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className={cn(
-                "group glass-card p-6 flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all cursor-pointer border-white/5 rounded-3xl",
+                "group glass-card overflow-hidden flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all cursor-pointer border-white/5 rounded-3xl h-full",
                 article.color
               )}
             >
-              <div>
-                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image 
+                  src={article.image} 
+                  alt={article.title} 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>
                 </div>
@@ -400,9 +412,9 @@ function RecentArticlesSection() {
                 <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
                   {article.excerpt}
                 </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 mt-auto">
-                <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2 transition-colors", `${article.iconColor}/60 group-hover:${article.iconColor}`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                <div className="mt-auto flex flex-wrap items-center gap-2">
+                  <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2 transition-colors", `${article.iconColor}/60 group-hover:${article.iconColor}`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                </div>
               </div>
             </motion.div>
           ))}
