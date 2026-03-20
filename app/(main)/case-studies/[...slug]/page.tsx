@@ -1,174 +1,238 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronRight, CheckCircle2, ShieldCheck, Database, Cpu, Search, Briefcase } from "lucide-react";
+import { ArrowLeft, Clock, User, ChevronRight, ChevronDown, FileText } from "lucide-react";
+import { caseStudiesList } from "@/app/data/caseStudiesData";
 import { caseStudiesCategories } from "@/app/constants/navigation";
+import CTA from "@/app/components/CTA";
+import ShareButton from "@/app/components/ShareButton";
 
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug?: string[] }> }) {
-    const resolvedParams = await params;
+interface PageProps {
+    params: Promise<{
+        slug?: string[];
+    }>;
+}
 
-    // Reconstruct the intended URL from slug array. Default to empty array if undefined.
-    const safeSlug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug : (resolvedParams.slug ? [resolvedParams.slug as unknown as string] : []);
-    const fullPath = `/case-studies/${safeSlug.join("/")}`;
-
-    // Find the current case study details
-    let currentStudy = null;
-    let currentCategory = null;
-
-    for (const category of caseStudiesCategories) {
-        const found = category.links.find(link => link.href === fullPath);
-        if (found) {
-            currentStudy = found;
-            currentCategory = category;
-            break;
+function getReadTime(study: typeof caseStudiesList[0]): string {
+    let totalWords = 0;
+    for (const section of study.contentSections) {
+        for (const para of section.paragraphs) {
+            totalWords += para.split(/\s+/).length;
         }
     }
+    if (study.faqs) {
+        for (const faq of study.faqs) {
+            totalWords += faq.question.split(/\s+/).length;
+            totalWords += faq.answer.split(/\s+/).length;
+        }
+    }
+    const minutes = Math.max(1, Math.ceil(totalWords / 200));
+    return `${minutes} min read`;
+}
 
-    const title = currentStudy?.name || "Strategic Industry Engagement";
-    const categoryName = currentCategory?.title || "Case Studies";
-    const titleLower = title.toLowerCase();
+export default async function CaseStudyArticlePage({ params }: PageProps) {
+    const resolvedParams = await params;
+    const safeSlug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug : (resolvedParams.slug ? [resolvedParams.slug as unknown as string] : []);
+    
+    const categorySlug = safeSlug[0];
+    const subcategorySlug = safeSlug[1];
 
-    // Dynamic graphic selection based on keywords in title
-    let graphicSrc = "/hero_analytics.png";
-    let themeColorClass = "text-primary";
-    let bgGradientClass = "bg-primary/5 border-primary/20";
-    let blurColorClass = "bg-primary/20";
-    let Icon = Briefcase;
-    let badgeText = "Business Strategy";
+    const detailData = caseStudiesList.find((c) => c.slug[0] === categorySlug && c.slug[1] === subcategorySlug);
+    
+    const categoryNavData = caseStudiesCategories.find(c => c.title.toLowerCase() === categorySlug || c.title === "Latest");
+    const categoryTitle = categoryNavData?.title || "Latest";
+    
+    const relatedStudies = caseStudiesList.filter((c) => c.title !== detailData?.title).slice(0, 3);
+    const readTime = detailData ? getReadTime(detailData) : "";
 
-    if (titleLower.includes("cyber") || titleLower.includes("security") || titleLower.includes("risk")) {
-        graphicSrc = "/hero_cybersecurity.png";
-        themeColorClass = "text-emerald-400";
-        bgGradientClass = "bg-emerald-500/5 border-emerald-500/20";
-        blurColorClass = "bg-emerald-500/10";
-        Icon = ShieldCheck;
-        badgeText = "Security Implementation";
-    } else if (titleLower.includes("data") || titleLower.includes("financial") || titleLower.includes("tax")) {
-        graphicSrc = "/hero_analytics.png";
-        themeColorClass = "text-blue-400";
-        bgGradientClass = "bg-blue-500/5 border-blue-500/20";
-        blurColorClass = "bg-blue-500/10";
-        Icon = Database;
-        badgeText = "Data Intelligence";
-    } else if (titleLower.includes("forensic") || titleLower.includes("government") || titleLower.includes("evidence")) {
-        graphicSrc = "/hero_forensics.png";
-        themeColorClass = "text-rose-400";
-        bgGradientClass = "bg-rose-500/5 border-rose-500/20";
-        blurColorClass = "bg-rose-500/10";
-        Icon = Search;
-        badgeText = "Investigation & Compliance";
-    } else if (titleLower.includes("platform") || titleLower.includes("web") || titleLower.includes("e-commerce") || titleLower.includes("digital experience")) {
-        graphicSrc = "/hero_web_app.png";
-        themeColorClass = "text-purple-400";
-        bgGradientClass = "bg-purple-500/5 border-purple-500/20";
-        blurColorClass = "bg-purple-500/10";
-        Icon = Cpu;
-        badgeText = "Digital Transformation";
-    } else if (titleLower.includes("bpo") || titleLower.includes("process") || titleLower.includes("support")) {
-        graphicSrc = "/hero_bpo.png";
-        themeColorClass = "text-cyan-400";
-        bgGradientClass = "bg-cyan-500/5 border-cyan-500/20";
-        blurColorClass = "bg-cyan-500/10";
-        Icon = Briefcase;
-        badgeText = "Operational Excellence";
+    if (!detailData) {
+        return (
+            <main className="min-h-screen section-bg-dark pt-32 pb-20 flex flex-col items-center justify-center text-center">
+                <h1 className="text-4xl font-extrabold text-white mb-4 tracking-tighter text-glow">Under Construction</h1>
+                <p className="text-zinc-400 max-w-lg mb-8 font-medium">We are actively building the deep-dive article for {subcategorySlug || categorySlug}.</p>
+                <Link href="/case-studies" className="btn-primary inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm">Back to Hub</Link>
+            </main>
+        );
     }
 
-    // Pseudo-random layout direction based on string length remainder
-    const isReversedLayout = title.length % 2 === 0;
-
     return (
-        <main className="min-h-screen bg-[#020508] relative overflow-hidden pt-32 pb-24">
-            {/* Global dynamic blur element */}
-            <div className={`absolute top-0 right-0 w-[800px] h-[800px] ${blurColorClass} blur-[150px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-50`}></div>
-            <div className={`absolute bottom-0 left-0 w-[600px] h-[600px] ${blurColorClass} blur-[120px] rounded-full translate-y-1/3 -translate-x-1/3 pointer-events-none opacity-30`}></div>
+        <main className="flex min-h-screen flex-col section-bg-dark text-foreground font-sans selection:bg-primary/20 selection:text-primary relative">
+            {/* Ambient background effects */}
+            <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full pointer-events-none opacity-40"></div>
+            <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 blur-[200px] rounded-full pointer-events-none opacity-30"></div>
 
-            {/* Header section */}
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 mb-20">
-                <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold uppercase tracking-widest text-zinc-300 mb-8">
-                        <Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
-                        <ChevronRight className="w-3 h-3 text-zinc-500" />
-                        <span className={themeColorClass}>{categoryName}</span>
+            {/* Header Area */}
+            <div className="pt-28 sm:pt-36 pb-10 relative z-10 border-b border-white/5">
+                <div className="container mx-auto px-6 lg:px-8">
+                    
+                    {/* Breadcrumbs */}
+                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-zinc-500 mb-6 overflow-x-auto whitespace-nowrap">
+                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                        <ChevronRight className="w-3 h-3 text-zinc-600" />
+                        <Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
+                        <ChevronRight className="w-3 h-3 text-zinc-600" />
+                        <span className="text-primary">{categoryTitle}</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white text-glow tracking-tight mb-8 leading-tight">
-                        {title}
-                    </h1>
-                    <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mb-10 leading-relaxed font-medium">
-                        Discover how Cyberforenx implements leading-edge strategies to solve complex challenges, ensuring operational integrity and digital resilience in {title.toLowerCase()}.
-                    </p>
+                    <Link
+                        href="/case-studies"
+                        className="flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-primary transition-colors mb-6"
+                    >
+                        <ArrowLeft className="w-4 h-4" /> Back to Library
+                    </Link>
+
+                    {/* Badge */}
+                    <div className="flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                        <FileText className="w-4 h-4" /> Case Study
+                    </div>
+
+                    {/* Title & Meta */}
+                    <div>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight leading-[1.15] text-glow font-display">
+                            {detailData.title}
+                        </h1>
+
+                        <div className="flex flex-wrap items-center justify-between gap-6 text-sm font-medium text-zinc-400">
+                            <div className="flex flex-wrap items-center gap-6">
+                                <div className="flex items-center gap-2">
+                                    <User className="w-4 h-4 text-primary/60" />
+                                    <span>{detailData.author}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Clock className="w-4 h-4 text-primary/60" />
+                                    <span>{detailData.date}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+                                    <span>{readTime}</span>
+                                </div>
+                            </div>
+                            <ShareButton />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Content & Graphics Section */}
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-                <div className={`flex flex-col ${isReversedLayout ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-20 items-center mb-16`}>
+            {/* Layout Container */}
+            <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16 relative z-10">
+                
+                {/* Hero Image */}
+                <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[460px] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f14]">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none"></div>
+                    <Image
+                        src={detailData.heroImage}
+                        alt={detailData.title}
+                        fill
+                        className="object-cover opacity-80"
+                        priority
+                    />
+                </div>
 
-                    {/* Visual Side */}
-                    <div className="w-full lg:w-1/2 relative group">
-                        <div className={`absolute -inset-4 ${bgGradientClass} blur-2xl rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700`}></div>
-                        <div className="relative glass-card rounded-2xl p-6 border border-white/10 overflow-hidden bg-black/40">
-                            <div className="aspect-[4/3] w-full relative rounded-xl overflow-hidden border border-white/5">
-                                <Image
-                                    src={graphicSrc}
-                                    alt={title}
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#020508]/80 to-transparent pointer-events-none"></div>
-                                <div className="absolute bottom-6 left-6 right-6">
-                                    <div className="flex items-center gap-3">
-                                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-black/50 border border-white/10 backdrop-blur-md ${themeColorClass}`}>
-                                            <Icon className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-1">Focus Area</div>
-                                            <div className="text-sm font-bold text-white tracking-wide">{badgeText}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Text Details Side */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                        <div className="inline-flex items-center gap-2 mb-6">
-                            <div className="w-8 h-[2px] bg-primary"></div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Project Overview</span>
-                        </div>
-                        <h2 className="text-3xl font-extrabold text-white mb-6 leading-tight">Architecting the Exact Solution for Operational Bottlenecks.</h2>
-                        <p className="text-zinc-400 leading-relaxed mb-8 text-lg">
-                            Our implementation team worked rigorously to dissect the specific requirements of
-                            this engagement. By establishing a deep understanding of operational bottlenecks,
-                            compliance requirements, and scalability needs, we architected a solution perfectly
-                            tailored to long-term success.
-                        </p>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                            {[
-                                "Enhanced Operational Security",
-                                "Seamless Regulatory Compliance",
-                                "Scalable Infrastructure Design",
-                                "24/7 Monitored Workflows"
-                            ].map((item, i) => (
-                                <div key={i} className={`flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:${bgGradientClass} transition-colors group/feat`}>
-                                    <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 text-zinc-500 group-hover/feat:${themeColorClass} transition-colors`} />
-                                    <span className="text-sm text-zinc-300 font-medium">{item}</span>
-                                </div>
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                    
+                    {/* Main Content Area */}
+                    <div className="lg:w-[68%] order-2 lg:order-1">
+                        <article>
+                            
+                            {detailData.contentSections.map((section, idx) => (
+                                <section key={idx} id={section.id} className="scroll-mt-36 mb-14">
+                                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-5 tracking-tight font-display border-b border-white/10 pb-4">
+                                        {section.heading}
+                                    </h2>
+                                    {section.paragraphs.map((para, pIdx) => (
+                                        <p key={pIdx} className="text-zinc-400 leading-relaxed mb-4 text-base sm:text-lg font-medium">
+                                            {para}
+                                        </p>
+                                    ))}
+                                </section>
                             ))}
-                        </div>
 
-                        <Link href="/contact" className={`inline-flex items-center gap-3 group w-fit`}>
-                            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${bgGradientClass} ${themeColorClass}  border`}>
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </article>
+
+                        {/* FAQs Section */}
+                        {detailData.faqs && detailData.faqs.length > 0 && (
+                            <div className="mt-16 pt-10 border-t border-white/10">
+                                <h3 className="text-2xl font-extrabold text-white mb-8 font-display tracking-tight">Frequently Asked Questions</h3>
+                                
+                                <div className="space-y-4">
+                                    {detailData.faqs.map((faq, idx) => (
+                                        <details key={idx} className="group glass-card rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                            <summary className="flex cursor-pointer items-center justify-between p-5 sm:p-6 font-semibold text-white text-sm sm:text-base">
+                                                <span>{faq.question}</span>
+                                                <ChevronDown className="w-5 h-5 text-zinc-500 group-open:-rotate-180 transition-transform duration-300 shrink-0 ml-4" />
+                                            </summary>
+                                            <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-zinc-400 leading-relaxed text-sm sm:text-base font-medium">
+                                                {faq.answer}
+                                            </div>
+                                        </details>
+                                    ))}
+                                </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-primary transition-colors">Discuss Your Requirements</span>
-                        </Link>
+                        )}
                     </div>
 
+                    {/* Right Sidebar */}
+                    <div className="lg:w-[32%] order-1 lg:order-2">
+                        <div className="sticky top-32 space-y-8">
+                            
+                            {/* Table of Contents */}
+                            <div className="glass-card rounded-2xl p-6">
+                                <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Table of Contents</h4>
+                                <nav className="flex flex-col gap-3">
+                                    {detailData.contentSections.map((section, idx) => (
+                                        <a 
+                                            key={idx} 
+                                            href={`#${section.id}`}
+                                            className="text-zinc-400 hover:text-primary text-sm font-medium transition-colors flex items-start gap-3 group"
+                                        >
+                                            <span className="text-zinc-600 group-hover:text-primary mt-px text-xs font-bold">{String(idx + 1).padStart(2, '0')}</span>
+                                            <span>{section.heading}</span>
+                                        </a>
+                                    ))}
+                                </nav>
+                            </div>
+
+                            {/* Related Case Studies */}
+                            <div className="glass-card rounded-2xl p-6">
+                                <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Other Case Studies</h4>
+                                <div className="flex flex-col gap-5">
+                                    {relatedStudies.map((study, idx) => (
+                                        <Link 
+                                            key={idx} 
+                                            href={`/case-studies/${study.slug[0]}/${study.slug[1]}`} 
+                                            className="group flex gap-4 items-start"
+                                        >
+                                            <div className="w-14 h-14 rounded-lg bg-white/5 overflow-hidden shrink-0 relative border border-white/10">
+                                                <Image 
+                                                    src={study.heroImage} 
+                                                    alt={study.title} 
+                                                    fill 
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500" 
+                                                />
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xs font-bold text-zinc-300 group-hover:text-white transition-colors line-clamp-2 leading-tight mb-1.5">
+                                                    {study.title}
+                                                </h5>
+                                                <div className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">{study.date}</div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                                <div className="mt-5 pt-4 border-t border-white/10">
+                                    <Link href="/case-studies" className="text-xs font-bold text-primary hover:text-white transition-colors inline-flex items-center gap-2 uppercase tracking-widest">
+                                        View all <ChevronRight className="w-3 h-3" />
+                                    </Link>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            {/* Footer CTA */}
+            <CTA />
         </main>
     );
 }

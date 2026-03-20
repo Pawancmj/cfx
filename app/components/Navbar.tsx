@@ -52,7 +52,7 @@ export default function Navbar() {
         : "bg-transparent h-20 border-b border-transparent"
         }`}
     >
-      <div className="flex items-center justify-between h-full w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="flex items-center justify-between h-full w-full container mx-auto px-4 sm:px-6 md:px-8">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group shrink-0 w-auto">
         <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:scale-110 transition-transform">

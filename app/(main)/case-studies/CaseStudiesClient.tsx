@@ -1,111 +1,252 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Server } from "lucide-react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ShieldCheck, Cpu, Lock, Activity, Globe, Zap, ChevronRight } from "lucide-react";
+import { caseStudiesCategories } from "../../constants/navigation";
+import TestimonialStack from "@/app/components/TestimonialStack";
 
-const caseStudies = [
+const SECTORS = ["Government", "Enterprise", "Financial", "Security", "E-Commerce"];
+
+const ADVANTAGES = [
     {
-        title: "Global Financial Integrity",
-        client: "Tier 1 Banking Institution",
-        category: "Forensic Analysis",
-        description: "Uncovered a massive internal fraud ring and recovered $50M+ in digital assets using advanced forensic imaging and blockchain tracing.",
-        results: ["$50M+ Recovered", "Zero Downtime", "Legal Admissibility Assured"],
-        icon: ShieldCheck,
-        color: "text-primary",
+        title: "Military-Grade Security",
+        description: "Zero-trust architectures and post-quantum encryption standards.",
+        icon: Lock
     },
     {
-        title: "Enterprise Transformation",
-        client: "Pinnacle Logistics Corp",
-        category: "Software Engineering",
-        description: "Re-architected legacy monolithic supply chain software into a high-performance, cloud-native microservices ecosystem.",
-        results: ["300% Speed Increase", "99.99% Uptime", "Automated Workflows"],
-        icon: Zap,
-        color: "text-secondary",
+        title: "Automated Compliance",
+        description: "Continuous auditing and automated reporting for global standards.",
+        icon: ShieldCheck
     },
     {
-        title: "Secure Data Infrastructure",
-        client: "National Health Network",
-        category: "Cyber Audit & Cloud",
-        description: "Designed and migrated critical patient data to a HIPAA-compliant, zero-trust cloud architecture after uncovering vulnerabilities.",
-        results: ["Zero-Trust Implemented", "100% Compliance", "Threat Prevention"],
-        icon: Server,
-        color: "text-accent",
+        title: "AI-Driven Forensics",
+        description: "Predictive threat intelligence and rapid incident response.",
+        icon: Activity
+    },
+    {
+        title: "Scalable Infrastructure",
+        description: "Cloud-native capabilities designed for massive enterprise loads.",
+        icon: Cpu
     }
 ];
 
 export default function CaseStudiesClient() {
-    return (
-        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
-            <div className="absolute inset-0 bg-grid opacity-20"></div>
-            <div className="absolute left-1/4 top-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[160px]"></div>
+    const [sectorIndex, setSectorIndex] = useState(0);
+    const [activeFilter, setActiveFilter] = useState(caseStudiesCategories[0].title);
+    const [visibleCount, setVisibleCount] = useState(6);
 
-            <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-4xl mx-auto mb-24">
+    // Reset visible count when category changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [activeFilter]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSectorIndex((prev) => (prev + 1) % SECTORS.length);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, []);
+
+    const activeCategoryData = caseStudiesCategories.find(c => c.title === activeFilter) || caseStudiesCategories[0];
+
+    return (
+        <main className="min-h-screen bg-black text-white selection:bg-primary/30 font-sans">
+
+            {/* HERO SECTION */}
+            <section className="relative isolate min-h-screen pt-24 sm:pt-32 pb-10 overflow-hidden section-bg-dark flex items-center border-b border-white/5">
+                <div className="absolute inset-0 -z-10 bg-grid"></div>
+
+                <motion.div
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3], x: [0, 50, 0], y: [0, -30, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10"
+                />
+
+                <div className="container mx-auto px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-8"
                     >
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white flex flex-col items-center sm:text-7xl mb-8 leading-[1.2]">
-                            Case  <br /> <span className="text-gradient italic text-glow inline-block pr-6">Studies</span>
-                        </h1>
-                        <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
-                            Explore how we have engineered success for our partners through strategic innovation and uncompromising digital security.
-                        </p>
+                        <ShieldCheck className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-bold uppercase tracking-widest text-primary/80">Proven Results</span>
+                    </motion.div>
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.2] lg:leading-[1.1]"
+                    >
+                        Case Studies For <br className="hidden sm:block" />
+                        <span className="relative inline-block mt-2 min-w-[300px] sm:min-w-[500px] h-[1.2em]">
+                            <AnimatePresence mode="wait">
+                                <motion.span
+                                    key={sectorIndex}
+                                    initial={{ y: 20, opacity: 0, rotateX: -90 }}
+                                    animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                                    exit={{ y: -20, opacity: 0, rotateX: 90 }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                    className="absolute left-1/2 -translate-x-1/2 w-max text-gradient italic font-serif whitespace-nowrap pr-2 text-glow"
+                                    style={{ transformOrigin: "center" }}
+                                >
+                                    {SECTORS[sectorIndex]}
+                                </motion.span>
+                            </AnimatePresence>
+                        </span>
+                    </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap  flex items-center justify-center gap-2"
+                    >
+                        Real-world success stories secured by <span className="text-white font-bold">CyberforneX</span>
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
+                    >
+                        <div className="text-center group">
+                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">100+</div>
+                            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Gov Projects</div>
+                        </div>
+                        <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+                        <div className="text-center group">
+                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">500+</div>
+                            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Enterprises</div>
+                        </div>
+                        <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+                        <div className="text-center group">
+                            <div className="text-4xl sm:text-5xl font-extrabold text-primary text-glow">99.9%</div>
+                            <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Compliance</div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <Link href="#portfolio" className="btn-primary inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm group">
+                            Explore Stories <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                     </motion.div>
                 </div>
+            </section>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
-                    {caseStudies.map((study, i) => (
+
+
+            {/* 2. INTERACTIVE SELECTOR */}
+            <section id="portfolio" className="py-12 relative section-bg-dark border-b border-white/5">
+                <div className="container mx-auto px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
+                        <div>
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Library</h2>
+                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Case Studies</h3>
+                        </div>
+                        <p className="text-zinc-400 font-medium max-w-md">
+                            Select a category below to explore precision-engineered solutions designed explicitly for enterprise challenges.
+                        </p>
+                    </div>
+
+                    {/* Filter Tabs */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                        {caseStudiesCategories.map((cat) => (
+                            <button
+                                key={cat.title}
+                                onClick={() => setActiveFilter(cat.title)}
+                                className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.1em] transition-all border ${activeFilter === cat.title
+                                        ? "bg-primary text-black border-primary shadow-[0_0_20px_rgba(0,242,255,0.3)] scale-105"
+                                        : "bg-white/5 text-zinc-400 border-white/10 hover:bg-white/10 hover:text-white"
+                                    }`}
+                            >
+                                {cat.title}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Grid of Results */}
+                    <AnimatePresence mode="wait">
                         <motion.div
-                            key={study.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.8 }}
-                            className="group glass-card p-10 rounded-3xl hover:-translate-y-2 hover:bg-white/10 transition-all border-white/5"
+                            key={activeFilter}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-black/50 border border-white/10 rounded-[2rem] p-8 sm:p-12 shadow-2xl backdrop-blur-md"
                         >
-                            <div className={cn("p-4 w-fit rounded-2xl mb-8 bg-white/5 shadow-inner group-hover:bg-primary/10 transition-colors")}>
-                                <study.icon className={cn("w-8 h-8", study.color)} />
+                            <div className="flex items-center gap-4 mb-10 pb-6 border-b border-white/10">
+                                <Zap className="w-8 h-8 text-primary" />
+                                <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
                             </div>
 
-                            <div className="mb-6">
-                                <span className="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 mb-2 block">{study.client}</span>
-                                <h3 className="text-2xl font-bold text-white uppercase tracking-tight mb-2 group-hover:text-primary transition-colors">{study.title}</h3>
-                                <span className={cn("text-xs font-bold uppercase tracking-widest", study.color)}>{study.category}</span>
-                            </div>
-
-                            <p className="text-zinc-400 leading-relaxed font-medium mb-8">
-                                {study.description}
-                            </p>
-
-                            <div className="space-y-3 pt-6 border-t border-white/5">
-                                {study.results.map((result) => (
-                                    <div key={result} className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-zinc-300">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                        {result}
-                                    </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {activeCategoryData.links.slice(0, visibleCount).map((link) => (
+                                    <Link
+                                        href={link.href}
+                                        key={link.name}
+                                        className="group flex flex-col p-6 rounded-2xl glass-card hover:border-primary/40 hover:-translate-y-1 transition-all"
+                                    >
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                                <Globe className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                                        </div>
+                                        <h4 className="text-xl font-bold text-white mb-2 group-hover:text-glow transition-all">{link.name}</h4>
+                                        <p className="text-sm font-medium text-zinc-400 group-hover:text-zinc-300">
+                                            Deep dive into {link.name.toLowerCase()} engagements.
+                                        </p>
+                                    </Link>
                                 ))}
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
 
-                {/* Bottom CTA */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="p-16 rounded-[3rem] section-bg-gradient text-center shadow-2xl border border-white/10"
-                >
-                    <h2 className="text-4xl font-extrabold text-white mb-8 uppercase italic text-glow">Be Our Next Success Story</h2>
-                    <Link href="/contact" className="inline-flex items-center gap-4 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-zinc-100 transition-all">
-                        Contact Us <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </motion.div>
-            </div>
+                            {visibleCount < activeCategoryData.links.length && (
+                                <div className="mt-12 flex justify-center">
+                                    <button
+                                        onClick={() => setVisibleCount(prev => prev + 6)}
+                                        className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-zinc-300 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all hover:text-white"
+                                    >
+                                        Show More <ChevronRight className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            )}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </section>
+
+
+
+            {/* 4. global CTA */}
+            <section className="py-10 section-bg-dark relative overflow-hidden">
+                <div className="container mx-auto px-6 lg:px-8 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="p-8 sm:p-12 rounded-[3rem] section-bg-gradient text-center relative overflow-hidden group shadow-2xl border border-white/10 mt-10"
+                    >
+                        <div className="absolute inset-0 bg-dots opacity-20"></div>
+                        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
+
+                        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-6">Find Your Solution</h2>
+                        <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
+                            Connect with our domain experts to architect a scalable, zero-trust solution tailored directly to your ecosystem's needs.
+                        </p>
+                        <Link href="/contact" className="inline-flex items-center gap-4 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-zinc-100 transition-all shadow-2xl hover:scale-105 active:scale-95 relative z-10">
+                            Schedule Consultation <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
         </main>
     );
 }
