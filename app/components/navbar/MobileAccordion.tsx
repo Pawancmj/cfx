@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { MegaCategory, toSlug } from "@/app/constants/navigation";
 
@@ -24,6 +25,15 @@ export default function MobileAccordion({
 }: MobileAccordionProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+    const pathname = usePathname();
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, linkHref: string) => {
+        if (pathname === linkHref) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        onNavigate();
+    };
 
     const viewAllPath = href;
 
@@ -54,7 +64,7 @@ export default function MobileAccordion({
                         <Link
                             href={viewAllPath}
                             className="text-sm font-bold text-white hover:text-primary transition-colors uppercase tracking-widest"
-                            onClick={onNavigate}
+                            onClick={(e) => handleLinkClick(e, viewAllPath)}
                         >
                             View All {label} &rarr;
                         </Link>
@@ -87,7 +97,7 @@ export default function MobileAccordion({
                                         <Link
                                             href={`/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`}
                                             className="text-[11px] font-black text-primary uppercase tracking-[0.2em] flex items-center gap-2 mb-1"
-                                            onClick={onNavigate}
+                                            onClick={(e) => handleLinkClick(e, `/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`)}
                                         >
                                             {exploreText} <ArrowRight className="w-3 h-3" />
                                         </Link>
@@ -96,7 +106,7 @@ export default function MobileAccordion({
                                                 <Link
                                                     key={l.name}
                                                     href={l.href}
-                                                    onClick={onNavigate}
+                                                    onClick={(e) => handleLinkClick(e, l.href)}
                                                     className="text-[11px] sm:text-sm font-medium text-zinc-400 hover:text-primary transition-colors py-1 flex items-center gap-2"
                                                 >
                                                     <div className="w-1 h-1 bg-primary/30 rounded-full shrink-0" />

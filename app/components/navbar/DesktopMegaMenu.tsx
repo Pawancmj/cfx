@@ -29,6 +29,14 @@ export default function DesktopMegaMenu({
         setIsForceHidden(true);
     }, [pathname]);
 
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, linkHref: string) => {
+        if (pathname === linkHref) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setIsForceHidden(true);
+        }
+    };
+
     return (
         <div
             className="group h-full flex items-center"
@@ -37,6 +45,7 @@ export default function DesktopMegaMenu({
         >
             <Link
                 href={href}
+                onClick={(e) => handleLinkClick(e, href)}
                 className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest transition-all relative py-2 ${isActive ? "text-primary" : "text-zinc-400 hover:text-white"}`}
             >
                 {label}
@@ -45,14 +54,17 @@ export default function DesktopMegaMenu({
             </Link>
 
             {/* Mega Menu Dropdown */}
-            <div className={`absolute top-full left-0 w-full opacity-0 invisible ${!isForceHidden ? "group-hover:opacity-100 group-hover:visible" : ""} transition-all duration-300 z-50 pt-4`}>
-                <div className="bg-[#080c10]/95 backdrop-blur-3xl p-8 rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,1),0_0_50px_rgba(0,242,255,0.05)] border border-white/20 w-full relative overflow-hidden group/mega">
+            <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none ${!isForceHidden ? "group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto" : ""} transition-all duration-300 z-50`}>
+                {/* Invisible bridge to keep hover active */}
+                <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
+
+                <div className="bg-[#080c10]/95 backdrop-blur-3xl p-6 lg:p-8 rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,1),0_0_50px_rgba(0,242,255,0.05)] border border-white/20 w-full max-w-7xl mx-auto relative overflow-hidden group/mega">
                     {/* Dynamic Background Effects */}
                     <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none transition-opacity group-hover/mega:opacity-20"></div>
                     <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none transition-all duration-700 ease-out group-hover/mega:translate-y-10 group-hover/mega:-translate-x-10"></div>
                     <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-                    <div className="flex gap-10 relative z-10 w-full min-h-[420px]">
+                    <div className="flex gap-10 relative z-10 w-full">
                         {/* Left Pane: Categories */}
                         <div className="w-1/3 flex flex-col gap-2 border-r border-white/10 pr-8 py-2 relative">
                             {/* Highlight Indicator */}
@@ -77,9 +89,9 @@ export default function DesktopMegaMenu({
                                             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-50"></div>
                                         )}
 
-                                        <span className="relative z-10 flex items-center gap-3">
+                                        <span className="relative z-10 flex items-center gap-3 min-w-0 flex-1 pr-2">
                                             <LayoutGrid
-                                                className={`w-4 h-4 transition-colors ${isActiveCategory ? "text-primary" : "text-zinc-600 group-hover/catbtn:text-zinc-400"}`}
+                                                className={`w-4 h-4 shrink-0 transition-colors ${isActiveCategory ? "text-primary" : "text-zinc-600 group-hover/catbtn:text-zinc-400"}`}
                                             />
                                             <span className="truncate">{category.title}</span>
                                         </span>
@@ -99,6 +111,7 @@ export default function DesktopMegaMenu({
                                 </h3>
                                 <Link
                                     href={`/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`}
+                                    onClick={(e) => handleLinkClick(e, `/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`)}
                                     className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-colors flex items-center gap-2 group/viewall"
                                 >
                                     {exploreText}
@@ -111,6 +124,7 @@ export default function DesktopMegaMenu({
                                     <Link
                                         key={subLink.name}
                                         href={subLink.href}
+                                        onClick={(e) => handleLinkClick(e, subLink.href)}
                                         className="group/link p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 flex items-center gap-4 relative overflow-hidden"
                                     >
                                         {/* Link active gradient */}

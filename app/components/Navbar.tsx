@@ -11,7 +11,12 @@ import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategorie
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isCompanyForceHidden, setIsCompanyForceHidden] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsCompanyForceHidden(true);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +29,15 @@ export default function Navbar() {
 
   const isActive = (path: string) => pathname === path || pathname.startsWith(path + "/");
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsCompanyForceHidden(true);
+      setIsOpen(false);
+    }
+  };
+
   const companySubLinks = [
     { name: "About Us", href: "/company" },
     { name: "Certification", href: "/certification" },
@@ -33,11 +47,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[92%] sm:w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-full ${scrolled
-        ? "glass-nav h-16 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-white/20"
-        : "bg-transparent h-20 border-transparent"
-        } flex items-center justify-between px-4 sm:px-6 md:px-8`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
+        ? "glass-nav h-16 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-b border-white/10"
+        : "bg-transparent h-20 border-b border-transparent"
+        }`}
     >
+      <div className="flex items-center justify-between h-full w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group shrink-0 w-auto">
         <div className="bg-primary p-2 rounded-full shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:scale-110 transition-transform">
@@ -112,17 +127,20 @@ export default function Navbar() {
               <div
                 key={link.name}
                 className="group/nav h-full flex items-center"
+                onMouseEnter={() => setIsCompanyForceHidden(false)}
+                onMouseLeave={() => setIsCompanyForceHidden(false)}
               >
                 <Link
                   href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className={`flex items-center gap-1 text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all relative py-6 ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                 >
                   {link.name}
-                  <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover/nav:rotate-180" />
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${!isCompanyForceHidden ? "group-hover/nav:rotate-180" : ""}`} />
                   <span className={`absolute bottom-4 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ${isActive(link.href) ? "w-full" : ""}`}></span>
                 </Link>
 
-                <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50`}>
+                <div className={`absolute top-full left-0 w-full pt-4 opacity-0 translate-y-4 pointer-events-none ${!isCompanyForceHidden ? "group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto" : ""} transition-all duration-300 z-50`}>
                   {/* Invisible bridge to keep hover active */}
                   <div className="absolute top-0 left-0 w-full h-8 bg-transparent"></div>
 
@@ -145,6 +163,7 @@ export default function Navbar() {
                         <Link
                           key={sub.name}
                           href={sub.href}
+                          onClick={(e) => handleLinkClick(e, sub.href)}
                           className="group/sub flex flex-col p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 hover:shadow-lg"
                         >
                           <h6 className="text-sm font-bold text-white group-hover/sub:text-primary transition-colors tracking-widest uppercase mb-1 flex items-center gap-2">
@@ -167,6 +186,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className={`text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all relative group h-full flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
             >
               {link.name}
@@ -191,10 +211,11 @@ export default function Navbar() {
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
+      </div>
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 lg:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
+        <div className="absolute top-full w-[92%] sm:w-[95%] left-1/2 -translate-x-1/2 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 lg:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
@@ -261,7 +282,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`text-base sm:text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    handleLinkClick(e, link.href);
+                    setIsOpen(false);
+                  }}
                 >
                   {link.name}
                 </Link>
@@ -273,7 +297,10 @@ export default function Navbar() {
                         key={sub.name}
                         href={sub.href}
                         className={`text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => {
+                          handleLinkClick(e, sub.href);
+                          setIsOpen(false);
+                        }}
                       >
                         {sub.name}
                       </Link>
