@@ -1,134 +1,245 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FileText, Download, PlayCircle, Book, ArrowRight } from "lucide-react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, BookOpen, Globe, ChevronRight } from "lucide-react";
+import { resourceCategories } from "../../constants/navigation";
 import { cn } from "../../../lib/utils";
 
-const resources = [
-    {
-        title: "AI Adoption Framework 2026",
-        type: "Whitepaper",
-        description: "A strategic roadmap for Indian businesses to implement generative AI and automation to slash operational costs.",
-        icon: FileText,
-        color: "text-primary",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-        title: "Cloud & Hybrid Migration Guide",
-        type: "Guide",
-        description: "Expert framework for navigating scalability and data sovereignty in the modern Indian cloud landscape.",
-        icon: Book,
-        color: "text-secondary",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-        title: "UPI & Fintech Innovation Report",
-        type: "Analysis",
-        description: "Deep dive into India's global leadership in digital payments, digital lending, and embedded finance.",
-        icon: PlayCircle,
-        color: "text-accent",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-        title: "Zero Trust Security Playbook",
-        type: "Template",
-        description: "Essential protocols for protecting enterprise assets against evolving ransomware and phishing threats.",
-        icon: Download,
-        color: "text-primary",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-        title: "Data Analytics & Growth Strategy",
-        type: "Case Study",
-        description: "How leading Indian brands leverage predictive analytics for hyper-personalization and customer retention.",
-        icon: Book,
-        color: "text-secondary",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-    }
-];
+function ResourcesContent() {
+    const searchParams = useSearchParams();
+    const filterParam = searchParams.get("filter");
+
+    const [activeFilter, setActiveFilter] = useState(() => {
+        if (filterParam && resourceCategories.some(c => c.title === filterParam)) {
+            return filterParam;
+        }
+        return resourceCategories[0].title;
+    });
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    // Reset visible count when category changes
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [activeFilter]);
+
+    // Handle filter query parameter
+    useEffect(() => {
+        if (filterParam && resourceCategories.some(c => c.title === filterParam)) {
+            setActiveFilter(filterParam);
+            const el = document.getElementById("resources-grid");
+            if (el) {
+                // Add a small delay to ensure rendering has completed
+                setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+            }
+        }
+    }, [filterParam]);
+
+    const activeCategoryData = resourceCategories.find(c => c.title === activeFilter) || resourceCategories[0];
+
+    return (
+        <main className="relative min-h-screen section-bg-dark text-zinc-100 font-sans selection:bg-primary/30">
+            {/* HERO SECTION */}
+            <section className="relative min-h-screen pt-28 sm:pt-40 pb-20 overflow-hidden flex items-center border-b border-white/5">
+                <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+                <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] rounded-full bg-secondary/10 blur-[150px]"></div>
+                <motion.div
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3], x: [0, -50, 0], y: [0, 30, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10 pointer-events-none"
+                />
+
+                <div className="container mx-auto px-6 lg:px-8 relative z-10">
+                    <div className="text-center max-w-4xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-8"
+                        >
+                            <BookOpen className="w-4 h-4 text-primary" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-primary/80">Industry Insights</span>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <h1 className="text-4xl font-extrabold tracking-tight text-white flex flex-col items-center sm:text-7xl mb-8 leading-[1.2]">
+                                Knowledge <br /> <span className="text-gradient italic text-glow inline-block pr-6">Resources</span>
+                            </h1>
+                            <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
+                                Insights, guides, and tools crafted by our industry experts to help you navigate complex technological landscapes.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="mt-12"
+                        >
+                            <Link href="#resources-grid" className="btn-primary inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm group">
+                                Explore Library <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* INTERACTIVE SELECTOR */}
+            <section id="resources-grid" className="py-12 relative section-bg-dark border-b border-white/5">
+                <div className="container mx-auto px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-center md:text-left">
+                        <div>
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Library</h2>
+                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Insight Hub</h3>
+                        </div>
+                        <p className="text-zinc-400 font-medium max-w-md">
+                            Select a category below to explore our deeply researched insights, news, and critical updates.
+                        </p>
+                    </div>
+
+                    {/* Filter Tabs */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-10">
+                        {resourceCategories.map((cat) => (
+                            <button
+                                key={cat.title}
+                                onClick={() => setActiveFilter(cat.title)}
+                                className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.1em] transition-all border ${activeFilter === cat.title
+                                        ? "bg-primary text-black border-primary shadow-[0_0_20px_rgba(0,242,255,0.3)] scale-105"
+                                        : "bg-white/5 text-zinc-400 border-white/10 hover:bg-white/10 hover:text-white"
+                                    }`}
+                            >
+                                {cat.title}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Grid of Results */}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeFilter}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-black/50 border border-white/10 rounded-[2rem] p-6 sm:p-10 shadow-2xl backdrop-blur-md"
+                        >
+                            <div className="flex items-center gap-4 mb-10 pb-6 border-b border-white/10">
+                                <BookOpen className="w-8 h-8 text-primary" />
+                                <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
+                            </div>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
+                                    // Placeholder images mapping
+                                    const images = [
+                                        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
+                                    ];
+                                    const cardImage = images[idx % images.length];
+                                    const cardBadge = activeFilter === "Latest" ? "Recent Insight" : activeFilter === "News & Updates" ? "Announcements" : "Resource";
+
+                                    return (
+                                        <motion.div
+                                            key={link.name}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: idx * 0.05, duration: 0.5 }}
+                                            className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
+                                        >
+                                            <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
+                                                <img 
+                                                    src={cardImage} 
+                                                    alt={link.name} 
+                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                                                <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
+                                                    <Globe className="w-5 h-5 text-primary" />
+                                                </div>
+                                            </div>
+
+                                            <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
+                                                <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
+                                                <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                                                    {link.name}
+                                                </h4>
+                                                <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
+                                                    Explore critical insights regarding {link.name.toLowerCase()} for strategic business advantage.
+                                                </p>
+                                                <Link 
+                                                    href={link.href}
+                                                    className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors"
+                                                >
+                                                    Read More <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+
+                            {visibleCount < activeCategoryData.links.length && (
+                                <div className="mt-12 flex justify-center">
+                                    <button
+                                        onClick={() => setVisibleCount(prev => prev + 6)}
+                                        className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-zinc-300 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all hover:text-white"
+                                    >
+                                        Show More <ChevronRight className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            )}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </section>
+
+            {/* Newsletter CTA */}
+            <section className="py-20 relative overflow-hidden section-bg-dark">
+                <div className="container mx-auto px-6 lg:px-8 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="max-w-4xl mx-auto glass-card p-10 sm:p-16 rounded-[3rem] text-center border border-white/10 relative overflow-hidden shadow-2xl"
+                    >
+                        <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none"></div>
+                        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full pointer-events-none"></div>
+                        
+                        <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic relative z-10 text-glow inline-block">Stay Informed</h3>
+                        <p className="text-zinc-300 font-medium mb-12 relative z-10 max-w-2xl mx-auto tracking-[0.1em]">Subscribe to receive our latest insights, comprehensive guides, and critical vulnerability alerts straight to your inbox.</p>
+
+                        <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto relative z-10">
+                            <input
+                                type="email"
+                                placeholder="ENTER YOUR EMAIL"
+                                className="flex-grow bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-xs font-bold uppercase tracking-widest text-white focus:outline-none focus:border-primary/50 transition-colors"
+                            />
+                            <button className="bg-primary text-background px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:bg-primary/80 transition-all hover:scale-105 active:scale-95">
+                                Subscribe
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+        </main>
+    );
+}
 
 export default function ResourcesClient() {
     return (
-        <main className="relative min-h-screen section-bg-dark pt-28 sm:pt-40 pb-32 overflow-hidden text-zinc-100">
-            <div className="absolute inset-0 bg-grid opacity-20"></div>
-            <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] rounded-full bg-secondary/10 blur-[150px]"></div>
-
-            <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-4xl mx-auto mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white flex flex-col items-center sm:text-7xl mb-8 leading-[1.2]">
-                            Knowledge <br /> <span className="text-gradient italic text-glow inline-block pr-6">Resources</span>
-                        </h1>
-                        <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
-                            Insights, guides, and tools crafted by our industry experts to help you navigate complex technological landscapes.
-                        </p>
-                    </motion.div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-                    {resources.map((resource, i) => (
-                        <motion.div
-                            key={resource.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.8 }}
-                            className="group flex flex-col sm:flex-row gap-8 items-stretch p-0 glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full"
-                        >
-                            <div className="relative w-full sm:w-1/3 min-h-[200px] overflow-hidden">
-                                <img 
-                                    src={resource.image} 
-                                    alt={resource.title} 
-                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                                <div className={cn("absolute top-6 left-6 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 z-10")}>
-                                    <resource.icon className={cn("w-6 h-6", resource.color)} />
-                                </div>
-                            </div>
-
-                            <div className="flex-grow p-8 flex flex-col justify-center">
-                                <span className={cn("text-[10px] font-black uppercase tracking-[0.3em] mb-4 block", resource.color)}>{resource.type}</span>
-                                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-4 group-hover:text-primary transition-colors leading-tight">{resource.title}</h3>
-                                <p className="text-zinc-400 leading-relaxed font-medium mb-8 text-sm sm:text-base">
-                                    {resource.description}
-                                </p>
-                                <button className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors">
-                                    Access Resource <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Newsletter CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="max-w-3xl mx-auto glass-card p-12 rounded-[3rem] text-center border border-white/10 relative overflow-hidden"
-                >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full"></div>
-                    <h3 className="text-3xl font-extrabold text-white mb-4 uppercase tracking-tight relative z-10">Stay Informed</h3>
-                    <p className="text-zinc-400 font-medium mb-8 relative z-10">Subscribe to receive our latest insights and vulnerability alerts.</p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto relative z-10">
-                        <input
-                            type="email"
-                            placeholder="ENTER YOUR EMAIL"
-                            className="flex-grow bg-black/50 border border-white/10 rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest text-white focus:outline-none focus:border-primary/50 transition-colors"
-                        />
-                        <button className="bg-primary text-background px-8 py-4 rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:bg-primary/80 transition-colors">
-                            Subscribe
-                        </button>
-                    </div>
-                </motion.div>
-            </div>
-        </main>
+        <Suspense fallback={<div className="min-h-screen section-bg-dark" />}>
+            <ResourcesContent />
+        </Suspense>
     );
 }
