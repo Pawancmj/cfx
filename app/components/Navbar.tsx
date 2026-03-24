@@ -104,6 +104,7 @@ export default function Navbar() {
                 exploreLinkPrefix="resources"
                 exploreText="Explore Resources"
                 isActive={isActive(link.href)}
+                useQueryForExplore={true}
               />
             );
           }
@@ -259,6 +260,7 @@ export default function Navbar() {
                   exploreText="Explore Resources"
                   isActive={isActive(link.href)}
                   onNavigate={() => setIsOpen(false)}
+                  useQueryForExplore={true}
                 />
               );
             }
