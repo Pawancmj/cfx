@@ -116,32 +116,59 @@ export default function DesktopMegaMenu({
                                     onClick={(e) => handleLinkClick(e, useQueryForExplore ? `/${exploreLinkPrefix}?filter=${encodeURIComponent(activeCategory)}` : `/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`)}
                                     className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-colors flex items-center gap-2 group/viewall"
                                 >
-                                    {exploreText}
+                                    {label === "Case Studies" 
+                                        ? (activeCategory === "Latest" ? "Explore" : `Explore ${activeCategory}`)
+                                        : exploreText}
                                     <ArrowRight className="w-4 h-4 group-hover/viewall:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
 
                             <div className="grid grid-cols-2 gap-x-6 gap-y-3 flex-grow content-start">
-                                {categories.find((c) => c.title === activeCategory)?.links.slice(0, 6).map((subLink) => (
-                                    <Link
-                                        key={subLink.name}
-                                        href={subLink.href}
-                                        onClick={(e) => handleLinkClick(e, subLink.href)}
-                                        className="group/link p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 flex items-center gap-4 relative overflow-hidden"
-                                    >
-                                        {/* Link active gradient */}
-                                        <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 blur-[20px] rounded-full opacity-0 group-hover/link:opacity-100 transition-opacity"></div>
+                                {categories.find((c) => c.title === activeCategory)?.links.slice(0, 6).map((subLink) => {
+                                    const isLogoCard = !!subLink.image;
+                                    
+                                    const cardContent = (
+                                        <>
+                                            {/* Link active gradient */}
+                                            <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 blur-[20px] rounded-full opacity-0 group-hover/link:opacity-100 transition-opacity"></div>
 
-                                        <div className="flex-grow">
-                                            <div className="text-[14px] font-bold text-zinc-200 mb-1 group-hover/link:text-white transition-colors line-clamp-1">
-                                                {subLink.name}
+                                            {subLink.image && (
+                                                <div className="w-12 h-12 shrink-0 bg-white rounded-md p-1.5 flex items-center justify-center shadow-inner group-hover/link:scale-105 transition-transform duration-300">
+                                                    <img src={subLink.image} alt={subLink.name} className="max-w-full max-h-full object-contain" />
+                                                </div>
+                                            )}
+
+                                            <div className="flex-grow flex flex-col justify-center">
+                                                <div className={`font-bold text-zinc-200 group-hover/link:text-white transition-colors line-clamp-1 ${subLink.image ? 'text-[13px]' : 'text-[14px] mb-1'}`}>
+                                                    {subLink.name}
+                                                </div>
+                                                {!subLink.image && (
+                                                    <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest group-hover/link:text-primary transition-colors flex items-center gap-1">
+                                                        Discover <ArrowRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all" />
+                                                    </div>
+                                                )}
                                             </div>
-                                            <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest group-hover/link:text-primary transition-colors flex items-center gap-1">
-                                                Discover <ArrowRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all" />
-                                            </div>
+                                        </>
+                                    );
+
+                                    return isLogoCard ? (
+                                        <div
+                                            key={subLink.name}
+                                            className="group/link p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 flex items-center gap-4 relative overflow-hidden cursor-default"
+                                        >
+                                            {cardContent}
                                         </div>
-                                    </Link>
-                                ))}
+                                    ) : (
+                                        <Link
+                                            key={subLink.name}
+                                            href={subLink.href}
+                                            onClick={(e) => handleLinkClick(e, subLink.href)}
+                                            className="group/link p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 flex items-center gap-4 relative overflow-hidden"
+                                        >
+                                            {cardContent}
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

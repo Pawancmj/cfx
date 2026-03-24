@@ -1,6 +1,7 @@
 export interface NavLink {
     name: string;
     href: string;
+    image?: string;
 }
 
 export interface MegaCategory {
@@ -238,25 +239,18 @@ const caseStudiesLinks: NavLink[] = [
 ];
 
 const caseStudiesClientsLinks: NavLink[] = [
-    { name: "Government & Regulatory Agencies", href: "/case-studies/clients/government-regulatory-agencies" },
-    { name: "Income Tax & Compliance Departments", href: "/case-studies/clients/income-tax-compliance-departments" },
-    { name: "Financial & Investigation Authorities", href: "/case-studies/clients/financial-investigation-authorities" },
-    { name: "Enterprise & Corporate Organizations", href: "/case-studies/clients/enterprise-corporate-organizations" },
-    { name: "Education & Learning Platforms", href: "/case-studies/clients/education-learning-platforms" },
-    { name: "Real Estate & Property Businesses", href: "/case-studies/clients/real-estate-property-businesses" },
-    { name: "E-Commerce & Retail Brands", href: "/case-studies/clients/ecommerce-retail-brands" },
-    { name: "Publishing & Media Companies", href: "/case-studies/clients/publishing-media-companies" },
-    { name: "Fitness & Wellness Organizations", href: "/case-studies/clients/fitness-wellness-organizations" },
-    { name: "Private Business & Startup Clients", href: "/case-studies/clients/private-business-startup-clients" },
+    { name: "Securen", href: "/case-studies", image: "/images/clients/securen.png" },
+    { name: "Delhi Police", href: "/case-studies", image: "/images/clients/delhi-police.png" },
+    { name: "Income Tax", href: "/case-studies", image: "/images/clients/income-tax.jpeg" },
+    { name: "Azal International", href: "/case-studies", image: "/images/clients/azal-international.png" },
+    { name: "Yellowish", href: "/case-studies", image: "/images/clients/yellowish.png" },
+    { name: "TDS", href: "/case-studies", image: "/images/clients/tds.jpeg" },
 ];
 
 export const caseStudiesCategories: MegaCategory[] = [
     {
         title: "Latest",
-        links: [
-            ...caseStudiesLinks.slice(0, 3),
-            ...caseStudiesClientsLinks.slice(0, 3)
-        ],
+        links: caseStudiesLinks.slice(0, 6),
     },
     {
         title: "Case Studies",

@@ -208,70 +208,111 @@ export default function CaseStudiesClient() {
                                 <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
-                                    // Determine image and description based on name/index since our nav data is basic
-                                    const images = [
-                                        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-                                        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-                                        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
-                                        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
-                                        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-                                        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
-                                    ];
-                                    const cardImage = images[idx % images.length];
-                                    const cardBadge = activeFilter === "Latest" ? "Recent Win" : activeFilter === "Clients" ? "Strategic Partner" : "Case Study";
-
-                                    return (
+                            {activeFilter === "Clients" ? (
+                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                                    {[
+                                        { name: "PrepEdu", image: "/images/clients/prepedu.png" },
+                                        { name: "Securen", image: "/images/clients/securen.png" },
+                                        { name: "Azal International", image: "/images/clients/azal-international.png" },
+                                        { name: "Delhi Police", image: "/images/clients/delhi-police.png" },
+                                        { name: "Income Tax", image: "/images/clients/income-tax.jpeg" },
+                                        { name: "Neev Realty", image: "/images/clients/neev-realty.png" },
+                                        { name: "TDS", image: "/images/clients/tds.jpeg" },
+                                        { name: "Teppich", image: "/images/clients/teppich.png" },
+                                        { name: "Yellowish", image: "/images/clients/yellowish.png" }
+                                    ].map((client, idx) => (
                                         <motion.div
-                                            key={link.name}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
+                                            key={client.name}
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
-                                            transition={{ delay: idx * 0.05, duration: 0.5 }}
-                                            className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
+                                            transition={{ delay: idx * 0.05, duration: 0.4 }}
+                                            className="group flex flex-col items-center justify-between p-6 sm:p-8 bg-white/95 backdrop-blur-xl rounded-2xl hover:bg-white transition-all border border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] h-full relative overflow-hidden cursor-default min-h-[160px]"
                                         >
-                                            <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
-                                                <img 
-                                                    src={cardImage} 
-                                                    alt={link.name} 
-                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                                />
-                                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                                                <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
-                                                    <Globe className="w-5 h-5 text-primary" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                            <div className="relative z-10 w-full h-full flex flex-col items-center justify-between pointer-events-none">
+                                                <div className="h-24 sm:h-28 w-full flex items-center justify-center mb-4 transition-all duration-500 pointer-events-auto">
+                                                    <img 
+                                                        src={client.image} 
+                                                        alt={`${client.name} logo`} 
+                                                        className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-sm"
+                                                    />
                                                 </div>
-                                            </div>
-
-                                            <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
-                                                <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
-                                                <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
-                                                    {link.name}
+                                                <h4 className="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] text-center group-hover:text-zinc-950 transition-colors duration-500 mt-auto">
+                                                    {client.name}
                                                 </h4>
-                                                <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
-                                                    Expert implementation of {link.name.toLowerCase()} ensuring security and scalability for global operations.
-                                                </p>
-                                                <Link 
-                                                    href={link.href}
-                                                    className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors"
-                                                >
-                                                    Read Case Study <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
-                                                </Link>
                                             </div>
                                         </motion.div>
-                                    );
-                                })}
-                            </div>
-
-                            {visibleCount < activeCategoryData.links.length && (
-                                <div className="mt-12 flex justify-center">
-                                    <button
-                                        onClick={() => setVisibleCount(prev => prev + 6)}
-                                        className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-zinc-300 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all hover:text-white"
-                                    >
-                                        Show More <ChevronRight className="w-4 h-4" />
-                                    </button>
+                                    ))}
                                 </div>
+                            ) : (
+                                <>
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                        {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
+                                            // Determine image and description based on name/index since our nav data is basic
+                                            const images = [
+                                                "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+                                                "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+                                                "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+                                                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
+                                                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                                                "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                                            ];
+                                            const cardImage = images[idx % images.length];
+                                            const cardBadge = activeFilter === "Latest" ? "Recent Win" : "Case Study";
+
+                                            return (
+                                                <motion.div
+                                                    key={link.name}
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: idx * 0.05, duration: 0.5 }}
+                                                    className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
+                                                >
+                                                    <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
+                                                        <img 
+                                                            src={cardImage} 
+                                                            alt={link.name} 
+                                                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                        />
+                                                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                                                        <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
+                                                            <Globe className="w-5 h-5 text-primary" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
+                                                        <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
+                                                        <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                                                            {link.name}
+                                                        </h4>
+                                                        <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
+                                                            Expert implementation of {link.name.toLowerCase()} ensuring security and scalability for global operations.
+                                                        </p>
+                                                        <Link 
+                                                            href={link.href}
+                                                            className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors"
+                                                        >
+                                                            Read Case Study <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
+                                                        </Link>
+                                                    </div>
+                                                </motion.div>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {visibleCount < activeCategoryData.links.length && (
+                                        <div className="mt-12 flex justify-center">
+                                            <button
+                                                onClick={() => setVisibleCount(prev => prev + 6)}
+                                                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-zinc-300 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all hover:text-white"
+                                            >
+                                                Show More <ChevronRight className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    )}
+                                </>
                             )}
                         </motion.div>
                     </AnimatePresence>
