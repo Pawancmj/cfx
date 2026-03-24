@@ -116,22 +116,22 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
             {/* Layout Container */}
             <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16 relative z-10">
                 
-                {/* Hero Image */}
-                <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[460px] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f14]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none"></div>
-                    <Image
-                        src={detailData.heroImage}
-                        alt={detailData.title}
-                        fill
-                        className="object-cover opacity-80"
-                        priority
-                    />
-                </div>
-
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
                     
                     {/* Main Content Area */}
                     <div className="lg:w-[68%] order-2 lg:order-1">
+                        {/* Hero Image - Inside main content column */}
+                        <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[400px] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f14]">
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none"></div>
+                            <Image
+                                src={detailData.heroImage}
+                                alt={detailData.title}
+                                fill
+                                className="object-cover opacity-80"
+                                priority
+                            />
+                        </div>
+
                         <article>
                             
                             {detailData.contentSections.map((section, idx) => (
@@ -151,7 +151,7 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
 
                         {/* FAQs Section */}
                         {detailData.faqs && detailData.faqs.length > 0 && (
-                            <div className="mt-16 pt-10 border-t border-white/10">
+                            <div id="faqs" className="mt-16 pt-10 border-t border-white/10 scroll-mt-36">
                                 <h3 className="text-2xl font-extrabold text-white mb-8 font-display tracking-tight">Frequently Asked Questions</h3>
                                 
                                 <div className="space-y-4">
@@ -172,11 +172,11 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
                     </div>
 
                     {/* Right Sidebar */}
-                    <div className="lg:w-[32%] order-1 lg:order-2">
-                        <div className="sticky top-32 space-y-8">
+                    <div className="lg:w-[32%] contents lg:block lg:order-2">
+                        <div className="sticky top-32 space-y-8 contents lg:block">
                             
                             {/* Table of Contents */}
-                            <div className="glass-card rounded-2xl p-6">
+                            <div className="glass-card rounded-2xl p-6 order-1 lg:order-none">
                                 <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Table of Contents</h4>
                                 <nav className="flex flex-col gap-3">
                                     {detailData.contentSections.map((section, idx) => (
@@ -189,11 +189,20 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
                                             <span>{section.heading}</span>
                                         </a>
                                     ))}
+                                    {detailData.faqs && detailData.faqs.length > 0 && (
+                                        <a 
+                                            href="#faqs"
+                                            className="text-zinc-400 hover:text-primary text-sm font-medium transition-colors flex items-start gap-3 group mt-1"
+                                        >
+                                            <span className="text-zinc-600 group-hover:text-primary mt-px text-xs font-bold">{String(detailData.contentSections.length + 1).padStart(2, '0')}</span>
+                                            <span>FAQs</span>
+                                        </a>
+                                    )}
                                 </nav>
                             </div>
 
                             {/* Related Case Studies */}
-                            <div className="glass-card rounded-2xl p-6">
+                            <div className="glass-card rounded-2xl p-6 order-3 lg:order-none">
                                 <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Other Case Studies</h4>
                                 <div className="flex flex-col gap-5">
                                     {relatedStudies.map((study, idx) => (
