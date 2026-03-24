@@ -104,7 +104,7 @@ export default function MobileAccordion({
                                             {exploreText} <ArrowRight className="w-3 h-3" />
                                         </Link>
                                         <div className="flex flex-col gap-3">
-                                            {cat.links.map((l) => (
+                                            {cat.links.slice(0, 6).map((l) => (
                                                 <Link
                                                     key={l.name}
                                                     href={l.href}

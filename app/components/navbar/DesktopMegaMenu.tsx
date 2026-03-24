@@ -122,7 +122,7 @@ export default function DesktopMegaMenu({
                             </div>
 
                             <div className="grid grid-cols-2 gap-x-6 gap-y-3 flex-grow content-start">
-                                {categories.find((c) => c.title === activeCategory)?.links.map((subLink) => (
+                                {categories.find((c) => c.title === activeCategory)?.links.slice(0, 6).map((subLink) => (
                                     <Link
                                         key={subLink.name}
                                         href={subLink.href}

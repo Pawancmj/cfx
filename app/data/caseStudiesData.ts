@@ -77,7 +77,7 @@ export const caseStudiesList: CaseStudyData[] = [
                 answer: "We deploy rapid-response teams equipped with portable write-blockers and high-speed imaging stations. Our protocols prioritize immediate securing of live systems (like capturing RAM) before standard physical device imaging."
             }
         ],
-        slug: ["latest", "government-digital-investigation"]
+        slug: ["case-studies", "government-digital-investigation"]
     },
     {
         title: "TDS Department – Training & Capability Building",
@@ -131,7 +131,7 @@ export const caseStudiesList: CaseStudyData[] = [
                 answer: "Yes, our training heavily revolves around hands-on labs where participants use standard forensic software to solve simulated mock cases, building immediate operational readiness."
             }
         ],
-        slug: ["latest", "financial-compliance-tax-investigation"]
+        slug: ["case-studies", "financial-compliance-tax-investigation"]
     },
     {
         title: "AKKD Services – Corporate Cybersecurity & Forensics Awareness",
@@ -185,6 +185,6 @@ export const caseStudiesList: CaseStudyData[] = [
                 answer: "It is an audit tracking how data is created, stored, accessed, and destroyed within an organization, helping us identify where the data is most vulnerable to leakage."
             }
         ],
-        slug: ["latest", "enterprise-cybersecurity-risk-assessment"]
+        slug: ["case-studies", "enterprise-cybersecurity-risk-assessment"]
     }
 ];
