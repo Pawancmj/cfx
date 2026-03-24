@@ -201,32 +201,66 @@ export default function CaseStudiesClient() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-black/50 border border-white/10 rounded-[2rem] p-8 sm:p-12 shadow-2xl backdrop-blur-md"
+                            className="bg-black/50 border border-white/10 rounded-[2rem] p-6 sm:p-10 shadow-2xl backdrop-blur-md"
                         >
                             <div className="flex items-center gap-4 mb-10 pb-6 border-b border-white/10">
                                 <Zap className="w-8 h-8 text-primary" />
                                 <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {activeCategoryData.links.slice(0, visibleCount).map((link) => (
-                                    <Link
-                                        href={link.href}
-                                        key={link.name}
-                                        className="group flex flex-col p-6 rounded-2xl glass-card hover:border-primary/40 hover:-translate-y-1 transition-all"
-                                    >
-                                        <div className="flex items-center justify-between mb-4">
-                                            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                                                <Globe className="w-5 h-5 text-primary" />
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
+                                    // Determine image and description based on name/index since our nav data is basic
+                                    const images = [
+                                        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                                        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                                    ];
+                                    const cardImage = images[idx % images.length];
+                                    const cardBadge = activeFilter === "Latest" ? "Recent Win" : activeFilter === "Clients" ? "Strategic Partner" : "Case Study";
+
+                                    return (
+                                        <motion.div
+                                            key={link.name}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: idx * 0.05, duration: 0.5 }}
+                                            className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
+                                        >
+                                            <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
+                                                <img 
+                                                    src={cardImage} 
+                                                    alt={link.name} 
+                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                                                <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
+                                                    <Globe className="w-5 h-5 text-primary" />
+                                                </div>
                                             </div>
-                                            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                                        </div>
-                                        <h4 className="text-xl font-bold text-white mb-2 group-hover:text-glow transition-all">{link.name}</h4>
-                                        <p className="text-sm font-medium text-zinc-400 group-hover:text-zinc-300">
-                                            Deep dive into {link.name.toLowerCase()} engagements.
-                                        </p>
-                                    </Link>
-                                ))}
+
+                                            <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
+                                                <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
+                                                <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                                                    {link.name}
+                                                </h4>
+                                                <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
+                                                    Expert implementation of {link.name.toLowerCase()} ensuring security and scalability for global operations.
+                                                </p>
+                                                <Link 
+                                                    href={link.href}
+                                                    className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors"
+                                                >
+                                                    Read Case Study <ArrowRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
 
                             {visibleCount < activeCategoryData.links.length && (
