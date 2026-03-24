@@ -211,15 +211,15 @@ export default function CaseStudiesClient() {
                             {activeFilter === "Clients" ? (
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                                     {[
-                                        { name: "PrepEdu", image: "/images/clients/prepedu.png" },
-                                        { name: "Securen", image: "/images/clients/securen.png" },
-                                        { name: "Azal International", image: "/images/clients/azal-international.png" },
-                                        { name: "Delhi Police", image: "/images/clients/delhi-police.png" },
-                                        { name: "Income Tax", image: "/images/clients/income-tax.jpeg" },
-                                        { name: "Neev Realty", image: "/images/clients/neev-realty.png" },
-                                        { name: "TDS", image: "/images/clients/tds.jpeg" },
-                                        { name: "Teppich", image: "/images/clients/teppich.png" },
-                                        { name: "Yellowish", image: "/images/clients/yellowish.png" }
+                                        { name: "PrepEdu", image: "/images/clients/prepedu.webp" },
+                                        { name: "Securen", image: "/images/clients/securen.webp" },
+                                        { name: "Azal International", image: "/images/clients/azal-international.webp" },
+                                        { name: "Delhi Police", image: "/images/clients/delhi-police.webp" },
+                                        { name: "Income Tax", image: "/images/clients/income-tax.webp" },
+                                        { name: "Neev Realty", image: "/images/clients/neev-realty.webp" },
+                                        { name: "TDS", image: "/images/clients/tds.webp" },
+                                        { name: "Teppich", image: "/images/clients/teppich.webp" },
+                                        { name: "Yellowish", image: "/images/clients/yellowish.webp" }
                                     ].map((client, idx) => (
                                         <motion.div
                                             key={client.name}

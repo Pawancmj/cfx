@@ -4,7 +4,7 @@ export const bpoData: ServiceCategory = {
     title: "BPO / BPS Services",
     slug: "bpo",
     heroDescription: "Scale your operations with premium offshore talent.",
-    heroImage: "/hero_bpo.png",
+    heroImage: "/hero_bpo.webp",
     overview: "We construct dedicated, college-educated teams to handle your back-office, customer success, and technical support operations seamlessly.",
     whyChooseUs: [
         { title: "Top 1% Talent", desc: "We hire college-educated professionals with fluent English and specific domain expertise.", icon: "Target" },
@@ -76,7 +76,7 @@ export const bpoData: ServiceCategory = {
             slug: "customer-support-services",
             heroTitle: "Support That Builds Loyalty",
             heroDescription: "Omnichannel customer care that turns complaints into brand advocates.",
-            heroImage: "/mockup_support.png",
+            heroImage: "/mockup_support.webp",
             details: "24/7 voice, email, and chat support with trained agents who embody your brand voice and resolve issues fast.",
             features: [
                 { icon: "Smartphone", title: "Omnichannel voice support", desc: "Professional inbound and outbound call center services." },
@@ -104,7 +104,7 @@ export const bpoData: ServiceCategory = {
             slug: "technical-support-operations",
             heroTitle: "Elite IT Helpdesk at Scale",
             heroDescription: "Tier 1, 2, and 3 technical support with deep SaaS and infrastructure expertise.",
-            heroImage: "/mockup_techsupport.png",
+            heroImage: "/mockup_techsupport.webp",
             details: "Expert software troubleshooting, bug triaging, and remote diagnostics keeping your engineering team focused on building.",
             features: [
                 { icon: "Code", title: "SaaS platform support", desc: "Helping users navigate complex enterprise software." },
@@ -132,7 +132,7 @@ export const bpoData: ServiceCategory = {
             slug: "data-processing-entry",
             heroTitle: "Precision Data at Scale",
             heroDescription: "99.9% accurate data processing, digitization, and management of massive datasets.",
-            heroImage: "/mockup_dataentry.png",
+            heroImage: "/mockup_dataentry.webp",
             details: "CRM cleansing, document digitization, web scraping, and structured data pipeline management by trained analysts.",
             features: [
                 { icon: "Database", title: "CRM data cleansing", desc: "Deduping and enriching Salesforce/HubSpot records." },
@@ -160,7 +160,7 @@ export const bpoData: ServiceCategory = {
             slug: "back-office-management",
             heroTitle: "Streamline Your Operations",
             heroDescription: "Administrative excellence freeing your core team to focus on growth and strategy.",
-            heroImage: "/mockup_backoffice.png",
+            heroImage: "/mockup_backoffice.webp",
             details: "Invoice processing, HR administration, order fulfillment, and bookkeeping by trained back-office professionals.",
             features: [
                 { icon: "FileText", title: "Accounts payable/receivable", desc: "Invoice processing, reconciliation, and payment tracking." },
@@ -188,7 +188,7 @@ export const bpoData: ServiceCategory = {
             slug: "document-verification",
             heroTitle: "Eagle-Eyed Compliance Checks",
             heroDescription: "KYC, AML, and regulatory document verification by certified compliance analysts.",
-            heroImage: "/mockup_docverify.png",
+            heroImage: "/mockup_docverify.webp",
             details: "Identity verification, fraud detection, and regulatory compliance checks with multi-tier validation protocols.",
             features: [
                 { icon: "Search", title: "KYC/AML verification", desc: "Passport, ID, and financial document authentication." },
@@ -216,7 +216,7 @@ export const bpoData: ServiceCategory = {
             slug: "process-automation-support",
             heroTitle: "Human Intelligence Meets RPA",
             heroDescription: "Combining trained operators with robotic process automation for maximum efficiency.",
-            heroImage: "/mockup_rpa.png",
+            heroImage: "/mockup_rpa.webp",
             details: "Workflow mapping, RPA bot maintenance, exception handling, and macro development for operational excellence.",
             features: [
                 { icon: "Zap", title: "Workflow analysis & mapping", desc: "Identifying and documenting tasks ripe for automation." },
@@ -244,7 +244,7 @@ export const bpoData: ServiceCategory = {
             slug: "email-chat-support",
             heroTitle: "Lightning-Fast Written Support",
             heroDescription: "High-volume email and live chat handling with perfect grammar and brand consistency.",
-            heroImage: "/mockup_chat.png",
+            heroImage: "/mockup_chat.webp",
             details: "Concurrent live chat management, email triage, and social media moderation by trained communication specialists.",
             features: [
                 { icon: "Activity", title: "Multi-concurrent live chat", desc: "Handling 3+ simultaneous conversations with quality." },
@@ -272,7 +272,7 @@ export const bpoData: ServiceCategory = {
             slug: "operational-assistance",
             heroTitle: "Never Sleep, Never Stop",
             heroDescription: "Round-the-clock operational coverage across all time zones for global businesses.",
-            heroImage: "/mockup_247ops.png",
+            heroImage: "/mockup_247ops.webp",
             details: "Night shift coverage, system monitoring, emergency dispatch, and global time zone support for continuous operations.",
             features: [
                 { icon: "Activity", title: "Follow-the-sun coverage", desc: "Supporting APAC, EMEA, and Americas around the clock." },

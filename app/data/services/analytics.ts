@@ -4,7 +4,7 @@ export const analyticsData: ServiceCategory = {
     title: "Data & Analytics",
     slug: "analytics",
     heroDescription: "Transforming raw data into strategic business intelligence.",
-    heroImage: "/hero_analytics.png",
+    heroImage: "/hero_analytics.webp",
     overview: "We help organizations build robust data infrastructure and analytical models that turn complex datasets into clear, actionable growth strategies.",
     whyChooseUs: [
         { title: "Real-time Insights", desc: "Building low-latency data pipelines for immediate decision making.", icon: "Zap" },
@@ -76,7 +76,7 @@ export const analyticsData: ServiceCategory = {
             slug: "data-engineering",
             heroTitle: "Build a Scalable Data Foundation",
             heroDescription: "Robust data pipelines that ensure your business runs on clean, reliable, and real-time data.",
-            heroImage: "/mockup_etl.png",
+            heroImage: "/mockup_etl.webp",
             details: "Enterprise-grade data warehousing, automated ETL processes, and database optimization for massive scale.",
             features: [
                 { icon: "Database", title: "Cloud data warehousing", desc: "Setting up BigQuery, Snowflake, or Redshift for petabyte-scale analytics." },
@@ -104,7 +104,7 @@ export const analyticsData: ServiceCategory = {
             slug: "kpi-monitoring-solutions",
             heroTitle: "Track What Truly Matters",
             heroDescription: "Real-time KPI monitoring with intelligent alerting and predictive forecasting.",
-            heroImage: "/mockup_kpi.png",
+            heroImage: "/mockup_kpi.webp",
             details: "Automated threshold alerts, predictive capacity planning, and cross-team KPI alignment dashboards.",
             features: [
                 { icon: "Activity", title: "Threshold alert systems", desc: "Automated Slack and email triggers when KPIs breach limits." },
@@ -132,7 +132,7 @@ export const analyticsData: ServiceCategory = {
             slug: "customer-behavior-analytics",
             heroTitle: "Understand Your Users Deeply",
             heroDescription: "Product usage insights and behavioral psychology mapped to actionable growth strategies.",
-            heroImage: "/mockup_behavior.png",
+            heroImage: "/mockup_behavior.webp",
             details: "Funnel analysis, session replays, cohort tracking, and churn prediction to optimize your product experience.",
             features: [
                 { icon: "Search", title: "Funnel drop-off analysis", desc: "Pinpointing exactly where users abandon your product." },
@@ -160,7 +160,7 @@ export const analyticsData: ServiceCategory = {
             slug: "decision-support-systems",
             heroTitle: "AI-Powered Decision Intelligence",
             heroDescription: "Machine learning platforms that recommend the most profitable business actions.",
-            heroImage: "/mockup_dss.png",
+            heroImage: "/mockup_dss.webp",
             details: "Predictive ML models, scenario simulation, and algorithmic resource optimization for strategic decision-making.",
             features: [
                 { icon: "Code", title: "Custom ML models", desc: "Proprietary algorithms trained on your historical outcomes." },

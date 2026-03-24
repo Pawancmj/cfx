@@ -4,7 +4,7 @@ export const digitalForensicsData: ServiceCategory = {
     title: "Digital Forensics & IR",
     slug: "digital-forensics",
     heroDescription: "Uncover the truth with scientific digital evidence.",
-    heroImage: "/hero_forensics.png",
+    heroImage: "/hero_forensics.webp",
     overview: "Our labs combine cutting-edge technology with forensic precision to investigate breaches, recover data, and provide expert testimony.",
     whyChooseUs: [
         { title: "Evidence Integrity", desc: "Adherence to strict chain-of-custody protocols for legal admissibility.", icon: "Shield" },
@@ -68,7 +68,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "incident-response",
             heroTitle: "Stopping the Bleeding, Fast",
             heroDescription: "Elite rapid-response teams to contain, eradicate, and recover from security breaches.",
-            heroImage: "/mockup_ir.png",
+            heroImage: "/mockup_ir.webp",
             details: "24/7 global IR teams specialized in ransomware, business email compromise (BEC), and advanced persistent threats (APT).",
             features: [
                 { icon: "Zap", title: "Immediate threat containment", desc: "Rapid isolation of infected systems and compromised accounts." },
@@ -96,7 +96,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "malware-analysis",
             heroTitle: "Dissecting the Digital Weapon",
             heroDescription: "Understanding the DNA of custom malware, ransomware, and spyware.",
-            heroImage: "/mockup_malware.png",
+            heroImage: "/mockup_malware.webp",
             details: "Static and dynamic analysis of suspicious files to determine intent, C2 infrastructure, and IOCs.",
             features: [
                 { icon: "Lock", title: "Dynamic sandbox analysis", desc: "Observing malware behavior in a controlled, isolated environment." },
@@ -124,7 +124,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "cyber-crime-investigation-support",
             heroTitle: "Technical Firepower for Legal Teams",
             heroDescription: "Expert forensic support for law enforcement, litigation, and regulatory investigations.",
-            heroImage: "/mockup_cybercrime.png",
+            heroImage: "/mockup_cybercrime.webp",
             details: "Fraud tracing, IP theft investigation, expert witness testimony, and courtroom-ready evidence packages.",
             features: [
                 { icon: "Target", title: "Financial fraud tracing", desc: "Digital trail analysis for cryptocurrency and wire fraud cases." },
@@ -152,7 +152,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "log-analysis-event-reconstruction",
             heroTitle: "Find the Needle in Billions of Logs",
             heroDescription: "Advanced SIEM analysis and event correlation to reconstruct complex security incidents.",
-            heroImage: "/mockup_log_analysis.png",
+            heroImage: "/mockup_log_analysis.webp",
             details: "Parsing millions of log entries with advanced correlation engines to build precise incident timelines.",
             features: [
                 { icon: "Database", title: "SIEM log aggregation", desc: "Analyzing consolidated logs from firewalls, endpoints, and servers." },
@@ -180,7 +180,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "device-network-forensics",
             heroTitle: "Deep Device & Traffic Analysis",
             heroDescription: "Comprehensive forensic examination of mobile devices, IoT, and network communications.",
-            heroImage: "/mockup_device_forensics.png",
+            heroImage: "/mockup_device_forensics.webp",
             details: "Mobile extraction, PCAP analysis, IoT investigation, and network traffic forensics for complete endpoint visibility.",
             features: [
                 { icon: "Smartphone", title: "Mobile device extraction", desc: "Bypassing locks to recover SMS, app data, and location history." },
@@ -208,7 +208,7 @@ export const digitalForensicsData: ServiceCategory = {
             slug: "legal-compliance-reporting",
             heroTitle: "Courtroom-Ready Documentation",
             heroDescription: "Converting complex technical findings into legally defensible, stakeholder-ready reports.",
-            heroImage: "/mockup_legal_report.png",
+            heroImage: "/mockup_legal_report.webp",
             details: "Expert affidavits, regulatory breach notifications, executive summaries, and complete litigation support packages.",
             features: [
                 { icon: "FileText", title: "Expert affidavits", desc: "Drafting sworn statements of technical facts for court." },

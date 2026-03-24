@@ -9,37 +9,37 @@ const testimonials = [
         content: "Cyberforenx transformed our customer support operations. Their dedicated team integrated seamlessly, and we saw a 40% reduction in response times within the first quarter.",
         author: "Sarah Chen",
         role: "Operations Director, GlobalTech Innovations",
-        image: "/avatar-1.png",
+        image: "/avatar-1.webp",
     },
     {
         content: "The level of data security and compliance Cyberforenx provides is unparalleled. We now have complete peace of mind knowing our sensitive information is handled with the utmost care.",
         author: "Mark Johnson",
         role: "Chief Security Officer, Apex Financial",
-        image: "/avatar-2.png",
+        image: "/avatar-2.webp",
     },
     {
         content: "Their flexible staffing model allowed us to scale up our back-office teams during peak demand without any overhead. A true partner in efficiency!",
         author: "Maria Rodriguez",
         role: "VP of HR, Innovate Pharma",
-        image: "/avatar-3.png",
+        image: "/avatar-3.webp",
     },
     {
         content: "The expertise of their incident response team was phenomenal. They minimized our downtime drastically during a critical security event, saving us millions.",
         author: "David Smith",
         role: "IT Manager, TechSolutions",
-        image: "/avatar-4.png",
+        image: "/avatar-4.webp",
     },
     {
         content: "Working with Cyberforenx has been a game-changer for our compliance efforts. Their audits are thorough, and their continuous monitoring is highly actionable.",
         author: "Jessica Lee",
         role: "Compliance Officer, SecureNet",
-        image: "/avatar-5.png",
+        image: "/avatar-5.webp",
     },
     {
         content: "An incredible partner for our digital transformation journey. Their backend support ensures we operate 24/7 without a single hitch or security oversight.",
         author: "Robert Williams",
         role: "CEO, NextGen Enterprises",
-        image: "/avatar-6.png",
+        image: "/avatar-6.webp",
     },
 ];
 

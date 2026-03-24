@@ -24,7 +24,7 @@ export const caseStudiesList: CaseStudyData[] = [
         industry: "Government / Law Enforcement / Financial Investigation",
         author: "CyberForenX Team",
         date: "14 July 2024",
-        heroImage: "/hero_analytics.png",
+        heroImage: "/hero_analytics.webp",
         contentSections: [
             {
                 id: "objective",
@@ -85,7 +85,7 @@ export const caseStudiesList: CaseStudyData[] = [
         industry: "Government / Financial Compliance",
         author: "CyberForenX Education",
         date: "22 August 2024",
-        heroImage: "/hero_forensics.png",
+        heroImage: "/hero_forensics.webp",
         contentSections: [
             {
                 id: "objective",
@@ -139,7 +139,7 @@ export const caseStudiesList: CaseStudyData[] = [
         industry: "Corporate / Business Services",
         author: "CyberForenX Advisory",
         date: "05 September 2024",
-        heroImage: "/hero_cybersecurity.png",
+        heroImage: "/hero_cybersecurity.webp",
         contentSections: [
             {
                 id: "objective",

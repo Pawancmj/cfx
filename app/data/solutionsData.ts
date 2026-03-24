@@ -5,7 +5,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Digital Commerce & Platform Businesses",
         slug: "digital-commerce",
         heroDescription: "Secure, scalable platforms engineered for high-volume transactions.",
-        heroImage: "/hero_commerce.png",
+        heroImage: "/hero_commerce.webp",
         overview: "We build and secure high-performance digital commerce platforms, client portals, and SaaS ecosystems designed for complex enterprise requirements.",
         whyChooseUs: [
             { title: "High-Volume Scalability", desc: "Cloud-native architectures built to handle massive concurrent transaction loads.", icon: "Activity" },
@@ -60,7 +60,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "custom-web-mobile-platforms",
                 heroTitle: "Bespoke Platforms Built for Scale",
                 heroDescription: "High-performance digital experiences tailored to your unique commerce workflows.",
-                heroImage: "/mockup_custom_commerce.png",
+                heroImage: "/mockup_custom_commerce.webp",
                 details: "We architect custom web and mobile platforms that combine beautiful interfaces with rock-solid, secure backends.",
                 features: [
                     { icon: "Smartphone", title: "Omnichannel experiences", desc: "Seamless user journeys across desktop, tablet, and mobile apps." },
@@ -88,7 +88,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "client-vendor-portal",
                 heroTitle: "Secure Ecosystem Collaboration",
                 heroDescription: "Streamline B2B interactions with highly secure, role-based access portals.",
-                heroImage: "/mockup_vendor_portal.png",
+                heroImage: "/mockup_vendor_portal.webp",
                 details: "Custom portals designed to securely handle sensitive document exchanges, inventory management, and financial reporting.",
                 features: [
                     { icon: "ShieldCheck", title: "Role-based access control", desc: "Granular permissions down to the individual document level." },
@@ -116,7 +116,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "saas-platforms",
                 heroTitle: "Scalable SaaS Architectures",
                 heroDescription: "Multi-tenant platforms engineered for recurring revenue and infinite scalability.",
-                heroImage: "/mockup_saas_commerce.png",
+                heroImage: "/mockup_saas_commerce.webp",
                 details: "End-to-end SaaS infrastructure handling subscription logic, tenant isolation, and enterprise-grade SLA requirements.",
                 features: [
                     { icon: "Database", title: "Isolated multi-tenancy", desc: "Strict data separation ensuring zero cross-tenant leakage." },
@@ -144,7 +144,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "api-integration",
                 heroTitle: "Connect Your Commerce Ecosystem",
                 heroDescription: "Seamless, secure API bridges eliminating data silos and manual workflows.",
-                heroImage: "/mockup_api_commerce.png",
+                heroImage: "/mockup_api_commerce.webp",
                 details: "We build resilient middleware connecting legacy systems with modern commerce APIs, featuring advanced rate-limiting and error handling.",
                 features: [
                     { icon: "Layout", title: "Data transformation", desc: "Real-time mapping between incompatible system formats." },
@@ -172,7 +172,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "multi-user-management",
                 heroTitle: "Complex Hierarchies Simplified",
                 heroDescription: "Centralized identity and access management for large-scale commerce operations.",
-                heroImage: "/mockup_user_management.png",
+                heroImage: "/mockup_user_management.webp",
                 details: "Robust IAM platforms capable of handling thousands of users, complex approval chains, and delegated administration.",
                 features: [
                     { icon: "Target", title: "Delegated administration", desc: "Allowing B2B clients to manage their own user hierarchies." },
@@ -200,7 +200,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "secure-transaction-workflows",
                 heroTitle: "Bulletproof Payment Pipelines",
                 heroDescription: "Frictionless checkout experiences fortified by anti-fraud machine learning.",
-                heroImage: "/mockup_transactions.png",
+                heroImage: "/mockup_transactions.webp",
                 details: "PCI-compliant transaction flows that maximize conversion rates while actively blocking malicious actors.",
                 features: [
                     { icon: "Activity", title: "AI fraud scoring", desc: "Real-time transaction analysis blocking suspicious activity." },
@@ -228,7 +228,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "scalable-digital-infrastructure",
                 heroTitle: "Infrastructure Built for Peak Loads",
                 heroDescription: "Cloud-native architectures that automatically scale during Black Friday events.",
-                heroImage: "/mockup_infrastructure.png",
+                heroImage: "/mockup_infrastructure.webp",
                 details: "Kubernetes and serverless deployments across AWS and Azure, ensuring your platform never goes down under pressure.",
                 features: [
                     { icon: "Database", title: "Auto-scaling compute", desc: "Dynamically adding resources the millisecond traffic spikes." },
@@ -256,7 +256,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "platform-performance-optimization",
                 heroTitle: "Millisecond Responses, Maximum Conversions",
                 heroDescription: "Deep technical audits and optimizations pushing your platform to the edge.",
-                heroImage: "/mockup_optimization.png",
+                heroImage: "/mockup_optimization.webp",
                 details: "We analyze bottlenecks from the database level up to the frontend render cycle, implementing caching and CDN strategies.",
                 features: [
                     { icon: "Zap", title: "Edge caching strategy", desc: "Serving dynamic content from locations inches away from your users." },
@@ -285,7 +285,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Government & Regulatory Agencies",
         slug: "government",
         heroDescription: "Clearance-ready digital forensics and investigation support for the public sector.",
-        heroImage: "/hero_gov.png",
+        heroImage: "/hero_gov.webp",
         overview: "We provide highly secure, court-admissible forensic collections, analysis, and infrastructure solutions compliant with strict government protocols.",
         whyChooseUs: [
             { title: "Cleared Personnel", desc: "Analysts holding advanced government security clearances.", icon: "ShieldCheck" },
@@ -310,7 +310,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "digital-evidence-collection",
                 heroTitle: "Flawless Evidence Acquisition",
                 heroDescription: "Forensically sound data extraction from servers, mobile devices, and dark web infrastructure.",
-                heroImage: "/mockup_gov_evidence.png",
+                heroImage: "/mockup_gov_evidence.webp",
                 details: "Deployment of specialized teams to secure volatile data and physical devices while maintaining absolute legal integrity.",
                 features: [
                     { icon: "Database", title: "Live memory capture", desc: "Extracting RAM data containing decryption keys and active malware." },
@@ -338,7 +338,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "on-site-investigation",
                 heroTitle: "Tactical Field Deployments",
                 heroDescription: "Expert forensic technicians embedded directly with law enforcement raid teams.",
-                heroImage: "/mockup_gov_field.png",
+                heroImage: "/mockup_gov_field.webp",
                 details: "Immediate on-scene triage, circumventing booby-trapped systems and securing encrypted devices before they are locked.",
                 features: [
                     { icon: "Zap", title: "Rapid triage", desc: "On-site intelligence extraction to guide ongoing physical operations." },
@@ -366,7 +366,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "data-extraction",
                 heroTitle: "Bypassing Advanced Encryption",
                 heroDescription: "Extracting critical intelligence from locked iOS, Android, and encrypted desktop systems.",
-                heroImage: "/mockup_gov_mobile.png",
+                heroImage: "/mockup_gov_mobile.webp",
                 details: "Utilizing advanced exploits and chip-off methodologies to recover data from severely damaged or maliciously locked devices.",
                 features: [
                     { icon: "Smartphone", title: "Chip-off extraction", desc: "Physically removing memory chips from destroyed motherboards." },
@@ -394,7 +394,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "data-recovery-analysis",
                 heroTitle: "Resurrecting Destroyed Evidence",
                 heroDescription: "Advanced file carving recovering intelligence from formatted and damaged storage.",
-                heroImage: "/mockup_gov_recovery.png",
+                heroImage: "/mockup_gov_recovery.webp",
                 details: "Deep-sector analysis reconstructing fragmented data remnants into actionable intelligence.",
                 features: [
                     { icon: "FileText", title: "Raw sector carving", desc: "Identifying file signatures in unallocated disk space." },
@@ -422,7 +422,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "email-communication-forensics",
                 heroTitle: "Mapping the Conspiracy",
                 heroDescription: "Tracing corporate espionage and threat actor communication networks.",
-                heroImage: "/mockup_gov_email.png",
+                heroImage: "/mockup_gov_email.webp",
                 details: "Analyzing headers, attachments, and metadata across thousands of inboxes to prove intent and attribution.",
                 features: [
                     { icon: "Target", title: "Attribution mapping", desc: "Linking spoofed identities to physical locations and individuals." },
@@ -450,7 +450,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "financial-data-investigation",
                 heroTitle: "Following the Digital Money",
                 heroDescription: "Cryptocurrency tracing and complex financial fraud analysis.",
-                heroImage: "/mockup_gov_finance.png",
+                heroImage: "/mockup_gov_finance.webp",
                 details: "Tracing laundered funds through blockchain mixers, shell company networks, and decentralized exchanges.",
                 features: [
                     { icon: "Activity", title: "Blockchain analysis", desc: "Mapping wallet movements across Bitcoin, Ethereum, and Monero protocols." },
@@ -478,7 +478,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "evidence-trail-analysis",
                 heroTitle: "Reconstructing the Timeline",
                 heroDescription: "Pasting together a second-by-second timeline of illicit activity.",
-                heroImage: "/mockup_gov_timeline.png",
+                heroImage: "/mockup_gov_timeline.webp",
                 details: "Correlating system logs, router traffic, and application artifacts to definitively prove what occurred and when.",
                 features: [
                     { icon: "Layout", title: "Event correlation", desc: "Merging disparate log sources into a unified chronological narrative." },
@@ -506,7 +506,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "forensic-reporting",
                 heroTitle: "Expert Witness Readiness",
                 heroDescription: "Translating complex binary analysis into courtroom-ready documentation.",
-                heroImage: "/mockup_gov_reporting.png",
+                heroImage: "/mockup_gov_reporting.webp",
                 details: "Generating comprehensive, legally defensible reports supported by our GIAC-certified expert witnesses.",
                 features: [
                     { icon: "FileText", title: "Jury-ready narratives", desc: "Simplifying complex cyber concepts for non-technical audiences." },
@@ -534,7 +534,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "evidence-preservation",
                 heroTitle: "Immutable Digital Vaults",
                 heroDescription: "Long-term cold storage preserving evidence integrity for decades.",
-                heroImage: "/mockup_gov_archival.png",
+                heroImage: "/mockup_gov_archival.webp",
                 details: "Military-grade physical and digital facilities protecting highly sensitive findings throughout lengthy appeals processes.",
                 features: [
                     { icon: "Database", title: "Air-gapped storage", desc: "Offline vaulting preventing remote tampering or ransomware." },
@@ -562,7 +562,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "case-management-systems",
                 heroTitle: "Centralized Intelligence Hubs",
                 heroDescription: "Secure software solutions for managing complex, multi-jurisdictional investigations.",
-                heroImage: "/mockup_gov_cms.png",
+                heroImage: "/mockup_gov_cms.webp",
                 details: "Custom-built platforms enabling secure collaboration between different alphabet agencies without compromising compartmented information.",
                 features: [
                     { icon: "Shield", title: "Compartmented access", desc: "Need-to-know access controls preventing intelligence leaks." },
@@ -591,7 +591,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Financial & Tax Compliance",
         slug: "finance",
         heroDescription: "Precision forensic accounting and regulatory compliance systems.",
-        heroImage: "/hero_finance.png",
+        heroImage: "/hero_finance.webp",
         overview: "Securing financial operations against fraud while ensuring strict adherence to global tax and regulatory frameworks.",
         whyChooseUs: [
             { title: "Precision Accounting", desc: "Automated auditing at the transaction level.", icon: "Database" },
@@ -616,7 +616,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "tds-financial-examination",
                 heroTitle: "Automated Tax Compliance",
                 heroDescription: "Automated TDS reconciliation and error detection.",
-                heroImage: "/mockup_finance_tds.png",
+                heroImage: "/mockup_finance_tds.webp",
                 details: "Streamlined algorithms managing complex tax deductions at source across millions of ledger entries seamlessly.",
                 features: [
                     { icon: "Database", title: "Automated reconciliation", desc: "Matching ledger entries to bank statements in real-time." },
@@ -644,7 +644,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "fraud-pattern-analysis",
                 heroTitle: "Predictive Anti-Fraud Modeling",
                 heroDescription: "AI-driven anomaly detection in high-frequency trading.",
-                heroImage: "/mockup_finance_fraud.png",
+                heroImage: "/mockup_finance_fraud.webp",
                 details: "Deploying machine learning to identify hidden relationships in transaction graphs to halt money laundering before settlement.",
                 features: [
                     { icon: "Activity", title: "Behavioral analytics", desc: "Identifying deviations from baseline trading behaviors." },
@@ -672,7 +672,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "evidence-verification",
                 heroTitle: "Cryptographic Evidence Validation",
                 heroDescription: "Cryptographic validation of financial ledgers.",
-                heroImage: "/mockup_finance_evidence.png",
+                heroImage: "/mockup_finance_evidence.webp",
                 details: "Mathematical proof of data integrity ensuring financial records have not been altered post-creation.",
                 features: [
                     { icon: "Lock", title: "Hash verification", desc: "Comparing live databases against immutable blockchain anchors." },
@@ -700,7 +700,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "audit-compliance-support",
                 heroTitle: "Frictionless Financial Auditing",
                 heroDescription: "End-to-end support for external SOX/PCI audits.",
-                heroImage: "/mockup_finance_audit.png",
+                heroImage: "/mockup_finance_audit.webp",
                 details: "Centralizing disparate financial data into unified formats required by Big Four accounting firms.",
                 features: [
                     { icon: "FileText", title: "Data mapping", desc: "Translating legacy mainframe data into standard audit formats." },
@@ -728,7 +728,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "risk-identification",
                 heroTitle: "Proactive Risk Mitigation",
                 heroDescription: "Proactive mapping of exposure to changing tax codes.",
-                heroImage: "/mockup_finance_risk.png",
+                heroImage: "/mockup_finance_risk.webp",
                 details: "Algorithmic review of business operations against thousands of global regulatory frameworks.",
                 features: [
                     { icon: "Activity", title: "Scenario modeling", desc: "Stress-testing financial data against simulated market shocks." },
@@ -756,7 +756,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "investigation-reporting",
                 heroTitle: "Executable Intelligence",
                 heroDescription: "SEC-ready fraud investigation readouts.",
-                heroImage: "/mockup_finance_reporting.png",
+                heroImage: "/mockup_finance_reporting.webp",
                 details: "Transforming dense forensic data into clear narratives supporting legal actions against financial crimes.",
                 features: [
                     { icon: "FileText", title: "Executive summaries", desc: "High-level overviews for C-suite decision making." },
@@ -784,7 +784,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "regulatory-submission",
                 heroTitle: "Automated Regulatory Filings",
                 heroDescription: "Automated aggregation for quarterly filings.",
-                heroImage: "/mockup_finance_submission.png",
+                heroImage: "/mockup_finance_submission.webp",
                 details: "Software pipelines collecting data across disparate global branches to format XML files for regulators.",
                 features: [
                     { icon: "Zap", title: "API integrations", desc: "Direct connections to regulatory reporting gateways." },
@@ -812,7 +812,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "compliance-workflow",
                 heroTitle: "Digitized Compliance Operations",
                 heroDescription: "Custom software replacing manual spreadsheet compliance.",
-                heroImage: "/mockup_finance_workflow.png",
+                heroImage: "/mockup_finance_workflow.webp",
                 details: "Architecting centralized dashboards that orchestrate compliance tasks across multi-national organizations.",
                 features: [
                     { icon: "Layout", title: "Unified dashboards", desc: "Single pane of glass for global compliance status." },
@@ -841,7 +841,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Security-Sensitive Organizations",
         slug: "security",
         heroDescription: "Hardened infrastructure for organizations where compromise is not an option.",
-        heroImage: "/hero_security.png",
+        heroImage: "/hero_security.webp",
         overview: "Providing zero-trust architecture, continuous threat hunting, and compliance governance for critical infrastructure and defense contractors.",
         whyChooseUs: [
             { title: "Zero-Trust Architecture", desc: "Continuous verification for every user and device.", icon: "Lock" },
@@ -866,7 +866,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "security-risk-assessment",
                 heroTitle: "Complete Attack Surface Mapping",
                 heroDescription: "Comprehensive vulnerability mapping.",
-                heroImage: "/mockup_security_assessment.png",
+                heroImage: "/mockup_security_assessment.webp",
                 details: "Identifying hidden exposures across cloud, on-prem, and hybrid environments before they can be exploited.",
                 features: [
                     { icon: "Search", title: "External footprinting", desc: "Mapping public-facing assets visible to attackers." },
@@ -894,7 +894,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "vulnerability-audits",
                 heroTitle: "Framework Alignment Verification",
                 heroDescription: "CMMC and NIST framework gap analysis.",
-                heroImage: "/mockup_security_audit.png",
+                heroImage: "/mockup_security_audit.webp",
                 details: "Mapping existing technical controls strictly against advanced defense contracting requirements.",
                 features: [
                     { icon: "ShieldCheck", title: "Framework cross-walking", desc: "Mapping overlapping controls across multiple regulations." },
@@ -922,7 +922,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "threat-monitoring",
                 heroTitle: "Active Defense Operations",
                 heroDescription: "Global SOC operations with rapid containment.",
-                heroImage: "/mockup_security_soc.png",
+                heroImage: "/mockup_security_soc.webp",
                 details: "24/7 eyes-on-glass monitoring coupled with automated SOAR playbooks for immediate isolation of ransomware.",
                 features: [
                     { icon: "Zap", title: "Automated isolation", desc: "Severing infected endpoints from the network instantly." },
@@ -950,7 +950,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "access-control",
                 heroTitle: "Zero-Trust Identity Vaults",
                 heroDescription: "Biometric and hardware-token IAM implementations.",
-                heroImage: "/mockup_security_iam.png",
+                heroImage: "/mockup_security_iam.webp",
                 details: "Ensuring only mathematically verified identities can access segmented critical data enclaves.",
                 features: [
                     { icon: "Lock", title: "FIDO2 integration", desc: "Phishing-resistant hardware token authentication." },
@@ -978,7 +978,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "security-governance",
                 heroTitle: "Board-Level Cyber Strategy",
                 heroDescription: "vCISO support for board-level strategy.",
-                heroImage: "/mockup_security_vciso.png",
+                heroImage: "/mockup_security_vciso.webp",
                 details: "Translating deep technical risks into localized business impacts for executive decision making.",
                 features: [
                     { icon: "Layout", title: "Strategic roadmapping", desc: "Multi-year plans aligning security with business growth." },
@@ -1006,7 +1006,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "compliance-tracking",
                 heroTitle: "Automated Audit Readiness",
                 heroDescription: "Software for continuous audit readiness.",
-                heroImage: "/mockup_security_tracking.png",
+                heroImage: "/mockup_security_tracking.webp",
                 details: "Dashboards ingesting telemetry to prove compliance states to auditors without manual evidence gathering.",
                 features: [
                     { icon: "Code", title: "API ingestions", desc: "Pulling configuration states directly from firewalls." },
@@ -1034,7 +1034,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "risk-reporting",
                 heroTitle: "Visualizing the Attack Surface",
                 heroDescription: "Real-time visualization of attack surface telemetry.",
-                heroImage: "/mockup_security_dashboards.png",
+                heroImage: "/mockup_security_dashboards.webp",
                 details: "Single-pane-of-glass views into patching latency, alert volumes, and overall enterprise risk scores.",
                 features: [
                     { icon: "Layout", title: "Custom widgets", desc: "Tailoring views for engineers versus executives." },
@@ -1062,7 +1062,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "secure-infrastructure",
                 heroTitle: "Air-Gapped Sovereign Cloud",
                 heroDescription: "Air-gapped and hardened cloud deployments.",
-                heroImage: "/mockup_security_infra.png",
+                heroImage: "/mockup_security_infra.webp",
                 details: "Architecting physically and logically isolated environments for the processing of heavily restricted data classes.",
                 features: [
                     { icon: "Code", title: "Infrastructure-as-Code", desc: "Deploying secure baseline environments via Terraform." },
@@ -1091,7 +1091,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Enterprise & Corporate Operations",
         slug: "enterprise",
         heroDescription: "Streamlining massive operational scale securely.",
-        heroImage: "/hero_enterprise.png",
+        heroImage: "/hero_enterprise.webp",
         overview: "Replacing legacy friction with automated, secure, and infinitely scalable business process solutions.",
         whyChooseUs: [
             { title: "Silo Elimination", desc: "Connecting fragmented systems into unified platforms.", icon: "Layout" },
@@ -1116,7 +1116,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "business-process-automation",
                 heroTitle: "Hyper-Automated Workflows",
                 heroDescription: "RPA and script-based workflow replacements.",
-                heroImage: "/mockup_enterprise_rpa.png",
+                heroImage: "/mockup_enterprise_rpa.webp",
                 details: "Removing human bottlenecks from data entry, approval chains, and inter-departmental communications.",
                 features: [
                     { icon: "Zap", title: "Robotic Process Automation", desc: "Software bots mimicking user actions across legacy UI applications." },
@@ -1144,7 +1144,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "back-office-management",
                 heroTitle: "Centralized Back-Office Hubs",
                 heroDescription: "Centralized platforms for distributed teams.",
-                heroImage: "/mockup_enterprise_backoffice.png",
+                heroImage: "/mockup_enterprise_backoffice.webp",
                 details: "Custom software unifying HR, finance, and legal workflows into a single, cohesive interface.",
                 features: [
                     { icon: "Layout", title: "Unified portals", desc: "A single login for employees to access all backend tools." },
@@ -1172,7 +1172,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "customer-support",
                 heroTitle: "AI-Augmented Support Platforms",
                 heroDescription: "AI-augmented omnichannel support platforms.",
-                heroImage: "/mockup_enterprise_support.png",
+                heroImage: "/mockup_enterprise_support.webp",
                 details: "Intelligent routing, automated ticketing, and conversational AI chatbots reducing human agent loads globally.",
                 features: [
                     { icon: "Target", title: "Intelligent routing", desc: "Sending tickets to specific agents based on NLP sentiment analysis." },
@@ -1200,7 +1200,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "data-processing",
                 heroTitle: "Unstructured Data Mining",
                 heroDescription: "OCR and NLP-driven document sorting.",
-                heroImage: "/mockup_enterprise_doc.png",
+                heroImage: "/mockup_enterprise_doc.webp",
                 details: "Transforming millions of physical pages and raw PDFs into searchable, actionable database records automatically.",
                 features: [
                     { icon: "FileText", title: "Computer vision OCR", desc: "Extracting text from low-quality scans and handwritten forms." },
@@ -1228,7 +1228,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "workforce-monitoring",
                 heroTitle: "Remote Force Telemetry",
                 heroDescription: "Privacy-compliant telematics and KPI tracking.",
-                heroImage: "/mockup_enterprise_telemetry.png",
+                heroImage: "/mockup_enterprise_telemetry.webp",
                 details: "Monitoring remote employee productivity and identifying process bottlenecks without violating corporate privacy policies.",
                 features: [
                     { icon: "Activity", title: "Application tracking", desc: "Measuring time spent in approved vs unapproved software." },
@@ -1256,7 +1256,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "operational-reporting",
                 heroTitle: "Executive Visibility Arrays",
                 heroDescription: "C-suite visibility into ground-level metrics.",
-                heroImage: "/mockup_enterprise_dashboards.png",
+                heroImage: "/mockup_enterprise_dashboards.webp",
                 details: "Real-time extraction of data from factory floors, supply chains, and server racks translated into business logic.",
                 features: [
                     { icon: "Layout", title: "Live metrics", desc: "Instantaneous updates replacing weekly spreadsheet rollups." },
@@ -1284,7 +1284,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "process-optimization",
                 heroTitle: "Lean-Sigma Engineering",
                 heroDescription: "Lean-six sigma tech implementations.",
-                heroImage: "/mockup_enterprise_optimization.png",
+                heroImage: "/mockup_enterprise_optimization.webp",
                 details: "Utilizing software to enforce optimized process paths, preventing procedural deviations that cause latency.",
                 features: [
                     { icon: "Activity", title: "Process mining", desc: "Analyzing system logs to discover actual vs intended workflows." },
@@ -1312,7 +1312,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "workflow-platforms",
                 heroTitle: "Custom Monolith Replacements",
                 heroDescription: "Custom monolithic ERP replacements.",
-                heroImage: "/mockup_enterprise_erp.png",
+                heroImage: "/mockup_enterprise_erp.webp",
                 details: "Shedding licensing costs from massive ERP vendors by building customized, lightweight software exactly tailored to your needs.",
                 features: [
                     { icon: "Code", title: "Microservices transition", desc: "Strangling the monolith slowly to reduce migration risk." },
@@ -1341,7 +1341,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
         title: "Data-Driven Enterprises",
         slug: "data",
         heroDescription: "Transforming raw data into decisive strategic advantage.",
-        heroImage: "/hero_data.png",
+        heroImage: "/hero_data.webp",
         overview: "Secure data pipelines, machine learning models, and executive dashboards designed to extract immense value from organizational data.",
         whyChooseUs: [
             { title: "Predictive Advantage", desc: "Seeing market shifts before they happen.", icon: "Activity" },
@@ -1366,7 +1366,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "bi-dashboards",
                 heroTitle: "Interactive Corporate Reality",
                 heroDescription: "Interactive aggregations of corporate reality.",
-                heroImage: "/mockup_data_bi.png",
+                heroImage: "/mockup_data_bi.webp",
                 details: "Connecting live endpoints to custom BI interfaces so executives can query the heartbeat of the organization instantly.",
                 features: [
                     { icon: "Layout", title: "Custom visualizations", desc: "Bespoke D3.js charting for unique data relationships." },
@@ -1394,7 +1394,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "data-analytics",
                 heroTitle: "Painting with Big Data",
                 heroDescription: "Turning big data into comprehensible narratives.",
-                heroImage: "/mockup_data_visualization.png",
+                heroImage: "/mockup_data_visualization.webp",
                 details: "Breaking down billions of rows of metadata into distinct visual groupings uncovering hidden patterns.",
                 features: [
                     { icon: "Search", title: "Cohort analysis", desc: "Isolating behavioral trends across segmented user groups." },
@@ -1422,7 +1422,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "kpi-monitoring",
                 heroTitle: "Pulse Checks on the Enterprise",
                 heroDescription: "Real-time alerting on critical business metrics.",
-                heroImage: "/mockup_data_kpi.png",
+                heroImage: "/mockup_data_kpi.webp",
                 details: "Hard-coding your specific Key Performance Indicators into autonomous tracking systems resistant to manipulation.",
                 features: [
                     { icon: "Database", title: "Immutable metric storage", desc: "Storing historical KPI data to prevent retroactive adjustments." },
@@ -1450,7 +1450,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "predictive-insights",
                 heroTitle: "Algorithmic Forecasting",
                 heroDescription: "Forecasting churn, revenue, and security events.",
-                heroImage: "/mockup_data_predictive.png",
+                heroImage: "/mockup_data_predictive.webp",
                 details: "Training deep neural networks on historical corporate data to predict future quarterly outcomes with staggering accuracy.",
                 features: [
                     { icon: "Code", title: "Custom ML models", desc: "Building TensorFlow architectures specific to your industry." },
@@ -1478,7 +1478,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "data-processing",
                 heroTitle: "Sanitizing the Data Lake",
                 heroDescription: "Ensuring zero garbage-in across your data lakes.",
-                heroImage: "/mockup_data_validation.png",
+                heroImage: "/mockup_data_validation.webp",
                 details: "Constructing massive ETL pipelines that strip corrupt, duplicated, or non-compliant data before it enters your analytics engine.",
                 features: [
                     { icon: "Database", title: "Distributed ETL", desc: "Utilizing Apache Spark to process terabytes of data horizontally." },
@@ -1506,7 +1506,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "decision-support",
                 heroTitle: "Algorithmic Board Advisors",
                 heroDescription: "High-level modeling for Board decisions.",
-                heroImage: "/mockup_data_decision.png",
+                heroImage: "/mockup_data_decision.webp",
                 details: "Scenario simulators allowing executives to adjust virtual parameters (price, headcount) and observe massive simulated outcomes.",
                 features: [
                     { icon: "Layout", title: "What-If modeling", desc: "Adjusting slider variables to alter predictive outcomes." },
@@ -1534,7 +1534,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "operational-analytics",
                 heroTitle: "Ground-Truth Telemetry",
                 heroDescription: "Granular data access for department heads.",
-                heroImage: "/mockup_data_operational.png",
+                heroImage: "/mockup_data_operational.webp",
                 details: "Empowering mid-level managers with specific, tightly scoped data tools to optimize their immediate departments.",
                 features: [
                     { icon: "Target", title: "Scoped access", desc: "Row-level security ensuring managers only see their division's data." },
@@ -1562,7 +1562,7 @@ export const solutionsData: Record<string, ServiceCategory> = {
                 slug: "driven-reporting",
                 heroTitle: "Automated Data Journalism",
                 heroDescription: "Automated generation of quarterly readouts.",
-                heroImage: "/mockup_data_reporting.png",
+                heroImage: "/mockup_data_reporting.webp",
                 details: "LLM-driven systems that analyze metric changes and automatically write human-readable summaries explaining the 'why' behind the numbers.",
                 features: [
                     { icon: "FileText", title: "NLG text generation", desc: "Natural Language Generation converting graphs into paragraphs." },

@@ -4,7 +4,7 @@ export const siteConfig = {
     name: "Cyberforenx",
     description: "Enterprise-grade cybersecurity, digital forensics, and strategic tech solutions.",
     url: "https://cyberforenx.com",
-    ogImage: "https://cyberforenx.com/og-image.png",
+    ogImage: "https://cyberforenx.com/og-image.webp",
     links: {
         twitter: "https://twitter.com/cyberforenx",
         github: "https://github.com/cyberforenx",

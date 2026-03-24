@@ -29,7 +29,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug?
     const titleLower = title.toLowerCase();
 
     // Dynamic graphic selection based on keywords in title
-    let graphicSrc = "/hero_analytics.png";
+    let graphicSrc = "/hero_analytics.webp";
     let themeColorClass = "text-primary";
     let bgGradientClass = "bg-primary/5 border-primary/20";
     let blurColorClass = "bg-primary/20";
@@ -37,35 +37,35 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug?
     let badgeText = "Enterprise Platform";
 
     if (titleLower.includes("security") || titleLower.includes("vulnerability") || titleLower.includes("threat") || titleLower.includes("access")) {
-        graphicSrc = "/hero_cybersecurity.png";
+        graphicSrc = "/hero_cybersecurity.webp";
         themeColorClass = "text-emerald-400";
         bgGradientClass = "bg-emerald-500/5 border-emerald-500/20";
         blurColorClass = "bg-emerald-500/10";
         Icon = ShieldCheck;
         badgeText = "Security Infrastructure";
     } else if (titleLower.includes("data") || titleLower.includes("financial") || titleLower.includes("analytics") || titleLower.includes("dashboard")) {
-        graphicSrc = "/hero_analytics.png";
+        graphicSrc = "/hero_analytics.webp";
         themeColorClass = "text-blue-400";
         bgGradientClass = "bg-blue-500/5 border-blue-500/20";
         blurColorClass = "bg-blue-500/10";
         Icon = Database;
         badgeText = "Business Intelligence";
     } else if (titleLower.includes("evidence") || titleLower.includes("investigation") || titleLower.includes("forensic") || titleLower.includes("recovery")) {
-        graphicSrc = "/hero_forensics.png";
+        graphicSrc = "/hero_forensics.webp";
         themeColorClass = "text-rose-400";
         bgGradientClass = "bg-rose-500/5 border-rose-500/20";
         blurColorClass = "bg-rose-500/10";
         Icon = Search;
         badgeText = "Digital Investigation";
     } else if (titleLower.includes("platform") || titleLower.includes("infrastructure") || titleLower.includes("portal") || titleLower.includes("system")) {
-        graphicSrc = "/hero_web_app.png";
+        graphicSrc = "/hero_web_app.webp";
         themeColorClass = "text-purple-400";
         bgGradientClass = "bg-purple-500/5 border-purple-500/20";
         blurColorClass = "bg-purple-500/10";
         Icon = Cpu;
         badgeText = "Core Infrastructure";
     } else if (titleLower.includes("automation") || titleLower.includes("workflow") || titleLower.includes("process") || titleLower.includes("support")) {
-        graphicSrc = "/hero_bpo.png";
+        graphicSrc = "/hero_bpo.webp";
         themeColorClass = "text-cyan-400";
         bgGradientClass = "bg-cyan-500/5 border-cyan-500/20";
         blurColorClass = "bg-cyan-500/10";

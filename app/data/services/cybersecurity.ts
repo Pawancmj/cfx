@@ -4,7 +4,7 @@ export const cybersecurityData: ServiceCategory = {
     title: "Cybersecurity & Infosec",
     slug: "cybersecurity",
     heroDescription: "Proactive defense for your digital perimeter.",
-    heroImage: "/hero_cybersecurity.png",
+    heroImage: "/hero_cybersecurity.webp",
     overview: "We provide military-grade security audits, penetration testing, and 24/7 monitoring to protect your enterprise from evolving global threats.",
     whyChooseUs: [
         { title: "Defensive Excellence", desc: "Our team consists of former government intelligence security specialists.", icon: "ShieldCheck" },
@@ -69,7 +69,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "security-audits",
             heroTitle: "Find Your Weak Points Before They Do",
             heroDescription: "Comprehensive technical audits and vulnerability scans tailored to your architecture.",
-            heroImage: "/mockup_audit.png",
+            heroImage: "/mockup_audit.webp",
             details: "Detailed assessments of your network, applications, and cloud environments to identify and prioritize security risks.",
             features: [
                 { icon: "Shield", title: "Deep network scanning", desc: "Scanning every port and protocol for unauthorized entry points." },
@@ -97,7 +97,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "penetration-testing",
             heroTitle: "The Ultimate Test of Your Defenses",
             heroDescription: "High-end manual penetration testing by elite ethical hackers. We think like the attacker.",
-            heroImage: "/mockup_pentest.png",
+            heroImage: "/mockup_pentest.webp",
             details: "Simulated attacks against your external, internal, and wireless networks to prove what's actually exploitable.",
             features: [
                 { icon: "Zap", title: "Black-box web testing", desc: "Testing with zero prior knowledge to simulate outside hackers." },
@@ -125,7 +125,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "managed-soc-monitoring",
             heroTitle: "Global Threat Watch, 24/7",
             heroDescription: "Constant vigilance over your digital assets. Detection, response, and containment.",
-            heroImage: "/mockup_soc.png",
+            heroImage: "/mockup_soc.webp",
             details: "Full-service Security Operations Center (SOC) as a Service. We watch your logs so you don't have to.",
             features: [
                 { icon: "Activity", title: "Real-time threat detection", desc: "AI-driven monitoring of logs, traffic, and user behavior." },
@@ -153,7 +153,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "cloud-security-configuration",
             heroTitle: "Secure Your Cloud Perimeter",
             heroDescription: "Hardening AWS, Azure, and GCP environments against misconfiguration and data leaks.",
-            heroImage: "/mockup_cloudsec.png",
+            heroImage: "/mockup_cloudsec.webp",
             details: "Specialized hardening for containerized and serverless environments. IAM, VPC, and S3 security experts.",
             features: [
                 { icon: "Lock", title: "IAM & access policy hardening", desc: "Implementing least-privilege models for all cloud users." },
@@ -181,7 +181,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "identity-access-management",
             heroTitle: "Master Your Digital Identity",
             heroDescription: "Zero Trust architectures ensuring the right people have the right access at the right time.",
-            heroImage: "/mockup_iam.png",
+            heroImage: "/mockup_iam.webp",
             details: "Implementation of Okta, Azure AD, and Auth0. SSO, Multi-Factor Authentication (MFA), and Identity Governance.",
             features: [
                 { icon: "Lock", title: "SSO (Single Sign-On) rollout", desc: "One secure login for all corporate applications." },
@@ -209,7 +209,7 @@ export const cybersecurityData: ServiceCategory = {
             slug: "security-awareness-training",
             heroTitle: "Hardening Your Human Firewall",
             heroDescription: "Engaging, data-driven security training and phishing simulations for your employees.",
-            heroImage: "/mockup_training.png",
+            heroImage: "/mockup_training.webp",
             details: "Simulated phishing attacks and bite-sized training modules that change employee behavior and reduce risk.",
             features: [
                 { icon: "Target", title: "Custom phishing simulations", desc: "Safe, realistic phishing tests to measure employee risk." },

@@ -217,7 +217,7 @@ function ExpertiseSection() {
           <div className="hidden lg:block relative w-full max-w-md h-[250px] group">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
             <Image 
-              src="/images/illustrations/core-capabilities.png" 
+              src="/images/illustrations/core-capabilities.webp" 
               alt="Technology and Profitability" 
               fill
               className="object-cover rounded-3xl border border-white/10 shadow-2xl relative z-10 brightness-75 group-hover:brightness-100 transition-all duration-700"

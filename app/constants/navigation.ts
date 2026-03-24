@@ -239,12 +239,12 @@ const caseStudiesLinks: NavLink[] = [
 ];
 
 const caseStudiesClientsLinks: NavLink[] = [
-    { name: "Securen", href: "/case-studies", image: "/images/clients/securen.png" },
-    { name: "Delhi Police", href: "/case-studies", image: "/images/clients/delhi-police.png" },
-    { name: "Income Tax", href: "/case-studies", image: "/images/clients/income-tax.jpeg" },
-    { name: "Azal International", href: "/case-studies", image: "/images/clients/azal-international.png" },
-    { name: "Yellowish", href: "/case-studies", image: "/images/clients/yellowish.png" },
-    { name: "TDS", href: "/case-studies", image: "/images/clients/tds.jpeg" },
+    { name: "Securen", href: "/case-studies", image: "/images/clients/securen.webp" },
+    { name: "Delhi Police", href: "/case-studies", image: "/images/clients/delhi-police.webp" },
+    { name: "Income Tax", href: "/case-studies", image: "/images/clients/income-tax.webp" },
+    { name: "Azal International", href: "/case-studies", image: "/images/clients/azal-international.webp" },
+    { name: "Yellowish", href: "/case-studies", image: "/images/clients/yellowish.webp" },
+    { name: "TDS", href: "/case-studies", image: "/images/clients/tds.webp" },
 ];
 
 export const caseStudiesCategories: MegaCategory[] = [

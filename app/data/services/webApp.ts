@@ -4,7 +4,7 @@ export const webAppData: ServiceCategory = {
     title: "Web & App Development",
     slug: "web-app-development",
     heroDescription: "Build scalable, secure, and beautiful digital experiences.",
-    heroImage: "/hero_web_app.png",
+    heroImage: "/hero_web_app.webp",
     overview: "Our engineering team specializes in crafting high-performance enterprise applications and mobile platforms tailored to your business needs.",
     whyChooseUs: [
         { title: "Modern Tech Stacks", desc: "We use the latest frameworks like Next.js and React to ensure blazing-fast performance.", icon: "Code" },
@@ -79,7 +79,7 @@ export const webAppData: ServiceCategory = {
             slug: "custom-web-application-development",
             heroTitle: "Custom Web Apps Built for Your Vision",
             heroDescription: "Scalable, secure apps with CyberforneX cybersecurity DNA. From prototype to production.",
-            heroImage: "/mockup_web_app.png",
+            heroImage: "/mockup_web_app.webp",
             details: "Fully bespoke web apps using React/Node.js/PostgreSQL. Perfect for startups scaling workflows.",
             features: [
                 { icon: "Zap", title: "Progressive Web App (PWA) support", desc: "Reliable, fast, and engaging mobile-first web experiences." },
@@ -107,7 +107,7 @@ export const webAppData: ServiceCategory = {
             slug: "enterprise-software-solutions",
             heroTitle: "Enterprise-Grade Software That Scales",
             heroDescription: "Mission-critical systems engineered for complex workflows, compliance, and thousands of concurrent users.",
-            heroImage: "/mockup_enterprise.png",
+            heroImage: "/mockup_enterprise.webp",
             details: "Custom ERP, CRM, and workflow automation platforms built with microservices architecture and enterprise security standards.",
             features: [
                 { icon: "Database", title: "Microservices architecture", desc: "Loosely coupled services enabling independent deployment and scaling." },
@@ -135,7 +135,7 @@ export const webAppData: ServiceCategory = {
             slug: "mobile-app-development",
             heroTitle: "Apps Users Can't Put Down",
             heroDescription: "Native and cross-platform mobile experiences with flawless performance and intuitive UX.",
-            heroImage: "/mockup_mobile.png",
+            heroImage: "/mockup_mobile.webp",
             details: "React Native and Flutter apps with native-level performance, offline-first architecture, and biometric security.",
             features: [
                 { icon: "Smartphone", title: "Cross-platform development", desc: "Single codebase for iOS and Android with native performance." },
@@ -163,7 +163,7 @@ export const webAppData: ServiceCategory = {
             slug: "ui-ux-design-prototyping",
             heroTitle: "Interfaces That Convert & Delight",
             heroDescription: "Human-centered design systems engineered for maximum engagement and conversion.",
-            heroImage: "/mockup_uiux.png",
+            heroImage: "/mockup_uiux.webp",
             details: "Research-driven UI/UX using Figma, user testing, and accessibility-first design principles for enterprise products.",
             features: [
                 { icon: "Layout", title: "High-fidelity prototyping", desc: "Interactive Figma prototypes with micro-animations and transitions." },
@@ -191,7 +191,7 @@ export const webAppData: ServiceCategory = {
             slug: "saas-platform-development",
             heroTitle: "SaaS Built for Scale & Revenue",
             heroDescription: "Multi-tenant cloud platforms engineered for recurring revenue and infinite scalability.",
-            heroImage: "/mockup_saas.png",
+            heroImage: "/mockup_saas.webp",
             details: "End-to-end SaaS architecture with multi-tenancy, subscription billing, and enterprise-grade security.",
             features: [
                 { icon: "Database", title: "Multi-tenant architecture", desc: "Isolated, secure data structures for every customer instance." },
@@ -219,7 +219,7 @@ export const webAppData: ServiceCategory = {
             slug: "api-development-integration",
             heroTitle: "APIs that Power Your Ecosystem",
             heroDescription: "Secure, lightning-fast APIs connecting your disparate systems into a unified platform.",
-            heroImage: "/mockup_api.png",
+            heroImage: "/mockup_api.webp",
             details: "RESTful & GraphQL API design with OAuth 2.0, rate limiting, and comprehensive Swagger documentation.",
             features: [
                 { icon: "Code", title: "REST & GraphQL APIs", desc: "Modern API standards tailored to your data architecture." },
@@ -247,7 +247,7 @@ export const webAppData: ServiceCategory = {
             slug: "e-commerce-solutions",
             heroTitle: "Digital Storefronts That Sell",
             heroDescription: "High-converting e-commerce platforms with secure checkout and real-time inventory.",
-            heroImage: "/mockup_ecommerce.png",
+            heroImage: "/mockup_ecommerce.webp",
             details: "Headless commerce with Next.js storefronts, PCI-compliant payments, and AI-powered product recommendations.",
             features: [
                 { icon: "Layout", title: "Headless commerce architecture", desc: "Blazing-fast storefronts decoupled from backend systems." },
@@ -275,7 +275,7 @@ export const webAppData: ServiceCategory = {
             slug: "cloud-based-applications",
             heroTitle: "Cloud-Native Apps at Scale",
             heroDescription: "Serverless, containerized applications deployed across AWS, Azure, and GCP.",
-            heroImage: "/mockup_cloud_app.png",
+            heroImage: "/mockup_cloud_app.webp",
             details: "Cloud-native development with serverless functions, Kubernetes orchestration, and multi-region deployments.",
             features: [
                 { icon: "Database", title: "Serverless architecture", desc: "Pay-per-execution compute with infinite auto-scaling." },

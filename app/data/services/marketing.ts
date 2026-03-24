@@ -4,7 +4,7 @@ export const marketingData: ServiceCategory = {
     title: "Digital Marketing",
     slug: "marketing",
     heroDescription: "Data-driven marketing to dominate your market share.",
-    heroImage: "/hero_marketing.png",
+    heroImage: "/hero_marketing.webp",
     overview: "We execute highly targeted, omnichannel marketing campaigns built on technical precision and creative excellence to drive measurable ROI.",
     whyChooseUs: [
         { title: "ROI Obsessed", desc: "We track every dollar spent down to the final conversion event.", icon: "Target" },
@@ -76,7 +76,7 @@ export const marketingData: ServiceCategory = {
             slug: "seo",
             heroTitle: "Dominate Search Results",
             heroDescription: "Technical SEO mastery and content strategies that capture high-intent organic traffic.",
-            heroImage: "/mockup_seo.png",
+            heroImage: "/mockup_seo.webp",
             details: "Core Web Vitals optimization, content strategy, and authority link building to own your search rankings.",
             features: [
                 { icon: "Search", title: "Technical SEO audits", desc: "Fixing Core Web Vitals, crawl errors, and site architecture." },
@@ -104,7 +104,7 @@ export const marketingData: ServiceCategory = {
             slug: "social-media-marketing",
             heroTitle: "Build Communities, Go Viral",
             heroDescription: "Engaging content strategies that build loyal communities across every major platform.",
-            heroImage: "/mockup_social.png",
+            heroImage: "/mockup_social.webp",
             details: "Multi-platform management, short-form video production, and community engagement strategies.",
             features: [
                 { icon: "Smartphone", title: "Multi-platform management", desc: "Daily content curation across LinkedIn, X, Instagram, and TikTok." },
@@ -132,7 +132,7 @@ export const marketingData: ServiceCategory = {
             slug: "performance-marketing",
             heroTitle: "Scale Revenue with Precision",
             heroDescription: "Data-driven media buying across Google, Meta, and programmatic to maximize ROAS.",
-            heroImage: "/mockup_ppc.png",
+            heroImage: "/mockup_ppc.webp",
             details: "Google Search/Display, Meta/TikTok ads, retargeting, and conversion rate optimization for scalable growth.",
             features: [
                 { icon: "Target", title: "Google Search & Shopping ads", desc: "Capturing high-intent users at the moment of search." },
@@ -160,7 +160,7 @@ export const marketingData: ServiceCategory = {
             slug: "content-marketing-strategy",
             heroTitle: "Content That Converts",
             heroDescription: "Strategic content programs that educate, nurture, and convert your target audience.",
-            heroImage: "/mockup_content.png",
+            heroImage: "/mockup_content.webp",
             details: "Whitepapers, case studies, video content, and blog strategies positioning you as a thought leader.",
             features: [
                 { icon: "FileText", title: "Whitepapers & eBooks", desc: "Deep-dive lead magnets capturing qualified B2B emails." },
@@ -188,7 +188,7 @@ export const marketingData: ServiceCategory = {
             slug: "email-marketing-campaigns",
             heroTitle: "Revenue in Every Inbox",
             heroDescription: "Sophisticated email automation and conversion copywriting to monetize your list.",
-            heroImage: "/mockup_email.png",
+            heroImage: "/mockup_email.webp",
             details: "Welcome flows, abandoned cart sequences, segmentation, and A/B testing for maximum email revenue.",
             features: [
                 { icon: "Zap", title: "Automated email flows", desc: "Welcome series, abandoned cart, and post-purchase sequences." },
@@ -216,7 +216,7 @@ export const marketingData: ServiceCategory = {
             slug: "brand-awareness",
             heroTitle: "Own Your Market Category",
             heroDescription: "Strategic brand positioning making you the undisputed leader in your niche.",
-            heroImage: "/mockup_brand.png",
+            heroImage: "/mockup_brand.webp",
             details: "PR campaigns, brand identity design, influencer partnerships, and thought leadership for market dominance.",
             features: [
                 { icon: "Shield", title: "PR & media placements", desc: "Securing features in major industry publications." },
@@ -244,7 +244,7 @@ export const marketingData: ServiceCategory = {
             slug: "lead-generation-campaigns",
             heroTitle: "Fill Your Sales Pipeline",
             heroDescription: "Systematic B2B lead generation filling your calendar with qualified appointments.",
-            heroImage: "/mockup_leadgen.png",
+            heroImage: "/mockup_leadgen.webp",
             details: "Cold outreach automation, high-converting landing pages, and ICP-targeted list building for predictable pipeline.",
             features: [
                 { icon: "Smartphone", title: "Automated cold outreach", desc: "Personalized email and LinkedIn sequences at scale." },
@@ -272,7 +272,7 @@ export const marketingData: ServiceCategory = {
             slug: "analytics-marketing-performance",
             heroTitle: "Every Dollar, Tracked",
             heroDescription: "Full-funnel attribution connecting ad spend to bottom-line revenue with precision.",
-            heroImage: "/mockup_martech.png",
+            heroImage: "/mockup_martech.webp",
             details: "Server-side tracking, multi-touch attribution, and real-time dashboards for data-driven scaling decisions.",
             features: [
                 { icon: "Database", title: "Server-side tracking", desc: "Bypassing ad-blockers for 100% accurate conversion data." },
