@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { constructMetadata } from "@/app/constants/seo";
 import CaseStudiesClient from "@/app/(main)/case-studies/CaseStudiesClient";
 
@@ -7,5 +8,9 @@ export const metadata = constructMetadata({
 });
 
 export default function CaseStudiesPage() {
-    return <CaseStudiesClient />;
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+            <CaseStudiesClient />
+        </Suspense>
+    );
 }

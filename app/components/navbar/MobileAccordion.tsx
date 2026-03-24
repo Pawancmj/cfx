@@ -12,6 +12,7 @@ interface MobileAccordionProps {
     exploreText: string;
     isActive: boolean;
     onNavigate: () => void;
+    useQueryForExplore?: boolean;
 }
 
 export default function MobileAccordion({
@@ -21,7 +22,8 @@ export default function MobileAccordion({
     exploreLinkPrefix,
     exploreText,
     isActive,
-    onNavigate
+    onNavigate,
+    useQueryForExplore
 }: MobileAccordionProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -95,9 +97,9 @@ export default function MobileAccordion({
                                 >
                                     <div className="flex flex-col gap-3 pl-4 border-l-2 border-white/5 ml-1 pb-2">
                                         <Link
-                                            href={`/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`}
+                                            href={useQueryForExplore ? `/${exploreLinkPrefix}?filter=${encodeURIComponent(cat.title)}` : `/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`}
                                             className="text-[11px] font-black text-primary uppercase tracking-[0.2em] flex items-center gap-2 mb-1"
-                                            onClick={(e) => handleLinkClick(e, `/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`)}
+                                            onClick={(e) => handleLinkClick(e, useQueryForExplore ? `/${exploreLinkPrefix}?filter=${encodeURIComponent(cat.title)}` : `/${exploreLinkPrefix}/${cat.slug || toSlug(cat.title)}`)}
                                         >
                                             {exploreText} <ArrowRight className="w-3 h-3" />
                                         </Link>

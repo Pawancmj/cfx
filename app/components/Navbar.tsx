@@ -118,6 +118,7 @@ export default function Navbar() {
                 exploreLinkPrefix="case-studies"
                 exploreText="Explore Case Studies"
                 isActive={isActive(link.href)}
+                useQueryForExplore={true}
               />
             );
           }
@@ -273,6 +274,7 @@ export default function Navbar() {
                   exploreText="Explore Case Studies"
                   isActive={isActive(link.href)}
                   onNavigate={() => setIsOpen(false)}
+                  useQueryForExplore={true}
                 />
               );
             }
@@ -312,7 +314,7 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-2 py-4 shadow-[0_10px_30px_rgba(0,242,255,0.2)]"
+            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-2 py-4 shadow-[0_10px_30px_rgba(0,242,255,0.2)] shrink-0"
             onClick={() => setIsOpen(false)}
           >
             Contact Us

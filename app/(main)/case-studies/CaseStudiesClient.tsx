@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Cpu, Lock, Activity, Globe, Zap, ChevronRight } from "lucide-react";
 import { caseStudiesCategories } from "../../constants/navigation";
@@ -33,14 +34,34 @@ const ADVANTAGES = [
 ];
 
 export default function CaseStudiesClient() {
+    const searchParams = useSearchParams();
+    const filterParam = searchParams.get("filter");
+
     const [sectorIndex, setSectorIndex] = useState(0);
-    const [activeFilter, setActiveFilter] = useState(caseStudiesCategories[0].title);
+    const [activeFilter, setActiveFilter] = useState(() => {
+        if (filterParam && caseStudiesCategories.some(c => c.title === filterParam)) {
+            return filterParam;
+        }
+        return caseStudiesCategories[0].title;
+    });
     const [visibleCount, setVisibleCount] = useState(6);
 
     // Reset visible count when category changes
     useEffect(() => {
         setVisibleCount(6);
     }, [activeFilter]);
+
+    // Handle filter query parameter
+    useEffect(() => {
+        if (filterParam && caseStudiesCategories.some(c => c.title === filterParam)) {
+            setActiveFilter(filterParam);
+            const el = document.getElementById("portfolio");
+            if (el) {
+                // Add a small delay to ensure rendering has completed
+                setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+            }
+        }
+    }, [filterParam]);
 
     useEffect(() => {
         const interval = setInterval(() => {

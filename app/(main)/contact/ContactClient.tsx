@@ -234,22 +234,22 @@ export default function ContactClient() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
-                            className="glass-card p-8 rounded-[2rem] border-white/5 relative overflow-hidden"
+                            className="glass-card p-6 sm:p-8 rounded-[2rem] border-white/5 relative overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-dots opacity-10"></div>
-                            <h3 className="text-xs font-black text-primary uppercase tracking-[0.4em] mb-8 relative z-10">Corporate Presence</h3>
-                            <div className="flex gap-6 relative z-10">
+                            <h3 className="text-xs font-black text-primary uppercase tracking-[0.4em] mb-6 sm:mb-8 relative z-10 break-words">Corporate Presence</h3>
+                            <div className="flex flex-wrap gap-4 sm:gap-6 relative z-10">
                                 {[
-                                    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/company/cyberforenx-associate/?viewAsMember=true", name: "LinkedIn" },
-                                    { icon: <Twitter className="w-6 h-6" />, href: "https://x.com/Cyber_ForenX", name: "Twitter" },
-                                    { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/cyberforenx/", name: "Instagram" },
+                                    { icon: <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />, href: "https://www.linkedin.com/company/cyberforenx-associate/?viewAsMember=true", name: "LinkedIn" },
+                                    { icon: <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />, href: "https://x.com/Cyber_ForenX", name: "Twitter" },
+                                    { icon: <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />, href: "https://www.instagram.com/cyberforenx/", name: "Instagram" },
                                 ].map((social) => (
                                     <Link
                                         key={social.name}
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-primary/40 hover:bg-primary/10 transition-all duration-500 shadow-inner group"
+                                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-primary/40 hover:bg-primary/10 transition-all duration-500 shadow-inner group shrink-0"
                                     >
                                         <div className="group-hover:scale-110 transition-transform">
                                             {social.icon}
@@ -275,21 +275,23 @@ function ContactInfoCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group glass-card p-8 rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5"
+            className="block group glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5 overflow-hidden"
         >
-            <div className="flex items-center gap-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
                 <div className={cn(
-                    "p-5 bg-white/5 rounded-2xl group-hover:scale-110 transition-all duration-500 shadow-inner",
+                    "p-4 sm:p-5 bg-white/5 rounded-2xl group-hover:scale-110 transition-all duration-500 shadow-inner shrink-0 w-max",
                     `group-hover:shadow-[0_0_20px_${shadowColor}]`
                 )}>
                     <div className={cn("transition-colors duration-500", accentColor)}>
                         {icon}
                     </div>
                 </div>
-                <div>
-                    <h3 className="text-xs font-black text-zinc-500 uppercase tracking-[0.3em] mb-2">{title}</h3>
-                    <p className="text-zinc-400 font-medium text-xs mb-1 italic">{description}</p>
-                    <p className="text-white font-black text-xl tracking-tight group-hover:text-primary transition-colors">{value}</p>
+                <div className="min-w-0 flex-1">
+                    <h3 className="text-[10px] sm:text-xs font-black text-zinc-500 uppercase tracking-[0.3em] mb-2 break-words">{title}</h3>
+                    <p className="text-zinc-400 font-medium text-xs mb-2 italic break-words">{description}</p>
+                    <p className="text-white font-black text-sm sm:text-lg md:text-xl tracking-normal sm:tracking-tight group-hover:text-primary transition-colors break-words leading-relaxed sm:leading-snug">
+                        {value}
+                    </p>
                 </div>
             </div>
         </a>

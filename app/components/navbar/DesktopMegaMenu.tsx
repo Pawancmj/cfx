@@ -11,6 +11,7 @@ interface DesktopMegaMenuProps {
     exploreLinkPrefix: string;
     exploreText: string;
     isActive: boolean;
+    useQueryForExplore?: boolean;
 }
 
 export default function DesktopMegaMenu({
@@ -19,7 +20,8 @@ export default function DesktopMegaMenu({
     categories,
     exploreLinkPrefix,
     exploreText,
-    isActive
+    isActive,
+    useQueryForExplore
 }: DesktopMegaMenuProps) {
     const [activeCategory, setActiveCategory] = useState(categories[0]?.title || "");
     const pathname = usePathname();
@@ -110,8 +112,8 @@ export default function DesktopMegaMenu({
                                     {activeCategory}
                                 </h3>
                                 <Link
-                                    href={`/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`}
-                                    onClick={(e) => handleLinkClick(e, `/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`)}
+                                    href={useQueryForExplore ? `/${exploreLinkPrefix}?filter=${encodeURIComponent(activeCategory)}` : `/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`}
+                                    onClick={(e) => handleLinkClick(e, useQueryForExplore ? `/${exploreLinkPrefix}?filter=${encodeURIComponent(activeCategory)}` : `/${exploreLinkPrefix}/${categories.find((c) => c.title === activeCategory)?.slug || toSlug(activeCategory)}`)}
                                     className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-colors flex items-center gap-2 group/viewall"
                                 >
                                     {exploreText}
