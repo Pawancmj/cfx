@@ -167,7 +167,7 @@ export default function AboutClient() {
                 </div>
 
                 {/* --- Leadership Section --- */}
-                <div className="mb-16">
+                {/* <div className="mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +195,7 @@ export default function AboutClient() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 {/* What We Do Section */}
                 <div className="mb-20 mt-12 relative z-10">
