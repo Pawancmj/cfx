@@ -74,8 +74,8 @@ export default function CareersClient() {
             return;
         }
 
-        if (resumeFile.size > 5 * 1024 * 1024) { // 5MB limit
-            setErrorMsg("Resume file size must be less than 5MB.");
+        if (resumeFile.size > 2 * 1024 * 1024) { // 2MB limit
+            setErrorMsg("Resume file size must be less than 2MB.");
             return;
         }
 
@@ -88,7 +88,10 @@ export default function CareersClient() {
 
         const formData = new FormData(e.currentTarget);
         formData.append("role", selectedRole);
-        formData.append("resume", resumeFile);
+        
+        // Rename file to 'apply.pdf' as requested
+        const renamedFile = new File([resumeFile], "apply.pdf", { type: resumeFile.type });
+        formData.append("resume", renamedFile);
 
         try {
             const res = await fetch("/api/internships", {

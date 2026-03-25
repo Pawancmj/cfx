@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, animate } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
 
 const testimonials = [
@@ -115,6 +115,20 @@ export default function Testimonials() {
         animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
     }, [cardWidth, gap, x, clampX]);
 
+    const handlePrev = () => {
+        const step = cardWidth + gap;
+        const index = Math.round(x.get() / -step);
+        const newX = clampX(-(index - 1) * step);
+        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    };
+
+    const handleNext = () => {
+        const step = cardWidth + gap;
+        const index = Math.round(x.get() / -step);
+        const newX = clampX(-(index + 1) * step);
+        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    };
+
     const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     // Handle mouse wheel on the testimonial section — scroll cards horizontally
@@ -155,7 +169,7 @@ export default function Testimonials() {
                 <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
 
                 <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-16 shrink-0">
-                    <div className="mx-auto max-w-2xl text-center">
+                    <div className="mx-auto max-w-2xl text-center relative">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Success Stories</h2>
                         <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
                             Trusted by Innovative Companies
@@ -201,6 +215,26 @@ export default function Testimonials() {
                             </div>
                         ))}
                     </motion.div>
+                </div>
+
+                {/* Slider Controls - Moved Below */}
+                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mt-12 shrink-0">
+                    <div className="flex justify-center gap-4">
+                        <button 
+                            onClick={handlePrev}
+                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn"
+                            aria-label="Previous testimonial"
+                        >
+                            <ArrowLeft className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform" />
+                        </button>
+                        <button 
+                            onClick={handleNext}
+                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn"
+                            aria-label="Next testimonial"
+                        >
+                            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

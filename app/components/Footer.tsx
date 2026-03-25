@@ -29,14 +29,14 @@ export default function Footer() {
                         {/* Brand Section */}
                         <div className="lg:col-span-5 flex flex-col gap-6">
                             <div>
-                                <Link href="/" className="flex items-center gap-3 group mb-8">
+                                <div className="flex items-center gap-3 group mb-8">
                                     <div className="bg-primary p-2.5 rounded-2xl shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
                                         <ShieldCheck className="w-7 h-7 text-black" />
                                     </div>
                                     <span className="text-3xl font-black tracking-tighter text-white uppercase italic">
                                         Cyber<span className="text-primary">forenx</span>
                                     </span>
-                                </Link>
+                                </div>
                                 <p className="text-xl font-medium text-zinc-400 leading-relaxed italic max-w-md">
                                     Global Intelligence. <br />
                                     <span className="text-white not-italic font-bold">Absolute Security.</span> <br />
@@ -99,20 +99,25 @@ export default function Footer() {
                             <div className="col-span-2 md:col-span-1 flex flex-col gap-8">
                                 <h4 className="text-xs font-black uppercase tracking-[0.4em] text-accent">Connect</h4>
                                 <div className="flex flex-col gap-6">
-                                    <div className="group cursor-pointer">
+                                    <div className="group cursor-default">
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Direct Line</p>
-                                        <a href="tel:+919990751991" className="text-sm font-bold text-white group-hover:text-accent transition-colors">+91 9990751991</a>
+                                        <span className="text-sm font-bold text-white transition-colors">+91 9990751991</span>
                                     </div>
                                     <div className="group cursor-pointer">
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Official Mail</p>
                                         <a href="mailto:contact@cyberforenx.in" className="text-sm font-bold text-white group-hover:text-accent transition-colors truncate block">contact@cyberforenx.in</a>
                                     </div>
-                                    <div className="group cursor-pointer">
+                                    <a 
+                                        href="https://www.google.com/maps/search/?api=1&query=74A,+Avni+Vihar,+Ghaziabad,+Uttar+Pradesh,+India" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="group cursor-pointer block"
+                                    >
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Global HQ</p>
                                         <address className="text-xs font-bold text-zinc-400 leading-relaxed not-italic group-hover:text-white transition-colors">
                                             74A, Avni Vihar, Ghaziabad,<br />Uttar Pradesh, India
                                         </address>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -133,8 +138,8 @@ export default function Footer() {
                     </div>
                     
                     <div className="flex gap-8">
-                        <Link href="#" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</Link>
+                        <Link href="/privacy" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</Link>
                     </div>
                     
                     <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 group cursor-default">

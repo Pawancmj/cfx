@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Send, MessageSquare, User, AtSign, Building2, Linkedin, Instagram, Twitter, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, User, AtSign, Building2, Linkedin, Instagram, Twitter, Sparkles, ArrowRight, CheckCircle2, XCircle, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../../lib/utils";
 
@@ -16,6 +16,7 @@ export default function ContactClient() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+    const [isIndustryOpen, setIsIndustryOpen] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -85,6 +86,45 @@ export default function ContactClient() {
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full"></div>
 
+                        {/* Success/Error Toast */}
+            <AnimatePresence>
+                {(isSuccess || errorMsg) && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md px-6"
+                    >
+                        <div className={cn(
+                            "glass-card p-4 rounded-2xl flex items-center gap-4 border shadow-2xl backdrop-blur-xl",
+                            isSuccess ? "border-primary/40 bg-slate-900/90" : "border-red-500/40 bg-red-950/90"
+                        )}>
+                            <div className={cn(
+                                "h-10 w-10 rounded-full flex items-center justify-center shrink-0",
+                                isSuccess ? "bg-primary/20 text-primary" : "bg-red-500/20 text-red-500"
+                            )}>
+                                {isSuccess ? <CheckCircle2 className="w-6 h-6" /> : <XCircle className="w-6 h-6" />}
+                            </div>
+                            <div className="flex-grow">
+                                <h4 className="text-white font-bold text-sm uppercase tracking-tight">
+                                    {isSuccess ? "Message Received!" : "Submission Failed"}
+                                </h4>
+                                <p className="text-zinc-400 text-xs font-medium italic mt-0.5 leading-relaxed">
+                                    {isSuccess 
+                                        ? "One of our specialists will analyze your request and reach out within 24 hours." 
+                                        : errorMsg || "An unexpected error occurred. Please try again later."}
+                                </p>
+                            </div>
+                            <button 
+                                onClick={() => { setIsSuccess(false); setErrorMsg(""); }}
+                                className="p-2 rounded-lg hover:bg-white/5 text-zinc-500 hover:text-white transition-colors"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
                         {isSuccess ? (
                             <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[400px]">
                                 <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 border border-primary/30">
@@ -112,7 +152,7 @@ export default function ContactClient() {
                                             type="text"
                                             required
                                             value={formState.name}
-                                            placeholder="John Doe"
+                                            placeholder="Enter your full name"
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all font-medium"
                                             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                                         />
@@ -125,9 +165,18 @@ export default function ContactClient() {
                                             type="email"
                                             required
                                             value={formState.email}
-                                            placeholder="john@cyberforenx.in"
+                                            placeholder="Enter your email address"
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all font-medium"
-                                            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                                            onChange={(e) => {
+                                                setFormState({ ...formState, email: e.target.value });
+                                                if (e.target.validity.typeMismatch) {
+                                                    e.target.setCustomValidity("Enter valid email address");
+                                                } else {
+                                                    e.target.setCustomValidity("");
+                                                }
+                                            }}
+                                            onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Enter valid email address")}
+                                            onInput={(e) => (e.target as HTMLInputElement).setCustomValidity("")}
                                         />
                                     </div>
                                 </div>
@@ -142,8 +191,10 @@ export default function ContactClient() {
                                             value={formState.industry}
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all appearance-none font-medium cursor-pointer"
                                             onChange={(e) => setFormState({ ...formState, industry: e.target.value })}
+                                            onFocus={() => setIsIndustryOpen(true)}
+                                            onBlur={() => setIsIndustryOpen(false)}
                                         >
-                                            <option value="" className="bg-zinc-900">Select your sector</option>
+                                            <option value="" className="bg-zinc-900 text-zinc-500 font-bold" disabled>-- Choose Your Sector --</option>
                                             <option value="finance" className="bg-zinc-900">Banking & Finance</option>
                                             <option value="healthcare" className="bg-zinc-900">Healthcare & Life Sciences</option>
                                             <option value="ecommerce" className="bg-zinc-900">E-commerce & Retail</option>
@@ -151,8 +202,8 @@ export default function ContactClient() {
                                             <option value="goverment" className="bg-zinc-900">Public Sector & Legal</option>
                                             <option value="other" className="bg-zinc-900">Other Enterprises</option>
                                         </select>
-                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
-                                            <ArrowRight className="w-4 h-4 rotate-90" />
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40 transition-transform duration-300" style={{ transform: isIndustryOpen ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)' }}>
+                                            <ChevronDown className="w-5 h-5" />
                                         </div>
                                     </div>
                                 </div>
@@ -163,9 +214,9 @@ export default function ContactClient() {
                                     </label>
                                     <textarea
                                         required
-                                        rows={5}
+                                        rows={6}
                                         value={formState.message}
-                                        placeholder="Tell us about your technical requirements..."
+                                        placeholder="Tell us about your requirements..."
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all resize-none font-medium"
                                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                                     ></textarea>
@@ -223,7 +274,7 @@ export default function ContactClient() {
                                 title="Global HQ"
                                 description="Engineering & Strategy Hub"
                                 value="74A, Avni Vihar, Near Guldhar Metro Station, Meerut Road, Ghaziabad, Uttar Pradesh, India"
-                                href="https://maps.google.com"
+                                href="https://www.google.com/maps/search/?api=1&query=74A,+Avni+Vihar,+Ghaziabad,+Uttar+Pradesh,+India"
                                 accentColor="text-accent"
                                 shadowColor="rgba(0,255,204,0.2)"
                             />
@@ -271,12 +322,7 @@ function ContactInfoCard({
     icon: React.ReactNode, title: string, description: string, value: string, href: string, accentColor: string, shadowColor: string
 }) {
     return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5 overflow-hidden"
-        >
+        <div className="block group glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 border-white/5 overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
                 <div className={cn(
                     "p-4 sm:p-5 bg-white/5 rounded-2xl group-hover:scale-110 transition-all duration-500 shadow-inner shrink-0 w-max",
@@ -289,11 +335,22 @@ function ContactInfoCard({
                 <div className="min-w-0 flex-1">
                     <h3 className="text-[10px] sm:text-xs font-black text-zinc-500 uppercase tracking-[0.3em] mb-2 break-words">{title}</h3>
                     <p className="text-zinc-400 font-medium text-xs mb-2 italic break-words">{description}</p>
-                    <p className="text-white font-black text-sm sm:text-lg md:text-xl tracking-normal sm:tracking-tight group-hover:text-primary transition-colors break-words leading-relaxed sm:leading-snug">
-                        {value}
-                    </p>
+                    {href.startsWith('tel:') ? (
+                        <span className="text-white font-black text-sm sm:text-lg md:text-xl tracking-normal sm:tracking-tight transition-colors break-words leading-relaxed sm:leading-snug">
+                            {value}
+                        </span>
+                    ) : (
+                        <a 
+                            href={href} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-white font-black text-sm sm:text-lg md:text-xl tracking-normal sm:tracking-tight group-hover:text-primary transition-colors break-words leading-relaxed sm:leading-snug"
+                        >
+                            {value}
+                        </a>
+                    )}
                 </div>
             </div>
-        </a>
+        </div>
     );
 }

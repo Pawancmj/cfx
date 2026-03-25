@@ -132,12 +132,7 @@ export default function TestimonialStack({ testimonials }: TestimonialStackProps
                                                         <div className="text-[11px] font-black text-primary uppercase tracking-[0.3em] mt-2 brightness-110">{testimonial.role}</div>
                                                     </div>
                                                 </div>
-
-                                                {isTop && (
-                                                    <div className="hidden sm:flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-zinc-400 group-hover:text-primary group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500 shadow-inner">
-                                                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform" />
-                                                    </div>
-                                                )}
+                                                {/* Removed confusing arrow as cards are clickable for cycling */}
                                             </div>
                                         </motion.div>
                                     </div>

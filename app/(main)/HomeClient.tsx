@@ -374,49 +374,54 @@ function RecentArticlesSection() {
               Recent Articles
             </h3>
           </div>
-          <Link href="/resources" className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-primary transition-colors">
+          <Link href="/resources?filter=Articles%20%2F%20Insights" className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-primary transition-colors">
             View All <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {articles.map((article, i) => (
-            <motion.div
-              key={article.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={cn(
-                "group glass-card overflow-hidden flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all cursor-pointer border-white/5 rounded-3xl h-full",
-                article.color
-              )}
+            <Link 
+              key={article.title} 
+              href="/resources?filter=Articles%20%2F%20Insights"
+              className="block h-full"
             >
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image 
-                  src={article.image} 
-                  alt={article.title} 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">
-                  <span>{article.date}</span>
-                  <span>{article.readTime}</span>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={cn(
+                  "group glass-card overflow-hidden flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all cursor-pointer border-white/5 rounded-3xl h-full",
+                  article.color
+                )}
+              >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image 
+                    src={article.image} 
+                    alt={article.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                <h4 className={cn("text-lg font-bold text-white mb-3 transition-colors leading-tight", `group-hover:${article.iconColor}`)}>
-                  {article.title}
-                </h4>
-                <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
-                  {article.excerpt}
-                </p>
-                <div className="mt-auto flex flex-wrap items-center gap-2">
-                  <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2 transition-colors", `${article.iconColor}/60 group-hover:${article.iconColor}`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">
+                    <span>{article.date}</span>
+                    <span>{article.readTime}</span>
+                  </div>
+                  <h4 className={cn("text-lg font-bold text-white mb-3 transition-colors leading-tight", `group-hover:${article.iconColor}`)}>
+                    {article.title}
+                  </h4>
+                  <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
+                    {article.excerpt}
+                  </p>
+                  <div className="mt-auto flex flex-wrap items-center gap-2">
+                    <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2 transition-colors", `${article.iconColor}/60 group-hover:${article.iconColor}`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

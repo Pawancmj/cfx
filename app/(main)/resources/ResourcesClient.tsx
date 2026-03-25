@@ -19,6 +19,24 @@ function ResourcesContent() {
         return resourceCategories[0].title;
     });
     const [visibleCount, setVisibleCount] = useState(6);
+    const [email, setEmail] = useState("");
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email || !email.includes("@")) return;
+
+        setIsSubmitting(true);
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setIsSubmitting(false);
+        setIsSubscribed(true);
+        setEmail("");
+        
+        // Reset message after 5 seconds
+        setTimeout(() => setIsSubscribed(false), 5000);
+    };
 
     // Reset visible count when category changes
     useEffect(() => {
@@ -219,16 +237,35 @@ function ResourcesContent() {
                         <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic relative z-10 text-glow inline-block">Stay Informed</h3>
                         <p className="text-zinc-300 font-medium mb-12 relative z-10 max-w-2xl mx-auto tracking-[0.1em]">Subscribe to receive our latest insights, comprehensive guides, and critical vulnerability alerts straight to your inbox.</p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto relative z-10">
+                        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto relative z-10">
                             <input
                                 type="email"
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder="ENTER YOUR EMAIL"
                                 className="flex-grow bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-xs font-bold uppercase tracking-widest text-white focus:outline-none focus:border-primary/50 transition-colors"
                             />
-                            <button className="bg-primary text-background px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:bg-primary/80 transition-all hover:scale-105 active:scale-95">
-                                Subscribe
+                            <button 
+                                type="submit"
+                                disabled={isSubmitting || isSubscribed}
+                                className={cn(
+                                    "px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 disabled:opacity-70 disabled:hover:scale-100",
+                                    isSubscribed ? "bg-green-500 text-white" : "bg-primary text-background hover:bg-primary/80"
+                                )}
+                            >
+                                {isSubmitting ? "Processing..." : isSubscribed ? "Subscribed!" : "Subscribe"}
                             </button>
-                        </div>
+                        </form>
+                        {isSubscribed && (
+                            <motion.p 
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-primary text-[10px] font-bold uppercase tracking-widest mt-4"
+                            >
+                                Thank you! You've been added to our intelligence feed.
+                            </motion.p>
+                        )}
                     </motion.div>
                 </div>
             </section>
