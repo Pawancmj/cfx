@@ -184,8 +184,8 @@ export default function CaseStudiesClient() {
                                 key={cat.title}
                                 onClick={() => setActiveFilter(cat.title)}
                                 className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.1em] transition-all border ${activeFilter === cat.title
-                                        ? "bg-primary text-black border-primary shadow-[0_0_20px_rgba(0,242,255,0.3)] scale-105"
-                                        : "bg-white/5 text-zinc-400 border-white/10 hover:bg-white/10 hover:text-white"
+                                    ? "bg-primary text-black border-primary shadow-[0_0_20px_rgba(0,242,255,0.3)] scale-105"
+                                    : "bg-white/5 text-zinc-400 border-white/10 hover:bg-white/10 hover:text-white"
                                     }`}
                             >
                                 {cat.title}
@@ -211,8 +211,8 @@ export default function CaseStudiesClient() {
                             {activeFilter === "Clients" ? (
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                                     {[
-                                        { name: "PrepEdu", image: "/images/clients/prepedu.webp" },
-                                        { name: "Securen", image: "/images/clients/securen.webp" },
+                                        { name: "InterviewPrep Edu", image: "/images/clients/prepedu.webp" },
+                                        { name: "Securenode", image: "/images/clients/securen.webp" },
                                         { name: "Azal International", image: "/images/clients/azal-international.webp" },
                                         { name: "Delhi Police", image: "/images/clients/delhi-police.webp" },
                                         { name: "Income Tax", image: "/images/clients/income-tax.webp" },
@@ -232,9 +232,9 @@ export default function CaseStudiesClient() {
                                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                             <div className="relative z-10 w-full h-full flex flex-col items-center justify-between pointer-events-none">
                                                 <div className="h-24 sm:h-28 w-full flex items-center justify-center mb-4 transition-all duration-500 pointer-events-auto">
-                                                    <img 
-                                                        src={client.image} 
-                                                        alt={`${client.name} logo`} 
+                                                    <img
+                                                        src={client.image}
+                                                        alt={`${client.name} logo`}
                                                         className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-sm"
                                                     />
                                                 </div>
@@ -271,9 +271,9 @@ export default function CaseStudiesClient() {
                                                     className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
                                                 >
                                                     <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
-                                                        <img 
-                                                            src={cardImage} 
-                                                            alt={link.name} 
+                                                        <img
+                                                            src={cardImage}
+                                                            alt={link.name}
                                                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                                         />
                                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
@@ -290,7 +290,7 @@ export default function CaseStudiesClient() {
                                                         <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
                                                             Expert implementation of {link.name.toLowerCase()} ensuring security and scalability for global operations.
                                                         </p>
-                                                        <Link 
+                                                        <Link
                                                             href={link.href}
                                                             className="mt-auto flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors"
                                                         >

@@ -138,22 +138,20 @@ export default function Testimonials() {
 
         const handleWheel = (e: WheelEvent) => {
             const currentX = x.get();
-            const delta = e.deltaY || e.deltaX;
+            const delta = (e.deltaY || e.deltaX) * 1.5;
 
             const atStart = currentX >= 0 && delta < 0;
             const atEnd = currentX <= -scrollRange && delta > 0;
 
-            if (atStart || atEnd) {
-                return;
-            }
+            if (atStart || atEnd) return;
 
             e.preventDefault();
             const newX = clampX(currentX - delta);
-            animate(x, newX, { type: "spring", stiffness: 300, damping: 40 });
+            
+            animate(x, newX, { type: "tween", ease: "easeOut", duration: 0.25 });
 
-            // Debounced snap after scrolling stops
             if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-            wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 150);
+            wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 500);
         };
 
         container.addEventListener("wheel", handleWheel, { passive: false });
@@ -164,11 +162,11 @@ export default function Testimonials() {
     }, [scrollRange, x, clampX, snapToNearest]);
 
     return (
-        <section className="relative py-16 md:py-24 section-bg-gradient overflow-hidden border-t border-white/5">
+        <section className="relative py-6 md:py-8 section-bg-gradient overflow-hidden border-t border-white/5">
             <div className="flex flex-col justify-center">
                 <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
 
-                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-16 shrink-0">
+                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-12 shrink-0">
                     <div className="mx-auto max-w-2xl text-center relative">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Success Stories</h2>
                         <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
@@ -218,7 +216,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Slider Controls - Moved Below */}
-                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mt-12 shrink-0">
+                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mt-8 shrink-0">
                     <div className="flex justify-center gap-4">
                         <button 
                             onClick={handlePrev}

@@ -239,11 +239,11 @@ const caseStudiesLinks: NavLink[] = [
 ];
 
 const caseStudiesClientsLinks: NavLink[] = [
-    { name: "Securen", href: "/case-studies", image: "/images/clients/securen.webp" },
+    { name: "Neev Realty", href: "/case-studies", image: "/images/clients/neev-realty.webp" },
     { name: "Delhi Police", href: "/case-studies", image: "/images/clients/delhi-police.webp" },
     { name: "Income Tax", href: "/case-studies", image: "/images/clients/income-tax.webp" },
     { name: "Azal International", href: "/case-studies", image: "/images/clients/azal-international.webp" },
-    { name: "Yellowish", href: "/case-studies", image: "/images/clients/yellowish.webp" },
+    { name: "InterviewPrep Edu", href: "/case-studies", image: "/images/clients/prepedu.webp" },
     { name: "TDS", href: "/case-studies", image: "/images/clients/tds.webp" },
 ];
 
