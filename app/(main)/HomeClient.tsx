@@ -12,6 +12,7 @@ import Image from "next/image";
 import Hero from "@/app/components/Hero";
 import Testimonials from "@/app/components/Testimonials";
 import CTA from "@/app/components/CTA";
+import Partners from "@/app/components/Partners";
 import { cn } from "@/lib/utils";
 
 // --- Consolidated Home Components ---
@@ -439,6 +440,7 @@ export default function HomeClient() {
       <ProcessSection />
       <Testimonials />
       <CertificationsSection />
+      <Partners />
       <CTA />
     </div>
   );
