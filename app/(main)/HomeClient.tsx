@@ -323,7 +323,7 @@ function ExpertiseSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index * step));
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
   }, [cardWidth, gap, x, clampX]);
 
   const handlePrev = () => {
@@ -331,7 +331,11 @@ function ExpertiseSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index - 1) * step);
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const currentX = x.get();
+    // Only animate if the target is different
+    if (Math.abs(newX - currentX) > 1) {
+      animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
+    }
   };
 
   const handleNext = () => {
@@ -339,7 +343,11 @@ function ExpertiseSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index + 1) * step);
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const currentX = x.get();
+    // Only animate if the target is different
+    if (Math.abs(newX - currentX) > 1) {
+      animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
+    }
   };
 
   const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -425,7 +433,7 @@ function ExpertiseSection() {
                   key={service.id}
                   style={{ width: cardWidth > 0 ? cardWidth : undefined }}
                   className={cn(
-                    "shrink-0 group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[380px] border-white/5 select-none",
+                    "shrink-0 group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[420px] border-white/5 select-none",
                     "lg:hover:-translate-y-3 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] lg:hover:bg-white/10"
                   )}
                 >
@@ -723,7 +731,7 @@ function RecentArticlesSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index * step));
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
   }, [cardWidth, gap, x, clampX]);
 
   const handlePrev = () => {
@@ -731,7 +739,11 @@ function RecentArticlesSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index - 1) * step);
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const currentX = x.get();
+    // Only animate if the target is different
+    if (Math.abs(newX - currentX) > 1) {
+      animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
+    }
   };
 
   const handleNext = () => {
@@ -739,7 +751,11 @@ function RecentArticlesSection() {
     if (step <= 0) return;
     const index = Math.round(x.get() / -step);
     const newX = clampX(-(index + 1) * step);
-    animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const currentX = x.get();
+    // Only animate if the target is different
+    if (Math.abs(newX - currentX) > 1) {
+      animate(x, newX, { type: "tween", ease: "easeInOut", duration: 0.3 });
+    }
   };
 
   const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);

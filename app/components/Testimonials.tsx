@@ -1,241 +1,257 @@
 "use client";
 
-import { motion, useMotionValue, animate } from "framer-motion";
-import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, Quote, ArrowLeft, ArrowRight, Play, Pause } from "lucide-react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
-const testimonials = [
+const successStories = [
     {
-        content: "Cyberforenx transformed our customer support operations. Their dedicated team integrated seamlessly, and we saw a 40% reduction in response times within the first quarter.",
-        author: "Sarah Chen",
-        role: "Operations Director, GlobalTech Innovations",
-        image: "/avatar-1.webp",
+        client: "SecureNode",
+        content: "Cyberforenx delivered an impenetrable security architecture that immediately mitigated our vulnerabilities. Their foresight and strategic deployment saved us from potentially catastrophic breaches.",
+        author: "Chief Security Officer",
+        role: "SecureNode Systems",
+        image: "/images/mockups/securenode.webp",
+        logo: "/images/clients/securen.webp",
     },
     {
-        content: "The level of data security and compliance Cyberforenx provides is unparalleled. We now have complete peace of mind knowing our sensitive information is handled with the utmost care.",
-        author: "Mark Johnson",
-        role: "Chief Security Officer, Apex Financial",
-        image: "/avatar-2.webp",
+        client: "FitnessTrack",
+        content: "The custom mobile platform they built for us completely revolutionized how our users engage with their fitness data. Usage metrics have skyrocketed since the launch.",
+        author: "Product Manager",
+        role: "FitnessTrack App",
+        image: "/images/mockups/fitnesstrack.webp",
+        logo: "/images/clients/yellowish.webp",
     },
     {
-        content: "Their flexible staffing model allowed us to scale up our back-office teams during peak demand without any overhead. A true partner in efficiency!",
-        author: "Maria Rodriguez",
-        role: "VP of HR, Innovate Pharma",
-        image: "/avatar-3.webp",
+        client: "NeevRealty",
+        content: "A flawless digital transformation. The new realty portal is incredibly fast, responsive, and has directly contributed to a 40% increase in digital lead generation.",
+        author: "Marketing Director",
+        role: "NeevRealty",
+        image: "/images/mockups/neevrealty.webp",
+        logo: "/images/clients/neev-realty.webp",
     },
     {
-        content: "The expertise of their incident response team was phenomenal. They minimized our downtime drastically during a critical security event, saving us millions.",
-        author: "David Smith",
-        role: "IT Manager, TechSolutions",
-        image: "/avatar-4.webp",
+        client: "InterviewPrepEdu",
+        content: "They architected a scalable, high-performance educational platform that handles thousands of concurrent video sessions seamlessly. Truly a phenomenal engineering partner.",
+        author: "Founder & CEO",
+        role: "InterviewPrepEdu",
+        image: "/images/mockups/interviewprepedu.webp",
+        logo: "/images/clients/prepedu.webp",
     },
     {
-        content: "Working with Cyberforenx has been a game-changer for our compliance efforts. Their audits are thorough, and their continuous monitoring is highly actionable.",
-        author: "Jessica Lee",
-        role: "Compliance Officer, SecureNet",
-        image: "/avatar-5.webp",
+        client: "St. Andrew's College",
+        content: "Our institution's digital infrastructure was modernized with exceptional precision. The enhanced student portal is secure, intuitive, and highly reliable.",
+        author: "IT Director",
+        role: "St. Andrew's College",
+        image: "/images/mockups/st.-andrews-college.webp",
+        logo: "/images/clients/tds.webp",
     },
     {
-        content: "An incredible partner for our digital transformation journey. Their backend support ensures we operate 24/7 without a single hitch or security oversight.",
-        author: "Robert Williams",
-        role: "CEO, NextGen Enterprises",
-        image: "/avatar-6.webp",
+        client: "TeppichArt",
+        content: "The e-commerce experience they crafted is visually stunning and technically robust. Our online sales conversion rates doubled within the first quarter.",
+        author: "Head of Digital",
+        role: "TeppichArt",
+        image: "/images/mockups/teppichart.webp",
+        logo: "/images/clients/teppich.webp",
     },
+    {
+        client: "Azal International",
+        content: "A strategic partnership that delivered beyond expectations. Their data analytics and global web solutions have given us a massive competitive advantage.",
+        author: "VP of Operations",
+        role: "Azal International",
+        image: "/images/mockups/azal-international.webp",
+        logo: "/images/clients/azal-international.webp",
+    }
 ];
 
 export default function Testimonials() {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const x = useMotionValue(0);
-    const [scrollRange, setScrollRange] = useState(0);
-    const [cardWidth, setCardWidth] = useState(0);
-    const [gap, setGap] = useState(40);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    // Measure the container's inner width (minus padding) and calculate card width
-    useEffect(() => {
-        const updateDimensions = () => {
-            if (scrollContainerRef.current) {
-                const container = scrollContainerRef.current;
-                const styles = getComputedStyle(container);
-                const paddingLeft = parseFloat(styles.paddingLeft) || 0;
-                const paddingRight = parseFloat(styles.paddingRight) || 0;
-                const innerWidth = container.clientWidth - paddingLeft - paddingRight;
-
-                // Dynamic visibility based on width
-                let cardsVisible = 3;
-                let gap = 40; // Desktop default
-
-                if (window.innerWidth < 640) {
-                    cardsVisible = 1;
-                    gap = 16;
-                } else if (window.innerWidth < 1024) {
-                    cardsVisible = 2;
-                    gap = 24;
-                }
-
-                const calculatedCardWidth = (innerWidth - gap * (cardsVisible - 1)) / cardsVisible;
-                setGap(gap);
-                setCardWidth(calculatedCardWidth);
-            }
-        };
-
-        updateDimensions();
-        setTimeout(updateDimensions, 150);
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, []);
-
-    // Recalculate scroll range whenever cardWidth changes
-    useEffect(() => {
-        const recalc = () => {
-            if (scrollContainerRef.current) {
-                const container = scrollContainerRef.current;
-                const styles = getComputedStyle(container);
-                const paddingLeft = parseFloat(styles.paddingLeft) || 0;
-                const paddingRight = parseFloat(styles.paddingRight) || 0;
-                const innerWidth = container.clientWidth - paddingLeft - paddingRight;
-                const totalContentWidth = cardWidth * testimonials.length + gap * (testimonials.length - 1);
-                const maxScroll = Math.max(0, totalContentWidth - innerWidth);
-                setScrollRange(maxScroll);
-            }
-        };
-        // Wait a frame for card widths to apply in DOM
-        requestAnimationFrame(recalc);
-    }, [cardWidth]);
-
-    // Clamp x value within bounds
-    const clampX = useCallback((val: number) => {
-        return Math.max(-scrollRange, Math.min(0, val));
-    }, [scrollRange]);
-
-    // Snap to the nearest card
-    const snapToNearest = useCallback(() => {
-        const step = cardWidth + gap;
-        const index = Math.round(x.get() / -step);
-        const newX = clampX(-(index * step));
-        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
-    }, [cardWidth, gap, x, clampX]);
-
-    const handlePrev = () => {
-        const step = cardWidth + gap;
-        const index = Math.round(x.get() / -step);
-        const newX = clampX(-(index - 1) * step);
-        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const nextStory = () => {
+        setIsAutoPlaying(false);
+        setActiveIndex((prev) => (prev + 1) % successStories.length);
     };
 
-    const handleNext = () => {
-        const step = cardWidth + gap;
-        const index = Math.round(x.get() / -step);
-        const newX = clampX(-(index + 1) * step);
-        animate(x, newX, { type: "spring", stiffness: 300, damping: 35 });
+    const prevStory = () => {
+        setIsAutoPlaying(false);
+        setActiveIndex((prev) => (prev - 1 + successStories.length) % successStories.length);
     };
 
-    const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const toggleAutoPlay = () => {
+        setIsAutoPlaying(prev => !prev);
+    };
 
-    // Handle mouse wheel on the testimonial section — scroll cards horizontally
     useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
+        if (!isAutoPlaying) return;
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % successStories.length);
+        }, 8000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
 
-        const handleWheel = (e: WheelEvent) => {
-            const currentX = x.get();
-            const delta = (e.deltaY || e.deltaX) * 1.5;
-
-            const atStart = currentX >= 0 && delta < 0;
-            const atEnd = currentX <= -scrollRange && delta > 0;
-
-            if (atStart || atEnd) return;
-
-            e.preventDefault();
-            const newX = clampX(currentX - delta);
-            
-            animate(x, newX, { type: "tween", ease: "easeOut", duration: 0.25 });
-
-            if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-            wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 500);
-        };
-
-        container.addEventListener("wheel", handleWheel, { passive: false });
-        return () => {
-            container.removeEventListener("wheel", handleWheel);
-            if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-        };
-    }, [scrollRange, x, clampX, snapToNearest]);
+    const activeStory = successStories[activeIndex];
 
     return (
-        <section className="relative py-6 md:py-8 section-bg-gradient overflow-hidden border-t border-white/5">
-            <div className="flex flex-col justify-center">
-                <div className="absolute right-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
+        <section className="relative py-6 md:py-8 section-bg-dark overflow-hidden border-t border-white/5 shadow-inner">
+            {/* Ambient Dark Theme Glowing Effect */}
+            <div className="absolute right-[5%] top-1/2 -z-10 h-[800px] w-[800px] -translate-y-1/2 bg-primary/5 blur-[200px] rounded-full pointer-events-none"></div>
+            <div className="absolute left-[5%] bottom-[5%] -z-10 h-[600px] w-[600px] bg-secondary/5 blur-[150px] rounded-full pointer-events-none"></div>
+            <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none z-0"></div>
 
-                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-12 shrink-0">
-                    <div className="mx-auto max-w-2xl text-center relative">
-                        <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Success Stories</h2>
-                        <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
-                            Trusted by Innovative Companies
-                        </h3>
-                    </div>
+            <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full shrink-0">
+                <div className="mx-auto max-w-3xl text-center relative mb-8">
+                    <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">
+                        Success Stories
+                    </h2>
+                    <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
+                        Client Reactions to Our <br className="hidden sm:block" />
+                        <span className="text-gradient italic pb-1 inline-block pr-2">Transformative Solutions</span>
+                    </h3>
+                    <p className="text-zinc-400 text-lg font-medium mt-6">
+                        See how we've helped ambitious companies worldwide secure their assets, scale their operations, and dominate their digital markets.
+                    </p>
                 </div>
 
-                <div ref={scrollContainerRef} className="container mx-auto px-6 lg:px-8 w-full overflow-hidden">
-                    <motion.div
-                        className="flex w-max pb-4 cursor-grab active:cursor-grabbing"
-                        style={{ x, gap: `${gap}px` }}
-                        drag="x"
-                        dragConstraints={{ left: -scrollRange, right: 0 }}
-                        dragElastic={0.05}
-                        dragMomentum={false}
-                        onDragEnd={snapToNearest}
-                    >
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                key={index}
-                                style={{ width: cardWidth > 0 ? cardWidth : undefined }}
-                                className="shrink-0 flex flex-col relative glass-card p-6 sm:p-10 hover:bg-white/10 hover:border-primary/40 group transition-all select-none"
-                            >
-                                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none" />
+                {/* Single, Unified Full-Bleed Background Container — fixed height to prevent layout jump */}
+                <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] h-auto sm:h-[500px] lg:h-[560px] flex items-stretch group/banner">
 
-                                <div className="flex gap-1.5 text-primary mb-6 relative pointer-events-none">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-current drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]" />
-                                    ))}
-                                </div>
-                                <blockquote className="text-zinc-400 leading-relaxed relative z-10 text-base font-medium italic mb-8 group-hover:text-zinc-300 transition-colors flex-grow pointer-events-none">
-                                    &quot;{testimonial.content}&quot;
-                                </blockquote>
-                                <div className="mt-auto flex items-center gap-x-4 border-t border-white/10 pt-6 pointer-events-none">
-                                    <div className="h-12 w-12 shrink-0 rounded-xl bg-primary flex items-center justify-center text-background font-bold text-lg shadow-[0_0_15px_rgba(0,242,255,0.4)]">
-                                        {testimonial.author.charAt(0)}
-                                    </div>
-                                    <div className="overflow-hidden">
-                                        <div className="font-bold text-white uppercase tracking-[0.1em] text-xs truncate">{testimonial.author}</div>
-                                        <div className="text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-1 truncate">{testimonial.role}</div>
-                                    </div>
-                                </div>
+                    {/* Background Texture Overlay */}
+                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
+                    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent z-40"></div>
+
+                    {/* Edge-to-Edge Background Image */}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeIndex}
+                            initial={{ opacity: 0, scale: 1.05 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            className="absolute inset-x-0 top-0 h-[250px] sm:inset-0 sm:h-full w-full z-0"
+                        >
+                            <Image
+                                src={activeStory.image}
+                                alt={`${activeStory.client} Mockup`}
+                                fill
+                                style={{ objectFit: 'contain', objectPosition: 'center right' }}
+                                className="transition-transform duration-[4s] ease-out group-hover/banner:scale-105"
+                                priority
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Left-Side Gradient Mask to allow text readability & seamless integration */}
+                    <div className="absolute inset-y-0 left-0 w-full lg:w-3/4 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-transparent z-10 pointer-events-none hidden sm:block"></div>
+
+                    {/* Top-to-Bottom Gradient Mask for Mobile */}
+                    <div className="absolute inset-x-0 top-[150px] h-[100px] bg-gradient-to-b from-transparent to-zinc-950 z-10 pointer-events-none sm:hidden"></div>
+
+                    {/* Foreground Text Area - Floats directly on the darkened left gradient */}
+                    <div className="w-full lg:w-[55%] p-5 sm:p-12 lg:p-16 pt-[230px] sm:pt-12 relative z-20 flex flex-col justify-center h-auto sm:h-full sm:min-h-[500px] lg:min-h-[600px]">
+
+                        <Quote className="absolute top-8 left-8 lg:top-12 lg:left-12 w-16 h-16 sm:w-24 sm:h-24 text-primary/10 -rotate-12 pointer-events-none" />
+
+                        <div className="relative flex-grow flex flex-col justify-center">
+                            {/* Fixed height container for the animated content to prevent banner height jumping */}
+                            <div className="relative h-[290px] sm:h-[280px] lg:h-[340px]">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeIndex}
+                                        initial={{ opacity: 0, y: 15 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -15 }}
+                                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                                        className="absolute inset-0 flex flex-col justify-center"
+                                    >
+                                        <div className="flex gap-1.5 mb-6 sm:mb-8">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 fill-primary text-primary drop-shadow-[0_0_8px_rgba(0,242,255,0.4)]" />
+                                            ))}
+                                        </div>
+
+                                        <blockquote className="text-lg sm:text-2xl lg:text-3xl font-bold text-white leading-relaxed italic mb-6 sm:mb-8 tracking-tight text-glow lg:max-w-xl">
+                                            "{activeStory.content}"
+                                        </blockquote>
+
+                                        <div className="flex items-center gap-x-4">
+                                            <div className="bg-white px-3 py-2 rounded-lg flex items-center justify-center w-[100px] h-[48px] shadow-lg shrink-0">
+                                                <Image
+                                                    src={activeStory.logo}
+                                                    alt={`${activeStory.client} logo`}
+                                                    width={80}
+                                                    height={32}
+                                                    style={{ objectFit: 'contain' }}
+                                                    className="max-h-8 w-auto"
+                                                />
+                                            </div>
+                                            <div className="flex flex-col justify-center">
+                                                <div className="font-bold text-white uppercase tracking-[0.1em] text-xs truncate max-w-[200px] sm:max-w-full">{activeStory.client}</div>
+                                                <div className="text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-1 truncate max-w-[200px] sm:max-w-full">{activeStory.author}</div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
                             </div>
-                        ))}
-                    </motion.div>
+                        </div>
+
+                        {/* Controls placed directly at bottom left of banner */}
+                        <div className="mt-6 sm:mt-12 flex items-center gap-6 border-y border-transparent relative z-30">
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={toggleAutoPlay}
+                                    className="w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-white transition-colors border border-transparent hover:border-white/10 hover:bg-white/5"
+                                    aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+                                >
+                                    {isAutoPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
+                                </button>
+                            </div>
+
+                            <div className="flex items-center gap-2 sm:gap-3 flex-grow max-w-[200px]">
+                                {successStories.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => { setIsAutoPlaying(false); setActiveIndex(i); }}
+                                        className={cn(
+                                            "h-1.5 sm:h-2 rounded-full transition-all duration-500 flex-1",
+                                            i === activeIndex
+                                                ? "bg-primary shadow-[0_0_10px_rgba(0,242,255,0.7)]"
+                                                : "bg-white/10 hover:bg-white/30"
+                                        )}
+                                        aria-label={`Go to client ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Slider Controls - Moved Below */}
-                <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mt-8 shrink-0">
-                    <div className="flex justify-center gap-4">
-                        <button 
-                            onClick={handlePrev}
-                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn"
-                            aria-label="Previous testimonial"
-                        >
-                            <ArrowLeft className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform" />
-                        </button>
-                        <button 
-                            onClick={handleNext}
-                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn"
-                            aria-label="Next testimonial"
-                        >
-                            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
+
+
+                {/* Navigation Arrows below banner — matches article scroll layout */}
+                <div className="flex justify-center items-center gap-4 sm:gap-6 mt-8">
+                    <button
+                        onClick={prevStory}
+                        className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn shrink-0"
+                        aria-label="Previous story"
+                    >
+                        <ArrowLeft className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform" />
+                    </button>
+
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                        {activeIndex + 1} / {successStories.length}
+                    </span>
+
+                    <button
+                        onClick={nextStory}
+                        className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn shrink-0"
+                        aria-label="Next story"
+                    >
+                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
                 </div>
             </div>
         </section>
     );
 }
-

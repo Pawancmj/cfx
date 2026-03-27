@@ -277,7 +277,7 @@ export default function ServicesClient() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 className={cn(
-                  "group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[380px] border-white/5",
+                  "group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[420px] border-white/5",
                   "lg:hover:-translate-y-3 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] lg:hover:bg-white/10"
                 )}
               >
