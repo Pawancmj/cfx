@@ -402,14 +402,99 @@ function ExpertiseSection() {
             </h3>
           </div>
 
-          <div className="hidden lg:block relative w-full max-w-md h-[250px] group">
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
-            <Image
-              src="/images/illustrations/core-capabilities.webp"
-              alt="Technology and Profitability"
-              fill
-              className="object-cover rounded-3xl border border-white/10 shadow-2xl relative z-10 brightness-75 group-hover:brightness-100 transition-all duration-700"
-            />
+          <div className="hidden lg:block relative w-full h-[250px] group rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 z-10 brightness-90 group-hover:brightness-100 transition-all duration-700 bg-gradient-to-b from-[#050914] to-[#02040a]">
+            {/* The SVG code */}
+            <svg viewBox="50 30 400 190" className="w-full h-full relative z-10 transition-transform duration-700 group-hover:scale-105">
+              <defs>
+                <filter id="glow-bridge" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <linearGradient id="tech-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0ea5e9" />
+                  <stop offset="100%" stopColor="#2563eb" />
+                </linearGradient>
+                <linearGradient id="profit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#10b981" />
+                  <stop offset="100%" stopColor="#059669" />
+                </linearGradient>
+                <linearGradient id="bridge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0ea5e9" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#10b981" />
+                </linearGradient>
+              </defs>
+
+              {/* Background abstract deeper grid/mesh */}
+              <g stroke="#ffffff0a" strokeWidth="1" opacity="0.8">
+                <path d="M-100,50 L600,50 M-100,75 L600,75 M-100,100 L600,100 M-100,125 L600,125 M-100,150 L600,150 M-100,175 L600,175 M-100,200 L600,200 M-100,225 L600,225 M-100,250 L600,250" />
+                <path d="M50,-50 L50,350 M100,-50 L100,350 M150,-50 L150,350 M200,-50 L200,350 M250,-50 L250,350 M300,-50 L300,350 M350,-50 L350,350 M400,-50 L400,350 M450,-50 L450,350" />
+              </g>
+
+              {/* Tech Side (Left) */}
+              <g transform="translate(100, 110)">
+                <path d="M-40,20 L40,20 L40,-20 L-40,-20 Z" fill="url(#tech-grad)" opacity="0.35" stroke="#0ea5e9" strokeWidth="2" filter="url(#glow-bridge)">
+                  <animate attributeName="opacity" values="0.25;0.6;0.25" dur="3s" repeatCount="indefinite" />
+                </path>
+                <circle cx="0" cy="0" r="18" fill="#0f172a" stroke="#0ea5e9" strokeWidth="2" filter="url(#glow-bridge)" />
+                <path d="M-7,-5 L7,5 L-7,15" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <text x="0" y="58" fontFamily="sans-serif" fontSize="13" fontWeight="900" fill="#0ea5e9" textAnchor="middle" letterSpacing="4" filter="url(#glow-bridge)" opacity="0.9">TECHNOLOGY</text>
+              </g>
+
+              {/* Profit Side (Right) */}
+              <g transform="translate(400, 110)">
+                {/* Growing Bar Chart */}
+                <g filter="url(#glow-bridge)">
+                  <rect x="-25" y="10" width="14" height="15" fill="url(#profit-grad)" opacity="0.8">
+                    <animate attributeName="height" values="10;15;10" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="15;10;15" dur="2s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="-3" y="-5" width="14" height="30" fill="url(#profit-grad)" opacity="0.9">
+                    <animate attributeName="height" values="20;30;20" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                    <animate attributeName="y" values="5;-5;5" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                  </rect>
+                  <rect x="19" y="-25" width="14" height="50" fill="url(#profit-grad)">
+                    <animate attributeName="height" values="35;50;35" dur="2s" repeatCount="indefinite" begin="1s" />
+                    <animate attributeName="y" values="-10;-25;-10" dur="2s" repeatCount="indefinite" begin="1s" />
+                  </rect>
+                </g>
+                <text x="0" y="58" fontFamily="sans-serif" fontSize="13" fontWeight="900" fill="#10b981" textAnchor="middle" letterSpacing="4" filter="url(#glow-bridge)" opacity="0.9">PROFITABILITY</text>
+              </g>
+
+              {/* The Bridge */}
+              <g filter="url(#glow-bridge)">
+                <path d="M145,110 L355,110" fill="none" stroke="#ffffff33" strokeWidth="5" />
+                <path d="M145,118 L355,118" fill="none" stroke="#ffffff22" strokeWidth="2" strokeDasharray="6 6" />
+                
+                <path d="M145,110 L355,110" fill="none" stroke="url(#bridge-grad)" strokeWidth="4" strokeDasharray="210" strokeDashoffset="0">
+                  <animate attributeName="stroke-dashoffset" values="210;0" dur="2s" repeatCount="indefinite" />
+                </path>
+                
+                {/* Traveling Energy */}
+                <circle r="5" fill="#fff" filter="url(#glow-bridge)">
+                  <animateMotion dur="2s" repeatCount="indefinite" path="M145,110 L355,110" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle r="7" fill="#10b981" filter="url(#glow-bridge)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="1s" path="M145,110 L355,110" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2.5s" repeatCount="indefinite" />
+                </circle>
+                <circle r="4" fill="#0ea5e9" filter="url(#glow-bridge)">
+                  <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s" path="M145,110 L355,110" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </g>
+
+              {/* Ambient Cyberspace Particles */}
+              <g fill="#fff" opacity="0.5" filter="url(#glow-bridge)">
+                <circle cx="250" cy="50" r="2.5"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" /></circle>
+                <circle cx="320" cy="80" r="3"><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1s" /></circle>
+                <circle cx="180" cy="140" r="2"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s" /></circle>
+                <circle cx="280" cy="160" r="4" fill="#10b981"><animate attributeName="opacity" values="0;0.8;0" dur="5s" repeatCount="indefinite" /></circle>
+                <circle cx="120" cy="160" r="2.5" fill="#0ea5e9"><animate attributeName="opacity" values="0;1;0" dur="3.5s" repeatCount="indefinite" /></circle>
+                <circle cx="380" cy="60" r="2"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" /></circle>
+              </g>
+            </svg>
           </div>
         </motion.div>
       </div>
