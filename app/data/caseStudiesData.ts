@@ -186,5 +186,376 @@ export const caseStudiesList: CaseStudyData[] = [
             }
         ],
         slug: ["case-studies", "enterprise-cybersecurity-risk-assessment"]
+    },
+    {
+        title: "SecureNode – Zero-Trust Architecture Implementation",
+        client: "SecureNode Systems",
+        industry: "Cybersecurity / Technology",
+        author: "CyberForenX Security Lab",
+        date: "12 October 2024",
+        heroImage: "/images/mockups/securenode.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "SecureNode Systems, a rapidly growing infrastructure provider, faced an increasingly sophisticated threat landscape. Their primary objective was to transition from a legacy perimeter-based security model to a modern, robust Zero-Trust Architecture (ZTA).",
+                    "The mandate was to ensure that every access request, whether internal or external, was fully authenticated, authorized, and continuously validated before granting access to critical network resources."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "Implementing Zero-Trust across a distributed workforce and legacy server environments presented significant technical hurdles. The existing infrastructure lacked granular visibility, and there was no unified identity and access management system.",
+                    "The client required a solution that would eliminate 'implicit trust' without disrupting the productivity of their remote engineering teams who required high-speed access to development environments."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "Our Strategic Implementation",
+                paragraphs: [
+                    "We deployed a multi-phased Zero-Trust roadmap. First, we conducted a comprehensive asset discovery and data classification audit to identify the 'protect surface'. We then implemented a robust Identity and Access Management (IAM) framework using multi-factor authentication (MFA) and conditional access policies.",
+                    "Micro-segmentation was introduced at the network layer to prevent lateral movement of threats. Finally, we integrated a Security Orchestration, Automation, and Response (SOAR) platform to provide continuous monitoring and automated incident mitigation."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "Strategic Impact",
+                paragraphs: [
+                    "The deployment resulted in an 'impenetrable security architecture' that immediately mitigated identified vulnerabilities. SecureNode observed a 90% reduction in unauthorized access attempts and significantly improved their security posture for compliance audits.",
+                    "The solution proved its worth by thwarting a sophisticated phishing campaign that targeted administrative credentials shortly after the rollout."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "What is the core principle of Zero-Trust?",
+                answer: "The fundamental principle is 'Never Trust, Always Verify.' It assumes that threats can exist both inside and outside the network, requiring continuous authentication for every user and device."
+            },
+            {
+                question: "How did you handle legacy systems that don't support modern auth?",
+                answer: "We utilized secure 'Identity Proxies' that act as a gateway, providing an modern authentication layer in front of the legacy applications without requiring them to be rewritten."
+            }
+        ],
+        slug: ["case-studies", "secure-node-zero-trust"]
+    },
+    {
+        title: "FitnessTrack – Scaling User Engagement Through Custom Mobile Solutions",
+        client: "FitnessTrack App",
+        industry: "Health & Wellness / Mobile Technology",
+        author: "CyberForenX App Studio",
+        date: "28 November 2024",
+        heroImage: "/images/mockups/fitnesstrack.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "FitnessTrack aimed to modernize their digital presence by launching a revolutionary mobile platform that could handle high volumes of real-time fitness data and provide personalized user insights.",
+                    "The goal was to create an 'all-in-one' fitness companion that not only tracks activities but also fosters community engagement and provides data-driven coaching recommendations."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "The main technical challenge was the real-time processing of high-frequency data from various wearable devices while maintaining low battery consumption and high performance on both iOS and Android platforms.",
+                    "Additionally, the platform needed to be highly scalable to accommodate seasonal surges in user activity (like New Year's resolutions) without any degradation in service speed or reliability."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "The Solution",
+                paragraphs: [
+                    "We architected a cloud-native mobile solution using a React Native frontend and a serverless backend. This allowed for rapid cross-platform development while ensuring independent scaling of data processing services.",
+                    "We implemented an edge-computing layer for preliminary data filtration to reduce server load and integrated a social engine that allows users to compete in challenges and share achievements seamlessly. Real-time analytics were powered by a high-throughput data pipeline."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "Outcomes and Performance",
+                paragraphs: [
+                    "Since launch, FitnessTrack has seen 'skyrocketing usage metrics,' with a 250% increase in daily active users. User retention rates improved by 60% due to the gamified elements and personalized coaching insights.",
+                    "The platform successfully handled a 4x traffic surge during a major marketing campaign without a single minute of downtime, proving the robustness of the architecture."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "What technology stack was used for the mobile app?",
+                answer: "We chose React Native for the frontend to ensure a single codebase for iOS and Android, and a Node.js serverless architecture on AWS for the backend to handle elastic scaling."
+            },
+            {
+                question: "How is user data privacy handled?",
+                answer: "User health data is encrypted both at rest and in transit using AES-256 standards. We ensure full GDPR and HIPAA compliance for all personal information."
+            }
+        ],
+        slug: ["case-studies", "fitness-track-mobile-platform"]
+    },
+    {
+        title: "NeevRealty – Digital Transformation & Lead Generation in Real Estate",
+        client: "NeevRealty",
+        industry: "Real Estate / Digital Commerce",
+        author: "CyberForenX Digital Strategy",
+        date: "05 December 2024",
+        heroImage: "/images/mockups/neevrealty.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "NeevRealty, a prominent real estate developer, sought a complete 'digital transformation' of their property showcase and lead acquisition workflow. The objective was to replace an outdated web presence with a high-performance, interactive portal.",
+                    "The new platform needed to provide prospective buyers with a seamless browsing experience, immersive virtual tours, and a direct line of communication with sales professionals."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "The primary hurdle was creating a platform that could render high-resolution 3D property models and virtual tours across all devices, including budget smartphones, without compromising on load speed.",
+                    "Furthermore, the lead management system was siloed, leading to slow response times and lost opportunities. The project required a unified CRM integration to capture and route leads instantly."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "Our Approach",
+                paragraphs: [
+                    "We developed a 'flawless digital portal' utilizing modern web frameworks optimized for speed. We implemented an asset-delivery network specifically for heavy media files like virtual tours.",
+                    "A custom Lead Intelligence System was integrated to qualify leads using AI before passing them to the sales team. The entire UI was designed with a mobile-first philosophy to cater to the modern real estate shopper."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "Success Metrics",
+                paragraphs: [
+                    "The transformation led to a '40% increase in digital lead generation' within the first quarter. Site performance audits showed a 300% improvement in page load times, directly impacting user engagement.",
+                    "The Sales team reported a significant improvement in lead quality and conversion rates due to the automated qualification and faster response times enabled by the new CRM integration."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "How do you optimize 3D virtual tours for mobile?",
+                answer: "We use a combination of low-poly modeling, texture baking, and progressive loading techniques to ensure that immersive 3D content remains interactive even on mid-range mobile devices."
+            },
+            {
+                question: "Can the platform handle multiple projects simultaneously?",
+                answer: "Yes, the portal is built on a scalable CMS that allows NeevRealty to add, manage, and showcase dozens of property developments with unique branding for each."
+            }
+        ],
+        slug: ["case-studies", "neev-realty-digital-transformation"]
+    },
+    {
+        title: "InterviewPrepEdu – Scaling a High-Performance Educational Platform",
+        client: "InterviewPrepEdu",
+        industry: "EdTech / Digital Education",
+        author: "CyberForenX Engineering",
+        date: "14 January 2025",
+        heroImage: "/images/mockups/interviewprepedu.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "InterviewPrepEdu aimed to build the most reliable and scalable platform for mock interviews and career coaching. The goal was to support thousands of concurrent, high-definition video sessions with real-time feedback loops.",
+                    "The primary mandate was to eliminate technical friction, allowing students and mentors to focus entirely on the learning experience without worrying about connectivity or audio/video lag."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "Developing a platform that handles massive concurrent video sessions requires deep optimization at the infrastructure level. High latency and jitter can ruin a mock interview experience.",
+                    "Moreover, the system needed robust scheduling and billing engines that could handle complex time-zone conversions and various international payment gateways for a global user base."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "Strategic Engineering",
+                paragraphs: [
+                    "We architected a 'scalable, high-performance educational platform' using a global Content Delivery Network (CDN) and distributed edge servers to minimize latency. We implemented WebRTC technology for peer-to-peer video communication with intelligent fallback to TURN/STUN servers.",
+                    "A customized scheduling engine was built to handle high-concurrency booking requests, and we integrated a global payment infrastructure that automatically localizes currencies and tax compliance."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "The Impact",
+                paragraphs: [
+                    "InterviewPrepEdu now handles thousands of concurrent video sessions 'seamlessly,' with an average connection success rate of 99.8%. The platform has become one of the most trusted names in career preparation.",
+                    "The seamless user experience has led to a major increase in viral growth and word-of-mouth referrals, positioning our client as a leader in their niche."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "How do you ensure zero lag during video sessions?",
+                answer: "We use geo-localized servers to route traffic through the shortest possible path and implement dynamic bitrate adjustment to maintain quality even on unstable connections."
+            },
+            {
+                question: "Is the platform mobile-responsive?",
+                answer: "Absolutely. The entire educational interface is responsive, allowing mentors and students to conduct sessions from desktops, tablets, or smartphones without losing functionality."
+            }
+        ],
+        slug: ["case-studies", "interview-prep-edu-scaling"]
+    },
+    {
+        title: "St. Andrew's College – Modernizing Academic Digital Infrastructure",
+        client: "St. Andrew's College",
+        industry: "Education / Institutional",
+        author: "CyberForenX Institutional Services",
+        date: "02 February 2025",
+        heroImage: "/images/mockups/st.-andrews-college.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "St. Andrew's College mandated a comprehensive modernization of their legacy digital systems. The goal was to create a 'secure, intuitive, and highly reliable' student portal that integrates academic, financial, and administrative services.",
+                    "The college needed to move away from fragmented systems into a unified platform that could enhance the overall student experience and streamline faculty workflows."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "The legacy infrastructure was a 'patchwork' of disconnected databases and software, leading to frequent data inconsistencies and a poor user experience. Securing sensitive student records while providing open access to learning resources was a critical priority.",
+                    "The project had to be completed within a strict academic calendar to avoid disrupting registration and examination cycles."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "Our Methodology",
+                paragraphs: [
+                    "We deployed an 'exceptional precision' modernization roadmap. We first migrated the core student database to a secure, cloud-hosted environment with robust data integrity checks. We then developed a unified 'Super-Portal' that provides a single point of access for all college services.",
+                    "Advanced security protocols, including single-sign-on (SSO) and role-based access control, were implemented to protect institutional data. We also provided comprehensive training to the IT staff to ensure long-term operational success."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "The Result",
+                paragraphs: [
+                    "The modernization project resulted in a significant improvement in institutional efficiency. The new student portal has received rave reviews for its ease of use, and administrative processing times have been halved.",
+                    "The enhanced digital infrastructure has not only improved the student experience but also strengthened the college's data security and disaster recovery capabilities."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "How was the data migrated from legacy systems?",
+                answer: "We used a multi-stage ETL (Extract, Transform, Load) process with continuous validation to ensure that decades of student records were migrated with zero data loss or corruption."
+            },
+            {
+                question: "How do you handle high traffic during registration?",
+                answer: "The portal utilizes auto-scaling cloud resources that automatically expand capacity during peak enrollment periods, ensuring that every student can register without delays."
+            }
+        ],
+        slug: ["case-studies", "st-andrews-college-infrastructure"]
+    },
+    {
+        title: "TeppichArt – Crafting a Premium E-Commerce Experience",
+        client: "TeppichArt",
+        industry: "Luxury Retail / E-commerce",
+        author: "CyberForenX Creative Tech",
+        date: "20 February 2025",
+        heroImage: "/images/mockups/teppichart.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "TeppichArt, a curator of high-end rugs and luxury home decor, sought to build a 'visually stunning and technically robust' e-commerce platform. The goal was to bridge the online-offline gap by providing a digital experience that reflects the premium quality of their physical products.",
+                    "The solution needed to offer sophisticated browsing tools, high-resolution visual storytelling, and a friction-free checkout process for a global, high-net-worth clientele."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "The luxury segment requires a level of 'visual perfection' that is often difficult to achieve on the web. High-resolution imagery can lead to slow performance, which is unacceptable for premium brands.",
+                    "Additionally, the platform required a complex international logistics integration to handle multi-currency pricing, duty calculations, and global door-to-door delivery tracking."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "The Project Strategy",
+                paragraphs: [
+                    "We developed a headless e-commerce solution that separates the 'pixel-perfect' frontend from the robust backend commerce engine. We used advanced image optimization and lazy-loading techniques to ensure crisp visuals with lightning-fast load times.",
+                    "A customized internationalization layer was built to handle dynamic currency conversion and tax compliance across 50+ countries. We also integrated an AI-driven recommendation engine to personalize the shopping experience for every visitor."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "Outcomes",
+                paragraphs: [
+                    "The new platform resulted in 'online sales conversion rates doubling within the first quarter'. Customer engagement metrics across the site improved by 80%, with high-value cart abandonment falling by 35%.",
+                    "TeppichArt now possesses a digital storefront that truly reflects their brand's luxury status, enabling them to scale their global business with confidence and technical excellence."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "Why use Headless E-commerce for luxury brands?",
+                answer: "It allows for total creative freedom in the frontend design while maintaining the reliability and security of a standard commerce platform for the backend."
+            },
+            {
+                question: "How is international shipping handled?",
+                answer: "The platform is integrated with global logistics providers to provide real-time shipping quotes, automated custom documentation, and end-to-end tracking for the customer."
+            }
+        ],
+        slug: ["case-studies", "teppich-art-ecommerce"]
+    },
+    {
+        title: "Azal International – Strategic Data Analytics & Global Web Solutions",
+        client: "Azal International",
+        industry: "Logistics / Global Operations",
+        author: "CyberForenX Enterprise Advisory",
+        date: "10 March 2025",
+        heroImage: "/images/mockups/azal-international.webp",
+        contentSections: [
+            {
+                id: "objective",
+                heading: "The Objective",
+                paragraphs: [
+                    "Azal International, a global leader in operations and supply chain, required a strategic digital partner to modernize their data analytics and global web presence.",
+                    "The objective was to build a 'unified visibility' platform that could aggregate data from multiple international offices and provide real-time operational insights to the executive leadership."
+                ]
+            },
+            {
+                id: "challenges",
+                heading: "The Challenge",
+                paragraphs: [
+                    "Operating across multiple continents meant dealing with massive volumes of heterogeneous data stored in various formats and time zones. The lack of a centralized data lake led to delays in decision-making and operational inefficiencies.",
+                    "The global website also required a major overhaul to provide a consistent brand experience while offering localized content for regional markets."
+                ]
+            },
+            {
+                id: "approach",
+                heading: "The Strategic Solution",
+                paragraphs: [
+                    "We implemented a 'strategic data analytics' framework using a cloud-based data warehouse. We developed a series of executive dashboards that provide 'at-a-glance' visibility into global KPIs, using AI to predict potential operational bottlenecks.",
+                    "The global web solution was built on a multi-instance CMS that allows for centralized brand control while giving regional teams the flexibility to manage local content and compliance requirements. A robust security layer was added to protect sensitive corporate data."
+                ]
+            },
+            {
+                id: "outcome",
+                heading: "Operational Impact",
+                paragraphs: [
+                    "The partnership delivered a 'massive competitive advantage' by reducing report generation time from days to minutes. Leadership can now make data-driven decisions based on real-time global metrics.",
+                    "The new global web presence has significantly strengthened Azal's brand image in international markets and improved lead generation for their corporate services by 50%."
+                ]
+            }
+        ],
+        faqs: [
+            {
+                question: "How do you handle data from different time zones?",
+                answer: "Our data pipeline normalizes all timestamps to a single UTC standard before processing, while allowing users to view reports in their local time zone through the dashboard interface."
+            },
+            {
+                question: "Is the platform scalable for future expansion?",
+                answer: "Yes, the cloud-native architecture is designed to accommodate new regional offices and increasing data volumes without any architectural changes."
+            }
+        ],
+        slug: ["case-studies", "azal-international-analytics"]
     }
 ];

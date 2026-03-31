@@ -15,6 +15,7 @@ const successStories = [
         role: "SecureNode Systems",
         image: "/images/mockups/securenode.webp",
         logo: "/images/clients/securen.webp",
+        caseStudySlug: "secure-node-zero-trust",
     },
     {
         client: "FitnessTrack",
@@ -23,6 +24,7 @@ const successStories = [
         role: "FitnessTrack App",
         image: "/images/mockups/fitnesstrack.webp",
         logo: "/images/clients/yellowish.webp",
+        caseStudySlug: "fitness-track-mobile-platform",
     },
     {
         client: "NeevRealty",
@@ -31,6 +33,7 @@ const successStories = [
         role: "NeevRealty",
         image: "/images/mockups/neevrealty.webp",
         logo: "/images/clients/neev-realty.webp",
+        caseStudySlug: "neev-realty-digital-transformation",
     },
     {
         client: "InterviewPrepEdu",
@@ -39,6 +42,7 @@ const successStories = [
         role: "InterviewPrepEdu",
         image: "/images/mockups/interviewprepedu.webp",
         logo: "/images/clients/prepedu.webp",
+        caseStudySlug: "interview-prep-edu-scaling",
     },
     {
         client: "St. Andrew's College",
@@ -47,6 +51,7 @@ const successStories = [
         role: "St. Andrew's College",
         image: "/images/mockups/st.-andrews-college.webp",
         logo: "/images/clients/tds.webp",
+        caseStudySlug: "st-andrews-college-infrastructure",
     },
     {
         client: "TeppichArt",
@@ -55,6 +60,7 @@ const successStories = [
         role: "TeppichArt",
         image: "/images/mockups/teppichart.webp",
         logo: "/images/clients/teppich.webp",
+        caseStudySlug: "teppich-art-ecommerce",
     },
     {
         client: "Azal International",
@@ -63,6 +69,7 @@ const successStories = [
         role: "Azal International",
         image: "/images/mockups/azal-international.webp",
         logo: "/images/clients/azal-international.webp",
+        caseStudySlug: "azal-international-analytics",
     }
 ];
 
@@ -176,21 +183,33 @@ export default function Testimonials() {
                                             "{activeStory.content}"
                                         </blockquote>
 
-                                        <div className="flex items-center gap-x-4">
-                                            <div className="bg-white px-3 py-2 rounded-lg flex items-center justify-center w-[100px] h-[48px] shadow-lg shrink-0">
-                                                <Image
-                                                    src={activeStory.logo}
-                                                    alt={`${activeStory.client} logo`}
-                                                    width={80}
-                                                    height={32}
-                                                    style={{ objectFit: 'contain' }}
-                                                    className="max-h-8 w-auto"
-                                                />
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-start gap-4 sm:gap-8 w-full border-t border-white/5 pt-6 sm:pt-8 mt-2">
+                                            <div className="flex items-center gap-x-4">
+                                                <div className="bg-white px-3 py-2 rounded-lg flex items-center justify-center w-[100px] h-[48px] shadow-lg shrink-0">
+                                                    <Image
+                                                        src={activeStory.logo}
+                                                        alt={`${activeStory.client} logo`}
+                                                        width={80}
+                                                        height={32}
+                                                        style={{ objectFit: 'contain' }}
+                                                        className="max-h-8 w-auto"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col justify-center">
+                                                    <div className="font-bold text-white uppercase tracking-[0.1em] text-xs truncate max-w-[200px] sm:max-w-[150px] lg:max-w-full">{activeStory.client}</div>
+                                                    <div className="text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-1 truncate max-w-[200px] sm:max-w-[150px] lg:max-w-full">{activeStory.author}</div>
+                                                </div>
                                             </div>
-                                            <div className="flex flex-col justify-center">
-                                                <div className="font-bold text-white uppercase tracking-[0.1em] text-xs truncate max-w-[200px] sm:max-w-full">{activeStory.client}</div>
-                                                <div className="text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-1 truncate max-w-[200px] sm:max-w-full">{activeStory.author}</div>
-                                            </div>
+                                            
+                                            {activeStory.caseStudySlug && (
+                                                <Link 
+                                                    href={`/case-studies/case-studies/${activeStory.caseStudySlug}`}
+                                                    className="inline-flex self-start sm:self-auto items-center justify-center gap-2 px-6 py-3 sm:px-5 sm:py-2.5 bg-primary/10 border border-primary/20 hover:bg-primary hover:text-black text-primary rounded-xl text-[10px] font-black uppercase tracking-widest transition-all group/csbtn shrink-0 w-full sm:w-auto mt-2 sm:mt-0"
+                                                >
+                                                    Case Study
+                                                    <ArrowUpRight className="w-3 h-3 transition-transform group-hover/csbtn:translate-x-0.5 group-hover/csbtn:-translate-y-0.5" />
+                                                </Link>
+                                            )}
                                         </div>
                                     </motion.div>
                                 </AnimatePresence>

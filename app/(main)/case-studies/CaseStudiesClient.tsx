@@ -258,7 +258,7 @@ export default function CaseStudiesClient() {
                                                 "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
                                                 "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
                                             ];
-                                            const cardImage = images[idx % images.length];
+                                            const cardImage = link.cardImage || link.image || images[idx % images.length];
                                             const cardBadge = activeFilter === "Latest" ? "Recent Win" : "Case Study";
 
                                             return (
@@ -270,14 +270,22 @@ export default function CaseStudiesClient() {
                                                     transition={{ delay: idx * 0.05, duration: 0.5 }}
                                                     className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
                                                 >
-                                                    <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
+                                                    <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0 bg-[#080c10]">
+                                                        {/* Blurred background to fill aspect ratio mismatch */}
+                                                        <img
+                                                            src={cardImage}
+                                                            alt=""
+                                                            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125"
+                                                            aria-hidden="true"
+                                                        />
+                                                        {/* Sharp contained foreground image */}
                                                         <img
                                                             src={cardImage}
                                                             alt={link.name}
-                                                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                            className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700 z-10"
                                                         />
-                                                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                                                        <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
+                                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+                                                        <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-20">
                                                             <Globe className="w-5 h-5 text-primary" />
                                                         </div>
                                                     </div>

@@ -437,7 +437,7 @@ function ExpertiseSection() {
                   <animate attributeName="opacity" values="0.25;0.6;0.25" dur="3s" repeatCount="indefinite" />
                 </path>
                 <circle cx="0" cy="0" r="18" fill="#0f172a" stroke="#0ea5e9" strokeWidth="2" filter="url(#glow-bridge)" />
-                <path d="M-7,-5 L7,5 L-7,15" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M-5,-7 L6,0 L-5,7" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <text x="0" y="58" fontFamily="sans-serif" fontSize="13" fontWeight="900" fill="#0ea5e9" textAnchor="middle" letterSpacing="4" filter="url(#glow-bridge)" opacity="0.9">TECHNOLOGY</text>
               </g>
 

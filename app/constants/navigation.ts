@@ -2,6 +2,7 @@ export interface NavLink {
     name: string;
     href: string;
     image?: string;
+    cardImage?: string;
 }
 
 export interface MegaCategory {
@@ -227,15 +228,15 @@ export const resourceCategories: MegaCategory[] = [
 
 const caseStudiesLinks: NavLink[] = [
     { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/case-studies/government-digital-investigation" },
-    { name: "Financial Compliance & Tax Investigation Support (Income Tax / TDS)", href: "/case-studies/case-studies/financial-compliance-tax-investigation" },
+    { name: "Financial Compliance & Tax Investigation Support", href: "/case-studies/case-studies/financial-compliance-tax-investigation" },
     { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/case-studies/enterprise-cybersecurity-risk-assessment" },
-    { name: "Business Process Services & Operational Support Systems", href: "/case-studies/case-studies/business-process-services-operational" },
-    { name: "Building Scalable Education Platforms for Modern Learning", href: "/case-studies/case-studies/building-scalable-education-platforms" },
-    { name: "Transforming Real Estate Brands into Digital Experiences", href: "/case-studies/case-studies/transforming-real-estate-brands" },
-    { name: "Crafting High-Performance E-Commerce Platforms", href: "/case-studies/case-studies/crafting-high-performance-ecommerce" },
-    { name: "Corporate Website & Digital Platform Development", href: "/case-studies/case-studies/corporate-website-digital-platform" },
-    { name: "Fitness & Wellness Business Website Solutions (Multi-Project Delivery)", href: "/case-studies/case-studies/fitness-wellness-business-website" },
-    { name: "Secure Business Platform Development & Automation Systems", href: "/case-studies/case-studies/secure-business-platform-development" },
+    { name: "Zero-Trust Architecture & Secure Network Infrastructure", href: "/case-studies/case-studies/secure-node-zero-trust", cardImage: "/images/mockups/portrait%20images/SecureNode.png" },
+    { name: "Custom Mobile Platforms & User Engagement Systems", href: "/case-studies/case-studies/fitness-track-mobile-platform", cardImage: "/images/mockups/portrait%20images/FitnessTrack.png" },
+    { name: "Digital Transformation & Real Estate Web Portals", href: "/case-studies/case-studies/neev-realty-digital-transformation", cardImage: "/images/mockups/portrait%20images/NeevRealty.png" },
+    { name: "Scalable Educational Platforms & EdTech Solutions", href: "/case-studies/case-studies/interview-prep-edu-scaling", cardImage: "/images/mockups/portrait%20images/InterviewPrepEdu.png" },
+    { name: "Institutional Digital Infrastructure & Modernization", href: "/case-studies/case-studies/st-andrews-college-infrastructure", cardImage: "/images/mockups/portrait%20images/St.%20Andrew's%20College.png" },
+    { name: "Premium E-Commerce Experiences & Digital Luxury Retail", href: "/case-studies/case-studies/teppich-art-ecommerce", cardImage: "/images/mockups/portrait%20images/TeppichArt.png" },
+    { name: "Strategic Data Analytics & Global Operational Solutions", href: "/case-studies/case-studies/azal-international-analytics", cardImage: "/images/mockups/portrait%20images/Azal%20International.png" },
 ];
 
 const caseStudiesClientsLinks: NavLink[] = [

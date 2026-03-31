@@ -121,15 +121,15 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
                     {/* Main Content Area */}
                     <div className="lg:w-[68%] order-2 lg:order-1">
                         {/* Hero Image - Inside main content column */}
-                        <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[400px] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f14]">
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none"></div>
+                        <div className="relative w-full aspect-[4/3] md:aspect-[16/9] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#080c10]">
                             <Image
                                 src={detailData.heroImage}
                                 alt={detailData.title}
                                 fill
-                                className="object-cover opacity-80"
+                                className="object-cover opacity-90"
                                 priority
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none"></div>
                         </div>
 
                         <article>
