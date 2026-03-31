@@ -96,37 +96,37 @@ const certifications = [
   {
     name: "ISO 27001",
     description: "Information Security Management System. Ensures the highest standards in protecting sensitive data and mitigating cyber threats.",
-    icon: ShieldCheck,
+    image: "/images/certifications/iso-27001.svg",
     color: "text-blue-400",
   },
   {
     name: "ISO 9001",
     description: "Quality Management System. Demonstrates our commitment to consistent quality, customer satisfaction, and continuous improvement.",
-    icon: BadgeCheck,
+    image: "/images/certifications/iso-9001.svg",
     color: "text-cyan-400",
   },
   {
     name: "ISO 20000-1",
     description: "IT Service Management System. Validates our excellence in IT service delivery, support, and operational efficiency.",
-    icon: Settings,
+    image: "/images/certifications/iso-20000-1.svg",
     color: "text-indigo-400",
   },
   {
     name: "CMMI Level 3 / 5",
     description: "Capability Maturity Model Integration. Demonstrated high maturity in software development and service delivery processes.",
-    icon: Layers,
+    image: "/images/certifications/cmmi.svg",
     color: "text-purple-400",
   },
   {
     name: "SOC 2 Type II",
     description: "Service Organization Control. Stringent independent audits verifying our security, availability, and processing integrity.",
-    icon: FileCheck,
+    image: "/images/certifications/soc2.svg",
     color: "text-emerald-400",
   },
   {
     name: "ISO 17025",
     description: "Testing and Calibration Laboratories. Proven competence, impartiality, and consistent operation in laboratory results.",
-    icon: FlaskConical,
+    image: "/images/certifications/iso-17025.svg",
     color: "text-amber-400",
   },
 ];
@@ -151,27 +151,36 @@ function CertificationsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="group glass-card p-5 sm:p-7 hover:bg-white/10 hover:border-primary/40 transition-all text-center"
-            >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-4 group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl">
-                <cert.icon className={`h-8 w-8 ${cert.color} group-hover:text-background transition-colors`} />
+        <div className="w-full overflow-hidden relative py-10">
+          <motion.div
+            className="flex w-[1200%] sm:w-[800%] md:w-[600%] lg:w-[480%] items-center"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+          >
+            {[...certifications, ...certifications, ...certifications, ...certifications].map((cert, index) => (
+              <div
+                key={`${cert.name}-${index}`}
+                className="group flex-1 flex flex-col items-center justify-center gap-3 sm:gap-4 transition-all duration-500 cursor-default mx-3 sm:mx-4 lg:mx-6 p-5 sm:p-6 lg:p-8 rounded-[2rem] bg-white/95 backdrop-blur-xl border border-white hover:bg-white hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 relative overflow-hidden"
+                title={cert.name}
+              >
+                {/* Subtle inner shadow top */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div className="w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 flex items-center justify-center z-10 transition-transform duration-500 group-hover:scale-110">
+                  <Image
+                    src={cert.image}
+                    alt={cert.name}
+                    width={140}
+                    height={140}
+                    className="w-full h-full object-contain filter drop-shadow-sm opacity-90 group-hover:opacity-100 transition-all duration-500"
+                  />
+                </div>
+                <span className="text-[10px] sm:text-xs lg:text-sm font-extrabold text-zinc-800 group-hover:text-black transition-colors uppercase tracking-[0.2em] sm:tracking-widest text-center px-2 z-10 mt-2">
+                  {cert.name}
+                </span>
               </div>
-              <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors uppercase">
-                {cert.name}
-              </h4>
-              <p className="text-zinc-400 text-sm leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">
-                {cert.description}
-              </p>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
@@ -465,11 +474,11 @@ function ExpertiseSection() {
               <g filter="url(#glow-bridge)">
                 <path d="M145,110 L355,110" fill="none" stroke="#ffffff33" strokeWidth="5" />
                 <path d="M145,118 L355,118" fill="none" stroke="#ffffff22" strokeWidth="2" strokeDasharray="6 6" />
-                
+
                 <path d="M145,110 L355,110" fill="none" stroke="url(#bridge-grad)" strokeWidth="4" strokeDasharray="210" strokeDashoffset="0">
                   <animate attributeName="stroke-dashoffset" values="210;0" dur="2s" repeatCount="indefinite" />
                 </path>
-                
+
                 {/* Traveling Energy */}
                 <circle r="5" fill="#fff" filter="url(#glow-bridge)">
                   <animateMotion dur="2s" repeatCount="indefinite" path="M145,110 L355,110" />

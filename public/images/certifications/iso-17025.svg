@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#f59e0b" stroke-width="8"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"/>
+  <text x="100" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="28" fill="#f59e0b" text-anchor="middle">CERTIFIED</text>
+  <text x="100" y="125" font-family="Arial, sans-serif" font-weight="900" font-size="42" fill="#78350f" text-anchor="middle">ISO</text>
+  <text x="100" y="155" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#f59e0b" text-anchor="middle">17025</text>
+</svg>
