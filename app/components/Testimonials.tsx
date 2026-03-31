@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Quote, ArrowLeft, ArrowRight, Play, Pause } from "lucide-react";
+import { Star, Quote, ArrowLeft, ArrowRight, ArrowUpRight, Play, Pause } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -171,7 +172,7 @@ export default function Testimonials() {
                                             ))}
                                         </div>
 
-                                        <blockquote className="text-lg sm:text-2xl lg:text-3xl font-bold text-white leading-relaxed italic mb-6 sm:mb-8 tracking-tight text-glow lg:max-w-xl">
+                                        <blockquote className="text-base sm:text-lg font-medium text-zinc-400 leading-relaxed mb-6 sm:mb-8 lg:max-w-xl">
                                             "{activeStory.content}"
                                         </blockquote>
 
@@ -239,9 +240,12 @@ export default function Testimonials() {
                         <ArrowLeft className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform" />
                     </button>
 
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-                        {activeIndex + 1} / {successStories.length}
-                    </span>
+                    <Link
+                        href="/case-studies"
+                        className="mx-2 sm:mx-6 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-widest text-zinc-500 hover:text-primary transition-colors whitespace-nowrap flex items-center gap-2"
+                    >
+                        View All <ArrowUpRight className="w-4 h-4" />
+                    </Link>
 
                     <button
                         onClick={nextStory}
