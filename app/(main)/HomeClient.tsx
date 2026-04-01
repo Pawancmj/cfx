@@ -359,39 +359,7 @@ function ExpertiseSection() {
     }
   };
 
-  const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      const currentX = x.get();
-      // Multiply delta for a more responsive scroll feel
-      const delta = (e.deltaY || e.deltaX) * 1.5;
-
-      const atStart = currentX >= 0 && delta < 0;
-      const atEnd = currentX <= -scrollRange && delta > 0;
-
-      if (atStart || atEnd) return;
-
-      e.preventDefault();
-      const newX = clampX(currentX - delta);
-
-      // Use tween for smoother interpolation of rigid mouse wheel notches
-      animate(x, newX, { type: "tween", ease: "easeOut", duration: 0.25 });
-
-      if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-      // Wait longer before snapping to nearest so we don't interrupt continuous scrolling
-      wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 500);
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-      if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-    };
-  }, [scrollRange, x, clampX, snapToNearest]);
+  // Mouse wheel scroll removed — cards scroll only via buttons or mouse drag
 
   return (
     <section className="relative py-6 md:py-8 section-bg-gradient overflow-hidden border-y border-white/5">
@@ -852,36 +820,7 @@ function RecentArticlesSection() {
     }
   };
 
-  const wheelSnapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      const currentX = x.get();
-      const delta = (e.deltaY || e.deltaX) * 1.5;
-
-      const atStart = currentX >= 0 && delta < 0;
-      const atEnd = currentX <= -scrollRange && delta > 0;
-
-      if (atStart || atEnd) return;
-
-      e.preventDefault();
-      const newX = clampX(currentX - delta);
-
-      animate(x, newX, { type: "tween", ease: "easeOut", duration: 0.25 });
-
-      if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-      wheelSnapTimeoutRef.current = setTimeout(snapToNearest, 500);
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-      if (wheelSnapTimeoutRef.current) clearTimeout(wheelSnapTimeoutRef.current);
-    };
-  }, [scrollRange, x, clampX, snapToNearest]);
+  // Mouse wheel scroll removed — cards scroll only via buttons or mouse drag
 
   return (
     <section className="relative py-6 md:py-8 section-bg-dark border-b border-white/5">
