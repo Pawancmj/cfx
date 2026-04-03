@@ -284,7 +284,7 @@ function ExpertiseSection() {
         const paddingRight = parseFloat(styles.paddingRight) || 0;
         const innerWidth = container.clientWidth - paddingLeft - paddingRight;
 
-        let cardsVisible = 3;
+        let cardsVisible = 4;
         let currentGap = 24;
 
         if (window.innerWidth < 768) {
@@ -495,20 +495,20 @@ function ExpertiseSection() {
                   key={service.id}
                   style={{ width: cardWidth > 0 ? cardWidth : undefined }}
                   className={cn(
-                    "shrink-0 group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[420px] border-white/5 select-none",
+                    "shrink-0 group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[320px] border-white/5 select-none",
                     "lg:hover:-translate-y-3 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] lg:hover:bg-white/10"
                   )}
                 >
                   {/* Default Visible Card content */}
-                  <div className="absolute inset-0 p-8 flex flex-col transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
-                    <div className={cn("p-4 w-fit rounded-2xl mb-8", "bg-white/5 group-hover:bg-primary/10 transition-colors shadow-inner")}>
+                  <div className="absolute inset-0 p-6 flex flex-col transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
+                    <div className={cn("p-3 w-fit rounded-2xl mb-4", "bg-white/5 group-hover:bg-primary/10 transition-colors shadow-inner")}>
                       <Icon className={cn("w-8 h-8", service.color)} />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tight">
+                    <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-zinc-400 leading-relaxed font-medium text-base">
+                    <p className="text-zinc-400 leading-relaxed font-medium text-sm">
                       {service.description}
                     </p>
 
@@ -745,7 +745,7 @@ function RecentArticlesSection() {
         const paddingRight = parseFloat(styles.paddingRight) || 0;
         const innerWidth = container.clientWidth - paddingLeft - paddingRight;
 
-        let cardsVisible = 3;
+        let cardsVisible = 4;
         let currentGap = 24;
 
         if (window.innerWidth < 768) {
@@ -823,8 +823,8 @@ function RecentArticlesSection() {
   // Mouse wheel scroll removed — cards scroll only via buttons or mouse drag
 
   return (
-    <section className="relative py-6 md:py-8 section-bg-dark border-b border-white/5">
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-8">
+    <section className="relative py-4 md:py-6 section-bg-dark border-b border-white/5">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-4">
         <div className="flex justify-between items-end">
           <div>
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
@@ -836,7 +836,7 @@ function RecentArticlesSection() {
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 w-full">
-        <div ref={scrollContainerRef} className="w-full overflow-hidden py-8 -my-8">
+        <div ref={scrollContainerRef} className="w-full overflow-hidden py-4 -my-4">
           <motion.div
             className="flex w-max cursor-grab active:cursor-grabbing items-stretch"
             style={{ x, gap: `${gap}px` }}
@@ -857,7 +857,7 @@ function RecentArticlesSection() {
                   article.color
                 )}
               >
-                <div className="relative h-48 w-full overflow-hidden shrink-0 pointer-events-none">
+                <div className="relative h-28 w-full overflow-hidden shrink-0 pointer-events-none">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -866,15 +866,15 @@ function RecentArticlesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                <div className="p-6 flex flex-col flex-grow pointer-events-none">
-                  <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">
+                <div className="p-3 flex flex-col flex-grow pointer-events-none">
+                  <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-2">
                     <span>{article.date}</span>
                     <span>{article.readTime}</span>
                   </div>
-                  <h4 className={cn("text-lg font-bold text-white mb-3 transition-colors leading-tight", `group-hover:${article.iconColor}`)}>
+                  <h4 className={cn("text-base font-bold text-white mb-2 transition-colors leading-tight", `group-hover:${article.iconColor}`)}>
                     {article.title}
                   </h4>
-                  <p className="text-sm text-zinc-400 font-medium leading-relaxed mb-6">
+                  <p className="text-[11px] text-zinc-400 font-medium leading-relaxed mb-3">
                     {article.excerpt}
                   </p>
                   <div className="mt-auto flex flex-wrap items-center gap-2">
