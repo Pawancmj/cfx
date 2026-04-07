@@ -522,22 +522,22 @@ function ExpertiseSection() {
                   </div>
 
                   {/* Hover Details Content - Only visible on desktop/large screens */}
-                  <div className="absolute inset-0 p-8 flex flex-col opacity-0 translate-y-12 transition-all duration-500 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 h-full pointer-events-none lg:group-hover:pointer-events-auto bg-primary/5 backdrop-blur-3xl hidden lg:flex">
-                    <div className="flex items-center gap-4 mb-6">
-                      <Icon className={cn("w-6 h-6", service.color)} />
-                      <h3 className="text-lg font-bold text-white uppercase tracking-wider text-glow">
+                  <div className="absolute inset-0 p-6 flex flex-col opacity-0 translate-y-12 transition-all duration-500 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 h-full pointer-events-none lg:group-hover:pointer-events-auto bg-primary/5 backdrop-blur-3xl hidden lg:flex">
+                    <div className="flex items-center gap-3 mb-4 shrink-0">
+                      <Icon className={cn("w-6 h-6 shrink-0", service.color)} />
+                      <h3 className="text-base font-bold text-white uppercase tracking-wider text-glow line-clamp-1">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-zinc-300 text-sm leading-relaxed mb-8 flex-grow font-medium italic">
+                    <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4 flex-grow font-medium italic overflow-y-auto no-scrollbar">
                       {service.extendedDescription}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap gap-2 mb-4 shrink-0">
                       {service.features.map((f) => (
                         <span
                           key={f}
                           className={cn(
-                            "px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-widest bg-white/5 text-primary rounded-lg border border-primary/20 transition-all hover:bg-primary/10"
+                            "px-2 py-1 text-[10px] font-extrabold uppercase tracking-widest bg-white/5 text-primary rounded-lg border border-primary/20 transition-all hover:bg-primary/10"
                           )}
                         >
                           {f}
@@ -547,7 +547,7 @@ function ExpertiseSection() {
 
                     <Link
                       href={`/services/${service.slug}`}
-                      className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary/20 hover:bg-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl border border-primary/20 transition-all group/btn active:scale-[0.98]"
+                      className="mt-auto shrink-0 w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary/20 hover:bg-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.2em] rounded-xl border border-primary/20 transition-all group/btn active:scale-[0.98]"
                     >
                       View Category Hub
                       <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
