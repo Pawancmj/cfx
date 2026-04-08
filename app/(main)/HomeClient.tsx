@@ -114,7 +114,7 @@ const certifications = [
   {
     name: "CMMI Level 3 / 5",
     description: "Capability Maturity Model Integration. Demonstrated high maturity in software development and service delivery processes.",
-    image: "/images/certifications/cmmi.jfif",
+    image: "/images/certifications/cmmi.png",
     color: "text-purple-400",
   },
   {
