@@ -151,36 +151,26 @@ function CertificationsSection() {
           </p>
         </motion.div>
 
-        <div className="w-full overflow-hidden relative py-10">
-          <motion.div
-            className="flex w-[1200%] sm:w-[800%] md:w-[600%] lg:w-[480%] items-center"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-          >
-            {[...certifications, ...certifications, ...certifications, ...certifications].map((cert, index) => (
-              <div
-                key={`${cert.name}-${index}`}
-                className="group flex-1 flex flex-col items-center justify-center gap-3 sm:gap-4 transition-all duration-500 cursor-default mx-3 sm:mx-4 lg:mx-6 p-5 sm:p-6 lg:p-8 rounded-[2rem] bg-white/95 backdrop-blur-xl border border-white hover:bg-white hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 relative overflow-hidden"
-                title={cert.name}
-              >
-                {/* Subtle inner shadow top */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-                <div className="w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 flex items-center justify-center z-10 transition-transform duration-500 group-hover:scale-110">
-                  <Image
-                    src={cert.image}
-                    alt={cert.name}
-                    width={140}
-                    height={140}
-                    className="w-full h-full object-contain filter drop-shadow-sm opacity-90 group-hover:opacity-100 transition-all duration-500"
-                  />
-                </div>
-                <span className="text-[10px] sm:text-xs lg:text-sm font-extrabold text-zinc-800 group-hover:text-black transition-colors uppercase tracking-[0.2em] sm:tracking-widest text-center px-2 z-10 mt-2">
-                  {cert.name}
-                </span>
-              </div>
-            ))}
-          </motion.div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center w-full">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 flex items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.1)] bg-white rounded-[2rem] p-5 sm:p-6 lg:p-8 border border-white/20 relative"
+              title={cert.name}
+            >
+              <Image
+                src={cert.image}
+                alt={cert.name}
+                width={160}
+                height={160}
+                className={`w-full h-full object-contain transition-transform duration-500 ${cert.name === 'SOC 2 Type II' ? 'scale-[1.35] hover:scale-[1.45]' : 'hover:scale-105'}`}
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
