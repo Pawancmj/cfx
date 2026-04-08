@@ -96,37 +96,37 @@ const certifications = [
   {
     name: "ISO 27001",
     description: "Information Security Management System. Ensures the highest standards in protecting sensitive data and mitigating cyber threats.",
-    image: "/images/certifications/iso-27001.svg",
+    image: "/images/certifications/iso-27001.png",
     color: "text-blue-400",
   },
   {
     name: "ISO 9001",
     description: "Quality Management System. Demonstrates our commitment to consistent quality, customer satisfaction, and continuous improvement.",
-    image: "/images/certifications/iso-9001.svg",
+    image: "/images/certifications/iso-9001.png",
     color: "text-cyan-400",
   },
   {
     name: "ISO 20000-1",
     description: "IT Service Management System. Validates our excellence in IT service delivery, support, and operational efficiency.",
-    image: "/images/certifications/iso-20000-1.svg",
+    image: "/images/certifications/iso-20000-1.png",
     color: "text-indigo-400",
   },
   {
     name: "CMMI Level 3 / 5",
     description: "Capability Maturity Model Integration. Demonstrated high maturity in software development and service delivery processes.",
-    image: "/images/certifications/cmmi.svg",
+    image: "/images/certifications/cmmi.jfif",
     color: "text-purple-400",
   },
   {
     name: "SOC 2 Type II",
     description: "Service Organization Control. Stringent independent audits verifying our security, availability, and processing integrity.",
-    image: "/images/certifications/soc2.svg",
+    image: "/images/certifications/soc2.png",
     color: "text-emerald-400",
   },
   {
     name: "ISO 17025",
     description: "Testing and Calibration Laboratories. Proven competence, impartiality, and consistent operation in laboratory results.",
-    image: "/images/certifications/iso-17025.svg",
+    image: "/images/certifications/iso-17025.png",
     color: "text-amber-400",
   },
 ];
