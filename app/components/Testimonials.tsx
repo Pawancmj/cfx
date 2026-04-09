@@ -109,7 +109,7 @@ export default function Testimonials() {
             <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none z-0"></div>
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full shrink-0">
-                <div className="mx-auto max-w-3xl text-center relative mb-8">
+                <div className="mx-auto max-w-3xl text-center relative mb-6">
                     <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">
                         Success Stories
                     </h2>
@@ -123,7 +123,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Single, Unified Full-Bleed Background Container — fixed height to prevent layout jump */}
-                <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] h-auto sm:h-[500px] lg:h-[560px] flex items-stretch group/banner">
+                <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] h-auto sm:h-[450px] lg:h-[500px] flex items-stretch group/banner">
 
                     {/* Background Texture Overlay */}
                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
@@ -157,13 +157,13 @@ export default function Testimonials() {
                     <div className="absolute inset-x-0 top-[150px] h-[100px] bg-gradient-to-b from-transparent to-zinc-950 z-10 pointer-events-none sm:hidden"></div>
 
                     {/* Foreground Text Area - Floats directly on the darkened left gradient */}
-                    <div className="w-full lg:w-[55%] p-5 sm:p-12 lg:p-16 pt-[230px] sm:pt-12 relative z-20 flex flex-col justify-center h-auto sm:h-full sm:min-h-[500px] lg:min-h-[600px]">
+                    <div className="w-full lg:w-[55%] p-5 sm:p-10 lg:p-12 pt-[230px] sm:pt-10 relative z-20 flex flex-col justify-center h-auto sm:h-full">
 
                         <Quote className="absolute top-8 left-8 lg:top-12 lg:left-12 w-16 h-16 sm:w-24 sm:h-24 text-primary/10 -rotate-12 pointer-events-none" />
 
                         <div className="relative flex-grow flex flex-col justify-center">
                             {/* Fixed height container for the animated content to prevent banner height jumping */}
-                            <div className="relative h-[290px] sm:h-[280px] lg:h-[340px]">
+                            <div className="relative h-[290px] sm:h-[260px] lg:h-[280px]">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeIndex}
@@ -217,7 +217,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Controls placed directly at bottom left of banner */}
-                        <div className="mt-6 sm:mt-12 flex items-center gap-6 border-y border-transparent relative z-30">
+                        <div className="mt-4 sm:mt-8 flex items-center gap-6 border-y border-transparent relative z-30">
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={toggleAutoPlay}
@@ -250,7 +250,7 @@ export default function Testimonials() {
 
 
                 {/* Navigation Arrows below banner — matches article scroll layout */}
-                <div className="flex justify-center items-center gap-4 sm:gap-6 mt-8">
+                <div className="flex justify-center items-center gap-4 sm:gap-6 mt-6">
                     <button
                         onClick={prevStory}
                         className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-black hover:border-primary transition-all shadow-xl group/btn shrink-0"
