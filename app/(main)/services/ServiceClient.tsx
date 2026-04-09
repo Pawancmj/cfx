@@ -24,6 +24,7 @@ import {
   Shield
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "../../../lib/utils";
 
@@ -40,6 +41,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
+    bgImage: "/images/services/realistic_web_dev.png",
   },
   {
     id: "forensics",
@@ -53,6 +55,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
+    bgImage: "/images/services/realistic_forensics.png",
   },
   {
     id: "bpo",
@@ -66,6 +69,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
+    bgImage: "/images/services/realistic_bpo.png",
   },
   {
     id: "cyber-audit",
@@ -79,6 +83,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
+    bgImage: "/images/services/realistic_cybersecurity.png",
   },
   {
     id: "analytics",
@@ -92,6 +97,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
+    bgImage: "/images/services/realistic_analytics.png",
   },
   {
     id: "marketing",
@@ -105,6 +111,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
+    bgImage: "/images/services/realistic_marketing.png",
   },
 ];
 
@@ -277,26 +284,37 @@ export default function ServicesClient() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 className={cn(
-                  "group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[420px] border-white/5",
+                  "group relative overflow-hidden flex flex-col rounded-3xl glass-card transition-all duration-500 min-h-[320px] border-white/5",
                   "lg:hover:-translate-y-3 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] lg:hover:bg-white/10"
                 )}
               >
-                {/* Default Visible Card content */}
-                <div className="absolute inset-0 p-8 flex flex-col transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
-                  <div className={cn("p-4 w-fit rounded-2xl mb-8", "bg-white/5 group-hover:bg-primary/10 transition-colors shadow-inner")}>
-                    <Icon className={cn("w-8 h-8", service.color)} />
+                {/* Background Image */}
+                {service.bgImage && (
+                  <div className="absolute inset-0 z-0 bg-black">
+                    <Image
+                      src={service.bgImage}
+                      alt={service.title}
+                      fill
+                      className="object-cover opacity-60 group-hover:opacity-80 transition-all duration-700 lg:group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 via-40% to-transparent" />
                   </div>
+                )}
 
-                  <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-zinc-400 leading-relaxed font-medium text-base">
-                    {service.description}
-                  </p>
+                {/* Default Visible Card content */}
+                <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
+                  <div className="mt-auto flex flex-col pt-12">
+                    <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                      {service.title}
+                    </h3>
+                    <p className="text-zinc-300 leading-relaxed font-medium text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      {service.description}
+                    </p>
+                  </div>
 
                   <Link
                     href={`/services/${service.slug}`}
-                    className="mt-auto flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-8 border-t border-white/5 hover:text-white transition-colors group/link"
+                    className="mt-6 flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-6 border-t border-white/10 hover:text-white transition-colors group/link"
                   >
                     Explore Details
                     <ArrowRight className="w-5 h-5 ml-3 opacity-50 transition-transform duration-300 group-hover/link:translate-x-2" />
@@ -304,36 +322,46 @@ export default function ServicesClient() {
                 </div>
 
                 {/* Hover Details Content - Only visible on desktop/large screens */}
-                <div className="absolute inset-0 p-8 flex flex-col opacity-0 translate-y-12 transition-all duration-500 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 h-full pointer-events-none lg:group-hover:pointer-events-auto bg-primary/5 backdrop-blur-3xl hidden lg:flex">
-                  <div className="flex items-center gap-4 mb-6">
-                    <Icon className={cn("w-6 h-6", service.color)} />
-                    <h3 className="text-lg font-bold text-white uppercase tracking-wider text-glow">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="text-zinc-300 text-sm leading-relaxed mb-8 flex-grow font-medium italic">
-                    {service.extendedDescription}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {service.features.map((f) => (
-                      <span
-                        key={f}
-                        className={cn(
-                          "px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-widest bg-white/5 text-primary rounded-lg border border-primary/20 transition-all hover:bg-primary/10"
-                        )}
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                <div className="absolute inset-0 z-20 flex flex-col justify-end opacity-0 translate-y-12 transition-all duration-500 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 h-full pointer-events-none lg:group-hover:pointer-events-auto hidden lg:flex">
+                  
+                  {/* Gradual blur mask matching gradient */}
+                  <div 
+                    className="absolute inset-0 pointer-events-none bg-black/10 transition-all duration-500" 
+                    style={{ 
+                      backdropFilter: "blur(8px)", 
+                      WebkitBackdropFilter: "blur(8px)", 
+                      WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, transparent 40%, black 70%)", 
+                      maskImage: "linear-gradient(to bottom, transparent 0%, transparent 40%, black 70%)" 
+                    }} 
+                  />
 
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary/20 hover:bg-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl border border-primary/20 transition-all group/btn active:scale-[0.98]"
-                  >
-                    View Category Hub
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
+                  <div className="relative z-30 p-6 flex flex-col pt-12 mt-auto">
+                    <div className="flex items-center gap-3 mb-4 shrink-0">
+                      <h3 className="text-xl font-bold text-white uppercase tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] line-clamp-1">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4 shrink-0">
+                      {service.features.map((f) => (
+                        <span
+                          key={f}
+                          className={cn(
+                            "px-2 py-1 text-[10px] font-extrabold uppercase tracking-widest bg-black/40 backdrop-blur-sm text-primary rounded-lg border border-primary/20 shadow-lg"
+                          )}
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="mt-4 shrink-0 w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary/20 hover:bg-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.2em] rounded-xl border border-primary/20 transition-all group/btn active:scale-[0.98] backdrop-blur-sm drop-shadow-md"
+                    >
+                      View Category Hub
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             );
