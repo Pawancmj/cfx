@@ -151,23 +151,23 @@ function CertificationsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center w-full">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 flex items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.1)] bg-white rounded-[2rem] p-5 sm:p-6 lg:p-8 border border-white/20 relative"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="bg-white rounded-2xl p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(255,255,255,0.15)]"
               title={cert.name}
             >
               <Image
                 src={cert.image}
                 alt={cert.name}
-                width={160}
-                height={160}
-                className={`w-full h-full object-contain transition-transform duration-500 ${cert.name === 'SOC 2 Type II' ? 'scale-[1.35] hover:scale-[1.45]' : 'hover:scale-105'}`}
+                width={200}
+                height={200}
+                className="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-500 hover:scale-105"
               />
             </motion.div>
           ))}
