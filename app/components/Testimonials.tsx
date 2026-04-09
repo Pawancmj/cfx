@@ -157,13 +157,13 @@ export default function Testimonials() {
                     <div className="absolute inset-x-0 top-[150px] h-[100px] bg-gradient-to-b from-transparent to-zinc-950 z-10 pointer-events-none sm:hidden"></div>
 
                     {/* Foreground Text Area - Floats directly on the darkened left gradient */}
-                    <div className="w-full lg:w-[55%] p-5 sm:p-10 lg:p-12 pt-[230px] sm:pt-10 relative z-20 flex flex-col justify-center h-auto sm:h-full">
+                    <div className="w-full lg:w-[55%] p-5 sm:p-10 lg:p-12 pt-[180px] sm:pt-10 relative z-20 flex flex-col justify-center h-auto sm:h-full">
 
                         <Quote className="absolute top-8 left-8 lg:top-12 lg:left-12 w-16 h-16 sm:w-24 sm:h-24 text-primary/10 -rotate-12 pointer-events-none" />
 
                         <div className="relative flex-grow flex flex-col justify-center">
                             {/* Fixed height container for the animated content to prevent banner height jumping */}
-                            <div className="relative h-[290px] sm:h-[260px] lg:h-[280px]">
+                            <div className="relative h-[210px] sm:h-[260px] lg:h-[280px]">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeIndex}
@@ -173,40 +173,41 @@ export default function Testimonials() {
                                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                         className="absolute inset-0 flex flex-col justify-center"
                                     >
-                                        <div className="flex gap-1.5 mb-6 sm:mb-8">
+                                        <div className="flex gap-1.5 mb-4 sm:mb-8">
                                             {[...Array(5)].map((_, i) => (
                                                 <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 fill-primary text-primary drop-shadow-[0_0_8px_rgba(0,242,255,0.4)]" />
                                             ))}
                                         </div>
 
-                                        <blockquote className="text-base sm:text-lg font-medium text-zinc-400 leading-relaxed mb-6 sm:mb-8 lg:max-w-xl">
+                                        <blockquote className="text-[13px] sm:text-lg font-medium text-zinc-400 leading-relaxed mb-4 sm:mb-8 lg:max-w-xl">
                                             "{activeStory.content}"
                                         </blockquote>
 
-                                        <div className="flex flex-col sm:flex-row sm:items-center justify-start gap-4 sm:gap-8 w-full border-t border-white/5 pt-6 sm:pt-8 mt-2">
-                                            <div className="flex items-center gap-x-4">
-                                                <div className="bg-white px-3 py-2 rounded-lg flex items-center justify-center w-[100px] h-[48px] shadow-lg shrink-0">
+                                        <div className="flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-8 w-full border-t border-white/5 pt-4 sm:pt-8 mt-2">
+                                            <div className="flex items-center gap-x-2 sm:gap-x-4 flex-1 sm:flex-initial overflow-hidden">
+                                                <div className="bg-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg flex items-center justify-center w-[60px] sm:w-[100px] h-[36px] sm:h-[48px] shadow-lg shrink-0">
                                                     <Image
                                                         src={activeStory.logo}
                                                         alt={`${activeStory.client} logo`}
                                                         width={80}
                                                         height={32}
                                                         style={{ objectFit: 'contain' }}
-                                                        className="max-h-8 w-auto"
+                                                        className="max-h-5 sm:max-h-8 w-auto"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col justify-center">
-                                                    <div className="font-bold text-white uppercase tracking-[0.1em] text-xs truncate max-w-[200px] sm:max-w-[150px] lg:max-w-full">{activeStory.client}</div>
-                                                    <div className="text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-1 truncate max-w-[200px] sm:max-w-[150px] lg:max-w-full">{activeStory.author}</div>
+                                                <div className="flex flex-col justify-center flex-1 sm:flex-initial overflow-hidden min-w-0 pr-2 sm:pr-0">
+                                                    <div className="font-bold text-white uppercase tracking-[0.1em] text-[9px] sm:text-xs truncate w-full">{activeStory.client}</div>
+                                                    <div className="text-[7.5px] sm:text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-0.5 sm:mt-1 truncate w-full">{activeStory.author}</div>
                                                 </div>
                                             </div>
                                             
                                             {activeStory.caseStudySlug && (
                                                 <Link 
                                                     href={`/case-studies/case-studies/${activeStory.caseStudySlug}`}
-                                                    className="inline-flex self-start sm:self-auto items-center justify-center gap-2 px-6 py-3 sm:px-5 sm:py-2.5 bg-primary/10 border border-primary/20 hover:bg-primary hover:text-black text-primary rounded-xl text-[10px] font-black uppercase tracking-widest transition-all group/csbtn shrink-0 w-full sm:w-auto mt-2 sm:mt-0"
+                                                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/10 border border-primary/20 hover:bg-primary hover:text-black text-primary rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest transition-all group/csbtn shrink-0"
                                                 >
-                                                    Case Study
+                                                    <span className="hidden min-[380px]:inline">Case Study</span>
+                                                    <span className="inline min-[380px]:hidden">View</span>
                                                     <ArrowUpRight className="w-3 h-3 transition-transform group-hover/csbtn:translate-x-0.5 group-hover/csbtn:-translate-y-0.5" />
                                                 </Link>
                                             )}
