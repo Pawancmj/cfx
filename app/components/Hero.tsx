@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code, Database, Globe, Shield } from "lucide-react";
 import Link from "next/link";
 import { cn } from "../../lib/utils";
+import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
     return (
         <div id="hero" className="relative isolate min-h-screen pt-20 sm:pt-24 md:pt-28 pb-8 overflow-hidden section-bg-dark flex items-center">
             {/* Background Effects */}
-            <div className="absolute inset-0 -z-10 bg-grid"></div>
+            <ParticleBackground />
+            <div className="absolute inset-0 -z-10 bg-grid opacity-30"></div>
 
             {/* Animated Blobs */}
             <motion.div
