@@ -29,38 +29,90 @@ const values = [
 
 export default function AboutClient() {
     return (
-        <main className="relative min-h-screen section-bg-dark pt-20 sm:pt-32 pb-20 overflow-hidden text-zinc-100">
-            {/* Background Decor */}
-            <div className="absolute inset-0 bg-grid opacity-20"></div>
-            <div className="absolute left-1/4 top-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[160px]"></div>
-            <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] bg-secondary/10 blur-[140px] rounded-full"></div>
-
-            <div className="container mx-auto px-6 lg:px-8 relative z-10">
-                {/* Hero Section: Who We Are */}
-                <div className="text-center max-w-5xl mx-auto mb-16">
+        <main className="relative min-h-screen bg-black overflow-hidden text-zinc-100">
+            {/* HERBO SECTION with Aurora Glow */}
+            <section className="relative isolate pt-20 sm:pt-32 pb-20 min-h-[90vh] flex flex-col justify-center items-center">
+                {/* Premium Aurora Glow Background */}
+                <div className="absolute inset-0 -z-20 overflow-hidden">
+                    {/* Core background color to prevent pure black */}
+                    <div className="absolute inset-0 bg-[#020617]" />
+                    
+                    {/* Moving Aurora Orbs */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
-                        >
-                            <Sparkles className="w-4 h-4 text-primary" />
-                            <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
-                        </motion.div>
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
-                            Pioneering the Future of <br />
-                            <span className="text-gradient italic text-glow inline-block pr-6">Digital Intelligence</span>
-                        </h1>
-                        <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                            Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
-                        </p>
-                    </motion.div>
+                        animate={{
+                            x: ["-10%", "10%", "-10%"],
+                            y: ["-10%", "10%", "-10%"],
+                            scale: [1, 1.2, 1],
+                        }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-emerald-500/15 rounded-full blur-[140px] mix-blend-screen"
+                    />
+                    
+                    <motion.div
+                        animate={{
+                            x: ["10%", "-10%", "10%"],
+                            y: ["10%", "-10%", "10%"],
+                            scale: [1, 1.5, 1],
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen"
+                    />
+                    
+                    <motion.div
+                        animate={{
+                            x: ["-5%", "5%", "-5%"],
+                            y: ["5%", "-5%", "5%"],
+                            scale: [0.8, 1.1, 0.8],
+                        }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[20%] left-[40%] w-[40vw] h-[40vw] bg-indigo-500/15 rounded-full blur-[130px] mix-blend-screen"
+                    />
+
+                    {/* Diagonal Scanning Light Beam */}
+                    <motion.div
+                        animate={{
+                            opacity: [0.1, 0.3, 0.1],
+                            x: ["-100%", "200%"],
+                        }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 w-[200%] h-[200%] -top-[50%] -left-[50%] bg-gradient-to-r from-transparent via-cyan-400/5 to-transparent rotate-45 transform-gpu"
+                    />
+                    
+                    {/* Bottom fade into black */}
+                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
                 </div>
 
+                {/* Grid Overlay for Cyber Feel */}
+                <div className="absolute inset-0 -z-10 bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] mix-blend-overlay"></div>
+
+                <div className="container mx-auto px-6 lg:px-8 relative z-10">
+                    <div className="text-center max-w-5xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
+                            >
+                                <Sparkles className="w-4 h-4 text-primary" />
+                                <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
+                            </motion.div>
+                            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                                Pioneering the Future of <br />
+                                <span className="text-gradient italic text-glow inline-block pr-6">Digital Intelligence</span>
+                            </h1>
+                            <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
+                                Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
+                            </p>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+            
+            <div className="container mx-auto px-6 lg:px-8 relative z-10">
                 {/* Vision & Mission Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     <motion.div

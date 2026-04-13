@@ -60,14 +60,56 @@ function ResourcesContent() {
     return (
         <main className="relative min-h-screen section-bg-dark text-zinc-100 font-sans selection:bg-primary/30">
             {/* HERO SECTION */}
-            <section className="relative min-h-screen pt-28 sm:pt-40 pb-20 overflow-hidden flex items-center border-b border-white/5">
-                <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
-                <div className="absolute right-0 bottom-0 -z-10 h-[600px] w-[600px] rounded-full bg-secondary/10 blur-[150px]"></div>
-                <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3], x: [0, -50, 0], y: [0, 30, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10 pointer-events-none"
-                />
+            <section className="relative isolate min-h-screen pt-28 sm:pt-40 pb-20 overflow-hidden bg-black flex items-center border-b border-white/5">
+                {/* Premium Aurora Glow Background */}
+                <div className="absolute inset-0 -z-20 overflow-hidden">
+                    {/* Core background color to prevent pure black */}
+                    <div className="absolute inset-0 bg-[#020617]" />
+                    
+                    {/* Moving Aurora Orbs */}
+                    <motion.div
+                        animate={{
+                            x: ["-10%", "10%", "-10%"],
+                            y: ["-10%", "10%", "-10%"],
+                            scale: [1, 1.2, 1],
+                        }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-emerald-500/15 rounded-full blur-[140px] mix-blend-screen"
+                    />
+                    
+                    <motion.div
+                        animate={{
+                            x: ["10%", "-10%", "10%"],
+                            y: ["10%", "-10%", "10%"],
+                            scale: [1, 1.5, 1],
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen"
+                    />
+                    
+                    <motion.div
+                        animate={{
+                            x: ["-5%", "5%", "-5%"],
+                            y: ["5%", "-5%", "5%"],
+                            scale: [0.8, 1.1, 0.8],
+                        }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[20%] left-[40%] w-[40vw] h-[40vw] bg-indigo-500/15 rounded-full blur-[130px] mix-blend-screen"
+                    />
+
+                    {/* Diagonal Scanning Light Beam */}
+                    <motion.div
+                        animate={{
+                            opacity: [0.1, 0.3, 0.1],
+                            x: ["-100%", "200%"],
+                        }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 w-[200%] h-[200%] -top-[50%] -left-[50%] bg-gradient-to-r from-transparent via-cyan-400/5 to-transparent rotate-45 transform-gpu"
+                    />
+                </div>
+
+                {/* Grid Overlay for Cyber Feel */}
+                <div className="absolute inset-0 -z-10 bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] mix-blend-overlay"></div>
 
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center max-w-4xl mx-auto">
