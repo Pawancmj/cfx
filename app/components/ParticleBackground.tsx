@@ -56,7 +56,7 @@ export default function ParticleBackground() {
           },
         },
         particles: {
-         color: {
+          color: {
             // Mix of primary blue and emerald/cyan for cyber feel
             value: ["#0ea5e9", "#10b981", "#38bdf8"],
           },
@@ -81,7 +81,7 @@ export default function ParticleBackground() {
             density: {
               enable: true,
             },
-            value: 60,
+            value: 180, // Increased default particle count
           },
           opacity: {
             value: 0.6,
