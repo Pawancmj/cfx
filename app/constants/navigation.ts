@@ -193,14 +193,16 @@ export const resourceCategories: MegaCategory[] = [
     {
         title: "Blogs",
         links: [
+            { name: "Why Every Business Needs a Professional Website in 2026", href: "/resources/blogs/why-every-business-needs-a-professional-website-in-2026" },
+            { name: "Top Mobile App Development Trends Transforming Businesses", href: "/resources/blogs/top-mobile-app-development-trends-2026" },
+            { name: "How Cybersecurity Protects Modern Businesses from Digital Threats", href: "/resources/blogs/how-cybersecurity-protects-modern-businesses" },
+            { name: "Understanding the Role of Digital Forensics in Cyber Investigations", href: "/resources/blogs/understanding-digital-forensics-in-cyber-investigations" },
+            { name: "The Growing Importance of Data Analysis in Business Decision-Making", href: "/resources/blogs/importance-of-data-analysis-in-business-decisions" },
+            { name: "Why High-Quality Data Annotation is Crucial for AI Development", href: "/resources/blogs/why-high-quality-data-annotation-is-crucial-for-ai" },
+            { name: "How BPO Services Improve Efficiency and Reduce Operational Costs", href: "/resources/blogs/how-bpo-services-improve-efficiency-and-reduce-costs" },
             { name: "Digital Forensics in Government Investigations: Process & Best Practices", href: "/resources/blogs/digital-forensics-government" },
             { name: "Cybersecurity Essentials for Modern Enterprises", href: "/resources/blogs/cybersecurity-essentials" },
             { name: "Data Analytics for Smarter Business Decisions", href: "/resources/blogs/data-analytics-business-decisions" },
-            { name: "How BPO/BPS Services Improve Operational Efficiency", href: "/resources/blogs/how-bpo-bps-improve-efficiency" },
-            { name: "Building Scalable Web & App Platforms for Growing Businesses", href: "/resources/blogs/scalable-web-app-platforms" },
-            { name: "Compliance, Risk & Digital Investigation in Financial Sectors", href: "/resources/blogs/compliance-risk-financial-sectors" },
-            { name: "Secure Digital Transformation for Enterprises", href: "/resources/blogs/secure-digital-transformation" },
-            { name: "The Role of Automation in Business Operations", href: "/resources/blogs/role-automation-business" },
         ],
     },
     {

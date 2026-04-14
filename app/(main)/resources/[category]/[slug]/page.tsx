@@ -1,8 +1,11 @@
-import { Metadata } from 'next';
+"use client";
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, User } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import CTA from '@/app/components/CTA';
-import ShareButton from '@/app/components/ShareButton';
+import { blogsData } from '@/app/constants/blogsData';
 
 // Helper to format slugs into readable titles
 function formatSlug(slug: string) {
@@ -12,252 +15,313 @@ function formatSlug(slug: string) {
         .join(' ');
 }
 
-type Props = {
-    params: Promise<{ category: string; slug: string }>;
-};
+export default function ResourceDynamicPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
+    const [slug, setSlug] = useState<string>("");
+    const [category, setCategory] = useState<string>("");
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-export async function generateMetadata(
-    { params }: Props
-): Promise<Metadata> {
-    const resolvedParams = await params;
-    const title = formatSlug(resolvedParams.slug);
+    useEffect(() => {
+        params.then(p => {
+            setSlug(p.slug);
+            setCategory(p.category);
+        });
+    }, [params]);
 
-    return {
-        title: `${title} | Cyberforenx Resources`,
-        description: `Read more about ${title} and discover enterprise insights in our ${formatSlug(resolvedParams.category)} section.`,
-    };
-}
+    if (!slug) return <div className="min-h-screen section-bg-dark"></div>;
 
-export default async function ResourceDynamicPage({ params }: Props) {
-    const resolvedParams = await params;
-    const { category, slug } = resolvedParams;
-    const title = formatSlug(slug);
+    const blog = blogsData[slug];
+    const title = blog ? blog.title : formatSlug(slug);
     const categoryTitle = formatSlug(category);
     
-    const heroImage = slug.includes('ai') || slug.includes('automation')
+    // Logic to find real related blogs
+    const relatedBlogs = Object.values(blogsData)
+        .filter(b => b.slug !== slug && (b.category === category || b.category === 'blogs'))
+        .slice(0, 3);
+    
+    const heroImage = blog ? blog.coverImage : (slug.includes('ai') || slug.includes('automation')
         ? 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600'
-        : slug.includes('cloud') || slug.includes('migration')
-            ? 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600'
-            : slug.includes('fintech') || slug.includes('upi') || slug.includes('payment')
-                ? 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1600'
-                : slug.includes('cyber') || slug.includes('security') || slug.includes('trust')
-                    ? 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600'
-                    : slug.includes('data') || slug.includes('analytics')
-                        ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600'
-                        : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600';
+        : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600');
 
     return (
-        <main className="flex min-h-screen flex-col section-bg-dark text-foreground font-sans selection:bg-primary/20 selection:text-primary relative">
+        <main className="flex min-h-screen flex-col section-bg-dark text-foreground font-sans selection:bg-primary/20 selection:text-primary relative scroll-smooth">
+            {/* Reading Progress Bar */}
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left"
+                style={{ scaleX }}
+            />
+
             {/* Ambient background effects */}
             <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full pointer-events-none opacity-40"></div>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/15 blur-[150px] rounded-full pointer-events-none opacity-40"></div>
             <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 blur-[200px] rounded-full pointer-events-none opacity-30"></div>
 
             {/* Header Area */}
-            <div className="pt-28 sm:pt-36 pb-10 relative z-10 border-b border-white/5">
+            <div className="pt-28 sm:pt-40 pb-16 relative z-10">
                 <div className="container mx-auto px-6 lg:px-8">
-                    
-                    {/* Breadcrumbs */}
-                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-zinc-500 mb-6 overflow-x-auto whitespace-nowrap">
-                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                        <ChevronRight className="w-3 h-3 text-zinc-600" />
-                        <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
-                        <ChevronRight className="w-3 h-3 text-zinc-600" />
-                        <span className="text-primary">{categoryTitle}</span>
-                    </div>
-
-                    <Link
-                        href="/resources"
-                        className="flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-primary transition-colors mb-6"
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
                     >
-                        <ArrowLeft className="w-4 h-4" /> Back to Resources
-                    </Link>
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide py-2">
+                            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                            <ChevronRight className="w-3 h-3 text-zinc-600" />
+                            <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
+                            <ChevronRight className="w-3 h-3 text-zinc-600" />
+                            <span className="text-primary/80">{categoryTitle}</span>
+                        </div>
 
-                    {/* Badge */}
-                    <div className="flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                        <BookOpen className="w-4 h-4" /> {categoryTitle}
-                    </div>
+                        {/* Back Button */}
+                        <Link
+                            href="/resources"
+                            className="group flex w-fit items-center gap-3 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-white transition-all mb-10"
+                        >
+                            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
+                                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                            </div>
+                            Back to Insights
+                        </Link>
 
-                    {/* Title & Meta */}
-                    <div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight leading-[1.15] text-glow font-display">
-                            {title}
-                        </h1>
+                        {/* Title & Meta */}
+                        <div className="max-w-5xl">
+                            <motion.div 
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                                className="flex w-fit items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-[0_0_20px_rgba(var(--primary-rgb),0.1)]"
+                            >
+                                <BookOpen className="w-3.5 h-3.5" /> {categoryTitle}
+                            </motion.div>
 
-                        <div className="flex flex-wrap items-center justify-between gap-6 text-sm font-medium text-zinc-400">
-                            <div className="flex flex-wrap items-center gap-6">
-                                <div className="flex items-center gap-2">
-                                    <User className="w-4 h-4 text-primary/60" />
-                                    <span>CyberForenX Team</span>
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-10 tracking-tight leading-[1.05] font-display text-glow-subtle">
+                                {title}
+                            </h1>
+
+                            <div className="flex flex-wrap items-center justify-between gap-8 pt-6 border-t border-white/5 text-sm font-medium text-zinc-400">
+                                <div className="flex flex-wrap items-center gap-8">
+                                    <div className="flex items-center gap-3 group translate-z-0">
+                                        <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center overflow-hidden">
+                                            <User className="w-5 h-5 text-primary" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-xs text-zinc-500 uppercase tracking-widest font-bold">Author</span>
+                                            <span className="text-white group-hover:text-primary transition-colors">CyberForenX Labs</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-zinc-500 uppercase tracking-widest font-bold">Duration</span>
+                                        <div className="flex items-center gap-2 text-zinc-200">
+                                            <Clock className="w-4 h-4 text-primary" />
+                                            <span>{blog ? blog.readTime : '8 min read'}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-zinc-500 uppercase tracking-widest font-bold">Date</span>
+                                        <span className="text-zinc-200">{blog ? blog.date : 'April 14, 2026'}</span>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-primary/60" />
-                                    <span>{category === 'news' ? '3 min read' : category === 'blogs' ? '8 min read' : '5 min read'}</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Tag className="w-4 h-4 text-primary/60" />
-                                    <span>Enterprise {categoryTitle}</span>
+                                <div className="flex items-center gap-4">
+                                    <button className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white active:scale-95">
+                                        <Share2 className="w-4 h-4" />
+                                    </button>
                                 </div>
                             </div>
-                            <ShareButton />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Layout Container */}
-            <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16 relative z-10">
-                
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            {/* Main Content Layout */}
+            <div className="container mx-auto px-6 lg:px-8 pb-32 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-16">
                     
-                    {/* Main Content Area */}
-                    <div className="lg:w-[68%] order-2 lg:order-1">
-                        
-                        {/* Hero Image - Inside main content column */}
-                        <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[400px] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f14]">
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-[#05080a]/60 to-transparent z-10 pointer-events-none"></div>
+                    {/* Left Article Area */}
+                    <div className="lg:w-[65%]">
+                        {/* Hero Image - Smaller and Magazine Style */}
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative w-full max-w-4xl h-[240px] sm:h-[320px] lg:h-[350px] mb-16 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] bg-[#0a0f14] group"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none opacity-60"></div>
                             <img
                                 src={heroImage}
                                 alt={`${title} banner`}
+                                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
                                 loading="lazy"
-                                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-700 hover:opacity-100"
                             />
+                        </motion.div>
+
+                        {/* Article Intro */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="mb-16 relative"
+                        >
+                             <div className="absolute -left-6 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full"></div>
+                             <p className="text-xl sm:text-2xl lg:text-3xl text-zinc-200 font-medium leading-relaxed italic opacity-90">
+                                {blog ? blog.intro : `Developing advanced strategies for ${title} requires a deep understanding of current trends and technological shifts.`}
+                             </p>
+                        </motion.div>
+
+                        {/* Content Sections */}
+                        <div className="space-y-20">
+                            {blog && blog.sections.map((section, idx) => (
+                                <motion.section
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    id={`section-${idx + 1}`}
+                                    className="scroll-mt-32 group"
+                                >
+                                    <div className="flex items-start gap-6">
+                                        {/* Number Badge */}
+                                        <div className="hidden sm:flex flex-col items-center gap-2 pt-1 font-display">
+                                            <span className="text-[10px] font-black text-primary tracking-widest uppercase opacity-40 group-hover:opacity-100 transition-opacity">Idx</span>
+                                            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)] transition-all">
+                                                {String(idx + 1).padStart(2, '0')}
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="flex-1">
+                                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-6 tracking-tight leading-tight group-hover:text-primary/90 transition-colors">
+                                                {section.title}
+                                            </h2>
+                                            <div className="text-base sm:text-lg text-zinc-400 leading-relaxed space-y-4 font-medium">
+                                                <p>{section.content}</p>
+                                            </div>
+                                            {section.image && (
+                                                <div className="mt-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 p-1">
+                                                    <img src={section.image} alt={section.title} className="w-full h-auto rounded-xl object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </motion.section>
+                            ))}
                         </div>
-
-                        <article className="prose prose-invert prose-p:text-zinc-400 prose-p:leading-loose prose-p:text-base sm:prose-p:text-lg prose-p:font-medium prose-headings:text-white prose-headings:font-display prose-headings:font-extrabold prose-headings:tracking-tight prose-a:text-primary hover:prose-a:text-white max-w-none">
-                            
-                            <p className="text-xl sm:text-2xl text-zinc-300 font-medium mb-12 border-l-4 border-primary pl-6 py-2 bg-white/5 rounded-r-xl">
-                                This is a comprehensive overview of <strong className="text-white">{title}</strong>. Cyberforenx provides industry-leading solutions and deep insights to empower your enterprise ecosystem.
-                            </p>
-
-                            <h2 id="section-1" className="scroll-mt-36 text-2xl sm:text-3xl border-b border-white/10 pb-4 mb-6">Navigating the Modern {categoryTitle} Landscape</h2>
-                            <p className="mb-10">
-                                In today's rapidly evolving digital perimeter, organizations must maintain rigorous standards across all operational nodes. Understanding how to leverage specialized knowledge from our <i className="text-zinc-300">{categoryTitle}</i> archives is critical to sustaining a competitive edge and ensuring strict compliance.
-                            </p>
-
-                            {category === 'blogs' && (
-                                <div id="section-2" className="scroll-mt-36 mt-12 mb-10 bg-[#0a0f14] p-8 sm:p-10 rounded-3xl border border-white/5 shadow-lg">
-                                    <h3 className="text-2xl font-semibold mb-4 text-white mt-0">Strategic Insights</h3>
-                                    <p className="text-zinc-400 mb-8">
-                                        As digital transformation accelerates across India, businesses must stay ahead of the curve. Whether it's the <strong>UPI revolution</strong> or <strong>Zero Trust security</strong>, our deep-dive analysis provides the clarity needed for executive decision-making.
-                                    </p>
-                                    <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800"
-                                            alt="Fintech and Digital Transformation"
-                                            loading="lazy"
-                                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 m-0"
-                                        />
-                                    </div>
-                                </div>
-                            )}
-
-                            {category === 'articles' && (
-                                <div id="section-2" className="scroll-mt-36 mt-12 mb-10">
-                                    <h3 className="text-2xl font-semibold mb-4 text-white">Methodology & Performance</h3>
-                                    <p className="mb-8">
-                                        Our research deconstructs the mechanisms driving {title}. In a landscape governed by the <strong>DPDP Act</strong> and rapid technological shifts, we provide actionable data points that form the bedrock of resilient enterprise infrastructure.
-                                    </p>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-10">
-                                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0a0f14]">
-                                            <img
-                                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400"
-                                                alt="Cloud Infrastructure"
-                                                loading="lazy"
-                                                className="w-full h-[250px] object-cover hover:scale-110 transition-transform duration-700 m-0"
-                                            />
-                                        </div>
-                                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0a0f14]">
-                                            <img
-                                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400"
-                                                alt="Data Analytics"
-                                                loading="lazy"
-                                                className="w-full h-[250px] object-cover hover:scale-110 transition-transform duration-700 m-0"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-
-                            <div className="my-12 glass-card p-6 sm:p-8 border-l-primary border-l-4">
-                                <h3 className="text-white text-xl font-bold mb-6 mt-0">Key Takeaways</h3>
-                                <ul className="space-y-4 text-zinc-400 m-0 p-0 list-none">
-                                    <li className="flex gap-4 items-start">
-                                        <span className="text-primary mt-1">●</span>
-                                        <span>Strategic implementation and integration protocols specific to {title}.</span>
-                                    </li>
-                                    <li className="flex gap-4 items-start">
-                                        <span className="text-primary mt-1">●</span>
-                                        <span>Minimizing risk vectors while optimizing asset utilization in dynamic environments.</span>
-                                    </li>
-                                    <li className="flex gap-4 items-start">
-                                        <span className="text-primary mt-1">●</span>
-                                        <span>Deploying verifiable frameworks for long-term scalability and audit readiness.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <h2 id="section-3" className="scroll-mt-36 text-2xl sm:text-3xl border-b border-white/10 pb-4 mb-6">Execution and Strategy</h2>
-                            <p>
-                                Continuous monitoring, robust architectural design, and proactive threat mitigation are no longer optional. Our methodologies are built upon years of forensic analysis and enterprise transformation. Read further into our resources to equip your team with actionable intelligence.
-                            </p>
-
-                        </article>
                     </div>
 
                     {/* Right Sidebar */}
-                    <div className="lg:w-[32%] contents lg:block lg:order-2">
-                        <div className="sticky top-32 space-y-8 contents lg:block">
+                    <aside className="lg:w-[35%]">
+                        <div className="sticky top-32 space-y-10">
                             
-                            {/* Table of Contents */}
-                            <div className="glass-card rounded-2xl p-6 order-1 lg:order-none">
-                                <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Table of Contents</h4>
-                                <nav className="flex flex-col gap-3">
-                                    <a href="#section-1" className="text-zinc-400 hover:text-primary text-sm font-medium transition-colors flex items-start gap-3 group">
-                                        <span className="text-zinc-600 group-hover:text-primary mt-px text-xs font-bold">01</span>
-                                        <span>Landscape Setup</span>
-                                    </a>
-                                    {(category === 'blogs' || category === 'articles') && (
-                                        <a href="#section-2" className="text-zinc-400 hover:text-primary text-sm font-medium transition-colors flex items-start gap-3 group">
-                                            <span className="text-zinc-600 group-hover:text-primary mt-px text-xs font-bold">02</span>
-                                            <span>{category === 'blogs' ? 'Strategic Insights' : 'Methodology'}</span>
-                                        </a>
-                                    )}
-                                    <a href="#section-3" className="text-zinc-400 hover:text-primary text-sm font-medium transition-colors flex items-start gap-3 group">
-                                        <span className="text-zinc-600 group-hover:text-primary mt-px text-xs font-bold">{(category === 'blogs' || category === 'articles') ? '03' : '02'}</span>
-                                        <span>Execution Strategy</span>
-                                    </a>
-                                </nav>
+                            {/* Table of Contents - Glassmorphism */}
+                            <div className="relative group/card">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-transparent rounded-[2rem] blur opacity-50 group-hover/card:opacity-100 transition duration-1000"></div>
+                                <div className="relative bg-[#0a0f14]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8">
+                                    <h4 className="text-xs font-black text-white mb-8 uppercase tracking-[0.3em] flex items-center gap-3">
+                                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                        Exploration Guide
+                                    </h4>
+                                    <nav className="flex flex-col gap-4">
+                                        {blog && blog.sections.slice(0, 10).map((section, idx) => {
+                                            const sectionName = section.title.includes('. ') ? section.title.split('. ')[1] : section.title;
+                                            return (
+                                                <a 
+                                                    key={idx} 
+                                                    href={`#section-${idx + 1}`} 
+                                                    className="group flex items-center gap-4 text-zinc-500 hover:text-white transition-all py-1 border-l-2 border-transparent hover:border-primary pl-4 -ml-4"
+                                                >
+                                                    <span className="text-[10px] font-bold text-zinc-700 group-hover:text-primary transition-colors">
+                                                        {String(idx + 1).padStart(2, '0')}
+                                                    </span>
+                                                    <span className="text-sm font-bold tracking-tight line-clamp-1 group-hover:translate-x-1 transition-transform">
+                                                        {sectionName}
+                                                    </span>
+                                                </a>
+                                            );
+                                        })}
+                                    </nav>
+                                </div>
                             </div>
-
-                            {/* Related Resources */}
-                            <div className="glass-card rounded-2xl p-6 order-3 lg:order-none">
-                                <h4 className="text-sm font-bold text-white mb-5 uppercase tracking-[0.2em] border-b border-white/10 pb-3">Related to {categoryTitle}</h4>
-                                <div className="flex flex-col gap-5">
-                                    {[1, 2, 3].map((item) => (
-                                        <Link key={item} href={`/resources/${category}`} className="group flex flex-col gap-2 relative border border-transparent p-3 -mx-3 rounded-xl hover:bg-white/5 hover:border-white/10 transition-colors">
-                                            <span className="text-[10px] text-primary font-bold uppercase tracking-widest">Insight {item}</span>
-                                            <h5 className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors leading-relaxed">
-                                                Exploring adjacent strategies for {categoryTitle.toLowerCase()} implementations.
+                            {/* Related Resources - REAL DATA FIX */}
+                            <div className="bg-white/[0.02] border border-white/5 rounded-[2rem] p-8">
+                                <h4 className="text-xs font-black text-white mb-6 uppercase tracking-[0.3em]">Related to {categoryTitle}</h4>
+                                <div className="flex flex-col gap-6">
+                                    {relatedBlogs.map((item) => (
+                                        <Link 
+                                            key={item.slug} 
+                                            href={`/resources/${item.category}/${item.slug}`} 
+                                            className="group flex flex-col gap-2 relative border border-transparent transition-all"
+                                        >
+                                            <span className="text-[10px] text-primary font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">Insight</span>
+                                            <h5 className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors leading-snug line-clamp-2">
+                                                {item.title}
                                             </h5>
                                         </Link>
                                     ))}
+                                    {relatedBlogs.length === 0 && (
+                                        <p className="text-xs text-zinc-500 italic">No other insights found in this category yet.</p>
+                                    )}
                                 </div>
-                                <div className="mt-5 pt-4 border-t border-white/10">
-                                    <Link href="/resources" className="text-xs font-bold text-primary hover:text-white transition-colors inline-flex items-center gap-2 uppercase tracking-widest">
-                                        View all <ChevronRight className="w-3 h-3" />
+                                <div className="mt-8 pt-6 border-t border-white/5">
+                                    <Link 
+                                        href={`/resources?filter=${encodeURIComponent(categoryTitle)}`} 
+                                        className="text-[10px] font-black text-primary hover:text-white transition-all uppercase tracking-[0.2em] flex items-center gap-2 group/all"
+                                    >
+                                        View all {categoryTitle} <ChevronRight className="w-3 h-3 group-hover/all:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
+                            {/* Share & Social */}
+                            <div className="bg-white/[0.02] border border-white/5 rounded-[2rem] p-8">
+                                <h4 className="text-xs font-black text-white mb-6 uppercase tracking-[0.3em] text-center lg:text-left">Distribute Insight</h4>
+                                <div className="grid grid-cols-4 gap-4">
+                                    <button className="flex flex-col items-center gap-2 group">
+                                        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-hover:bg-[#1877F2]/10 group-hover:border-[#1877F2]/50 group-hover:text-[#1877F2] transition-all">
+                                            <Facebook className="w-5 h-5" />
+                                        </div>
+                                    </button>
+                                    <button className="flex flex-col items-center gap-2 group">
+                                        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-hover:bg-[#1DA1F2]/10 group-hover:border-[#1DA1F2]/50 group-hover:text-[#1DA1F2] transition-all">
+                                            <Twitter className="w-5 h-5" />
+                                        </div>
+                                    </button>
+                                    <button className="flex flex-col items-center gap-2 group">
+                                        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/50 group-hover:text-[#0A66C2] transition-all">
+                                            <Linkedin className="w-5 h-5" />
+                                        </div>
+                                    </button>
+                                    <button className="flex flex-col items-center gap-2 group">
+                                        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-hover:bg-primary/10 group-hover:border-primary/50 group-hover:text-primary transition-all">
+                                            <LinkIcon className="w-5 h-5" />
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Author Card */}
+                            <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-[2rem] p-8 overflow-hidden relative group">
+                                <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <h4 className="text-[10px] font-black text-primary mb-4 uppercase tracking-[0.3em]">Verified Source</h4>
+                                <p className="text-zinc-300 text-sm font-medium leading-relaxed mb-6">
+                                    Our multidisciplinary elite forensics unit curate these insights to maintain digital integrity across the enterprise landscape.
+                                </p>
+                                <button className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-2 group-hover:text-primary transition-colors">
+                                    Learn our methodology <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
 
-            {/* Footer CTA */}
-            <CTA />
+            {/* CTA Section */}
+            <div className="relative z-10 border-t border-white/5">
+                <CTA />
+            </div>
         </main>
     );
 }
-

@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, Globe, ChevronRight } from "lucide-react";
 import { resourceCategories } from "../../constants/navigation";
+import { blogsData } from "../../constants/blogsData";
 import { cn } from "../../../lib/utils";
 
 function ResourcesContent() {
@@ -195,7 +196,10 @@ function ResourcesContent() {
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                                 {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
-                                    // Placeholder images mapping
+                                    // Image mapping logic
+                                    const slug = link.href.split('/').pop() || "";
+                                    const blogEntry = blogsData[slug];
+                                    
                                     const images = [
                                         "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
                                         "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
@@ -204,7 +208,8 @@ function ResourcesContent() {
                                         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
                                         "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
                                     ];
-                                    const cardImage = images[idx % images.length];
+                                    
+                                    const cardImage = blogEntry ? blogEntry.coverImage : images[idx % images.length];
                                     const cardBadge = activeFilter === "Latest" ? "Recent Insight" : activeFilter === "News & Updates" ? "Announcements" : "Resource";
 
                                     return (
