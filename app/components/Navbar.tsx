@@ -59,7 +59,7 @@ export default function Navbar() {
           {/* Solid White Squircle Background with Glow */}
           <div className="relative shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-[0.85rem] sm:rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-300 mr-3 sm:mr-4 group-hover:scale-105">
             <Image
-              src="/logo 3.png"
+              src="/logo.png"
               alt="Cyberforenx Logo"
               width={240}
               height={80}
