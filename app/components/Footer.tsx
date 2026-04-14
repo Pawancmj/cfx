@@ -43,9 +43,14 @@ export default function Footer() {
                                         />
                                     </div>
 
-                                    <span className="text-3xl font-black tracking-tighter text-white uppercase italic">
-                                        Cyber<span className="text-primary group-hover:text-white transition-colors">forenx</span>
-                                    </span>
+                                    <div className="flex flex-col justify-center">
+                                        <span className="text-3xl font-black tracking-tighter text-white uppercase italic leading-none">
+                                            Cyber<span className="text-primary group-hover:text-white transition-colors">forenx</span>
+                                        </span>
+                                        <span className="self-end text-[10px] font-black tracking-[0.4em] text-zinc-500 uppercase mt-2 group-hover:text-zinc-300 transition-colors">
+                                            & Associates
+                                        </span>
+                                    </div>
                                 </Link>
                                 <p className="text-xl font-medium text-zinc-400 leading-relaxed italic max-w-md">
                                     Global Intelligence. <br />
