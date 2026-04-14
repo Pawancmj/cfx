@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { 
-    ShieldCheck, Twitter, Linkedin, Instagram, 
-    Phone, Mail, MapPin, ArrowUpRight, 
+import Image from "next/image";
+import {
+    ShieldCheck, Twitter, Linkedin, Instagram,
+    Phone, Mail, MapPin, ArrowUpRight,
     Globe, Shield, Zap, Heart
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -25,18 +26,30 @@ export default function Footer() {
                     <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-secondary to-accent"></div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-                        
+
                         {/* Brand Section */}
                         <div className="lg:col-span-5 flex flex-col gap-6">
                             <div>
-                                <div className="flex items-center gap-3 group mb-8">
-                                    <div className="bg-primary p-2.5 rounded-2xl shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
-                                        <ShieldCheck className="w-7 h-7 text-black" />
+                                <Link href="/" className="flex items-center group mb-8 relative w-fit">
+                                    {/* White Glow Effect Behind Logo */}
+                                    <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-[80px] h-[80px] bg-white/40 blur-2xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                                    <div className="relative shrink-0 flex items-center pr-6 sm:pr-8">
+                                        <Image
+                                            src="/logo.png"
+                                            alt="Cyberforenx Logo"
+                                            width={240}
+                                            height={80}
+                                            className="object-contain h-16 w-auto scale-[1.8] origin-left transition-all duration-300 group-hover:scale-[1.9] relative z-10"
+                                            style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,0.8))' }}
+                                            priority
+                                        />
                                     </div>
-                                    <span className="text-3xl font-black tracking-tighter text-white uppercase italic">
-                                        Cyber<span className="text-primary">forenx</span>
+
+                                    <span className="text-3xl font-black tracking-tighter text-white uppercase italic relative z-10">
+                                        Cyber<span className="text-primary group-hover:text-white transition-colors">forenx</span>
                                     </span>
-                                </div>
+                                </Link>
                                 <p className="text-xl font-medium text-zinc-400 leading-relaxed italic max-w-md">
                                     Global Intelligence. <br />
                                     <span className="text-white not-italic font-bold">Absolute Security.</span> <br />
@@ -71,7 +84,7 @@ export default function Footer() {
                                 <ul className="flex flex-col gap-4">
                                     {['Home', 'Services', 'Solutions', 'Careers', 'Company'].map((item) => (
                                         <li key={item}>
-                                            <Link 
+                                            <Link
                                                 href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
                                                 className="text-sm font-bold text-zinc-500 hover:text-accent transition-colors tracking-widest uppercase flex items-center gap-2 group"
                                             >
@@ -107,10 +120,10 @@ export default function Footer() {
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Official Mail</p>
                                         <a href="mailto:contact@cyberforenx.in" className="text-sm font-bold text-white group-hover:text-accent transition-colors truncate block">contact@cyberforenx.in</a>
                                     </div>
-                                    <a 
-                                        href="https://www.google.com/maps/search/?api=1&query=74A,+Avni+Vihar,+Ghaziabad,+Uttar+Pradesh,+India" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer" 
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=74A,+Avni+Vihar,+Ghaziabad,+Uttar+Pradesh,+India"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="group cursor-pointer block"
                                     >
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Global HQ</p>
@@ -125,7 +138,7 @@ export default function Footer() {
 
                     {/* Fun Floating Icons Background Decoration */}
                     <div className="absolute bottom-[-20px] right-[10%] opacity-5 -z-10 group-hover:bg-red-500">
-                         <Shield className="w-64 h-64 text-white rotate-12" />
+                        <Shield className="w-64 h-64 text-white rotate-12" />
                     </div>
                 </div>
 
@@ -136,12 +149,12 @@ export default function Footer() {
                         <span className="h-1 w-1 rounded-full bg-zinc-700"></span>
                         <span className="text-primary">DESIGNED WITH PASSION</span>
                     </div>
-                    
+
                     <div className="flex gap-8">
                         <Link href="/privacy" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</Link>
                     </div>
-                    
+
                     <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 group cursor-default">
                         <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
                         <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 group-hover:text-accent transition-colors">Systems Operational</span>
