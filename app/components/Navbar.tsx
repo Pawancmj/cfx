@@ -55,23 +55,20 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between h-full w-full container mx-auto px-4 sm:px-6 md:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center group shrink-0 w-auto relative">
-          {/* White Glow Effect Behind Logo */}
-          <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-[60px] h-[60px] bg-white/40 blur-2xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-          <div className="relative shrink-0 flex items-center pr-4 sm:pr-6">
+        <Link href="/" className="flex items-center group shrink-0 w-auto">
+          {/* Solid White Squircle Background with Glow */}
+          <div className="relative shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-[0.85rem] sm:rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-300 mr-3 sm:mr-4 group-hover:scale-105">
             <Image
-              src="/logo.png"
+              src="/logo 3.png"
               alt="Cyberforenx Logo"
               width={240}
               height={80}
-              className="object-contain h-12 w-auto scale-[1.8] origin-left transition-all duration-300 group-hover:scale-[1.9] relative z-10"
-              style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,0.8))' }}
+              className="object-contain w-[140%] max-w-none h-auto scale-[1.3] origin-center"
               priority
             />
           </div>
 
-          <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors whitespace-nowrap relative z-10">
+          <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors whitespace-nowrap">
             CyberForenX
           </span>
         </Link>
