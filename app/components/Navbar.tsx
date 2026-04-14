@@ -72,7 +72,7 @@ export default function Navbar() {
             <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors whitespace-nowrap leading-none">
               CyberForenX
             </span>
-            <span className="self-end text-[10px] sm:text-[11px] font-bold tracking-widest text-zinc-400 group-hover:text-white transition-colors whitespace-nowrap uppercase mt-1">
+            <span className="self-center text-[10px] sm:text-[11px] font-bold tracking-widest text-zinc-400 group-hover:text-white transition-colors whitespace-nowrap uppercase mt-1">
               & Associates
             </span>
           </div>
