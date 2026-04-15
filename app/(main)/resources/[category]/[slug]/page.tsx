@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, ChevronDown, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import CTA from '@/app/components/CTA';
 import { blogsData } from '@/app/constants/blogsData';
 
@@ -210,6 +210,40 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
                                 </motion.section>
                             ))}
                         </div>
+                        
+                        {/* FAQs Section */}
+                        {blog && blog.faqs && blog.faqs.length > 0 && (
+                            <motion.div 
+                                id="faqs" 
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="mt-24 pt-16 border-t border-white/10 scroll-mt-32"
+                            >
+                                <div className="flex items-center gap-4 mb-10">
+                                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                                        <Tag className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <h3 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight text-glow-subtle">Common Queries</h3>
+                                </div>
+                                
+                                <div className="space-y-4">
+                                    {blog.faqs.map((faq, idx) => (
+                                        <details key={idx} className="group glass-card rounded-2xl border-white/5 hover:border-white/10 transition-all [&_summary::-webkit-details-marker]:hidden">
+                                            <summary className="flex cursor-pointer items-center justify-between p-6 sm:p-8 font-bold text-white text-base sm:text-lg tracking-tight select-none">
+                                                <span>{faq.question}</span>
+                                                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors shrink-0 ml-4">
+                                                    <ChevronDown className="w-5 h-5 text-zinc-500 group-open:-rotate-180 transition-transform duration-500" />
+                                                </div>
+                                            </summary>
+                                            <div className="px-6 sm:px-8 pb-6 sm:pb-8 text-zinc-400 leading-relaxed text-base sm:text-lg font-medium border-t border-white/5 pt-4">
+                                                {faq.answer}
+                                            </div>
+                                        </details>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
                     </div>
 
                     {/* Right Sidebar */}
@@ -242,6 +276,19 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
                                                 </a>
                                             );
                                         })}
+                                        {blog && blog.faqs && blog.faqs.length > 0 && (
+                                            <a 
+                                                href="#faqs" 
+                                                className="group flex items-center gap-4 text-zinc-500 hover:text-white transition-all py-1 border-l-2 border-transparent hover:border-primary pl-4 -ml-4 mt-2"
+                                            >
+                                                <span className="text-[10px] font-bold text-zinc-700 group-hover:text-primary transition-colors">
+                                                    {String(blog.sections.length + 1).padStart(2, '0')}
+                                                </span>
+                                                <span className="text-sm font-bold tracking-tight line-clamp-1 group-hover:translate-x-1 transition-transform">
+                                                    Frequently Asked Questions
+                                                </span>
+                                            </a>
+                                        )}
                                     </nav>
                                 </div>
                             </div>
