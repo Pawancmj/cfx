@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-display",
 });
@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary relative`}
+        className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary relative`}
         suppressHydrationWarning
       >
         {children}

@@ -50,14 +50,14 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
         ? "glass-nav h-16 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-b border-white/10"
-        : "bg-transparent h-20 border-b border-transparent"
+        : "bg-transparent h-[72px] border-b border-transparent"
         }`}
     >
       <div className="flex items-center justify-between h-full w-full container mx-auto px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center group shrink-0 w-auto">
           {/* Solid White Squircle Background with Glow */}
-          <div className="relative shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-[0.85rem] sm:rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-300 mr-3 sm:mr-4 group-hover:scale-105">
+          <div className="relative shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-[0.85rem] sm:rounded-2xl shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_18px_rgba(255,255,255,0.6)] transition-all duration-300 mr-3 sm:mr-4 group-hover:scale-105">
             <Image
               src="/logo.png"
               alt="Cyberforenx Logo"
@@ -79,7 +79,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8 h-full static">
+        <div className="hidden lg:flex items-center gap-7 h-full static">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
