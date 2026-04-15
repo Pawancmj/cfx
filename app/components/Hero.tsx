@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Database, Globe, Shield } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
 import Link from "next/link";
-import { cn } from "../../lib/utils";
 import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
@@ -13,26 +12,26 @@ export default function Hero() {
             <ParticleBackground />
             <div className="absolute inset-0 -z-10 bg-grid opacity-30"></div>
 
-            {/* Animated Blobs */}
+            {/* Ambient Blobs — soft, atmospheric */}
             <motion.div
                 animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
+                    opacity: [0.15, 0.25, 0.15],
                     x: [0, 50, 0],
                     y: [0, -30, 0]
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/4 left-0 w-64 h-64 md:w-80 md:h-80 bg-primary/20 blur-[80px] md:blur-[120px] rounded-full -z-10 pointer-events-none"
+                className="absolute top-1/4 left-0 w-64 h-64 md:w-80 md:h-80 bg-primary/10 blur-[100px] md:blur-[140px] rounded-full -z-10 pointer-events-none"
             />
             <motion.div
                 animate={{
                     scale: [1.2, 1, 1.2],
-                    opacity: [0.2, 0.4, 0.2],
+                    opacity: [0.1, 0.2, 0.1],
                     x: [0, -50, 0],
                     y: [0, 30, 0]
                 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-1/4 right-0 w-64 h-64 md:w-80 md:h-80 bg-secondary/20 blur-[80px] md:blur-[120px] rounded-full -z-10 pointer-events-none"
+                className="absolute bottom-1/4 right-0 w-64 h-64 md:w-80 md:h-80 bg-secondary/10 blur-[100px] md:blur-[140px] rounded-full -z-10 pointer-events-none"
             />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
@@ -42,52 +41,57 @@ export default function Hero() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="mx-auto max-w-4xl"
                 >
+                    {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-6"
                     >
                         <Shield className="w-4 h-4 text-primary" />
                         <span className="text-xs font-bold uppercase tracking-widest text-primary/80">Leading Digital Excellence</span>
                     </motion.div>
 
+                    {/* Heading */}
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.8 }}
-                        className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.1] lg:leading-[1.05]"
+                        className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white leading-[1.15]"
                     >
-                        Secure Your Vision, <br className="hidden sm:block" />
-                        <span className="text-gradient italic text-glow inline-block">Unlock Potential.</span>
+                        Secure Your Digital Future,{" "}
+                        <br className="hidden sm:block" />
+                        <span className="text-gradient inline-block text-[calc(1em-3px)]">Empower Innovation.</span>
                     </motion.h1>
 
+                    {/* Subheading */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
-                        className="mt-6 sm:mt-8 text-base sm:text-lg leading-relaxed text-zinc-400 max-w-2xl mx-auto font-medium"
+                        className="mt-8 sm:mt-10 text-lg sm:text-xl leading-relaxed text-zinc-400 max-w-2xl mx-auto"
                     >
-                        Cyberforenx specializes in <span className="text-white font-bold">Full Stack Development</span>, <span className="text-white font-bold">Advanced Data Analytics</span>, and Digital Forensic investigations.
+                        CyberForenX & Associates delivers advanced cybersecurity, digital forensics, software development, and technology consulting solutions designed to help businesses grow securely and efficiently.
                     </motion.p>
 
+                    {/* CTA Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
-                        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+                        className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
                     >
                         <Link
                             href="/contact"
-                            className="w-full sm:w-auto btn-primary px-12 py-5 text-base uppercase tracking-widest group"
+                            className="w-full sm:w-auto btn-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-wider group"
                         >
-                            Start Your Journey <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            Book a Consultation <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
                             href="/services"
-                            className="w-full sm:w-auto btn-outline px-12 py-5 text-base uppercase tracking-widest"
+                            className="w-full sm:w-auto btn-outline px-8 py-3.5 text-sm font-semibold uppercase tracking-wider"
                         >
-                            Our Expertise
+                            Explore Services
                         </Link>
                     </motion.div>
                 </motion.div>
@@ -96,4 +100,3 @@ export default function Hero() {
         </div>
     );
 }
-

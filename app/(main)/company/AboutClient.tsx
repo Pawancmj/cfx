@@ -100,12 +100,12 @@ export default function AboutClient() {
                                 <Sparkles className="w-4 h-4 text-primary" />
                                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
                             </motion.div>
-                            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                            <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
                                 Pioneering the Future of <br />
-                                <span className="text-gradient italic text-glow inline-block pr-6">Digital Intelligence</span>
+                                <span className="text-gradient inline-block text-[calc(1em-3px)] pb-2">Digital Intelligence</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                                Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
+                                CyberForenX & Associates is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
                             </p>
                         </motion.div>
                     </div>
@@ -194,7 +194,7 @@ export default function AboutClient() {
                         className="max-w-4xl mb-16"
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                            <Rocket className="w-4 h-4" /> Inside Cyberforenx
+                            <Rocket className="w-4 h-4" /> Inside CyberForenX & Associates
                         </div>
                         <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">
                             Our Culture
@@ -233,7 +233,7 @@ export default function AboutClient() {
                             Leadership
                         </h3>
                         <p className="text-lg text-zinc-400 font-medium leading-relaxed max-w-2xl">
-                            Meet the visionaries behind Cyberforenx. Our leadership team brings decades of global experience in cybersecurity, enterprise software, and digital transformation.
+                            Meet the visionaries behind CyberForenX & Associates. Our leadership team brings decades of global experience in cybersecurity, enterprise software, and digital transformation.
                         </p>
                     </motion.div>
 

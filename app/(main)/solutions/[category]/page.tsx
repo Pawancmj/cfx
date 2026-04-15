@@ -179,7 +179,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
                         <div className="relative z-10">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Domain Authority</h2>
                             <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-16 uppercase tracking-tighter italic text-glow inline-block pr-8">
-                                The <span className="text-gradient">CyberForenX Advantage</span>
+                                The <span className="text-gradient">CyberForenX & Associates Advantage</span>
                             </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

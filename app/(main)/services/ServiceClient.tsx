@@ -256,10 +256,10 @@ export default function ServicesClient() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.2] lg:leading-[1.1]"
+          className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
         >
           Uncompromising <br className="hidden sm:block" />
-          <span className="text-gradient italic text-glow inline-block pr-6">Service Models</span>
+          <span className="text-gradient inline-block text-[calc(1em-3px)]">Service Models</span>
         </motion.h1>
         
         <motion.p

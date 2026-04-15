@@ -27,7 +27,7 @@ export default function PartnerProgramPage() {
                         Partner Program
                     </h1>
                     <p className="text-lg text-zinc-400 font-medium leading-relaxed mb-12 max-w-2xl">
-                        Scale your business by integrating with Cyberforenx's elite ecosystem. We empower agencies, consultancies, and technology providers with cutting-edge tools and dedicated support.
+                        Scale your business by integrating with CyberForenX & Associates' elite ecosystem. We empower agencies, consultancies, and technology providers with cutting-edge tools and dedicated support.
                     </p>
                 </motion.div>
 

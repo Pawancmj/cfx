@@ -114,7 +114,7 @@ export default function SolutionsClient() {
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.2] lg:leading-[1.1]"
+                        className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
                     >
                         Solutions Engineered for <br className="hidden sm:block" />
                         <span className="relative inline-block mt-2 min-w-[300px] sm:min-w-[500px] h-[1.2em]">
@@ -125,7 +125,7 @@ export default function SolutionsClient() {
                                     animate={{ y: 0, opacity: 1, rotateX: 0 }}
                                     exit={{ y: -20, opacity: 0, rotateX: 90 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="absolute left-1/2 -translate-x-1/2 w-max text-gradient italic font-serif whitespace-nowrap pr-2 text-glow"
+                                    className="absolute left-1/2 -translate-x-1/2 w-max text-gradient whitespace-nowrap text-[calc(1em-3px)]"
                                     style={{ transformOrigin: "center" }}
                                 >
                                     {SECTORS[sectorIndex]}
@@ -140,7 +140,7 @@ export default function SolutionsClient() {
                         transition={{ delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap  flex items-center justify-center gap-2"
                     >
-                        Digital forensics, compliance, automation — secured by <span className="text-white font-bold">CyberforneX</span>
+                        Digital forensics, compliance, automation — secured by <span className="text-white font-bold">CyberForenX & Associates</span>
                     </motion.p>
 
                     <motion.div 
@@ -183,7 +183,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-8 max-w-2xl mx-auto">
                          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Pillars</h2>
-                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The Cyberforenx Advantage</h3>
+                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The CyberForenX & Associates Advantage</h3>
                          <p className="text-zinc-400 font-medium">Why world-leading organizations trust us out-of-the-box.</p>
                     </div>
 

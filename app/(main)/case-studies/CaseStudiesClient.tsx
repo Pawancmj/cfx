@@ -141,7 +141,7 @@ export default function CaseStudiesClient() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.2] lg:leading-[1.1]"
+                        className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
                     >
                         Case Studies For <br className="hidden sm:block" />
                         <span className="relative inline-block mt-2 min-w-[300px] sm:min-w-[500px] h-[1.2em]">
@@ -152,7 +152,7 @@ export default function CaseStudiesClient() {
                                     animate={{ y: 0, opacity: 1, rotateX: 0 }}
                                     exit={{ y: -20, opacity: 0, rotateX: 90 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="absolute left-1/2 -translate-x-1/2 w-max text-gradient italic font-serif whitespace-nowrap pr-2 text-glow"
+                                    className="absolute left-1/2 -translate-x-1/2 w-max text-gradient whitespace-nowrap text-[calc(1em-3px)]"
                                     style={{ transformOrigin: "center" }}
                                 >
                                     {SECTORS[sectorIndex]}
@@ -167,7 +167,7 @@ export default function CaseStudiesClient() {
                         transition={{ delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap  flex items-center justify-center gap-2"
                     >
-                        Real-world success stories secured by <span className="text-white font-bold">CyberforneX</span>
+                        Real-world success stories secured by <span className="text-white font-bold">CyberForenX & Associates</span>
                     </motion.p>
 
                     <motion.div

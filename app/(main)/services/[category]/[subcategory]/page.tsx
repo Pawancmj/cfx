@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!categoryData || !detailData) {
         return constructMetadata({
             title: "Expert Service Detail",
-            description: "Deep-dive into Cyberforenx specialized service capabilities."
+            description: "Deep-dive into CyberForenX & Associates specialized service capabilities."
         });
     }
 

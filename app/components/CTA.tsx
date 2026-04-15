@@ -59,7 +59,7 @@ export default function CTA() {
                         <div className="glass-card p-8 sm:p-10 shadow-2xl hover:border-primary/40 group relative overflow-hidden transition-colors duration-500 bg-gradient-to-br from-white/[0.03] to-transparent">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[80px] rounded-full -z-10"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 blur-[60px] rounded-full -z-10"></div>
-                            <h3 className="text-xs font-bold text-primary uppercase tracking-[0.4em] mb-6 border-b border-white/10 pb-4">Why Cyberforenx?</h3>
+                            <h3 className="text-xs font-bold text-primary uppercase tracking-[0.4em] mb-6 border-b border-white/10 pb-4">Why CyberForenX & Associates?</h3>
                             <ul className="space-y-6">
                                 {[
                                     { color: "bg-primary", text: "Enterprise-grade security standards" },

@@ -67,12 +67,12 @@ export default function CertificationClient() {
                             <ShieldCheck className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Compliance</span>
                         </motion.div>
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
                             Uncompromising <br />
-                            <span className="text-gradient italic text-glow inline-block pr-6">Security Standards</span>
+                            <span className="text-gradient inline-block text-[calc(1em-3px)]">Security Standards</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                            Cyberforenx maintains elite-level international certifications to ensure every project aligns with the world&apos;s most stringent data protection and quality benchmarks.
+                            CyberForenX & Associates maintains elite-level international certifications to ensure every project aligns with the world&apos;s most stringent data protection and quality benchmarks.
                         </p>
                     </motion.div>
                 </div>

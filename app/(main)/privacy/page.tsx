@@ -27,8 +27,8 @@ export default function PrivacyPolicy() {
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8">
                                     <Shield className="w-4 h-4" /> Legal Framework
                                 </div>
-                                <h1 className="text-4xl sm:text-7xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow leading-tight">
-                                    Privacy <br /> <span className="text-gradient italic pr-6">Policy</span>
+                                <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white mb-8 tracking-tight leading-[1.15]">
+                                    Privacy <br /> <span className="text-gradient inline-block text-[calc(1em-3px)]">Policy</span>
                                 </h1>
                                 
                                 <div className="prose prose-invert max-w-none space-y-8 text-zinc-400 font-medium leading-relaxed">
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
                                     </div>
                                     
                                     <p className="text-lg text-zinc-300">
-                                        At Cyberforenx, we take your privacy seriously. This Privacy Policy describes how we collect, use, and share your personal information when you visit our website or use our services.
+                                        At CyberForenX & Associates, we take your privacy seriously. This Privacy Policy describes how we collect, use, and share your personal information when you visit our website or use our services.
                                     </p>
 
                                     <div className="space-y-6">

@@ -27,8 +27,8 @@ export default function TermsOfService() {
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-8">
                                     <FileCheck className="w-4 h-4" /> Terms & Conditions
                                 </div>
-                                <h1 className="text-4xl sm:text-7xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow leading-tight">
-                                    Terms of <br /> <span className="text-gradient-secondary italic pr-6">Service</span>
+                                <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white mb-8 tracking-tight leading-[1.15]">
+                                    Terms of <br /> <span className="text-gradient-secondary inline-block text-[calc(1em-3px)]">Service</span>
                                 </h1>
 
                                 <div className="prose prose-invert max-w-none space-y-8 text-zinc-400 font-medium leading-relaxed">
@@ -37,7 +37,7 @@ export default function TermsOfService() {
                                     </div>
 
                                     <p className="text-lg text-zinc-300">
-                                        By using Cyberforenx&apos;s website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
+                                        By using CyberForenX & Associates&apos;s website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
                                     </p>
 
                                     <div className="space-y-6">
@@ -52,14 +52,14 @@ export default function TermsOfService() {
                                             <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">02.</span> Intellectual Property
                                             </h2>
-                                            <p>All content on this website, including text, graphics, logos, and software, is the property of Cyberforenx and protected by international intellectual property laws.</p>
+                                            <p>All content on this website, including text, graphics, logos, and software, is the property of CyberForenX & Associates and protected by international intellectual property laws.</p>
                                         </section>
 
                                         <section>
                                             <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">03.</span> Liability Limitation
                                             </h2>
-                                            <p>Cyberforenx shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our digital assets and services.</p>
+                                            <p>CyberForenX & Associates shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our digital assets and services.</p>
                                         </section>
                                     </div>
                                 </div>

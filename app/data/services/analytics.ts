@@ -13,7 +13,7 @@ export const analyticsData: ServiceCategory = {
     ],
     testimonials: [
         {
-            content: "The custom dashboard CyberForenX built for our executive team has completely changed how we allocate our quarterly budget. We now move with 100% confidence.",
+            content: "The custom dashboard CyberForenX & Associates built for our executive team has completely changed how we allocate our quarterly budget. We now move with 100% confidence.",
             author: "Marcus Chen",
             role: "CTO, FinFlow",
             rating: 5
