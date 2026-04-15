@@ -13,7 +13,7 @@ export const webAppData: ServiceCategory = {
     ],
     testimonials: [
         {
-            content: "CyberForenX delivered our SaaS platform 3 weeks ahead of schedule. Their technical depth in Next.js and AWS is truly world-class.",
+            content: "CyberForenX & Associates delivered our SaaS platform 3 weeks ahead of schedule. Their technical depth in Next.js and AWS is truly world-class.",
             author: "James Wilson",
             role: "CTO, CloudScale AI",
             rating: 5
@@ -78,7 +78,7 @@ export const webAppData: ServiceCategory = {
             title: "Custom Web Application Development",
             slug: "custom-web-application-development",
             heroTitle: "Custom Web Apps Built for Your Vision",
-            heroDescription: "Scalable, secure apps with CyberforneX cybersecurity DNA. From prototype to production.",
+            heroDescription: "Scalable, secure apps with CyberForenX & Associates cybersecurity DNA. From prototype to production.",
             heroImage: "/mockup_web_app.webp",
             details: "Fully bespoke web apps using React/Node.js/PostgreSQL. Perfect for startups scaling workflows.",
             features: [

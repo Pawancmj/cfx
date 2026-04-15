@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
                                     </div>
                                     
                                     <p className="text-lg text-zinc-300">
-                                        At Cyberforenx, we take your privacy seriously. This Privacy Policy describes how we collect, use, and share your personal information when you visit our website or use our services.
+                                        At CyberForenX & Associates, we take your privacy seriously. This Privacy Policy describes how we collect, use, and share your personal information when you visit our website or use our services.
                                     </p>
 
                                     <div className="space-y-6">

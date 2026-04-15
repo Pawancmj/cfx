@@ -140,7 +140,7 @@ export default function SolutionsClient() {
                         transition={{ delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap  flex items-center justify-center gap-2"
                     >
-                        Digital forensics, compliance, automation — secured by <span className="text-white font-bold">CyberforneX</span>
+                        Digital forensics, compliance, automation — secured by <span className="text-white font-bold">CyberForenX & Associates</span>
                     </motion.p>
 
                     <motion.div 
@@ -183,7 +183,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-8 max-w-2xl mx-auto">
                          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Pillars</h2>
-                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The Cyberforenx Advantage</h3>
+                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The CyberForenX & Associates Advantage</h3>
                          <p className="text-zinc-400 font-medium">Why world-leading organizations trust us out-of-the-box.</p>
                     </div>
 

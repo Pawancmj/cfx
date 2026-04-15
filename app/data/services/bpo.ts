@@ -13,7 +13,7 @@ export const bpoData: ServiceCategory = {
     ],
     testimonials: [
         {
-            content: "Their offshore support team feels like a natural extension of our brand. Our CSAT scores have improved by 25% since we partnered with CyberForenX.",
+            content: "Their offshore support team feels like a natural extension of our brand. Our CSAT scores have improved by 25% since we partnered with CyberForenX & Associates.",
             author: "Sarah Thompson",
             role: "Director of Operations, RetailFlow",
             rating: 5

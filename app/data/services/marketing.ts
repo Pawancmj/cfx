@@ -13,7 +13,7 @@ export const marketingData: ServiceCategory = {
     ],
     testimonials: [
         {
-            content: "CyberForenX didn't just run ads; they built a conversion engine. Our ROAS has stayed consistently above 4x for the last six months.",
+            content: "CyberForenX & Associates didn't just run ads; they built a conversion engine. Our ROAS has stayed consistently above 4x for the last six months.",
             author: "Julian Drake",
             role: "Marketing Director, LuxStay",
             rating: 5

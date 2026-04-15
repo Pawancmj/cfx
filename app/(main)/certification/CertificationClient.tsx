@@ -72,7 +72,7 @@ export default function CertificationClient() {
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Security Standards</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                            Cyberforenx maintains elite-level international certifications to ensure every project aligns with the world&apos;s most stringent data protection and quality benchmarks.
+                            CyberForenX & Associates maintains elite-level international certifications to ensure every project aligns with the world&apos;s most stringent data protection and quality benchmarks.
                         </p>
                     </motion.div>
                 </div>

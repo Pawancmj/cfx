@@ -147,7 +147,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-6 border-t border-white/5">
                     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
-                        <span>&copy; 2026 CYBERFORENX</span>
+                        <span>&copy; 2026 CYBERFORENX & ASSOCIATES</span>
                         <span className="h-1 w-1 rounded-full bg-zinc-700"></span>
                         <span className="text-primary">DESIGNED WITH PASSION</span>
                     </div>

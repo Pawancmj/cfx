@@ -37,7 +37,7 @@ export default function TermsOfService() {
                                     </div>
 
                                     <p className="text-lg text-zinc-300">
-                                        By using Cyberforenx&apos;s website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
+                                        By using CyberForenX & Associates&apos;s website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
                                     </p>
 
                                     <div className="space-y-6">
@@ -52,14 +52,14 @@ export default function TermsOfService() {
                                             <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">02.</span> Intellectual Property
                                             </h2>
-                                            <p>All content on this website, including text, graphics, logos, and software, is the property of Cyberforenx and protected by international intellectual property laws.</p>
+                                            <p>All content on this website, including text, graphics, logos, and software, is the property of CyberForenX & Associates and protected by international intellectual property laws.</p>
                                         </section>
 
                                         <section>
                                             <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">03.</span> Liability Limitation
                                             </h2>
-                                            <p>Cyberforenx shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our digital assets and services.</p>
+                                            <p>CyberForenX & Associates shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our digital assets and services.</p>
                                         </section>
                                     </div>
                                 </div>

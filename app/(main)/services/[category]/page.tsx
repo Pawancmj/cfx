@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!categoryData) {
         return constructMetadata({
             title: "Service Hub",
-            description: "Expert digital solutions by Cyberforenx."
+            description: "Expert digital solutions by CyberForenX & Associates."
         });
     }
 
@@ -200,7 +200,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                         <div className="relative z-10">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Why Choose Us</h2>
                             <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-16 uppercase tracking-tighter italic text-glow inline-block pr-8">
-                                The <span className="text-gradient">CyberForenX Advantage</span>
+                                The <span className="text-gradient">CyberForenX & Associates Advantage</span>
                             </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

@@ -71,7 +71,7 @@ export default function Hero() {
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="mt-8 sm:mt-10 text-lg sm:text-xl leading-relaxed text-zinc-400 max-w-2xl mx-auto"
                     >
-                        CyberForenX delivers advanced cybersecurity, digital forensics, software development, and technology consulting solutions designed to help businesses grow securely and efficiently.
+                        CyberForenX & Associates delivers advanced cybersecurity, digital forensics, software development, and technology consulting solutions designed to help businesses grow securely and efficiently.
                     </motion.p>
 
                     {/* CTA Buttons */}

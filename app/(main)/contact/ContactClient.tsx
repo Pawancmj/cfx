@@ -71,7 +71,7 @@ export default function ContactClient() {
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Future</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                            Partner with our global experts to drive innovation through secure, scalable, and mission-critical technology solutions tailored for enterprise success.
+                            Partner with CyberForenX & Associates&apos; global experts to drive innovation through secure, scalable, and mission-critical technology solutions tailored for enterprise success.
                         </p>
                     </motion.div>
                 </div>

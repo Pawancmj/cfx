@@ -167,7 +167,7 @@ export default function CaseStudiesClient() {
                         transition={{ delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mb-12 font-medium flex-wrap  flex items-center justify-center gap-2"
                     >
-                        Real-world success stories secured by <span className="text-white font-bold">CyberforneX</span>
+                        Real-world success stories secured by <span className="text-white font-bold">CyberForenX & Associates</span>
                     </motion.p>
 
                     <motion.div

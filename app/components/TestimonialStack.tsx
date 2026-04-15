@@ -38,7 +38,7 @@ export default function TestimonialStack({ testimonials }: TestimonialStackProps
                         <span className="text-gradient italic">Unleashed</span>
                     </h3>
                     <p className="text-lg text-zinc-400 font-medium leading-relaxed mb-10">
-                        See how CyberForenX is transforming enterprise operations and security for industry leaders across the globe.
+                        See how CyberForenX & Associates is transforming enterprise operations and security for industry leaders across the globe.
                     </p>
                     <div className="flex items-center gap-4 text-xs font-black uppercase tracking-widest text-primary/60">
                         <div className="h-px w-12 bg-white/10"></div>

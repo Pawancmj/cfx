@@ -147,7 +147,7 @@ export default function CareersClient() {
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Potential</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
-                            Cyberforenx is a hub for high-performance innovation. We are looking for passionate individuals to join our global team and work on solving mission-critical technical challenges.
+                            CyberForenX & Associates is a hub for high-performance innovation. We are looking for passionate individuals to join our global team and work on solving mission-critical technical challenges.
                         </p>
                     </motion.div>
                 </div>

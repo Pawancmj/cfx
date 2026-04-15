@@ -167,7 +167,7 @@ export default function Navbar() {
                       <div className="w-1/3 bg-white/5 rounded-2xl p-10 flex flex-col justify-end relative overflow-hidden group/feat cursor-default border border-white/5">
                         <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-[60px] rounded-full group-hover/feat:bg-primary/40 transition-colors"></div>
                         <ShieldCheck className="w-12 h-12 text-primary mb-8 relative z-10" />
-                        <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-3 relative z-10">CYBERFORENX</span>
+                        <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-3 relative z-10">CYBERFORENX & ASSOCIATES</span>
                         <h5 className="text-3xl font-extrabold text-white leading-tight mb-6 relative z-10 text-glow">Leadership That Drives Impact</h5>
                         <p className="text-sm font-medium text-zinc-400 italic leading-relaxed relative z-10">
                           Our experts bring decades of cross-industry intelligence to scale and secure your business globally.

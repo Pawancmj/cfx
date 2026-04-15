@@ -22,7 +22,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "Income Tax Department (Investigation Division)",
         client: "Government Agency – Income Tax Department (Investigation Wing)",
         industry: "Government / Law Enforcement / Financial Investigation",
-        author: "CyberForenX Team",
+        author: "CyberForenX & Associates Team",
         date: "14 July 2024",
         heroImage: "/hero_analytics.webp",
         contentSections: [
@@ -83,7 +83,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "TDS Department – Training & Capability Building",
         client: "TDS (Tax Deducted at Source) Department",
         industry: "Government / Financial Compliance",
-        author: "CyberForenX Education",
+        author: "CyberForenX & Associates Education",
         date: "22 August 2024",
         heroImage: "/hero_forensics.webp",
         contentSections: [
@@ -137,7 +137,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "AKKD Services – Corporate Cybersecurity & Forensics Awareness",
         client: "AKKD Services (Corporate Organization)",
         industry: "Corporate / Business Services",
-        author: "CyberForenX Advisory",
+        author: "CyberForenX & Associates Advisory",
         date: "05 September 2024",
         heroImage: "/hero_cybersecurity.webp",
         contentSections: [
@@ -191,7 +191,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "SecureNode – Zero-Trust Architecture Implementation",
         client: "SecureNode Systems",
         industry: "Cybersecurity / Technology",
-        author: "CyberForenX Security Lab",
+        author: "CyberForenX & Associates Security Lab",
         date: "12 October 2024",
         heroImage: "/images/mockups/securenode.webp",
         contentSections: [
@@ -244,7 +244,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "FitnessTrack – Scaling User Engagement Through Custom Mobile Solutions",
         client: "FitnessTrack App",
         industry: "Health & Wellness / Mobile Technology",
-        author: "CyberForenX App Studio",
+        author: "CyberForenX & Associates App Studio",
         date: "28 November 2024",
         heroImage: "/images/mockups/fitnesstrack.webp",
         contentSections: [
@@ -297,7 +297,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "NeevRealty – Digital Transformation & Lead Generation in Real Estate",
         client: "NeevRealty",
         industry: "Real Estate / Digital Commerce",
-        author: "CyberForenX Digital Strategy",
+        author: "CyberForenX & Associates Digital Strategy",
         date: "05 December 2024",
         heroImage: "/images/mockups/neevrealty.webp",
         contentSections: [
@@ -350,7 +350,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "InterviewPrepEdu – Scaling a High-Performance Educational Platform",
         client: "InterviewPrepEdu",
         industry: "EdTech / Digital Education",
-        author: "CyberForenX Engineering",
+        author: "CyberForenX & Associates Engineering",
         date: "14 January 2025",
         heroImage: "/images/mockups/interviewprepedu.webp",
         contentSections: [
@@ -403,7 +403,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "St. Andrew's College – Modernizing Academic Digital Infrastructure",
         client: "St. Andrew's College",
         industry: "Education / Institutional",
-        author: "CyberForenX Institutional Services",
+        author: "CyberForenX & Associates Institutional Services",
         date: "02 February 2025",
         heroImage: "/images/mockups/st.-andrews-college.webp",
         contentSections: [
@@ -456,7 +456,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "TeppichArt – Crafting a Premium E-Commerce Experience",
         client: "TeppichArt",
         industry: "Luxury Retail / E-commerce",
-        author: "CyberForenX Creative Tech",
+        author: "CyberForenX & Associates Creative Tech",
         date: "20 February 2025",
         heroImage: "/images/mockups/teppichart.webp",
         contentSections: [
@@ -509,7 +509,7 @@ export const caseStudiesList: CaseStudyData[] = [
         title: "Azal International – Strategic Data Analytics & Global Web Solutions",
         client: "Azal International",
         industry: "Logistics / Global Operations",
-        author: "CyberForenX Enterprise Advisory",
+        author: "CyberForenX & Associates Enterprise Advisory",
         date: "10 March 2025",
         heroImage: "/images/mockups/azal-international.webp",
         contentSections: [

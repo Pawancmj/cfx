@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const successStories = [
     {
         client: "SecureNode",
-        content: "Cyberforenx delivered an impenetrable security architecture that immediately mitigated our vulnerabilities. Their foresight and strategic deployment saved us from potentially catastrophic breaches.",
+        content: "CyberForenX & Associates delivered an impenetrable security architecture that immediately mitigated our vulnerabilities. Their foresight and strategic deployment saved us from potentially catastrophic breaches.",
         author: "Chief Security Officer",
         role: "SecureNode Systems",
         image: "/images/mockups/securenode.webp",
