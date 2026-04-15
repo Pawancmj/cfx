@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, Globe, ChevronRight } from "lucide-react";
 import { resourceCategories } from "../../constants/navigation";
-import { blogsData } from "../../constants/blogsData";
+import { resourcesData } from "../../constants/resourceData";
 import { cn } from "../../../lib/utils";
 
 function ResourcesContent() {
@@ -198,7 +198,7 @@ function ResourcesContent() {
                                 {activeCategoryData.links.slice(0, visibleCount).map((link, idx) => {
                                     // Image mapping logic
                                     const slug = link.href.split('/').pop() || "";
-                                    const blogEntry = blogsData[slug];
+                                    const blogEntry = resourcesData[slug];
                                     
                                     const images = [
                                         "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
