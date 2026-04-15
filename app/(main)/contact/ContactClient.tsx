@@ -93,10 +93,10 @@ export default function ContactClient() {
                         initial={{ opacity: 0, y: 50, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] w-full max-w-md px-6"
+                        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-3rem)] max-w-md pointer-events-none"
                     >
                         <div className={cn(
-                            "glass-card p-4 rounded-2xl flex items-center gap-4 border shadow-2xl backdrop-blur-xl",
+                            "glass-card p-4 rounded-2xl flex items-center gap-4 border shadow-2xl backdrop-blur-xl pointer-events-auto",
                             isSuccess ? "border-primary/40 bg-slate-900/90" : "border-red-500/40 bg-red-950/90"
                         )}>
                             <div className={cn(
@@ -126,7 +126,7 @@ export default function ContactClient() {
                 )}
             </AnimatePresence>
                         {isSuccess ? (
-                            <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[400px]">
+                            <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[450px] pb-28">
                                 <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 border border-primary/30">
                                     <Sparkles className="w-10 h-10 text-primary" />
                                 </div>
