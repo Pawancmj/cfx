@@ -102,7 +102,7 @@ export default function AboutClient() {
                             </motion.div>
                             <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
                                 Pioneering the Future of <br />
-                                <span className="text-gradient inline-block text-[calc(1em-3px)]">Digital Intelligence</span>
+                                <span className="text-gradient inline-block text-[calc(1em-3px)] pb-2">Digital Intelligence</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                                 CyberForenX & Associates is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.
