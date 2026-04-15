@@ -1,26 +1,4 @@
-export interface BlogSection {
-    title: string;
-    content: string;
-    image?: string;
-}
-
-export interface FAQ {
-    question: string;
-    answer: string;
-}
-
-export interface BlogData {
-    title: string;
-    slug: string;
-    excerpt: string;
-    date: string;
-    category: string;
-    readTime: string;
-    coverImage: string;
-    intro: string;
-    sections: BlogSection[];
-    faqs?: FAQ[];
-}
+import { BlogData } from "../types/resources";
 
 export const blogsData: Record<string, BlogData> = {
     "why-every-business-needs-a-professional-website-in-2026": {
@@ -30,7 +8,7 @@ export const blogsData: Record<string, BlogData> = {
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "10 min read",
-        coverImage: "/images/blogs/professional-website-2026.png",
+        coverImage: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=800",
         intro: "In the modern digital era, a professional website has become one of the most valuable assets for any business. Whether you are a startup, a local business, or a multinational enterprise, having an online presence is no longer optional—it is essential. Customers today rely heavily on the internet to discover products, research services, and evaluate brands before making purchasing decisions.",
         sections: [
             {
@@ -92,7 +70,7 @@ export const blogsData: Record<string, BlogData> = {
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "12 min read",
-        coverImage: "/images/blogs/mobile-app-trends-2026.png",
+        coverImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800",
         intro: "Mobile applications have become one of the most powerful tools for businesses looking to improve customer engagement, streamline operations, and drive digital transformation. As smartphone usage continues to grow globally, mobile apps are no longer considered optional—they are now a strategic necessity for businesses across industries.",
         sections: [
             {
@@ -147,14 +125,14 @@ export const blogsData: Record<string, BlogData> = {
             }
         ]
     },
-    "how-cybersecurity-protects-modern-businesses-2026": {
+    "how-cybersecurity-protects-modern-businesses": {
         title: "How Cybersecurity Protects Modern Businesses from Digital Threats",
-        slug: "how-cybersecurity-protects-modern-businesses-2026",
+        slug: "how-cybersecurity-protects-modern-businesses",
         excerpt: "Cybersecurity is no longer just an IT concern—it's a critical business necessity. Discover 10 ways it protects your organization.",
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "11 min read",
-        coverImage: "/images/blogs/cybersecurity-business-protection.png",
+        coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
         intro: "In today's digital-first environment, businesses rely heavily on technology to manage operations, store data, communicate with customers, and drive growth. While digital transformation has unlocked countless opportunities, it has also introduced significant cybersecurity risks.",
         sections: [
             {
@@ -216,7 +194,7 @@ export const blogsData: Record<string, BlogData> = {
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "12 min read",
-        coverImage: "/images/blogs/digital-forensics-investigation.png",
+        coverImage: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
         intro: "As digital technology continues to shape the way businesses and individuals operate, cybercrime has become increasingly sophisticated and widespread. Organizations now face threats ranging from hacking and insider attacks to fraud, data theft, and unauthorized system access. In such situations, identifying what happened, how it happened, and who was responsible is crucial.",
         sections: [
             {
@@ -271,14 +249,14 @@ export const blogsData: Record<string, BlogData> = {
             }
         ]
     },
-    "importance-of-data-analysis-2026": {
+    "importance-of-data-analysis-in-business-decisions": {
         title: "The Growing Importance of Data Analysis in Business Decision-Making",
-        slug: "importance-of-data-analysis-2026",
+        slug: "importance-of-data-analysis-in-business-decisions",
         excerpt: "Raw data alone has little value unless analyzed. Explore 10 reasons why data-driven decision-making is a strategic necessity in 2026.",
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "12 min read",
-        coverImage: "/images/blogs/data-analysis-decision-making.png",
+        coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
         intro: "In the digital age, businesses generate and collect massive amounts of data every day. From customer interactions and website traffic to sales reports and operational metrics, organizations now have access to more information than ever before. However, raw data alone has little value unless it is properly analyzed and transformed into actionable insights. Data analysis helps businesses examine information, identify patterns, and make informed decisions based on evidence rather than assumptions. It allows organizations to understand customer behavior, improve efficiency, reduce risks, and discover new growth opportunities.",
         sections: [
             {
@@ -340,7 +318,7 @@ export const blogsData: Record<string, BlogData> = {
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "11 min read",
-        coverImage: "/images/blogs/data-annotation-ai.png",
+        coverImage: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&q=80&w=800",
         intro: "Artificial Intelligence (AI) and Machine Learning (ML) are transforming industries globally. However, behind every successful AI model lies one critical component—high-quality training data. AI systems learn by analyzing large volumes of labeled data, and the process of labeling that data is known as data annotation.",
         sections: [
             {
@@ -402,7 +380,7 @@ export const blogsData: Record<string, BlogData> = {
         date: "Apr 14, 2026",
         category: "blogs",
         readTime: "11 min read",
-        coverImage: "/images/blogs/bpo-efficiency-costs.png",
+        coverImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
         intro: "In today's highly competitive business environment, organizations are constantly looking for ways to improve efficiency, optimize resources, and reduce operational costs. One of the most effective strategies to achieve these goals is Business Process Outsourcing (BPO).",
         sections: [
             {
@@ -454,6 +432,193 @@ export const blogsData: Record<string, BlogData> = {
             {
                 question: "Is outsourcing risky for data privacy?",
                 answer: "It can be if not managed correctly. Choosing a partner with strict compliance certifications (like ISO or GDPR) and robust security protocols is essential to protect your data."
+            }
+        ]
+    },
+    /* Missing items added here */
+    "digital-forensics-government": {
+        title: "Digital Forensics in Government Investigations",
+        slug: "digital-forensics-government",
+        excerpt: "National security depends on digital intelligence. Explore how forensic science supports government agencies in the digital age.",
+        date: "Apr 15, 2026",
+        category: "blogs",
+        readTime: "12 min read",
+        coverImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=800",
+        intro: "Government agencies face unique challenges in the digital age, ranging from national security threats to large-scale regulatory investigations. Digital forensics provides the scientific foundation for identifying and preserving critical digital intelligence.",
+        sections: [
+            {
+                title: "1. Supporting National Security Efforts",
+                content: "Digital forensics is a frontline tool in identifying and neutralizing threats to national digital infrastructure and public safety."
+            },
+            {
+                title: "2. Investigating Regulatory Violations",
+                content: "Agencies use forensic methods to investigate financial irregularities, compliance breaches, and violations of administrative law."
+            },
+            {
+                title: "3. Precision in Public Accountability",
+                content: "Scientific forensic procedures ensure that government investigations remain transparent, documented, and accountable to the public."
+            },
+            {
+                title: "4. Cross-Jurisdictional Digital Cooperation",
+                content: "Standardized forensic protocols allow different government branches and international partners to share and verify digital intelligence effectively."
+            },
+            {
+                title: "5. Protecting Critical Public Infrastructure",
+                content: "Forensic audits help identify vulnerabilities in public utility systems, transportation networks, and government data centers."
+            },
+            {
+                title: "6. Handling Large-Scale Data Seizures",
+                content: "Government investigations often involve massive volumes of data requiring specialized high-speed forensic imaging and analysis pipelines."
+            },
+            {
+                title: "7. Preserving Historical Digital Records",
+                content: "Forensics ensures that important digital government archives remain accessible and uncorrupted for future generations."
+            },
+            {
+                title: "8. Combatting Sophisticated Cyber Espionage",
+                content: "Advanced forensic methodologies are required to detect and trace the complex, multi-stage attack patterns used by nation-state actors."
+            },
+            {
+                title: "9. Establishing Legal Evidence Standards",
+                content: "Government forensic labs set the benchmark for chain-of-custody and verification standards used across the justice system."
+            },
+            {
+                title: "10. Promoting Proactive Forensic Readiness",
+                content: "Agencies are moving toward 'ready-state' forensics, ensuring they have the tools and personnel to respond to digital crises instantly."
+            }
+        ],
+        faqs: [
+            {
+                question: "How does government forensics differ from corporate forensics?",
+                answer: "Government forensics often involves higher stakes related to public safety and must adhere to even stricter constitutional and legal privacy standards."
+            },
+            {
+                question: "Do you collaborate with international agencies?",
+                answer: "While we operate as a private consultant, our methodologies are aligned with INTERPOL and other international standards to support global investigations."
+            }
+        ]
+    },
+    "cybersecurity-essentials": {
+        title: "Cybersecurity Essentials for Modern Enterprises",
+        slug: "cybersecurity-essentials",
+        excerpt: "Don't wait for a breach. Learn the core pillars of security that every modern business must implement to survive.",
+        date: "Apr 15, 2026",
+        category: "blogs",
+        readTime: "11 min read",
+        coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+        intro: "In a world where every business is a digital business, cybersecurity is no longer an IT concern—it's a fundamental operational requirement. Here are the essential pillars of modern enterprise security.",
+        sections: [
+            {
+                title: "1. The Zero-Trust Security Philosophy",
+                content: "Never trust, always verify. Every user and device, whether inside or outside the network, must be continuously authenticated and authorized."
+            },
+            {
+                title: "2. End-to-End Data Encryption",
+                content: "Protect your data at rest and in transit. Encryption ensures that even if data is stolen, it remains useless to the attacker."
+            },
+            {
+                title: "3. Robust Identity and Access Management",
+                content: "Strict control over who can access which systems is the most effective way to prevent lateral movement by malicious actors."
+            },
+            {
+                title: "4. Continuous Vulnerability Management",
+                content: "Regularly scanning your environment and instantly patching known security holes is critical to staying ahead of attackers."
+            },
+            {
+                title: "5. Employee Security Awareness Training",
+                content: "Your team is your first line of defense. Regular training on phishing and social engineering can prevent the majority of incidents."
+            },
+            {
+                title: "6. Secure Network Segmentation",
+                content: "Isolate critical systems from public-facing services to ensure that a breach in one area doesn't lead to a total compromise."
+            },
+            {
+                title: "7. Advanced Endpoint Protection",
+                content: "Modern security tools use AI to detect and block suspicious behavior on laptops, servers, and mobile devices in real-time."
+            },
+            {
+                title: "8. Developing an Incident Response Plan",
+                content: "Hope for the best, but plan for the worst. Having a practiced response plan ensures you can contain a breach quickly and effectively."
+            },
+            {
+                title: "9. Regular and Secure Backups",
+                content: "Immutable backups are the only true defense against ransomware. Ensure your data is backed up frequently and stored in a separate, secure location."
+            },
+            {
+                title: "10. Continuous Monitoring and Threat Hunting",
+                content: "Proactively looking for signs of an intruder rather than waiting for an alert allows you to catch incidents before they cause damage."
+            }
+        ],
+        faqs: [
+            {
+                question: "What is the most important security measure to start with?",
+                answer: "Implementing Multi-Factor Authentication (MFA) across all accounts is the single most effective way to block unauthorized access."
+            },
+            {
+                question: "Is antivirus software still relevant?",
+                answer: "Yes, but traditional antivirus is no longer enough. You need modern Endpoint Detection and Response (EDR) that looks for behavioral patterns, not just known files."
+            }
+        ]
+    },
+    "data-analytics-business-decisions": {
+        title: "Data Analytics for Smarter Business Decisions",
+        slug: "data-analytics-business-decisions",
+        excerpt: "Stop guessing and start measuring. Discover how to turn your raw operational data into a strategic roadmap for growth.",
+        date: "Apr 15, 2026",
+        category: "blogs",
+        readTime: "11 min read",
+        coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+        intro: "Every interaction, transaction, and operation in your business generates data. Data analytics is the art and science of turning that raw noise into the strategic signals you need to lead.",
+        sections: [
+            {
+                title: "1. Moving from Intuition to Intelligence",
+                content: "While intuition has a place, data-backed intelligence provides a more reliable and predictable foundation for strategic growth."
+            },
+            {
+                title: "2. Identifying Key Performance Indicators (KPIs)",
+                content: "Successful analytics starts by identifying exactly which metrics truly drive your business value and focusing your efforts there."
+            },
+            {
+                title: "3. The Power of Descriptive Analytics",
+                content: "Understand exactly what happened in the past to identify successful patterns and avoidable mistakes in your operations."
+            },
+            {
+                title: "4. Gaining Insights with Diagnostic Analytics",
+                content: "Go beyond 'what' happened to understand 'why' it happened, revealing the root causes behind your business successes and failures."
+            },
+            {
+                title: "5. Forecasting with Predictive Analytics",
+                content: "Use historical patterns to predict future trends, allowing you to prepare for market shifts and customer needs before they occur."
+            },
+            {
+                title: "6. Strategic Scaling with Real-Time Data",
+                content: "Real-time dashboards allow you to scale your resources up or down instantly based on live performance and demand signals."
+            },
+            {
+                title: "7. Optimizing Customer Acquisition Costs",
+                content: "Analytics reveals which marketing channels are most efficient, allowing you to allocate your budget where it generates the highest ROI."
+            },
+            {
+                title: "8. Enhancing Operational Productivity",
+                content: "Identify bottlenecks in your workflows to streamline processes and improve the daily output of your teams."
+            },
+            {
+                title: "9. Improving Customer Retention Scores",
+                content: "Analyze churn patterns to identify at-risk customers early and intervene with personalized strategies to keep them."
+            },
+            {
+                title: "10. Achieving Sustainable Competitive Advantage",
+                content: "Consistently making smarter, faster decisions than your competitors is the ultimate hallmark of a data-driven organization."
+            }
+        ],
+        faqs: [
+            {
+                question: "Do I need a large data science team to get started?",
+                answer: "No. Start with simple BI tools and clear business questions. You can scale your analytical capacity as your data maturity grows."
+            },
+            {
+                question: "How do I ensure my data is accurate?",
+                answer: "Establish strong data governance and regular verification checks to ensure the information feeding your analytics remains clean and reliable."
             }
         ]
     }

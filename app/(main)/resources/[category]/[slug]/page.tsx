@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, ChevronDown, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import CTA from '@/app/components/CTA';
-import { blogsData } from '@/app/constants/blogsData';
+import { resourcesData } from '@/app/constants/resourceData';
 
 // Helper to format slugs into readable titles
 function formatSlug(slug: string) {
@@ -34,12 +34,12 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
 
     if (!slug) return <div className="min-h-screen section-bg-dark"></div>;
 
-    const blog = blogsData[slug];
+    const blog = resourcesData[slug];
     const title = blog ? blog.title : formatSlug(slug);
     const categoryTitle = formatSlug(category);
     
     // Logic to find real related blogs
-    const relatedBlogs = Object.values(blogsData)
+    const relatedBlogs = Object.values(resourcesData)
         .filter(b => b.slug !== slug && (b.category === category || b.category === 'blogs'))
         .slice(0, 3);
     
