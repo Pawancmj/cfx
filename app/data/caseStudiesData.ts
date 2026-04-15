@@ -24,7 +24,7 @@ export const caseStudiesList: CaseStudyData[] = [
         industry: "Government / Law Enforcement / Financial Investigation",
         author: "CyberForenX & Associates Team",
         date: "14 July 2024",
-        heroImage: "/hero_analytics.webp",
+        heroImage: "/income-tax.webp",
         contentSections: [
             {
                 id: "objective",
@@ -85,7 +85,7 @@ export const caseStudiesList: CaseStudyData[] = [
         industry: "Government / Financial Compliance",
         author: "CyberForenX & Associates Education",
         date: "22 August 2024",
-        heroImage: "/hero_forensics.webp",
+        heroImage: "/tds.webp",
         contentSections: [
             {
                 id: "objective",

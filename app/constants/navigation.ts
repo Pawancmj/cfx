@@ -243,9 +243,9 @@ export const resourceCategories: MegaCategory[] = [
 ];
 
 const caseStudiesLinks: NavLink[] = [
-    { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/case-studies/government-digital-investigation" },
-    { name: "Financial Compliance & Tax Investigation Support", href: "/case-studies/case-studies/financial-compliance-tax-investigation" },
-    { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/case-studies/enterprise-cybersecurity-risk-assessment" },
+    { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/case-studies/government-digital-investigation", cardImage: "/images/mockups/income-tax.webp" },
+    { name: "Financial Compliance & Tax Investigation Support", href: "/case-studies/case-studies/financial-compliance-tax-investigation", cardImage: "/images/mockups/tds.webp" },
+    { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/case-studies/enterprise-cybersecurity-risk-assessment", cardImage: "/hero_cybersecurity.webp" },
     { name: "Zero-Trust Architecture & Secure Network Infrastructure", href: "/case-studies/case-studies/secure-node-zero-trust", cardImage: "/images/mockups/portrait%20images/SecureNode.png" },
     { name: "Custom Mobile Platforms & User Engagement Systems", href: "/case-studies/case-studies/fitness-track-mobile-platform", cardImage: "/images/mockups/portrait%20images/FitnessTrack.png" },
     { name: "Digital Transformation & Real Estate Web Portals", href: "/case-studies/case-studies/neev-realty-digital-transformation", cardImage: "/images/mockups/portrait%20images/NeevRealty.png" },

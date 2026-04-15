@@ -81,7 +81,7 @@ export default function CaseStudiesClient() {
                 <div className="absolute inset-0 -z-20 overflow-hidden">
                     {/* Core background color to prevent pure black */}
                     <div className="absolute inset-0 bg-[#020617]" />
-                    
+
                     {/* Moving Aurora Orbs */}
                     <motion.div
                         animate={{
@@ -92,7 +92,7 @@ export default function CaseStudiesClient() {
                         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-emerald-500/15 rounded-full blur-[140px] mix-blend-screen"
                     />
-                    
+
                     <motion.div
                         animate={{
                             x: ["10%", "-10%", "10%"],
@@ -102,7 +102,7 @@ export default function CaseStudiesClient() {
                         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen"
                     />
-                    
+
                     <motion.div
                         animate={{
                             x: ["-5%", "5%", "-5%"],
@@ -261,7 +261,8 @@ export default function CaseStudiesClient() {
                                         { name: "Neev Realty", image: "/images/clients/neev-realty.webp" },
                                         { name: "TDS", image: "/images/clients/tds.webp" },
                                         { name: "Teppich", image: "/images/clients/teppich.webp" },
-                                        { name: "Yellowish", image: "/images/clients/yellowish.webp" }
+                                        { name: "Yellowish", image: "/images/clients/yellowish.webp" },
+                                        { name: "St. Andrew's College", image: "/images/clients/st.andrew.png" }
                                     ].map((client, idx) => (
                                         <motion.div
                                             key={client.name}

@@ -27,15 +27,6 @@ const successStories = [
         caseStudySlug: "fitness-track-mobile-platform",
     },
     {
-        client: "NeevRealty",
-        content: "A flawless digital transformation. The new realty portal is incredibly fast, responsive, and has directly contributed to a 40% increase in digital lead generation.",
-        author: "Marketing Director",
-        role: "NeevRealty",
-        image: "/images/mockups/neevrealty.webp",
-        logo: "/images/clients/neev-realty.webp",
-        caseStudySlug: "neev-realty-digital-transformation",
-    },
-    {
         client: "InterviewPrepEdu",
         content: "They architected a scalable, high-performance educational platform that handles thousands of concurrent video sessions seamlessly. Truly a phenomenal engineering partner.",
         author: "Founder & CEO",
@@ -50,7 +41,7 @@ const successStories = [
         author: "IT Director",
         role: "St. Andrew's College",
         image: "/images/mockups/st.-andrews-college.webp",
-        logo: "/images/clients/tds.webp",
+        logo: "/images/clients/st.andrew.png",
         caseStudySlug: "st-andrews-college-infrastructure",
     },
     {
@@ -70,6 +61,24 @@ const successStories = [
         image: "/images/mockups/azal-international.webp",
         logo: "/images/clients/azal-international.webp",
         caseStudySlug: "azal-international-analytics",
+    },
+    {
+        client: "TDS Department",
+        content: "The training program CyberForenX delivered was transformative. Our staff can now navigate SAP ERP systems with an investigative mindset and handle digital evidence independently — reducing our dependency on external consultants significantly.",
+        author: "Director of Operations",
+        role: "TDS (Tax Deducted at Source) Dept.",
+        image: "/images/mockups/tds.webp",
+        logo: "/images/clients/tds.webp",
+        caseStudySlug: "financial-compliance-tax-investigation",
+    },
+    {
+        client: "Income Tax Dept.",
+        content: "Their forensic team provided exceptional support during our search and seizure operations. Evidence was acquired rapidly, legally, and with complete chain-of-custody integrity — every report stood firm under judicial scrutiny.",
+        author: "Deputy Commissioner",
+        role: "Income Tax Dept. (Investigation Wing)",
+        image: "/images/mockups/income-tax.webp",
+        logo: "/images/clients/income-tax.webp",
+        caseStudySlug: "government-digital-investigation",
     }
 ];
 
@@ -200,9 +209,9 @@ export default function Testimonials() {
                                                     <div className="text-[7.5px] sm:text-[10px] text-primary uppercase tracking-[0.2em] font-bold mt-0.5 sm:mt-1 truncate w-full">{activeStory.author}</div>
                                                 </div>
                                             </div>
-                                            
+
                                             {activeStory.caseStudySlug && (
-                                                <Link 
+                                                <Link
                                                     href={`/case-studies/case-studies/${activeStory.caseStudySlug}`}
                                                     className="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/10 border border-primary/20 hover:bg-primary hover:text-black text-primary rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest transition-all group/csbtn shrink-0"
                                                 >
