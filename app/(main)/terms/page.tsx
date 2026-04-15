@@ -27,8 +27,8 @@ export default function TermsOfService() {
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-8">
                                     <FileCheck className="w-4 h-4" /> Terms & Conditions
                                 </div>
-                                <h1 className="text-4xl sm:text-7xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow leading-tight">
-                                    Terms of <br /> <span className="text-gradient-secondary italic pr-6">Service</span>
+                                <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white mb-8 tracking-tight leading-[1.15]">
+                                    Terms of <br /> <span className="text-gradient-secondary inline-block text-[calc(1em-3px)]">Service</span>
                                 </h1>
 
                                 <div className="prose prose-invert max-w-none space-y-8 text-zinc-400 font-medium leading-relaxed">

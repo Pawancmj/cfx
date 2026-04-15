@@ -100,9 +100,9 @@ export default function AboutClient() {
                                 <Sparkles className="w-4 h-4 text-primary" />
                                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
                             </motion.div>
-                            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                            <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
                                 Pioneering the Future of <br />
-                                <span className="text-gradient italic text-glow inline-block pr-6">Digital Intelligence</span>
+                                <span className="text-gradient inline-block text-[calc(1em-3px)]">Digital Intelligence</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                                 Cyberforenx Systems is a global catalyst for digital transformation. We bridge the gap between complex technological challenges and elegant, secure solutions for the modern enterprise.

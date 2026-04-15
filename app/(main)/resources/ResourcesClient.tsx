@@ -128,8 +128,8 @@ function ResourcesContent() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h1 className="text-4xl font-extrabold tracking-tight text-white flex flex-col items-center sm:text-7xl mb-8 leading-[1.2]">
-                                Knowledge <br /> <span className="text-gradient italic text-glow inline-block pr-6">Resources</span>
+                            <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white flex flex-col items-center mb-8 leading-[1.15]">
+                                Knowledge <br /> <span className="text-gradient inline-block text-[calc(1em-3px)]">Resources</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
                                 Insights, guides, and tools crafted by our industry experts to help you navigate complex technological landscapes.

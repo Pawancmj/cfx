@@ -61,7 +61,7 @@ export default function Hero() {
                     >
                         Secure Your Digital Future,{" "}
                         <br className="hidden sm:block" />
-                        <span className="text-gradient inline-block">Empower Innovation.</span>
+                        <span className="text-gradient inline-block text-[calc(1em-3px)]">Empower Innovation.</span>
                     </motion.h1>
 
                     {/* Subheading */}

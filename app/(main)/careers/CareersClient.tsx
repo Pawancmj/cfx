@@ -142,9 +142,9 @@ export default function CareersClient() {
                             <Sparkles className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Join Our Mission</span>
                         </motion.div>
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl mb-10 leading-[1.2] sm:leading-[1.1]">
+                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
                             Scale Your <br />
-                            <span className="text-gradient italic text-glow inline-block pr-6">Potential</span>
+                            <span className="text-gradient inline-block text-[calc(1em-3px)]">Potential</span>
                         </h1>
                         <p className="text-xl leading-relaxed text-zinc-400 max-w-4xl mx-auto font-medium">
                             Cyberforenx is a hub for high-performance innovation. We are looking for passionate individuals to join our global team and work on solving mission-critical technical challenges.
