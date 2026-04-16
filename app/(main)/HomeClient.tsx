@@ -96,37 +96,37 @@ const certifications = [
   {
     name: "ISO 27001",
     description: "Information Security Management System. Ensures the highest standards in protecting sensitive data and mitigating cyber threats.",
-    image: "/images/certifications/iso-27001.png",
+    image: "/images/certifications/iso-27001.webp",
     color: "text-blue-400",
   },
   {
     name: "ISO 9001",
     description: "Quality Management System. Demonstrates our commitment to consistent quality, customer satisfaction, and continuous improvement.",
-    image: "/images/certifications/iso-9001.png",
+    image: "/images/certifications/iso-9001.webp",
     color: "text-cyan-400",
   },
   {
     name: "ISO 20000-1",
     description: "IT Service Management System. Validates our excellence in IT service delivery, support, and operational efficiency.",
-    image: "/images/certifications/iso-20000-1.png",
+    image: "/images/certifications/iso-20000-1.webp",
     color: "text-indigo-400",
   },
   {
     name: "CMMI Level 3 / 5",
     description: "Capability Maturity Model Integration. Demonstrated high maturity in software development and service delivery processes.",
-    image: "/images/certifications/cmmi.png",
+    image: "/images/certifications/cmmi.webp",
     color: "text-purple-400",
   },
   {
     name: "SOC 2 Type II",
     description: "Service Organization Control. Stringent independent audits verifying our security, availability, and processing integrity.",
-    image: "/images/certifications/soc2.png",
+    image: "/images/certifications/soc2.webp",
     color: "text-emerald-400",
   },
   {
     name: "ISO 17025",
     description: "Testing and Calibration Laboratories. Proven competence, impartiality, and consistent operation in laboratory results.",
-    image: "/images/certifications/iso-17025.png",
+    image: "/images/certifications/iso-17025.webp",
     color: "text-amber-400",
   },
 ];
@@ -190,7 +190,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
-    bgImage: "/images/services/realistic_web_dev.png",
+    bgImage: "/images/services/realistic_web_dev.webp",
   },
   {
     id: "forensics",
@@ -204,7 +204,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
-    bgImage: "/images/services/realistic_forensics.png",
+    bgImage: "/images/services/realistic_forensics.webp",
   },
   {
     id: "bpo",
@@ -218,7 +218,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
-    bgImage: "/images/services/realistic_bpo.png",
+    bgImage: "/images/services/realistic_bpo.webp",
   },
   {
     id: "cyber-audit",
@@ -232,7 +232,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
-    bgImage: "/images/services/realistic_cybersecurity.png",
+    bgImage: "/images/services/realistic_cybersecurity.webp",
   },
   {
     id: "analytics",
@@ -246,7 +246,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
-    bgImage: "/images/services/realistic_analytics.png",
+    bgImage: "/images/services/realistic_analytics.webp",
   },
   {
     id: "marketing",
@@ -260,7 +260,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
-    bgImage: "/images/services/realistic_marketing.png",
+    bgImage: "/images/services/realistic_marketing.webp",
   },
 ];
 

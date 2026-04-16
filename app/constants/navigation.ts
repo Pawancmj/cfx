@@ -243,16 +243,16 @@ export const resourceCategories: MegaCategory[] = [
 ];
 
 const caseStudiesLinks: NavLink[] = [
-    { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/case-studies/government-digital-investigation" },
-    { name: "Financial Compliance & Tax Investigation Support", href: "/case-studies/case-studies/financial-compliance-tax-investigation" },
-    { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/case-studies/enterprise-cybersecurity-risk-assessment" },
-    { name: "Zero-Trust Architecture & Secure Network Infrastructure", href: "/case-studies/case-studies/secure-node-zero-trust", cardImage: "/images/mockups/portrait%20images/SecureNode.png" },
-    { name: "Custom Mobile Platforms & User Engagement Systems", href: "/case-studies/case-studies/fitness-track-mobile-platform", cardImage: "/images/mockups/portrait%20images/FitnessTrack.png" },
-    { name: "Digital Transformation & Real Estate Web Portals", href: "/case-studies/case-studies/neev-realty-digital-transformation", cardImage: "/images/mockups/portrait%20images/NeevRealty.png" },
-    { name: "Scalable Educational Platforms & EdTech Solutions", href: "/case-studies/case-studies/interview-prep-edu-scaling", cardImage: "/images/mockups/portrait%20images/InterviewPrepEdu.png" },
-    { name: "Institutional Digital Infrastructure & Modernization", href: "/case-studies/case-studies/st-andrews-college-infrastructure", cardImage: "/images/mockups/portrait%20images/St.%20Andrew's%20College.png" },
-    { name: "Premium E-Commerce Experiences & Digital Luxury Retail", href: "/case-studies/case-studies/teppich-art-ecommerce", cardImage: "/images/mockups/portrait%20images/TeppichArt.png" },
-    { name: "Strategic Data Analytics & Global Operational Solutions", href: "/case-studies/case-studies/azal-international-analytics", cardImage: "/images/mockups/portrait%20images/Azal%20International.png" },
+    { name: "Government Digital Investigation & Evidence Analysis", href: "/case-studies/case-studies/government-digital-investigation", cardImage: "/images/mockups/income-tax.webp" },
+    { name: "Financial Compliance & Tax Investigation Support", href: "/case-studies/case-studies/financial-compliance-tax-investigation", cardImage: "/images/mockups/tds.webp" },
+    { name: "Enterprise Cybersecurity Risk Assessment Projects", href: "/case-studies/case-studies/enterprise-cybersecurity-risk-assessment", cardImage: "/hero_cybersecurity.webp" },
+    { name: "Zero-Trust Architecture & Secure Network Infrastructure", href: "/case-studies/case-studies/secure-node-zero-trust", cardImage: "/images/mockups/portrait%20images/SecureNode.webp" },
+    { name: "Custom Mobile Platforms & User Engagement Systems", href: "/case-studies/case-studies/fitness-track-mobile-platform", cardImage: "/images/mockups/portrait%20images/FitnessTrack.webp" },
+    { name: "Digital Transformation & Real Estate Web Portals", href: "/case-studies/case-studies/neev-realty-digital-transformation", cardImage: "/images/mockups/portrait%20images/NeevRealty.webp" },
+    { name: "Scalable Educational Platforms & EdTech Solutions", href: "/case-studies/case-studies/interview-prep-edu-scaling", cardImage: "/images/mockups/portrait%20images/InterviewPrepEdu.webp" },
+    { name: "Institutional Digital Infrastructure & Modernization", href: "/case-studies/case-studies/st-andrews-college-infrastructure", cardImage: "/images/mockups/portrait%20images/St.%20Andrew's%20College.webp" },
+    { name: "Premium E-Commerce Experiences & Digital Luxury Retail", href: "/case-studies/case-studies/teppich-art-ecommerce", cardImage: "/images/mockups/portrait%20images/TeppichArt.webp" },
+    { name: "Strategic Data Analytics & Global Operational Solutions", href: "/case-studies/case-studies/azal-international-analytics", cardImage: "/images/mockups/portrait%20images/Azal%20International.webp" },
 ];
 
 const caseStudiesClientsLinks: NavLink[] = [
