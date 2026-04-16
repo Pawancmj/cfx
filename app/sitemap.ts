@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://cyberforenx.com';
+  const baseUrl = 'https://CyberForenX.in';
 
   // Base routes
   const routes = [
