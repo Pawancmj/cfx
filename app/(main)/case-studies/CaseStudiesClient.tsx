@@ -262,7 +262,7 @@ export default function CaseStudiesClient() {
                                         { name: "TDS", image: "/images/clients/tds.webp" },
                                         { name: "Teppich", image: "/images/clients/teppich.webp" },
                                         { name: "Yellowish", image: "/images/clients/yellowish.webp" },
-                                        { name: "St. Andrew's College", image: "/images/clients/st.andrew.png" }
+                                        { name: "St. Andrew's College", image: "/images/clients/st.andrew.webp" }
                                     ].map((client, idx) => (
                                         <motion.div
                                             key={client.name}

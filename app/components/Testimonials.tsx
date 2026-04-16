@@ -41,7 +41,7 @@ const successStories = [
         author: "IT Director",
         role: "St. Andrew's College",
         image: "/images/mockups/st.-andrews-college.webp",
-        logo: "/images/clients/st.andrew.png",
+        logo: "/images/clients/st.andrew.webp",
         caseStudySlug: "st-andrews-college-infrastructure",
     },
     {
@@ -135,7 +135,7 @@ export default function Testimonials() {
                 <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] h-auto sm:h-[450px] lg:h-[500px] flex items-stretch group/banner">
 
                     {/* Background Texture Overlay */}
-                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
+                    <div className="absolute inset-0 bg-[url('/noise.webp')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div>
                     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent z-40"></div>
 
                     {/* Edge-to-Edge Background Image */}

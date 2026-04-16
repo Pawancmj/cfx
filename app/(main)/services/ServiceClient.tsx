@@ -41,7 +41,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
-    bgImage: "/images/services/realistic_web_dev.png",
+    bgImage: "/images/services/realistic_web_dev.webp",
   },
   {
     id: "forensics",
@@ -55,7 +55,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
-    bgImage: "/images/services/realistic_forensics.png",
+    bgImage: "/images/services/realistic_forensics.webp",
   },
   {
     id: "bpo",
@@ -69,7 +69,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
-    bgImage: "/images/services/realistic_bpo.png",
+    bgImage: "/images/services/realistic_bpo.webp",
   },
   {
     id: "cyber-audit",
@@ -83,7 +83,7 @@ const services = [
     bgColor: "bg-primary/10",
     borderColor: "hover:border-primary/40",
     activeBorder: "border-primary/50",
-    bgImage: "/images/services/realistic_cybersecurity.png",
+    bgImage: "/images/services/realistic_cybersecurity.webp",
   },
   {
     id: "analytics",
@@ -97,7 +97,7 @@ const services = [
     bgColor: "bg-secondary/10",
     borderColor: "hover:border-secondary/40",
     activeBorder: "border-secondary/50",
-    bgImage: "/images/services/realistic_analytics.png",
+    bgImage: "/images/services/realistic_analytics.webp",
   },
   {
     id: "marketing",
@@ -111,7 +111,7 @@ const services = [
     bgColor: "bg-accent/10",
     borderColor: "hover:border-accent/40",
     activeBorder: "border-accent/50",
-    bgImage: "/images/services/realistic_marketing.png",
+    bgImage: "/images/services/realistic_marketing.webp",
   },
 ];
 

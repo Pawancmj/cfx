@@ -71,7 +71,7 @@ export default function TermsOfService() {
                     <div className="lg:col-span-5 lg:sticky lg:top-32 group">
                         <div className="relative h-[400px] sm:h-[600px] w-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                             <Image
-                                src="/images/illustrations/privacy-legal.png"
+                                src="/images/illustrations/privacy-legal.webp"
                                 alt="Terms and Service Illustration"
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-75 group-hover:brightness-100"
