@@ -24,18 +24,19 @@ export default function ContactClient() {
         setErrorMsg("");
 
         try {
-            const res = await fetch("/api/contact", {
+            const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+            const res = await fetch(`${strapiUrl}/api/contact-submissions`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formState),
+                body: JSON.stringify({ data: formState }),
             });
 
             const data = await res.json();
-            if (data.success) {
+            if (res.ok) {
                 setIsSuccess(true);
                 setFormState({ name: "", email: "", industry: "", message: "" });
             } else {
-                setErrorMsg(data.error || "Something went wrong.");
+                setErrorMsg(data.error?.message || "Something went wrong.");
             }
         } catch (error) {
             setErrorMsg("Failed to send message. Please try again later.");

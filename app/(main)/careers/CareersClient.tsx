@@ -38,9 +38,10 @@ export default function CareersClient() {
     useEffect(() => {
         const fetchVacancies = async () => {
             try {
-                const res = await fetch("/api/internships/vacancies");
+                const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+                const res = await fetch(`${strapiUrl}/api/vacancies`);
                 const json = await res.json();
-                if (json.success) {
+                if (res.ok) {
                     setVacancies(json.data.filter((v: any) => v.is_active));
                 }
             } catch (err) {
@@ -86,27 +87,41 @@ export default function CareersClient() {
 
         setIsSubmitting(true);
 
-        const formData = new FormData(e.currentTarget);
-        formData.append("role", selectedRole);
+        const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+        const formFields = new FormData(e.currentTarget);
         
-        // Rename file to 'apply.pdf' as requested
+        // Prepare Strapi Multi-part data
+        const data = {
+            name: formFields.get("name"),
+            email: formFields.get("email"),
+            phone: formFields.get("phone"),
+            university: formFields.get("university"),
+            degree: formFields.get("degree"),
+            linkedin_url: formFields.get("linkedin"),
+            role: selectedRole
+        };
+
+        const submissionData = new FormData();
+        submissionData.append("data", JSON.stringify(data));
+        
+        // Rename file to 'apply.pdf'
         const renamedFile = new File([resumeFile], "apply.pdf", { type: resumeFile.type });
-        formData.append("resume", renamedFile);
+        submissionData.append("files.resume", renamedFile);
 
         try {
-            const res = await fetch("/api/internships", {
+            const res = await fetch(`${strapiUrl}/api/internship-applications`, {
                 method: "POST",
-                body: formData
+                body: submissionData
             });
 
-            const data = await res.json();
-            if (data.success) {
+            const json = await res.json();
+            if (res.ok) {
                 setIsSuccess(true);
                 setTimeout(() => {
                     handleCloseModal();
                 }, 3000);
             } else {
-                setErrorMsg(data.error || "Failed to submit application.");
+                setErrorMsg(json.error?.message || "Failed to submit application.");
             }
         } catch (error) {
             setErrorMsg("An error occurred during submission. Please try again.");
