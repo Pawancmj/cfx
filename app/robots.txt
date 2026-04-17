@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://cyberforenx.com/sitemap.xml
+Sitemap: https://CyberForenX.in/sitemap.xml
