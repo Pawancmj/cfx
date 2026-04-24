@@ -200,7 +200,7 @@ export default function ContactClient() {
                                             <option value="healthcare" className="bg-zinc-900">Healthcare & Life Sciences</option>
                                             <option value="ecommerce" className="bg-zinc-900">E-commerce & Retail</option>
                                             <option value="tech" className="bg-zinc-900">Technology & SaaS</option>
-                                            <option value="goverment" className="bg-zinc-900">Public Sector & Legal</option>
+                                            <option value="government" className="bg-zinc-900">Public Sector & Legal</option>
                                             <option value="other" className="bg-zinc-900">Other Enterprises</option>
                                         </select>
                                         <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-40 transition-transform duration-300" style={{ transform: isIndustryOpen ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)' }}>

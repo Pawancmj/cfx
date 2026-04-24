@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   authors: [{ name: "CyberForenX & Associates" }],
   creator: "CyberForenX & Associates",
   publisher: "CyberForenX & Associates",
-  metadataBase: new URL("https://CyberForenX.in"),
+  metadataBase: new URL("https://www.cyberforenx.in"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "CyberForenX & Associates - Digital Forensics & Web Development",
     description: "Securing your digital future with cutting-edge web development and forensic intelligence.",
-    url: "https://CyberForenX.in",
+    url: "https://www.cyberforenx.in",
     siteName: "CyberForenX & Associates",
     locale: "en_US",
     type: "website",

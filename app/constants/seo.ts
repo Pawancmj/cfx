@@ -3,8 +3,8 @@ import { Metadata } from "next";
 export const siteConfig = {
     name: "CyberForenX & Associates",
     description: "Enterprise-grade cybersecurity, digital forensics, and strategic tech solutions.",
-    url: "https://CyberForenX.in",
-    ogImage: "https://CyberForenX.in/og-image.webp",
+    url: "https://www.cyberforenx.in",
+    ogImage: "https://www.cyberforenx.in/og-image.webp",
     links: {
         twitter: "https://twitter.com/cyberforenx",
         github: "https://github.com/cyberforenx",
