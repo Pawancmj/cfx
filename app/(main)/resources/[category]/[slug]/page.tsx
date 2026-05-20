@@ -303,7 +303,9 @@ export default function ResourceDynamicPage({
                         </div>
 
                         {/* FAQ */}
-                        {blog?.faqs?.length > 0 && (
+                        {/* {blog?.faqs?.length > 0 && ( */}
+                            
+                            {(blog?.faqs?.length ?? 0) > 0 && (
                             <div
                                 id="faqs"
                                 className="mt-24 pt-16 border-t border-white/10 scroll-mt-32"
@@ -319,7 +321,8 @@ export default function ResourceDynamicPage({
                                 </div>
 
                                 <div className="space-y-4">
-                                    {blog.faqs.map((faq, idx) => (
+                                    {/* {blog.faqs.map((faq, idx) => ( */}
+{(blog?.faqs ?? []).map((faq, idx) => (
                                         <details
                                             key={idx}
                                             className="group glass-card rounded-2xl border-white/5 hover:border-white/10 transition-all [&_summary::-webkit-details-marker]:hidden"
