@@ -37,6 +37,7 @@ export default function Footer() {
                                             src="/logo.png"
                                             alt="CyberForenX Logo"
                                             fill
+                                            sizes="200px"
                                             className="object-contain p-2"
                                             priority
                                         />

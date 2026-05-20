@@ -62,6 +62,7 @@ export default function Navbar() {
               src="/logo.png"
               alt="CyberForenX Logo"
               fill
+              sizes="200px"
               className="object-contain p-1.5 sm:p-2"
               priority
             />
