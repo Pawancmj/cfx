@@ -81,7 +81,7 @@ export default function ParticleBackground() {
             density: {
               enable: true,
             },
-            value: 180, // Increased default particle count
+            value: 80, // Increased default particle count
           },
           opacity: {
             value: 0.6,

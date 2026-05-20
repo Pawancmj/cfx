@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, CheckCircle, Award, Shield } from "lucide-react";
 import CTA from "@/app/components/CTA";
+import Image from "next/image";
 
 const certifications = [
     {
@@ -88,11 +89,20 @@ export default function CertificationClient() {
                             transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
                             className="group relative isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-white/5 border border-white/10 pt-56 sm:pt-48 hover:border-primary/50 transition-all duration-500 shadow-xl cursor-default"
                         >
-                            <img
+                            {/* <img
                                 src={cert.image}
                                 alt={cert.name}
                                 className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
-                            />
+                            /> */}
+
+                            <Image
+    src={cert.image}
+    alt={cert.name}
+    fill
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
+    
+/>
 
                             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#05080a] via-[#05080a]/90 to-transparent opacity-100 transition-opacity duration-500 group-hover:opacity-90" />
 

@@ -34,7 +34,7 @@ export default function Footer() {
                                     {/* Solid White Squircle Background with Glow */}
                                     <div className="relative shrink-0 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-300 mr-4 sm:mr-5 group-hover:scale-105 overflow-hidden">
                                         <Image
-                                            src="/logo.webp"
+                                            src="/logo.png"
                                             alt="CyberForenX Logo"
                                             fill
                                             className="object-contain p-2"

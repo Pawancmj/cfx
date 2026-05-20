@@ -1,13 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
 import Link from "next/link";
-
-const ParticleBackground = dynamic(() => import("./ParticleBackground"), {
-    ssr: false,
-});
+import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
     return (

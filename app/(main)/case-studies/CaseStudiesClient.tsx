@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Cpu, Lock, Activity, Globe, Zap, ChevronRight } from "lucide-react";
 import { caseStudiesCategories } from "../../constants/navigation";
 import TestimonialStack from "@/app/components/TestimonialStack";
-
+import Image from "next/image";
 const SECTORS = ["Government", "Enterprise", "Financial", "Security", "E-Commerce"];
 
 const ADVANTAGES = [
@@ -275,11 +275,19 @@ export default function CaseStudiesClient() {
                                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                             <div className="relative z-10 w-full h-full flex flex-col items-center justify-between pointer-events-none">
                                                 <div className="h-24 sm:h-28 w-full flex items-center justify-center mb-4 transition-all duration-500 pointer-events-auto">
-                                                    <img
+                                                    {/* <img
                                                         src={client.image}
                                                         alt={`${client.name} logo`}
                                                         className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-sm"
-                                                    />
+                                                    /> */}
+
+                                                    <Image
+    src={client.image}
+    alt={`${client.name} logo`}
+    width={200}
+    height={100}
+    className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-sm"
+/>
                                                 </div>
                                                 <h4 className="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] text-center group-hover:text-zinc-950 transition-colors duration-500 mt-auto">
                                                     {client.name}
@@ -315,18 +323,37 @@ export default function CaseStudiesClient() {
                                                 >
                                                     <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0 bg-[#080c10]">
                                                         {/* Blurred background to fill aspect ratio mismatch */}
-                                                        <img
+                                                        {/* <img
                                                             src={cardImage}
                                                             alt=""
                                                             className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125"
                                                             aria-hidden="true"
                                                         />
                                                         {/* Sharp contained foreground image */}
-                                                        <img
+                                                        {/* <img
                                                             src={cardImage}
                                                             alt={link.name}
                                                             className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700 z-10"
-                                                        />
+                                                        /> */} 
+
+                                                        {/* Blurred background image */}
+<Image
+    src={cardImage}
+    alt=""
+    fill
+    aria-hidden="true"
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="absolute inset-0 object-cover blur-2xl opacity-40 scale-125"
+/>
+
+{/* Sharp contained foreground image */}
+<Image
+    src={cardImage}
+    alt={link.name}
+    fill
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="absolute inset-0 object-contain p-4 group-hover:scale-105 transition-transform duration-700 z-10"
+/>
                                                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
                                                         <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-20">
                                                             <Globe className="w-5 h-5 text-primary" />
