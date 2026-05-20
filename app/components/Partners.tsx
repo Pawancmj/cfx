@@ -6,18 +6,18 @@ export default function Partners() {
   const partners = [
     {
       name: "Amazon Web Services",
-      logo: "/logos/amazon.svg",
-      bgClass: "bg-[#fff9f0]",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+      bgClass: "bg-[#fff9f0]", // Light orange/beige
     },
     {
       name: "Microsoft",
-      logo: "/logos/microsoft.svg",
-      bgClass: "bg-[#f0f7ff]",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+      bgClass: "bg-[#f0f7ff]", // Light blue
     },
     {
       name: "Google Cloud",
-      logo: "/logos/google.svg",
-      bgClass: "bg-[#f0fdf4]",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      bgClass: "bg-[#f0fdf4]", // Light green
     },
   ];
 

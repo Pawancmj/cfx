@@ -8,12 +8,6 @@
     "start": "next start",
     "lint": "eslint"
   },
-  "browserslist": [
-    "chrome >= 87",
-    "firefox >= 78",
-    "safari >= 14",
-    "edge >= 88"
-  ],
   "dependencies": {
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/react": "^3.0.0",
@@ -34,7 +28,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "critters": "^0.0.23",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
@@ -42,4 +35,3 @@
     "typescript": "^5"
   }
 }
-
