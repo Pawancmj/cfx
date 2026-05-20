@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, LayoutGrid } from "lucide-react";
 import { MegaCategory, toSlug } from "@/app/constants/navigation";
+import Image from "next/image";
 
 interface DesktopMegaMenuProps {
     label: string;
@@ -43,7 +44,7 @@ export default function DesktopMegaMenu({
         <div
             className="group h-full flex items-center"
             onMouseEnter={() => setIsForceHidden(false)}
-            onMouseLeave={() => setIsForceHidden(false)}
+            onMouseLeave={() => setIsForceHidden(true)}
         >
             <Link
                 href={href}
@@ -134,7 +135,14 @@ export default function DesktopMegaMenu({
 
                                             {subLink.image && (
                                                 <div className="w-12 h-12 shrink-0 bg-white rounded-md p-1.5 flex items-center justify-center shadow-inner group-hover/link:scale-105 transition-transform duration-300">
-                                                    <img src={subLink.image} alt={subLink.name} className="max-w-full max-h-full object-contain" />
+                                                    {/* <img src={subLink.image} alt={subLink.name} className="max-w-full max-h-full object-contain" /> */}
+                                                   <Image
+    src={subLink.image}
+    alt={subLink.name}
+    width={48}
+    height={48}
+    className="max-w-full max-h-full object-contain"
+/>
                                                 </div>
                                             )}
 

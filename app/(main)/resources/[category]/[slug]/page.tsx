@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowLeft, BookOpen, Clock, Tag, ChevronRight, ChevronDown, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import CTA from '@/app/components/CTA';
 import { resourcesData } from '@/app/constants/resourceData';
-
+import Image from 'next/image';
 // Helper to format slugs into readable titles
 function formatSlug(slug: string) {
     return slug
@@ -15,9 +15,17 @@ function formatSlug(slug: string) {
         .join(' ');
 }
 
-export default function ResourceDynamicPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
-    const [slug, setSlug] = useState<string>("");
-    const [category, setCategory] = useState<string>("");
+// export default function ResourceDynamicPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
+//     const [slug, setSlug] = useState<string>("");
+//     const [category, setCategory] = useState<string>("");
+
+export default function ResourceDynamicPage({
+    params,
+}: {
+    params: { category: string; slug: string };
+}) {
+
+    const { slug, category } = params;
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -25,14 +33,14 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
         restDelta: 0.001
     });
 
-    useEffect(() => {
-        params.then(p => {
-            setSlug(p.slug);
-            setCategory(p.category);
-        });
-    }, [params]);
+    // useEffect(() => {
+    //     params.then(p => {
+    //         setSlug(p.slug);
+    //         setCategory(p.category);
+    //     });
+    // }, [params]);
 
-    if (!slug) return <div className="min-h-screen section-bg-dark"></div>;
+    // if (!slug) return <div className="min-h-screen section-bg-dark"></div>;
 
     const blog = resourcesData[slug];
     const title = blog ? blog.title : formatSlug(slug);
@@ -151,12 +159,21 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
                             className="relative w-full max-w-4xl h-[240px] sm:h-[320px] lg:h-[350px] mb-16 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] bg-[#0a0f14] group"
                         >
                             <div className="absolute inset-0 bg-gradient-to-t from-[#05080a] via-transparent to-transparent z-10 pointer-events-none opacity-60"></div>
-                            <img
+                            {/* <img
                                 src={heroImage}
                                 alt={`${title} banner`}
                                 className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
                                 loading="lazy"
-                            />
+                            /> */}
+
+                            <Image
+    src={heroImage}
+    alt={`${title} banner`}
+    fill
+    priority
+    sizes="(max-width: 768px) 100vw, 1200px"
+    className="absolute inset-0 object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+/>
                         </motion.div>
 
                         {/* Article Intro */}
@@ -202,7 +219,15 @@ export default function ResourceDynamicPage({ params }: { params: Promise<{ cate
                                             </div>
                                             {section.image && (
                                                 <div className="mt-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 p-1">
-                                                    <img src={section.image} alt={section.title} className="w-full h-auto rounded-xl object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+                                                    {/* <img src={section.image} alt={section.title} className="w-full h-auto rounded-xl object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" /> */}
+                                                 <Image
+    src={section.image}
+    alt={section.title}
+    width={1200}
+    height={700}
+    sizes="100vw"
+    className="w-full h-auto rounded-xl object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+/>
                                                 </div>
                                             )}
                                         </div>
