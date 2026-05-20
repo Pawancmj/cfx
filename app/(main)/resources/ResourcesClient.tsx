@@ -8,7 +8,7 @@ import { ArrowRight, BookOpen, Globe, ChevronRight } from "lucide-react";
 import { resourceCategories } from "../../constants/navigation";
 import { resourcesData } from "../../constants/resourceData";
 import { cn } from "../../../lib/utils";
-
+import Image from "next/image";
 function ResourcesContent() {
     const searchParams = useSearchParams();
     const filterParam = searchParams.get("filter");
@@ -222,11 +222,19 @@ function ResourcesContent() {
                                             className="group flex flex-col sm:flex-row gap-6 items-stretch glass-card rounded-[2rem] overflow-hidden hover:bg-white/10 transition-all border-white/5 hover:border-white/10 h-full p-0"
                                         >
                                             <div className="relative w-full sm:w-2/5 min-h-[200px] overflow-hidden shrink-0">
-                                                <img 
+                                                {/* <img 
                                                     src={cardImage} 
                                                     alt={link.name} 
                                                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                                />
+                                                /> */}
+                                                <Image
+    src={cardImage}
+    alt={link.name}
+    fill
+    priority={idx < 2}
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="absolute inset-0 object-cover group-hover:scale-110 transition-transform duration-700"
+/>
                                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
                                                 <div className="absolute top-4 left-4 p-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 z-10">
                                                     <Globe className="w-5 h-5 text-primary" />

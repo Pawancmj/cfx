@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 export default function Partners() {
   const partners = [
     {
@@ -47,11 +47,19 @@ export default function Partners() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`flex items-center justify-center p-8 sm:p-12 h-40 md:h-48 w-full rounded-2xl ${partner.bgClass} shadow-xl hover:-translate-y-2 transition-transform duration-300 cursor-pointer group`}
             >
-              <img
+              {/* <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
                 className="w-32 md:w-44 object-contain group-hover:scale-105 transition-transform duration-500"
-              />
+              /> */}
+              <Image
+    src={partner.logo}
+    alt={`${partner.name} logo`}
+    width={176}
+    height={80}
+    sizes="(max-width: 768px) 128px, 176px"
+    className="w-32 md:w-44 object-contain group-hover:scale-105 transition-transform duration-500"
+/>
             </motion.div>
           ))}
         </div>
