@@ -79,7 +79,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-7 h-full static">
+        <div className="hidden xl:flex items-center gap-7 h-full static">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
@@ -214,7 +214,7 @@ export default function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:block shrink-0">
+        <div className="hidden xl:block shrink-0">
           <Link href="/contact" className="btn-primary text-xs uppercase tracking-widest px-8">
             Get Started
           </Link>
@@ -222,7 +222,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-zinc-300 hover:text-primary transition-colors shrink-0"
+          className="xl:hidden text-zinc-300 hover:text-primary transition-colors shrink-0"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Navigation"
         >
@@ -232,7 +232,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="absolute top-full w-[92%] sm:w-[95%] left-1/2 -translate-x-1/2 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 lg:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
+        <div className="absolute top-full w-[92%] sm:w-[95%] left-1/2 -translate-x-1/2 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 xl:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
