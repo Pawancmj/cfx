@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Code, Shield, Zap, Smartphone, Layout, Database,
 import { Metadata } from "next";
 import { servicesData } from "@/app/data/servicesData";
 import { MotionDiv } from "@/app/components/Motion";
+import { ProcessTimeline } from "@/app/components/ProcessTimeline";
 
 interface PageProps {
     params: Promise<{
@@ -196,59 +197,25 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
             {/* Process Section */}
             {detailData.process && (
-                <section className="py-24 md:py-32 relative z-10 border-t border-white/5 bg-zinc-950/50">
-                    <div className="container mx-auto px-6 lg:px-8">
-                        <div className="mb-24">
-                            <MotionDiv
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-center mb-20 max-w-3xl mx-auto"
-                            >
-                                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Process</h2>
-                                <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">How We Deliver</h3>
-                                <p className="text-zinc-400 text-lg font-medium leading-relaxed tracking-wide">A systematic approach to delivering robust solutions with security built-in from day one.</p>
-                            </MotionDiv>
-
-                            <div className="relative space-y-16 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-white/5">
-                                {detailData.process.map((step, index) => {
-                                    // Extract just the number from the step string, defaulting to index + 1 if no number
-                                    const stepNum = step.step.replace(/\D/g, '') || `0${index + 1}`;
-                                    const formattedNum = stepNum.length === 1 ? `0${stepNum}` : stepNum;
-
-                                    return (
-                                        <div
-                                            key={index}
-                                            className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-                                        >
-                                            {/* Center Node */}
-                                            <div className="flex items-center justify-center w-12 h-12 rounded-2xl border border-white/10 bg-zinc-950 text-primary font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_20px_rgba(0,0,0,0.8)] z-10 relative group-hover:scale-110 group-hover:border-primary/40 transition-all">
-                                                {formattedNum}
-                                            </div>
-
-                                            {/* Content Card */}
-                                            <MotionDiv
-                                                initial={{ opacity: 0, x: index % 2 === 0 ? 40 : -40, y: 20 }}
-                                                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                                viewport={{ once: true, margin: "-100px" }}
-                                                transition={{ duration: 0.8, delay: index * 0.1 }}
-                                                className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-8 rounded-[2rem] glass-card hover:bg-white/10 transition-all duration-500 border-white/5 group-hover:border-primary/20 flex flex-col items-start"
-                                            >
-                                                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-4 uppercase">
-                                                    {step.title}
-                                                </h3>
-                                                <p className="text-zinc-400 leading-relaxed font-medium italic text-base group-hover:text-zinc-300 transition-colors">
-                                                    {step.desc}
-                                                </p>
-                                            </MotionDiv>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <ProcessTimeline
+                    steps={detailData.process.map(s => ({
+                        title: s.title,
+                        description: s.desc,
+                    }))}
+                    header={
+                        <MotionDiv
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-center mb-20 max-w-3xl mx-auto"
+                        >
+                            <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Process</h2>
+                            <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">How We Deliver</h3>
+                            <p className="text-zinc-400 text-lg font-medium leading-relaxed tracking-wide">A systematic approach to delivering robust solutions with security built-in from day one.</p>
+                        </MotionDiv>
+                    }
+                />
             )}
 
             {/* Portfolio Section */}

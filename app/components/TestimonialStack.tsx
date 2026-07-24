@@ -33,7 +33,7 @@ export default function TestimonialStack({ testimonials }: TestimonialStackProps
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Success Stories</h2>
-                    <h3 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
+                    <h3 className="text-4xl md:text-6xl font-extralight text-white mb-8 leading-[1.05]">
                         Real Impact <br />
                         <span className="text-gradient italic">Unleashed</span>
                     </h3>

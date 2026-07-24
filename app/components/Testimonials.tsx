@@ -111,18 +111,17 @@ export default function Testimonials() {
     const activeStory = successStories[activeIndex];
 
     return (
-        <section className="relative py-6 md:py-8 section-bg-dark overflow-hidden border-t border-white/5 shadow-inner">
-            {/* Ambient Dark Theme Glowing Effect */}
+        <section className="relative py-14 md:py-20 section-bg-dark overflow-hidden border-t border-white/5 shadow-inner">
             <div className="absolute right-[5%] top-1/2 -z-10 h-[800px] w-[800px] -translate-y-1/2 bg-primary/5 blur-[200px] rounded-full pointer-events-none"></div>
-            <div className="absolute left-[5%] bottom-[5%] -z-10 h-[600px] w-[600px] bg-secondary/5 blur-[150px] rounded-full pointer-events-none"></div>
+            <div className="absolute left-[5%] bottom-[5%] -z-10 h-[600px] w-[600px] bg-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
             <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none z-0"></div>
 
             <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full shrink-0">
-                <div className="mx-auto max-w-3xl text-center relative mb-6">
+                <div className="mx-auto max-w-3xl text-center relative mb-10">
                     <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">
                         Success Stories
                     </h2>
-                    <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
+                    <h3 className="text-3xl font-extralight tracking-tight text-white sm:text-5xl leading-[1.1]">
                         Client Reactions to Our <br className="hidden sm:block" />
                         <span className="text-gradient italic pb-1 inline-block pr-2">Transformative Solutions</span>
                     </h3>
@@ -132,7 +131,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Single, Unified Full-Bleed Background Container — fixed height to prevent layout jump */}
-                <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] h-auto sm:h-[450px] lg:h-[500px] flex items-stretch group/banner">
+                <div className="relative w-full rounded-[2rem] sm:rounded-[3rem] bg-zinc-950 border border-primary/15 overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.85),0_0_40px_rgba(124,58,237,0.12)] h-auto sm:h-[450px] lg:h-[500px] flex items-stretch group/banner">
 
                     {/* Background Texture Overlay */}
                     {/* <div className="absolute inset-0 bg-[url('/noise.webp')] opacity-[0.03] mix-blend-overlay pointer-events-none z-0"></div> */}
@@ -185,7 +184,7 @@ export default function Testimonials() {
                                     >
                                         <div className="flex gap-1.5 mb-4 sm:mb-8">
                                             {[...Array(5)].map((_, i) => (
-                                                <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 fill-primary text-primary drop-shadow-[0_0_8px_rgba(0,242,255,0.4)]" />
+                                                <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 fill-primary text-primary drop-shadow-[0_0_8px_rgba(124,58,237,0.45)]" />
                                             ))}
                                         </div>
 
@@ -247,7 +246,7 @@ export default function Testimonials() {
                                         className={cn(
                                             "h-1.5 sm:h-2 rounded-full transition-all duration-500 flex-1",
                                             i === activeIndex
-                                                ? "bg-primary shadow-[0_0_10px_rgba(0,242,255,0.7)]"
+                                                ? "bg-primary shadow-[0_0_10px_rgba(124,58,237,0.7)]"
                                                 : "bg-white/10 hover:bg-white/30"
                                         )}
                                         aria-label={`Go to client ${i + 1}`}

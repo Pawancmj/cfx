@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary relative`}
+        className={`${inter.variable} antialiased bg-background text-foreground selection:bg-accent/20 selection:text-accent relative`}
         suppressHydrationWarning
       >
         {children}

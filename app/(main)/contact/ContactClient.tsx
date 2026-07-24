@@ -67,7 +67,7 @@ export default function ContactClient() {
                             <Sparkles className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Strategic Engagement</span>
                         </motion.div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
+                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
                             Architecting the <br />
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Future</span>
                         </h1>

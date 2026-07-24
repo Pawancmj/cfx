@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
 import DesktopMegaMenu from "./navbar/DesktopMegaMenu";
 import MobileAccordion from "./navbar/MobileAccordion";
+import { BrandLogo } from "./BrandLogo";
 import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategories, caseStudiesCategories } from "@/app/constants/navigation";
 
 export default function Navbar() {
@@ -54,29 +55,7 @@ export default function Navbar() {
         }`}
     >
       <div className="flex items-center justify-between h-full w-full container mx-auto px-4 sm:px-6 md:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center group shrink-0 w-auto">
-          {/* Solid White Squircle Background with Glow */}
-          <div className="relative shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-[0.85rem] sm:rounded-2xl shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_18px_rgba(255,255,255,0.6)] transition-all duration-300 mr-3 sm:mr-4 group-hover:scale-105 overflow-hidden">
-            <Image
-              src="/logo.png"
-              alt="CyberForenX Logo"
-              fill
-              sizes="200px"
-              className="object-contain p-1.5 sm:p-2"
-              priority
-            />
-          </div>
-
-          <div className="flex flex-col justify-center">
-            <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors whitespace-nowrap leading-none">
-              CyberForenX
-            </span>
-            <span className="self-center text-[10px] sm:text-[11px] font-bold tracking-widest text-zinc-400 group-hover:text-white transition-colors whitespace-nowrap uppercase mt-1">
-              & Associates
-            </span>
-          </div>
-        </Link>
+        <BrandLogo />
 
         {/* Desktop Links */}
         <div className="hidden xl:flex items-center gap-7 h-full static">
@@ -177,13 +156,13 @@ export default function Navbar() {
                       {/* Right Links Column */}
                       <div className="w-2/3 p-10 grid grid-cols-2 gap-x-12 gap-y-4">
                         {companySubLinks.map((sub) => (
-                          <Link
+                            <Link
                             key={sub.name}
                             href={sub.href}
                             onClick={(e) => handleLinkClick(e, sub.href)}
                             className="group/sub flex flex-col p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10 hover:shadow-lg"
                           >
-                            <h6 className="text-sm font-bold text-white group-hover/sub:text-primary transition-colors tracking-widest uppercase mb-1 flex items-center gap-2">
+                            <h6 className="text-sm font-bold text-white tracking-widest uppercase mb-1 flex items-center gap-2">
                               {sub.name}
                             </h6>
                             <span className="text-[10px] text-zinc-500 font-medium tracking-wide">
@@ -222,7 +201,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="xl:hidden text-zinc-300 hover:text-primary transition-colors shrink-0"
+          className="xl:hidden text-zinc-400 hover:text-white/80 transition-colors shrink-0"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Navigation"
         >

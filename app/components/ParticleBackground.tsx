@@ -29,43 +29,24 @@ export default function ParticleBackground() {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           detectsOn: "window",
           events: {
             onHover: {
-              enable: true,
-              mode: "grab",
+              enable: false,
             },
             onClick: {
-              enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            grab: {
-              distance: 250,
-              links: {
-                opacity: 0.6,
-                color: "#10b981", // Emerald on hover
-              },
-            },
-            push: {
-              quantity: 3,
+              enable: false,
             },
           },
         },
         particles: {
           color: {
-            // Mix of primary blue and emerald/cyan for cyber feel
-            value: ["#0ea5e9", "#10b981", "#38bdf8"],
+            value: "#6d28d9",
           },
           links: {
-            color: "#38bdf8",
-            distance: 180,
-            enable: true,
-            opacity: 0.15,
-            width: 1,
+            enable: false,
           },
           move: {
             direction: "none",
@@ -74,26 +55,26 @@ export default function ParticleBackground() {
               default: "out",
             },
             random: true,
-            speed: 0.8,
+            speed: 0.15,
             straight: false,
           },
           number: {
             density: {
               enable: true,
             },
-            value: 80, // Increased default particle count
+            value: 18,
           },
           opacity: {
-            value: 0.6,
+            value: 0.12,
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 0.5, max: 2 },
           },
         },
-        detectRetina: true,
+        detectRetina: false,
       }}
     />
   );

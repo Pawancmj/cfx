@@ -68,7 +68,7 @@ export default function CertificationClient() {
                             <ShieldCheck className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Compliance</span>
                         </motion.div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white mb-10 leading-[1.15]">
+                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
                             Uncompromising <br />
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Security Standards</span>
                         </h1>

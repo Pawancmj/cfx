@@ -348,8 +348,8 @@ export default function ServicesClient() {
                 )}
 
                 {/* Default Visible Card content */}
-                <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
-                  <div className="mt-auto flex flex-col pt-12">
+                <div className="absolute inset-0 z-10 flex flex-col justify-end transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
+                  <div className="mt-auto flex flex-col pt-[72px] px-6">
                     <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                       {service.title}
                     </h3>
@@ -360,10 +360,14 @@ export default function ServicesClient() {
 
                   <Link
                     href={`/services/${service.slug}`}
-                    className="mt-6 flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-6 border-t border-white/10 hover:text-white transition-colors group/link"
+                    className="group/footer relative mt-6 flex items-center text-xs font-bold text-primary tracking-[0.3em] uppercase pt-6 pb-6 border-t border-white/10 cursor-pointer overflow-hidden"
                   >
-                    Explore Details
-                    <ArrowRight className="w-5 h-5 ml-3 opacity-50 transition-transform duration-300 group-hover/link:translate-x-2" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 scale-x-0 group-hover/footer:scale-x-100 transition-transform duration-[400ms] ease-out origin-left" />
+                    <span className="absolute inset-0 opacity-0 group-hover/footer:opacity-100 transition-opacity duration-[400ms] ease-out shadow-[0_0_20px_rgba(109,40,217,0.12)]" />
+                    <span className="relative z-10 inline-flex items-center gap-2 px-6">
+                      <span className="transition-all duration-300 group-hover/footer:text-white group-hover/footer:text-[13px]">Explore Details</span>
+                      <ArrowRight className="w-5 h-5 ml-3 opacity-50 transition-all duration-300 group-hover/footer:opacity-100 group-hover/footer:translate-x-2 group-hover/footer:text-white" />
+                    </span>
                   </Link>
                 </div>
 
