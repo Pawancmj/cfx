@@ -227,7 +227,7 @@ function RecentArticlesSection() {
   return (
     <section className="relative py-14 md:py-20 section-bg-dark border-b border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mb-8">
+      <div className="page-container relative z-10 w-full mb-8">
         <div className="flex justify-between items-end">
           <div>
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
@@ -238,7 +238,7 @@ function RecentArticlesSection() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8 w-full">
+      <div className="page-container w-full">
         <div ref={scrollContainerRef} className="w-full overflow-hidden py-8 -my-8">
           <motion.div
             className="flex w-max cursor-grab active:cursor-grabbing items-stretch"
@@ -290,7 +290,7 @@ function RecentArticlesSection() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 w-full mt-8 shrink-0">
+      <div className="page-container relative z-10 w-full mt-8 shrink-0">
         <div className="flex justify-center items-center gap-4 sm:gap-6">
           <button
             onClick={handlePrev}
@@ -324,8 +324,8 @@ export default function HomeClient() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <ServicesSection />
       <StatsSection />
+      <ServicesSection />
       <ProcessSection />
       <CTABanner />
       <TrustedBy />

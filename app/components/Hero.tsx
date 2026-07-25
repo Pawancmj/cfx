@@ -11,16 +11,23 @@ import {
   ArrowRight,
   ArrowLeft,
   ChevronDown,
-  ShieldCheck,
-  Search,
   Code,
   Shield,
-  Globe,
+  Fingerprint,
+  Tags,
+  TrendingUp,
+  GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import ParticleBackground from "./ParticleBackground";
-import { NetworkLines, DataStream, GeometricMesh } from "./HeroBackgrounds";
+import {
+  DevWorkspace,
+  ForensicsScan,
+  CyberSOC,
+  DataAnnotation,
+  MarketingGrowth,
+  TrainingAcademy,
+} from "./HeroBackgrounds";
 import TechBackground from "./TechBackground";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
@@ -39,56 +46,64 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    id: "digital-future",
-    badge: "CyberForenX & Associates",
-    headline: "Securing the Digital Future",
-    text: "Delivering advanced cybersecurity, digital forensics, and tailored enterprise software solutions to protect and accelerate your global operations.",
-    primaryCta: { label: "Connect with us", href: "/contact", icon: ShieldCheck },
-    secondaryCta: { label: "Discover Services", href: "/services" },
-    bgType: "animated",
-    AnimatedBg: NetworkLines,
-  },
-  {
-    id: "forensics",
-    badge: "Digital Forensics",
-    headline: "Uncover the Truth Hidden in Data",
-    text: "Our forensic experts extract, preserve, and analyze digital evidence with court-admissible precision for litigation, incident response, and regulatory compliance.",
-    primaryCta: { label: "Explore Forensics", href: "/services/digital-forensics", icon: Search },
-    secondaryCta: { label: "View All Services", href: "/services" },
-    bgType: "animated",
-    AnimatedBg: DataStream,
-  },
-  {
-    id: "enterprise",
-    badge: "Enterprise Technology",
-    headline: "Build. Scale. Dominate.",
-    text: "From custom web applications to AI-driven analytics, we engineer enterprise-grade solutions that drive revenue, efficiency, and competitive advantage.",
+    id: "custom-software",
+    badge: "Custom Software Development",
+    headline: "Build Enterprise-Grade Software",
+    text: "From custom web applications to AI-driven analytics, we engineer secure, scalable solutions that drive revenue, efficiency, and competitive advantage.",
     primaryCta: { label: "Start Your Project", href: "/contact", icon: Code },
     secondaryCta: { label: "See Our Work", href: "/case-studies" },
     bgType: "animated",
-    AnimatedBg: GeometricMesh,
+    AnimatedBg: DevWorkspace,
+  },
+  {
+    id: "forensics",
+    badge: "Digital Forensics & Investigation",
+    headline: "Uncover the Truth Hidden in Data",
+    text: "Our forensic experts extract, preserve, and analyze digital evidence with court-admissible precision for litigation, incident response, and regulatory compliance.",
+    primaryCta: { label: "Explore Forensics", href: "/services/digital-forensics", icon: Fingerprint },
+    secondaryCta: { label: "View All Services", href: "/services" },
+    bgType: "animated",
+    AnimatedBg: ForensicsScan,
   },
   {
     id: "cybersecurity",
-    badge: "Cybersecurity",
+    badge: "Cybersecurity Solutions",
     headline: "Fortify Your Digital Perimeter",
     text: "Proactive threat hunting, penetration testing, and 24/7 SOC monitoring to keep your infrastructure secure against evolving cyber threats.",
     primaryCta: { label: "Audit My Security", href: "/contact", icon: Shield },
     secondaryCta: { label: "Learn More", href: "/services/cybersecurity" },
-    bgType: "static",
-    bgImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1920",
+    bgType: "animated",
+    AnimatedBg: CyberSOC,
   },
   {
-    id: "global",
-    badge: "Global Operations",
-    headline: "Your Partner Across Time Zones",
-    text: "With 24/7 support and dedicated teams across the globe, we deliver uninterrupted service and rapid response for your mission-critical operations.",
-    primaryCta: { label: "Partner With Us", href: "/contact", icon: Globe },
-    secondaryCta: { label: "About Us", href: "/company" },
-    bgType: "static",
-    bgImage:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920",
+    id: "data-annotation",
+    badge: "Intelligent Data Annotation",
+    headline: "Power AI With Precision Data",
+    text: "High-precision data labeling and annotation services powering AI/ML models with accurate, scalable training datasets for computer vision and NLP.",
+    primaryCta: { label: "Annotate With Us", href: "/services/data-annotation", icon: Tags },
+    secondaryCta: { label: "Explore Capabilities", href: "/services" },
+    bgType: "animated",
+    AnimatedBg: DataAnnotation,
+  },
+  {
+    id: "digital-marketing",
+    badge: "Digital Marketing Solutions",
+    headline: "Dominate Your Market With Data",
+    text: "Data-driven marketing strategies spanning SEO, paid media, and content to maximize ROI and accelerate your digital growth trajectory.",
+    primaryCta: { label: "Grow Your Reach", href: "/services/digital-marketing", icon: TrendingUp },
+    secondaryCta: { label: "View Case Studies", href: "/case-studies" },
+    bgType: "animated",
+    AnimatedBg: MarketingGrowth,
+  },
+  {
+    id: "training",
+    badge: "Training & Internship Programs",
+    headline: "Shape the Next Generation of Experts",
+    text: "Hands-on training and internship programs bridging the gap between academic knowledge and industry-ready expertise in tech and cybersecurity.",
+    primaryCta: { label: "Join Our Program", href: "/services/training", icon: GraduationCap },
+    secondaryCta: { label: "Learn More", href: "/services" },
+    bgType: "animated",
+    AnimatedBg: TrainingAcademy,
   },
 ];
 
@@ -288,46 +303,25 @@ export default function Hero() {
             animate={{ opacity: i === current ? 1 : 0 }}
             transition={{ duration: 0.8, ease: easeOut }}
           >
-            {s.bgType === "static" && s.bgImage ? (
-              <>
-                <Image
-                  src={s.bgImage}
-                  alt=""
-                  fill
-                  className="object-cover opacity-[0.12]"
-                  priority={i === 0}
-                  loading={i === 0 ? undefined : "lazy"}
-                  sizes="100vw"
-                />
-                <motion.div
-                  className="absolute inset-0"
-                  initial={false}
-                  animate={{ scale: i === current ? 1.05 : 1 }}
-                  transition={{ duration: i === current ? 6 : 0, ease: "linear" }}
-                  style={{ willChange: "transform" }}
-                />
-              </>
-            ) : (
-              <motion.div
-                className="absolute inset-0"
-                initial={false}
-                animate={{ scale: reduced ? 1 : i === current ? 1.03 : 1 }}
-                transition={{ duration: reduced ? 0 : i === current ? 6 : 0, ease: "linear" }}
-                style={{ willChange: "transform" }}
-              >
-                {s.AnimatedBg ? (
-                  <s.AnimatedBg active={i === current && !reduced} />
-                ) : null}
-                <div className="absolute inset-0 bg-black/30" />
-              </motion.div>
-            )}
+            <motion.div
+              className="absolute inset-0"
+              initial={false}
+              animate={{ scale: reduced ? 1 : i === current ? 1.03 : 1 }}
+              transition={{ duration: reduced ? 0 : i === current ? 6 : 0, ease: "linear" }}
+              style={{ willChange: "transform" }}
+            >
+              {s.AnimatedBg ? (
+                <s.AnimatedBg active={i === current && !reduced} />
+              ) : null}
+              <div className="absolute inset-0 bg-black/70" />
+            </motion.div>
           </motion.div>
         ))}
       </div>
 
       <TechBackground mouseX={mouseX} mouseY={mouseY} reduced={!!reduced} />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full py-20 sm:py-32">
+      <div className="page-container relative z-10 w-full py-20 sm:py-32">
         <div className="max-w-3xl">
           <AnimatePresence mode="wait">
             <SlideContent key={slide.id} slide={slide} reduced={!!reduced} />
@@ -335,9 +329,30 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Navigation controls — fixed position, never shifts */}
+      <div className="absolute bottom-8 sm:bottom-12 left-4 sm:left-10 z-20 flex items-center gap-3 sm:gap-4">
+        <button
+          onClick={goPrev}
+          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+          aria-label="Previous slide"
+        >
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:-translate-x-0.5 transition-transform" />
+        </button>
+        <button
+          onClick={goNext}
+          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+          aria-label="Next slide"
+        >
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-0.5 transition-transform" />
+        </button>
+        <span className="text-xs font-bold text-zinc-500 tracking-widest select-none">
+          {String(current + 1).padStart(2, '0')}/{String(slides.length).padStart(2, '0')}
+        </span>
+      </div>
+
+      {/* Scroll indicator — hidden on mobile to avoid overlap */}
       <motion.div
-        className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5"
+        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1.5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8, ease: easeOut }}
@@ -352,36 +367,6 @@ export default function Hero() {
           <ChevronDown className="w-4 h-4 text-white/20" />
         </motion.div>
       </motion.div>
-
-      <button
-        onClick={goPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/50"
-        aria-label="Previous slide"
-      >
-        <ArrowLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={goNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/50"
-        aria-label="Next slide"
-      >
-        <ArrowRight className="w-5 h-5" />
-      </button>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            className={`rounded-full transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-              i === current
-                ? "bg-primary w-8 h-2.5"
-                : "bg-white/30 hover:bg-white/50 w-2.5 h-2.5"
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

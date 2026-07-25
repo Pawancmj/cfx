@@ -135,7 +135,7 @@ export default function TrustedBy() {
         }
       `}</style>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="page-container relative z-10">
         <motion.div
           custom={0}
           variants={staggerVariants}
@@ -172,7 +172,7 @@ export default function TrustedBy() {
       </div>
 
       {prefersReducedMotion ? (
-        <div className="container mx-auto px-6 lg:px-8 space-y-12">
+        <div className="page-container space-y-12">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {row1.map((client) => (
               <div key={client.name} className="flex items-center justify-center h-[110px]">
@@ -195,9 +195,7 @@ export default function TrustedBy() {
       ) : (
         <>
           <MarqueeRow clients={row1} direction="right" speed={28} />
-          <div className="hidden sm:block">
-            <MarqueeRow clients={row2} direction="left" speed={34} />
-          </div>
+          <MarqueeRow clients={row2} direction="left" speed={34} />
         </>
       )}
     </section>

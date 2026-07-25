@@ -280,7 +280,6 @@ export const caseStudiesCategories: MegaCategory[] = [
 ];
 
 export const mainNavLinks: NavLink[] = [
-    { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
     { name: "Solutions", href: "/solutions" },
     { name: "Case Studies", href: "/case-studies" },

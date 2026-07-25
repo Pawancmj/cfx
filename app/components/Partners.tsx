@@ -24,7 +24,7 @@ export default function Partners() {
   return (
     <section className="relative py-14 md:py-20 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="absolute inset-0 bg-dots opacity-15 pointer-events-none"></div>
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="page-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

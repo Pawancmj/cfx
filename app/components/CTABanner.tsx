@@ -19,7 +19,7 @@ export default function CTABanner() {
 
   return (
     <>
-      <section className="container mx-auto px-6 lg:px-8 py-16 md:py-24">
+      <section className="page-container py-16 md:py-24">
         <div
           className="relative overflow-hidden rounded-[3rem] border border-white/10 shadow-[0_20px_60px_rgba(109,40,217,0.3)] hover:shadow-[0_24px_80px_rgba(109,40,217,0.4)] transition-shadow duration-700"
           style={{ background: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 35%, #8B5CF6 65%, #A855F7 100%)' }}

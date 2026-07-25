@@ -16,7 +16,7 @@ export default function Footer() {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/8 blur-[140px] rounded-full"></div>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="page-container relative z-10">
                 {/* Main Content Card */}
                 <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3.5rem] p-6 md:p-10 mb-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
                     {/* Floating Accent Line at top of card */}

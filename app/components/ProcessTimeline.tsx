@@ -21,7 +21,7 @@ export function ProcessTimeline({
 }) {
   return (
     <section className={cn("py-24 md:py-32 relative z-10 border-t border-white/5 bg-zinc-950/50", className)}>
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="page-container">
         <div className="mb-24">
           {header}
 
