@@ -19,6 +19,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import ParticleBackground from "./ParticleBackground";
 import {
   DevWorkspace,
@@ -41,7 +42,7 @@ interface Slide {
   secondaryCta: { label: string; href: string };
   bgType: "static" | "animated";
   bgImage?: string;
-  AnimatedBg?: React.ComponentType<{ active: boolean }>;
+  AnimatedBg?: React.ComponentType<{ active: boolean; reduced: boolean }>;
 }
 
 const slides: Slide[] = [
@@ -53,6 +54,7 @@ const slides: Slide[] = [
     primaryCta: { label: "Start Your Project", href: "/contact", icon: Code },
     secondaryCta: { label: "See Our Work", href: "/case-studies" },
     bgType: "animated",
+    bgImage: "https://images.pexels.com/photos/33433724/pexels-photo-33433724.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80&fit=clip",
     AnimatedBg: DevWorkspace,
   },
   {
@@ -63,6 +65,7 @@ const slides: Slide[] = [
     primaryCta: { label: "Explore Forensics", href: "/services/digital-forensics", icon: Fingerprint },
     secondaryCta: { label: "View All Services", href: "/services" },
     bgType: "animated",
+    bgImage: "https://images.pexels.com/photos/340152/pexels-photo-340152.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80&fit=clip",
     AnimatedBg: ForensicsScan,
   },
   {
@@ -73,6 +76,7 @@ const slides: Slide[] = [
     primaryCta: { label: "Audit My Security", href: "/contact", icon: Shield },
     secondaryCta: { label: "Learn More", href: "/services/cybersecurity" },
     bgType: "animated",
+    bgImage: "https://images.pexels.com/photos/5380637/pexels-photo-5380637.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80&fit=clip",
     AnimatedBg: CyberSOC,
   },
   {
@@ -103,6 +107,7 @@ const slides: Slide[] = [
     primaryCta: { label: "Join Our Program", href: "/services/training", icon: GraduationCap },
     secondaryCta: { label: "Learn More", href: "/services" },
     bgType: "animated",
+    bgImage: "https://images.pexels.com/photos/29267512/pexels-photo-29267512.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80&fit=clip",
     AnimatedBg: TrainingAcademy,
   },
 ];
@@ -184,11 +189,14 @@ function SlideContent({ slide, reduced }: { slide: Slide; reduced: boolean }) {
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const reduced = useReducedMotion();
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
+
+  useEffect(() => { setMounted(true); }, []);
 
   const slide = slides[current];
 
@@ -310,8 +318,20 @@ export default function Hero() {
               transition={{ duration: reduced ? 0 : i === current ? 6 : 0, ease: "linear" }}
               style={{ willChange: "transform" }}
             >
+              {s.bgImage ? (
+                <Image
+                  src={s.bgImage}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  quality={80}
+                  priority={i === 0}
+                  loading={i === 0 ? undefined : "lazy"}
+                />
+              ) : null}
               {s.AnimatedBg ? (
-                <s.AnimatedBg active={i === current && !reduced} />
+                <s.AnimatedBg active={i === current && mounted} reduced={!!reduced} />
               ) : null}
               <div className="absolute inset-0 bg-black/70" />
             </motion.div>
