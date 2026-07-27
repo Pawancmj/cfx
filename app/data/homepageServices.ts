@@ -14,26 +14,26 @@ const findByTitle = (title: string): NavLink[] =>
 export const homepageServices: HomepageService[] = [
   {
     id: "custom-software",
-    title: "Web & App Development",
-    description: "Tailored enterprise applications built with modern architectures to accelerate digital transformation and drive business growth.",
+    title: "Custom Software Development",
+    description: "Scalable web applications, mobile apps, CRM, ERP, and custom software solutions designed to meet your business goals.",
     links: findByTitle("Web & App Development"),
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity Solutions",
-    description: "Military-grade security assessments, penetration testing, and managed defense to protect your critical digital assets.",
-    links: findByTitle("Cybersecurity"),
   },
   {
     id: "digital-forensics",
     title: "Digital Forensics & Investigation",
-    description: "Comprehensive digital evidence extraction, analysis, and expert testimony for litigation, incident response, and regulatory compliance.",
+    description: "Expert digital evidence analysis, cyber investigations, forensic reporting, and secure data recovery with industry best practices.",
     links: findByTitle("Digital Forensics"),
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity Solutions",
+    description: "Protect your business with vulnerability assessments, penetration testing, incident response, security consulting, and compliance support.",
+    links: findByTitle("Cybersecurity"),
   },
   {
     id: "data-annotation",
     title: "Intelligent Data Annotation",
-    description: "High-precision data labeling and annotation services powering AI/ML models with accurate, scalable training datasets.",
+    description: "High-quality image, text, audio, video, document, and AI data annotation services for machine learning and computer vision projects.",
     links: [
       { name: "Image & Video Annotation", href: "/services/data-annotation/image-video-annotation" },
       { name: "Text & NLP Data Labeling", href: "/services/data-annotation/text-nlp-labeling" },
@@ -46,13 +46,13 @@ export const homepageServices: HomepageService[] = [
   {
     id: "digital-marketing",
     title: "Digital Marketing Solutions",
-    description: "Data-driven marketing strategies spanning SEO, paid media, and content to maximize ROI and dominate your market share.",
+    description: "Grow your online presence through SEO, social media marketing, performance marketing, branding, content strategy, and lead generation.",
     links: findByTitle("Digital Marketing"),
   },
   {
     id: "training",
     title: "Training & Internship Programs",
-    description: "Hands-on training and internship programs bridging the gap between academic knowledge and industry-ready expertise.",
+    description: "Industry-oriented training, live projects, mentorship, certification, and internship programs to develop future-ready professionals.",
     links: [
       { name: "Technical Training Programs", href: "/services/training/technical-training-programs" },
       { name: "Cybersecurity Bootcamps", href: "/services/training/cybersecurity-bootcamps" },
@@ -64,8 +64,15 @@ export const homepageServices: HomepageService[] = [
   },
   {
     id: "talent-acquisition",
-    title: "Data Analytics & Intelligence",
-    description: "Data-driven analytics and business intelligence solutions that transform raw data into actionable insights for strategic decision-making.",
-    links: findByTitle("Data Analytics & Intelligence"),
+    title: "Talent Acquisition & Staffing",
+    description: "End-to-end recruitment and staffing solutions, connecting organizations with skilled technical and non-technical professionals.",
+    links: [
+      { name: "Technical Recruitment & Staffing", href: "/services/talent-acquisition/technical-recruitment" },
+      { name: "Executive Search & Headhunting", href: "/services/talent-acquisition/executive-search" },
+      { name: "Contract & Temporary Staffing", href: "/services/talent-acquisition/contract-staffing" },
+      { name: "Recruitment Process Outsourcing", href: "/services/talent-acquisition/recruitment-process-outsourcing" },
+      { name: "Campus Recruitment & Graduate Hiring", href: "/services/talent-acquisition/campus-recruitment" },
+      { name: "Workforce Planning & Talent Strategy", href: "/services/talent-acquisition/workforce-planning" },
+    ],
   },
 ];
