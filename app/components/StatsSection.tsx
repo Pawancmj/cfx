@@ -28,14 +28,15 @@ function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
 }
 
-function useCountUp(target: number, duration: number, running: boolean): number {
-  const [count, setCount] = useState(0);
-  const hasRun = useRef(false);
+const animatedLabels = new Set<string>();
+
+function useCountUp(label: string, target: number, duration: number, active: boolean): number {
+  const [count, setCount] = useState(animatedLabels.has(label) ? target : 0);
 
   useEffect(() => {
-    if (!running || hasRun.current) return;
+    if (!active || animatedLabels.has(label)) return;
+    animatedLabels.add(label);
 
-    hasRun.current = true;
     let startTime: number | null = null;
     let raf: number;
 
@@ -53,13 +54,13 @@ function useCountUp(target: number, duration: number, running: boolean): number 
 
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
-  }, [target, duration, running]);
+  }, [target, duration, active, label]);
 
   return count;
 }
 
 function StatValue({ stat, active }: { stat: Stat; active: boolean }) {
-  const count = useCountUp(stat.value, 1400, active);
+  const count = useCountUp(stat.label, stat.value, 1400, active);
   const formatted = stat.value % 1 === 0 ? Math.floor(count) : count.toFixed(1);
 
   return (
@@ -94,13 +95,15 @@ export default function StatsSection() {
     const track = trackRef.current;
     if (!wrapper || !track) return;
 
-    const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
-      mm.add("(min-width: 1024px)", () => {
-        const groupSize = 3;
-        const numSlides = stats.length - groupSize;
-        const scrollDistance = numSlides * 100;
-        const totalPairs = stats.length - groupSize + 1;
+      const mm = gsap.matchMedia();
+
+      mm.add("all", () => {
+        const isDesktop = window.innerWidth >= 1024;
+        const gs = isDesktop ? 3 : 2;
+        const numSlides = stats.length - gs;
+        const scrollDistance = numSlides * (isDesktop ? 100 : 30);
+        const totalPairs = stats.length - gs + 1;
 
         const pin = ScrollTrigger.create({
           trigger: wrapper,
@@ -114,47 +117,7 @@ export default function StatsSection() {
         });
 
         gsap.to(track, {
-          x: () => -(numSlides * window.innerWidth) / groupSize,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrapper,
-            start: "top top",
-            end: `+=${scrollDistance}vh`,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            scrub: 1,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const idx = Math.min(Math.floor(progress * totalPairs), totalPairs - 1);
-              setActiveIndex((prev) => Math.max(prev, idx));
-            },
-          },
-        });
-
-        return () => {
-          pin.kill();
-        };
-      });
-
-      mm.add("(max-width: 1023px)", () => {
-        const groupSize = 2;
-        const numSlides = stats.length - groupSize;
-        const scrollDistance = numSlides * 50;
-        const totalPairs = stats.length - groupSize + 1;
-
-        const pin = ScrollTrigger.create({
-          trigger: wrapper,
-          pin: true,
-          start: "top top",
-          end: `+=${scrollDistance}vh`,
-          anticipatePin: 1,
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          scrub: 1,
-        });
-
-        gsap.to(track, {
-          x: () => -(numSlides * window.innerWidth) / groupSize,
+          x: () => -(numSlides * window.innerWidth) / gs,
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
@@ -183,7 +146,7 @@ export default function StatsSection() {
   return (
     <section
       ref={wrapperRef}
-      className="relative w-full section-bg-secondary border-y border-border/50 py-12 md:py-0 md:h-screen"
+      className="relative w-full section-bg-secondary border-y border-border/50 min-h-[65vh] md:min-h-screen"
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-dots" />
       <div className="absolute inset-0 pointer-events-none">
