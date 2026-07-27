@@ -5,53 +5,21 @@ import {
   Code, Fingerprint, ShieldCheck, Tags, TrendingUp, GraduationCap, Users,
   ArrowRight
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { homepageServices } from "@/app/data/homepageServices";
+import type { HomepageService } from "@/app/data/homepageServices";
 
-const services = [
-  {
-    id: "custom-software",
-    title: "Custom Software Development",
-    description: "Tailored enterprise applications built with modern architectures to accelerate digital transformation and drive business growth.",
-    icon: Code,
-  },
-  {
-    id: "digital-forensics",
-    title: "Digital Forensics & Investigation",
-    description: "Comprehensive digital evidence extraction, analysis, and expert testimony for litigation, incident response, and regulatory compliance.",
-    icon: Fingerprint,
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity Solutions",
-    description: "Military-grade security assessments, penetration testing, and managed defense to protect your critical digital assets.",
-    icon: ShieldCheck,
-  },
-  {
-    id: "data-annotation",
-    title: "Intelligent Data Annotation",
-    description: "High-precision data labeling and annotation services powering AI/ML models with accurate, scalable training datasets.",
-    icon: Tags,
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing Solutions",
-    description: "Data-driven marketing strategies spanning SEO, paid media, and content to maximize ROI and dominate your market share.",
-    icon: TrendingUp,
-  },
-  {
-    id: "training",
-    title: "Training & Internship Programs",
-    description: "Hands-on training and internship programs bridging the gap between academic knowledge and industry-ready expertise.",
-    icon: GraduationCap,
-  },
-  {
-    id: "talent-acquisition",
-    title: "Talent Acquisition & Staffing",
-    description: "Strategic talent sourcing and staffing solutions connecting organizations with top-tier technology and cybersecurity professionals.",
-    icon: Users,
-  },
-];
+const serviceIcons: Record<string, LucideIcon> = {
+  "custom-software": Code,
+  "digital-forensics": Fingerprint,
+  "cybersecurity": ShieldCheck,
+  "data-annotation": Tags,
+  "digital-marketing": TrendingUp,
+  "training": GraduationCap,
+  "talent-acquisition": Users,
+};
 
 export default function ServicesSection() {
   return (
@@ -79,8 +47,8 @@ export default function ServicesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {homepageServices.map((service, index) => {
+            const Icon = serviceIcons[service.id] || Code;
             return (
               <motion.div
                 key={service.id}

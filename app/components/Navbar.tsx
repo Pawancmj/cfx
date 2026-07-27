@@ -8,7 +8,8 @@ import { Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
 import DesktopMegaMenu from "./navbar/DesktopMegaMenu";
 import MobileAccordion from "./navbar/MobileAccordion";
 import { BrandLogo } from "./BrandLogo";
-import { mainNavLinks, serviceCategories, solutionsCategories, resourceCategories, caseStudiesCategories } from "@/app/constants/navigation";
+import { mainNavLinks, solutionsCategories, resourceCategories, caseStudiesCategories, type MegaCategory } from "@/app/constants/navigation";
+import { homepageServices } from "@/app/data/homepageServices";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,12 @@ export default function Navbar() {
     { name: "Partner Program", href: "/company/partner-program" }
   ];
 
+  const homepageServiceCategories: MegaCategory[] = homepageServices.map((s) => ({
+    title: s.title,
+    slug: s.id,
+    links: s.links,
+  }));
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
@@ -66,7 +73,7 @@ export default function Navbar() {
                   key={link.name}
                   label="Services"
                   href={link.href}
-                  categories={serviceCategories}
+                  categories={homepageServiceCategories}
                   exploreLinkPrefix="services"
                   exploreText="Explore Hub"
                   isActive={isActive(link.href)}
@@ -219,7 +226,7 @@ export default function Navbar() {
                   key={link.name}
                   label="Services"
                   href={link.href}
-                  categories={serviceCategories}
+                  categories={homepageServiceCategories}
                   exploreLinkPrefix="services"
                   exploreText="Explore Hub"
                   isActive={isActive(link.href)}

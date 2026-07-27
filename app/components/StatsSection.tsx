@@ -64,11 +64,11 @@ function StatValue({ stat, active }: { stat: Stat; active: boolean }) {
 
   return (
     <>
-      <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extralight text-foreground tracking-tight tabular-nums leading-none whitespace-nowrap">
+      <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight text-foreground tracking-tight tabular-nums leading-none whitespace-nowrap">
         {formatted}
         <span className="text-primary">{stat.suffix}</span>
       </span>
-      <span className="inline-block w-7 h-0.5 bg-primary/30 mt-3 mb-2.5 rounded-full" />
+      <span className="inline-block w-7 h-0.5 bg-primary/30 mt-0.5 mb-1 md:mt-3 md:mb-2.5 rounded-full" />
       <span className="text-[11px] lg:text-xs font-semibold text-muted tracking-wider uppercase leading-snug max-w-[160px]">
         {stat.label}
       </span>
@@ -139,7 +139,7 @@ export default function StatsSection() {
       mm.add("(max-width: 1023px)", () => {
         const groupSize = 2;
         const numSlides = stats.length - groupSize;
-        const scrollDistance = numSlides * 100;
+        const scrollDistance = numSlides * 50;
         const totalPairs = stats.length - groupSize + 1;
 
         const pin = ScrollTrigger.create({
@@ -183,8 +183,7 @@ export default function StatsSection() {
   return (
     <section
       ref={wrapperRef}
-      className="relative w-full section-bg-secondary border-y border-border/50"
-      style={{ height: "100vh" }}
+      className="relative w-full section-bg-secondary border-y border-border/50 py-12 md:py-0 md:h-screen"
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-dots" />
       <div className="absolute inset-0 pointer-events-none">
@@ -198,7 +197,7 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="flex-shrink-0 flex items-center justify-center px-2 w-[50vw] lg:w-[33.33vw]"
+              className="flex-shrink-0 flex items-center justify-center px-1 md:px-2 w-[50vw] lg:w-[33.33vw]"
             >
               <div className="flex flex-col items-center text-center select-none">
                 <StatValue stat={stat} active={i <= activeIndex + groupSize - 1} />
