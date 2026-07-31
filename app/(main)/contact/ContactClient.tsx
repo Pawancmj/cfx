@@ -67,7 +67,7 @@ export default function ContactClient() {
                             <Sparkles className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Strategic Engagement</span>
                         </motion.div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
+                        <h1 className="text-hero text-white mb-10">
                             Architecting the <br />
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Future</span>
                         </h1>
@@ -107,7 +107,7 @@ export default function ContactClient() {
                                 {isSuccess ? <CheckCircle2 className="w-6 h-6" /> : <XCircle className="w-6 h-6" />}
                             </div>
                             <div className="flex-grow">
-                                <h4 className="text-white font-bold text-sm uppercase tracking-tight">
+                                <h4 className="text-heading-sm text-white">
                                     {isSuccess ? "Message Received!" : "Submission Failed"}
                                 </h4>
                                 <p className="text-zinc-400 text-xs font-medium italic mt-0.5 leading-relaxed">
@@ -131,7 +131,7 @@ export default function ContactClient() {
                                 <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 border border-primary/30">
                                     <Sparkles className="w-10 h-10 text-primary" />
                                 </div>
-                                <h3 className="text-3xl font-bold text-white mb-4 uppercase tracking-tight">Request Received</h3>
+                                <h3 className="text-heading-md text-white mb-4">Request Received</h3>
                                 <p className="text-zinc-400 font-medium max-w-sm mb-8">
                                     Thank you reaching out. Our strategy team will review your inquiry and get back to you shortly.
                                 </p>
@@ -334,7 +334,7 @@ function ContactInfoCard({
                     </div>
                 </div>
                 <div className="min-w-0 flex-1">
-                    <h3 className="text-[10px] sm:text-xs font-black text-zinc-500 uppercase tracking-[0.3em] mb-2 break-words">{title}</h3>
+                            <h3 className="text-heading-sm text-zinc-500 mb-2 break-words">{title}</h3>
                     <p className="text-zinc-400 font-medium text-xs mb-2 italic break-words">{description}</p>
                     {href.startsWith('tel:') ? (
                         <span className="text-white font-black text-sm sm:text-lg md:text-xl tracking-normal sm:tracking-tight transition-colors break-words leading-relaxed sm:leading-snug">

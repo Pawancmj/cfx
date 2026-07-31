@@ -84,7 +84,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
         <div className="flex items-center justify-between mb-6 relative z-10">
           <div>
-            <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Let's Talk</h3>
+            <h3 className="text-heading-md text-white">Let's Talk</h3>
             <p className="text-zinc-400 text-sm font-medium mt-1">We'll respond within 24 hours</p>
           </div>
           <button
@@ -100,7 +100,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/30">
               <Sparkles className="w-8 h-8 text-primary" />
             </div>
-            <h4 className="text-xl font-bold text-white mb-2 uppercase tracking-tight">Message Received!</h4>
+            <h4 className="text-heading-sm text-white mb-2">Message Received!</h4>
             <p className="text-zinc-400 font-medium">
               Thank you for reaching out. One of our specialists will analyze your request and get back to you shortly.
             </p>

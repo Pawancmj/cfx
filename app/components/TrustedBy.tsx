@@ -81,15 +81,15 @@ function MarqueeRow({
   return (
     <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]">
       <div
-        className={`flex items-center gap-[60px] md:gap-20 lg:gap-[100px] w-max marquee-track ${isRight ? "marquee-right" : "marquee-left"}`}
+        className={`flex items-center gap-10 sm:gap-[60px] md:gap-20 lg:gap-[100px] w-max marquee-track ${isRight ? "marquee-right" : "marquee-left"}`}
         style={{ animationDuration: `${speed}s` }}
       >
         {items.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className="shrink-0 group/marquee flex items-center justify-center h-[110px]"
+            className="shrink-0 group/marquee flex items-center justify-center h-[70px] sm:h-[90px] md:h-[110px]"
           >
-            <div className="flex items-center justify-center h-12 md:h-[56px] lg:h-16 w-auto">
+            <div className="flex items-center justify-center h-8 sm:h-10 md:h-12 lg:h-16 w-auto">
               <ClientLogo client={client} />
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function TrustedBy() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-white leading-[1.15] mb-6 max-w-3xl"
+          className="text-section text-white mb-6 max-w-3xl"
         >
           Trusted by Organizations Across <span className="text-gradient">Multiple Industries</span>
         </motion.h2>
@@ -165,7 +165,7 @@ export default function TrustedBy() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-base sm:text-lg leading-relaxed text-zinc-400 font-medium max-w-2xl mb-20"
+          className="text-sm sm:text-base md:text-lg leading-relaxed text-zinc-400 font-medium max-w-2xl mb-10 sm:mb-16 md:mb-20"
         >
           From startups to enterprise organizations and government institutions, CyberForenX has partnered with clients across technology, education, logistics, finance, security, and professional services.
         </motion.p>
@@ -175,8 +175,8 @@ export default function TrustedBy() {
         <div className="page-container space-y-12">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {row1.map((client) => (
-              <div key={client.name} className="flex items-center justify-center h-[110px]">
-                <div className="flex items-center justify-center h-12 md:h-[56px] lg:h-16 w-auto">
+              <div key={client.name} className="flex items-center justify-center h-[70px] sm:h-[90px] md:h-[110px]">
+                <div className="flex items-center justify-center h-8 sm:h-10 md:h-12 lg:h-16 w-auto">
                   <ClientLogo client={client} />
                 </div>
               </div>
@@ -184,8 +184,8 @@ export default function TrustedBy() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {row2.map((client) => (
-              <div key={client.name} className="flex items-center justify-center h-[110px]">
-                <div className="flex items-center justify-center h-12 md:h-[56px] lg:h-16 w-auto">
+              <div key={client.name} className="flex items-center justify-center h-[70px] sm:h-[90px] md:h-[110px]">
+                <div className="flex items-center justify-center h-8 sm:h-10 md:h-12 lg:h-16 w-auto">
                   <ClientLogo client={client} />
                 </div>
               </div>

@@ -256,7 +256,7 @@ export default function ServicesClient() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
+          className="text-hero text-white mb-8"
         >
           Uncompromising <br className="hidden sm:block" />
           <span className="text-gradient inline-block text-[calc(1em-3px)]">Service Models</span>
@@ -279,21 +279,21 @@ export default function ServicesClient() {
           className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
         >
           <div className="text-center group">
-            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+            <div className="text-stat text-white">
               <AnimatedCounter value={99.9} suffix="%" />
             </div>
             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Uptime Guaranteed</div>
           </div>
           <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
           <div className="text-center group">
-            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+            <div className="text-stat text-white">
               <AnimatedCounter value={50} suffix="+" />
             </div>
             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Successful Projects</div>
           </div>
           <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
           <div className="text-center group">
-            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">
+            <div className="text-stat text-white">
               <AnimatedCounter value={24} suffix="/7" />
             </div>
             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Security Monitoring</div>
@@ -312,7 +312,7 @@ export default function ServicesClient() {
           className="text-center mb-16 max-w-3xl mx-auto"
         >
           <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Expertise</h2>
-          <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">Core Capabilities</h3>
+          <h3 className="text-section text-white mb-6">Core Capabilities</h3>
           <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">
             Specialized digital capabilities tailored to protect, scale, and innovate your enterprise infrastructure.
           </p>
@@ -350,7 +350,7 @@ export default function ServicesClient() {
                 {/* Default Visible Card content */}
                 <div className="absolute inset-0 z-10 flex flex-col justify-end transition-all duration-500 lg:group-hover:opacity-0 lg:group-hover:-translate-y-12">
                   <div className="mt-auto flex flex-col pt-[72px] px-6">
-                    <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    <h3 className="text-heading-sm text-white mb-2">
                       {service.title}
                     </h3>
                     <p className="text-zinc-300 leading-relaxed font-medium text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
@@ -387,7 +387,7 @@ export default function ServicesClient() {
 
                   <div className="relative z-30 p-6 flex flex-col pt-12 mt-auto">
                     <div className="flex items-center gap-3 mb-4 shrink-0">
-                      <h3 className="text-xl font-bold text-white uppercase tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] line-clamp-1">
+                      <h3 className="text-heading-sm text-white line-clamp-1">
                         {service.title}
                       </h3>
                     </div>
@@ -429,8 +429,8 @@ export default function ServicesClient() {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 max-w-3xl mx-auto px-6 relative z-10"
         >
-          <h2 className="text-5xl font-extrabold text-white mb-8 uppercase tracking-tight text-glow">
-            Technologies We <br /> <span className="text-gradient italic inline-block pr-6">Command</span>
+          <h2 className="text-display text-white mb-8">
+            Technologies We <br /> <span className="text-gradient inline-block pr-6">Command</span>
           </h2>
           <p className="text-zinc-400 text-xl font-medium tracking-wide">
             Leveraging industry-leading tools and frameworks to build, scale, and secure your digital infrastructure.
@@ -496,7 +496,7 @@ export default function ServicesClient() {
             className="text-center mb-10 max-w-3xl mx-auto"
           >
             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Process</h2>
-            <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">How We Deliver</h3>
+            <h3 className="text-section text-white mb-6">How We Deliver</h3>
             <p className="text-zinc-400 text-lg font-medium leading-relaxed tracking-wide">
               A systematic approach to delivering robust digital solutions with impenetrable security built-in from day one.
             </p>
@@ -522,7 +522,7 @@ export default function ServicesClient() {
                   <div className="inline-flex p-3 rounded-xl bg-white/5 mb-6 group-hover:bg-primary/10 transition-colors">
                     <step.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4 uppercase">
+                  <h3 className="text-heading-md text-white mb-4">
                     {step.title}
                   </h3>
                   <p className="text-zinc-400 leading-relaxed font-medium italic text-base group-hover:text-zinc-300 transition-colors">
@@ -554,9 +554,9 @@ export default function ServicesClient() {
             className="absolute -top-24 -left-24 w-96 h-96 bg-primary blur-[120px] rounded-full"
           ></motion.div>
 
-          <h2 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-10 relative z-10 leading-tight">
+          <h2 className="text-display text-white mb-10 relative z-10">
             Ready to secure your <br />
-            <span className="text-gradient italic text-glow inline-block pr-6">digital future?</span>
+            <span className="text-gradient inline-block pr-6">digital future?</span>
           </h2>
           <p className="text-xl text-zinc-300 mb-16 max-w-2xl mx-auto relative z-10 font-medium tracking-wide leading-relaxed">
             Let&apos;s discuss how our tailored solutions can accelerate your growth and protect your enterprise assets globally.

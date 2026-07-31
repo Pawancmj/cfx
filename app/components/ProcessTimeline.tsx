@@ -25,7 +25,7 @@ export function ProcessTimeline({
         <div className="mb-24">
           {header}
 
-          <div className="relative space-y-16 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-white/5">
+          <div className="relative space-y-16 before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-white/5">
             {steps.map((step, index) => {
               const formattedNum = `0${index + 1}`.slice(-2);
               const Icon = step.icon;
@@ -41,14 +41,14 @@ export function ProcessTimeline({
 
                   <RevealCard
                     index={index}
-                    className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-8 !rounded-[3.5rem] glass-card hover:bg-white/10 transition-all duration-500 border-white/5 group-hover:border-primary/20 flex flex-col items-start"
+                    className="w-[calc(100%-3.5rem)] md:w-[calc(50%-3rem)] p-5 sm:p-6 md:p-8 !rounded-[2rem] md:!rounded-[3.5rem] glass-card hover:bg-white/10 transition-all duration-500 border-white/5 group-hover:border-primary/20 flex flex-col items-start"
                   >
                     {Icon && (
-                      <div className="inline-flex p-3 rounded-xl bg-white/5 mb-6 group-hover:bg-primary/10 transition-colors">
-                        <Icon className="w-6 h-6 text-primary" />
+                      <div className="inline-flex p-2.5 sm:p-3 rounded-xl bg-white/5 mb-4 sm:mb-6 group-hover:bg-primary/10 transition-colors">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       </div>
                     )}
-                    <h3 className="text-xl md:text-2xl font-light text-white tracking-[-0.02em] leading-[1.2] mb-4 uppercase">
+                    <h3 className="text-heading-md text-white mb-4">
                       {step.title}
                     </h3>
                     <p className="text-zinc-400 leading-relaxed font-medium italic text-base group-hover:text-zinc-300 transition-colors">

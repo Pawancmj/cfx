@@ -68,19 +68,19 @@ export default function TechBackground({
         style={reduced ? {} : { x: deepX, y: deepY }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+          className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,800px)] h-[min(80vw,800px)] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(109,40,217,0.05) 0%, transparent 70%)" }}
           animate={reduced ? {} : { scale: [1, 1.08, 1], opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[500px] h-[500px] rounded-full"
+          className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[min(60vw,500px)] h-[min(60vw,500px)] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(167,139,250,0.04) 0%, transparent 70%)" }}
           animate={reduced ? {} : { scale: [1, 1.12, 1], opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div
-          className="absolute top-2/3 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full"
+          className="absolute top-2/3 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[min(50vw,400px)] h-[min(50vw,400px)] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(124,58,237,0.03) 0%, transparent 70%)" }}
           animate={reduced ? {} : { scale: [1, 1.15, 1], opacity: [0.2, 0.6, 0.2] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 5 }}
@@ -165,7 +165,7 @@ export default function TechBackground({
         {!reduced && streaks.map((s, i) => (
           <motion.div
             key={i}
-            className="absolute w-[300px] h-[1px]"
+            className="absolute w-[min(50vw,300px)] h-[1px]"
             style={{
               background: "linear-gradient(90deg, transparent 0%, rgba(167,139,250,0.18) 50%, transparent 100%)",
               transformOrigin: "center",

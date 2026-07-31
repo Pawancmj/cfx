@@ -47,7 +47,7 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
     if (!detailData) {
         return (
             <main className="min-h-screen section-bg-dark pt-32 pb-20 flex flex-col items-center justify-center text-center">
-                <h1 className="text-4xl font-extrabold text-white mb-4 tracking-tighter text-glow">Under Construction</h1>
+                <h1 className="text-section text-white mb-4">Under Construction</h1>
                 <p className="text-zinc-400 max-w-lg mb-8 font-medium">We are actively building the deep-dive article for {subcategorySlug || categorySlug}.</p>
                 <Link href="/case-studies" className="btn-primary inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm">Back to Hub</Link>
             </main>
@@ -88,7 +88,7 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
 
                     {/* Title & Meta */}
                     <div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight leading-[1.15] text-glow font-display">
+                        <h1 className="text-hero text-white mb-6">
                             {detailData.title}
                         </h1>
 
@@ -136,7 +136,7 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
                             
                             {detailData.contentSections.map((section, idx) => (
                                 <section key={idx} id={section.id} className="scroll-mt-36 mb-14">
-                                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-5 tracking-tight font-display border-b border-white/10 pb-4">
+                                    <h2 className="text-heading-md text-white mb-5 border-b border-white/10 pb-4">
                                         {section.heading}
                                     </h2>
                                     {section.paragraphs.map((para, pIdx) => (
@@ -152,7 +152,7 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
                         {/* FAQs Section */}
                         {detailData.faqs && detailData.faqs.length > 0 && (
                             <div id="faqs" className="mt-16 pt-10 border-t border-white/10 scroll-mt-36">
-                                <h3 className="text-2xl font-extrabold text-white mb-8 font-display tracking-tight">Frequently Asked Questions</h3>
+                                <h3 className="text-heading-md text-white mb-8">Frequently Asked Questions</h3>
                                 
                                 <div className="space-y-4">
                                     {detailData.faqs.map((faq, idx) => (

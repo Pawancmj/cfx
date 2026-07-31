@@ -46,7 +46,7 @@ export default function Footer() {
                                         href={href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-zinc-400 transition-all duration-300 hover:text-white"
+                                        className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-zinc-400 transition-all duration-300 hover:text-white"
                                     >
                                         <Icon className="w-6 h-6" />
                                     </Link>
@@ -59,14 +59,14 @@ export default function Footer() {
                             {/* Ecosystem */}
                             <div className="flex flex-col gap-8">
                                 <h4 className="text-xs font-black uppercase tracking-[0.4em] text-primary">Ecosystem</h4>
-                                <ul className="flex flex-col gap-4">
+                                <ul className="flex flex-col gap-3">
                                     {['Home', 'Services', 'Solutions', 'Careers', 'Company'].map((item) => (
                                         <li key={item}>
                                             <Link
                                                 href={`/${item === 'Home' ? '' : item.toLowerCase()}`}
-                                                className="text-sm font-bold text-zinc-500 transition-colors tracking-widest uppercase flex items-center gap-2"
+                                                className="text-xs sm:text-sm font-bold text-zinc-500 transition-colors tracking-wider sm:tracking-widest uppercase flex items-center gap-2 py-2 min-h-[44px]"
                                             >
-                                                <span className="h-px w-3 bg-white/30"></span>
+                                                <span className="h-px w-3 bg-white/30 shrink-0"></span>
                                                 {item}
                                             </Link>
                                         </li>
@@ -96,7 +96,7 @@ export default function Footer() {
                                     </div>
                                     <div className="group cursor-pointer">
                                         <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-1">Official Mail</p>
-                                        <a href="mailto:contact@cyberforenx.in" className="text-sm font-bold text-white/80 truncate block">contact@cyberforenx.in</a>
+                                        <a href="mailto:contact@cyberforenx.in" className="text-sm font-bold text-white/80 break-words block py-1.5">contact@cyberforenx.in</a>
                                     </div>
                                     <a
                                         href="https://www.google.com/maps/search/?api=1&query=74A,+Avni+Vihar,+Ghaziabad,+Uttar+Pradesh,+India"
@@ -121,16 +121,16 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-6 border-t border-white/5">
-                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
+                <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 pt-6 border-t border-white/5">
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-center md:text-left text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-zinc-600">
                         <span>&copy; 2026 CYBERFORENX & ASSOCIATES</span>
-                        <span className="h-1 w-1 rounded-full bg-zinc-700"></span>
+                        <span className="h-1 w-1 rounded-full bg-zinc-700 shrink-0"></span>
                         <span className="text-zinc-600">DESIGNED WITH PASSION</span>
                     </div>
 
-                    <div className="flex gap-8">
-                        <Link href="/privacy" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</Link>
+                    <div className="flex gap-4 sm:gap-8">
+                        <Link href="/privacy" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors py-2 min-h-[44px] flex items-center">Privacy Policy</Link>
+                        <Link href="/terms" className="text-[10px] font-black text-zinc-500 uppercase tracking-widest hover:text-white transition-colors py-2 min-h-[44px] flex items-center">Terms of Service</Link>
                     </div>
 
                     <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">

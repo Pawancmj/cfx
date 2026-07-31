@@ -27,7 +27,7 @@ export default function TermsOfService() {
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-widest mb-8">
                                     <FileCheck className="w-4 h-4" /> Terms & Conditions
                                 </div>
-                                <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white mb-8 tracking-tight leading-[1.15]">
+                                <h1 className="text-hero text-white mb-8">
                                     Terms of <br /> <span className="text-gradient-secondary inline-block text-[calc(1em-3px)]">Service</span>
                                 </h1>
 
@@ -42,21 +42,21 @@ export default function TermsOfService() {
 
                                     <div className="space-y-6">
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">01.</span> Use of Services
                                             </h2>
                                             <p>You agree to use our services only for lawful purposes and in accordance with these terms. Any unauthorized use of our systems or data is strictly prohibited.</p>
                                         </section>
 
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">02.</span> Intellectual Property
                                             </h2>
                                             <p>All content on this website, including text, graphics, logos, and software, is the property of CyberForenX & Associates and protected by international intellectual property laws.</p>
                                         </section>
 
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-secondary/40">03.</span> Liability Limitation
                                             </h2>
                                             <p>CyberForenX & Associates shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use our digital assets and services.</p>
@@ -81,7 +81,7 @@ export default function TermsOfService() {
                         </div>
 
                         <div className="mt-8 p-8 glass-card rounded-3xl border-secondary/20 text-center text-secondary/80">
-                            <h4 className="font-bold uppercase tracking-[0.2em] text-sm mb-2">Legal Compliance</h4>
+                            <h4 className="text-heading-sm text-white mb-2">Legal Compliance</h4>
                             <p className="text-zinc-500 text-xs font-medium uppercase tracking-tight">Standard Professional Service Agreement</p>
                         </div>
                     </div>

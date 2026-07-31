@@ -91,7 +91,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug?
                         <span className={themeColorClass}>{categoryName}</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white text-glow tracking-tight mb-8 leading-tight">
+                    <h1 className="text-hero text-white mb-8">
                         {title}
                     </h1>
                     <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mb-10 leading-relaxed font-medium">
@@ -137,7 +137,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug?
                             <div className="w-8 h-[2px] bg-primary"></div>
                             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Solution Overview</span>
                         </div>
-                        <h2 className="text-3xl font-extrabold text-white mb-6 leading-tight">Future-Proof Architecture Designed for Scale.</h2>
+                        <h2 className="text-section text-white mb-6">Future-Proof Architecture Designed for Scale.</h2>
                         <p className="text-zinc-400 leading-relaxed mb-8 text-lg">
                             Deploying robust systems requires a deep understanding of modern architecture.
                             Our {title.toLowerCase()} framework integrates directly into your existing ecosystem,

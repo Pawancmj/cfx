@@ -46,7 +46,7 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`flex items-center justify-center p-8 sm:p-12 h-40 md:h-48 w-full rounded-2xl ${partner.bgClass} shadow-[0_18px_44px_rgba(0,0,0,0.35)] ring-1 ring-primary/15 hover:-translate-y-1 hover:shadow-[0_22px_52px_rgba(124,58,237,0.18)] transition-premium cursor-pointer group`}
+               className={`flex items-center justify-center p-6 sm:p-8 md:p-12 h-28 sm:h-36 md:h-48 w-full rounded-2xl ${partner.bgClass} shadow-[0_18px_44px_rgba(0,0,0,0.35)] ring-1 ring-primary/15 hover:-translate-y-1 hover:shadow-[0_22px_52px_rgba(124,58,237,0.18)] transition-premium cursor-pointer group`}
             >
               {/* <img
                 src={partner.logo}

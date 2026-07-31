@@ -25,14 +25,14 @@ export default function CTABanner() {
           style={{ background: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 35%, #8B5CF6 65%, #A855F7 100%)' }}
         >
           <div className="absolute inset-0 bg-dots opacity-[0.06]" />
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.08] blur-[160px] rounded-full" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#A855F7]/20 blur-[140px] rounded-full" />
+          <div className="absolute top-0 right-0 w-[min(140vw,600px)] h-[min(140vw,600px)] bg-white/[0.08] blur-[160px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[min(110vw,400px)] h-[min(110vw,400px)] bg-[#A855F7]/20 blur-[140px] rounded-full" />
           <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent" />
           <div className="absolute inset-0 rounded-[3rem] ring-1 ring-inset ring-white/[0.08]" />
 
-          <div className="relative z-10 px-8 py-12 md:px-16 md:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-              <div className="space-y-6">
+          <div className="relative z-10 px-6 sm:px-8 py-10 sm:py-12 md:px-16 md:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+              <div className="space-y-5 sm:space-y-6">
                 <motion.div
                   custom={0}
                   variants={childVariants}
@@ -51,10 +51,10 @@ export default function CTABanner() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-white leading-[1.15]"
+                  className="text-section text-white"
                 >
                   Let's Build Something<br />
-                  <span className="italic text-[#E9D5FF]">Secure Together.</span>
+                  <span className="text-[#E9D5FF]">Secure Together.</span>
                 </motion.h2>
 
                 <motion.p
@@ -63,7 +63,7 @@ export default function CTABanner() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="text-base sm:text-lg leading-relaxed text-white/85 font-medium max-w-xl"
+                  className="text-sm sm:text-base md:text-lg leading-relaxed text-white/85 font-medium max-w-xl"
                 >
                   Whether you&apos;re an enterprise seeking digital transformation or a startup with a bold idea, our team of 350+ experts is ready to help you succeed.
                 </motion.p>

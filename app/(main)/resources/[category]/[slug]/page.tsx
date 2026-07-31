@@ -159,7 +159,7 @@ export default function ResourceDynamicPage({
                                 {categoryTitle}
                             </div>
 
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-10 tracking-tight leading-[1.05] font-display text-glow-subtle">
+                            <h1 className="text-hero text-white mb-10">
                                 {title}
                             </h1>
 
@@ -273,7 +273,7 @@ export default function ResourceDynamicPage({
 
                                         {/* CONTENT */}
                                         <div className="flex-1">
-                                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-6 tracking-tight leading-tight transition-colors">
+                                            <h2 className="text-heading-md text-white mb-6 transition-colors">
                                                 {section.title}
                                             </h2>
 
@@ -315,7 +315,7 @@ export default function ResourceDynamicPage({
                                         <Tag className="w-6 h-6 text-primary" />
                                     </div>
 
-                                    <h3 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight text-glow-subtle">
+                                    <h3 className="text-section text-white">
                                         Common Queries
                                     </h3>
                                 </div>

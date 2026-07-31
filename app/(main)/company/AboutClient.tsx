@@ -100,7 +100,7 @@ export default function AboutClient() {
                                 <Sparkles className="w-4 h-4 text-primary" />
                                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Identity</span>
                             </motion.div>
-                            <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
+                            <h1 className="text-hero text-white mb-10">
                                 Pioneering the Future of <br />
                                 <span className="text-gradient inline-block text-[calc(1em-3px)] pb-2">Digital Intelligence</span>
                             </h1>
@@ -128,7 +128,7 @@ export default function AboutClient() {
                         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mb-10 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,242,255,0.2)]">
                             <Eye className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">Our Vision</h3>
+                        <h3 className="text-section text-white mb-6">Our Vision</h3>
                         <p className="text-zinc-400 text-lg leading-relaxed font-medium italic group-hover:text-zinc-200 transition-colors">
                             To be the world&apos;s most trusted partner in digital forensics and strategic technology, empowering every organization to navigate the digital landscape with absolute certainty and security.
                         </p>
@@ -147,7 +147,7 @@ export default function AboutClient() {
                         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10 mb-10 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(112,0,255,0.2)]">
                             <Target className="h-8 w-8 text-secondary" />
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">Our Mission</h3>
+                        <h3 className="text-section text-white mb-6">Our Mission</h3>
                         <p className="text-zinc-400 text-lg leading-relaxed font-medium italic group-hover:text-zinc-200 transition-colors">
                             Our mission is to architect resilient digital ecosystems through precise forensic analysis, innovative software engineering, and strategic business process optimization that drives measurable growth.
                         </p>
@@ -161,7 +161,7 @@ export default function AboutClient() {
 
                     <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
                         <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Our Values</h2>
-                        <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">The Beliefs That Drive Us</h3>
+                        <h3 className="text-section text-white mb-6">The Beliefs That Drive Us</h3>
                         <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">
                             Our culture is anchored in a set of core beliefs that guide every decision we make and every project we undertake.
                         </p>
@@ -178,7 +178,7 @@ export default function AboutClient() {
                                 className="glass-card p-10 hover:bg-white/10 transition-all group border-white/5"
                             >
                                 <v.icon className="h-7 w-7 text-primary mb-8 group-hover:scale-125 transition-transform" />
-                                <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">{v.title}</h4>
+                                <h4 className="text-heading-sm text-white mb-4">{v.title}</h4>
                                 <p className="text-zinc-400 text-xs leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">{v.description}</p>
                             </motion.div>
                         ))}
@@ -196,7 +196,7 @@ export default function AboutClient() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
                             <Rocket className="w-4 h-4" /> Inside CyberForenX & Associates
                         </div>
-                        <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">
+                        <h3 className="text-section text-white mb-6">
                             Our Culture
                         </h3>
                         <p className="text-lg text-zinc-400 font-medium leading-relaxed max-w-2xl">
@@ -207,12 +207,12 @@ export default function AboutClient() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div className="glass-card p-12 min-h-[400px] border-primary/20 relative overflow-hidden group">
                             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <h4 className="text-3xl font-bold text-white mb-6 relative z-10">Driven by Excellence</h4>
+                            <h4 className="text-heading-md text-white mb-6 relative z-10">Driven by Excellence</h4>
                             <p className="text-zinc-400 leading-relaxed relative z-10">Our engineers, analysts, and strategists are united by a single mission: to build the most resilient and advanced digital ecosystems in the world. We don't settle for "good enough" - we aim for flawless execution.</p>
                         </div>
                         <div className="glass-card p-12 min-h-[400px] border-white/5 relative overflow-hidden group">
                             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <h4 className="text-3xl font-bold text-white mb-6 relative z-10">Work Without Borders</h4>
+                            <h4 className="text-heading-md text-white mb-6 relative z-10">Work Without Borders</h4>
                             <p className="text-zinc-400 leading-relaxed relative z-10">With a globally distributed team spanning over 25 countries, we embrace diverse perspectives and asynchronous collaboration. We hire the best talent, regardless of geography, providing flexibility and trust.</p>
                         </div>
                     </div>
@@ -254,7 +254,7 @@ export default function AboutClient() {
                     <div className="flex flex-col md:flex-row items-center text-center md:text-left justify-between mb-20 gap-10">
                         <div className="max-w-3xl">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Expertise</h2>
-                            <h3 className="text-4xl font-extrabold text-white leading-tight uppercase tracking-tight text-glow">Delivering Impact Through Strategic Innovation</h3>
+                            <h3 className="text-section text-white">Delivering Impact Through Strategic Innovation</h3>
                         </div>
                         <p className="text-zinc-400 max-w-xl text-lg font-medium leading-relaxed">
                             We don&apos;t just build software or solve crimes; we create the technological backbone that allows our clients to lead their industries.
@@ -293,7 +293,7 @@ export default function AboutClient() {
                                 <div className="p-4 rounded-xl bg-white/5 w-fit mb-8 group-hover:bg-white/10 transition-colors">
                                     <item.icon className={`h-8 w-8 ${item.accent}`} />
                                 </div>
-                                <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">{item.title}</h4>
+                                <h4 className="text-heading-sm text-white mb-4">{item.title}</h4>
                                 <p className="text-zinc-400 leading-relaxed text-base font-medium group-hover:text-zinc-300 transition-colors">{item.desc}</p>
                             </motion.div>
                         ))}

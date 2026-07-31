@@ -36,7 +36,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
     if (!categoryData || !detailData) {
         return (
             <main className="min-h-screen section-bg-dark pt-32 pb-20 flex flex-col items-center justify-center text-center">
-                <h1 className="text-4xl font-extrabold text-white mb-4 uppercase tracking-tighter italic text-glow">Under Construction</h1>
+                <h1 className="text-section text-white mb-4">Under Construction</h1>
                 <p className="text-zinc-400 max-w-lg mb-8 font-medium italic">We are actively building the deep-dive page for {resolvedParams.subcategory}. Please check back later or contact us directly.</p>
                 <Link href={`/${categoryData ? `solutions/${categoryData.slug}` : 'solutions'}`} className="inline-flex items-center gap-4 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs hover:bg-zinc-100 transition-all shadow-2xl hover:scale-105 active:scale-95 group">Back to Hub</Link>
             </main>
@@ -71,8 +71,8 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                 {/* Decorative line */}
                                 <div className="absolute -left-8 top-2 bottom-2 w-1 bg-gradient-to-b from-primary to-transparent rounded-full hidden md:block"></div>
 
-                                <h1 className="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
-                                    <span className="text-gradient italic text-glow inline-block pr-8">{detailData.heroTitle || detailData.title}</span>
+                                <h1 className="text-hero text-white mb-8">
+                                    <span className="text-gradient inline-block pr-8">{detailData.heroTitle || detailData.title}</span>
                                 </h1>
                                 <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl leading-relaxed font-medium mb-12 italic">
                                     {detailData.heroDescription}
@@ -146,7 +146,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                             className="text-center mb-16 max-w-3xl mx-auto"
                         >
                             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">The Friction & The Fix</h2>
-                            <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">Challenges vs. Solutions</h3>
+                            <h3 className="text-section text-white mb-6">Challenges vs. Solutions</h3>
                             <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">How we directly address the most critical pain points in your operations.</p>
                         </MotionDiv>
 
@@ -205,7 +205,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                             className="text-center mb-16 max-w-3xl mx-auto"
                         >
                             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Expertise</h2>
-                            <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">Core Capabilities</h3>
+                            <h3 className="text-section text-white mb-6">Core Capabilities</h3>
                             <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">Specialized capabilities tailored to deliver robust and secure outcomes for your enterprise.</p>
                         </MotionDiv>
 
@@ -225,7 +225,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                         {iconMap[feature.icon] || <Code className="h-8 w-8 text-primary group-hover:text-background transition-colors" />}
                                     </div>
                                     <div className="relative z-10 pt-1">
-                                        <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors">{feature.title}</h4>
+                                        <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors">{feature.title}</h4>
                                         <p className="text-zinc-400 text-sm leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">{feature.desc}</p>
                                     </div>
                                 </MotionDiv>
@@ -248,7 +248,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                 className="text-center mb-20 max-w-3xl mx-auto"
                             >
                                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Process</h2>
-                                <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">How We Deliver</h3>
+                                <h3 className="text-section text-white mb-6">How We Deliver</h3>
                                 <p className="text-zinc-400 text-lg font-medium leading-relaxed tracking-wide">A systematic approach to delivering robust solutions with security built-in from day one.</p>
                             </MotionDiv>
 
@@ -276,9 +276,9 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                                                 className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-8 rounded-[2rem] glass-card hover:bg-white/10 transition-all duration-500 border-white/5 group-hover:border-primary/20 flex flex-col items-start"
                                             >
-                                                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-4 uppercase">
-                                                    {step.title}
-                                                </h3>
+                                <h3 className="text-heading-md text-white mb-4">
+                                    {step.title}
+                                </h3>
                                                 <p className="text-zinc-400 leading-relaxed font-medium italic text-base group-hover:text-zinc-300 transition-colors">
                                                     {step.desc}
                                                 </p>
@@ -304,7 +304,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                             className="text-center mb-20 max-w-3xl mx-auto"
                         >
                             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Case Studies</h2>
-                            <h3 className="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">Proven Results</h3>
+                            <h3 className="text-section text-white mb-6">Proven Results</h3>
                             <p className="text-zinc-400 text-lg font-medium tracking-wide leading-relaxed">Real outcomes delivered with our cybersecurity DNA built into every solution.</p>
                         </MotionDiv>
 
@@ -320,14 +320,14 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                                    <h3 className="text-xl font-bold text-white mb-10 relative z-10 tracking-tight group-hover:text-primary transition-colors">
+                                    <h3 className="text-heading-sm text-white mb-10 relative z-10 group-hover:text-primary transition-colors">
                                         {item.title}
                                     </h3>
 
                                     <div className="grid grid-cols-2 gap-6 relative z-10 mt-auto">
                                         {item.metrics.map((metric: any, mIdx: number) => (
                                             <div key={mIdx}>
-                                                <div className="text-3xl font-black text-primary text-glow drop-shadow-[0_0_15px_rgba(0,242,255,0.6)] mb-2 tracking-tighter">
+                                                <div className="text-stat text-primary text-glow drop-shadow-[0_0_15px_rgba(0,242,255,0.6)] mb-2">
                                                     {metric.value}
                                                 </div>
                                                 <div className="text-[10px] font-extrabold text-zinc-500 uppercase tracking-widest group-hover:text-zinc-400 transition-colors">
@@ -354,7 +354,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                             className="text-center mb-16 max-w-3xl mx-auto"
                         >
                             <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary/60 mb-6">Explore More</h2>
-                            <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">Related Solutions</h3>
+                            <h3 className="text-section text-white mb-6">Related Solutions</h3>
                         </MotionDiv>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -369,7 +369,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                         
-                                        <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors relative z-10">
+                                        <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors relative z-10">
                                             {solution.title}
                                         </h4>
                                         <p className="text-zinc-400 text-sm leading-relaxed font-medium line-clamp-3 relative z-10 mb-8">
@@ -401,9 +401,9 @@ export default async function SolutionDetailPage({ params }: PageProps) {
                         <div className="absolute inset-0 bg-dots opacity-20 group-hover:opacity-30 transition-opacity"></div>
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-50"></div>
 
-                        <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 relative z-10 leading-tight">
+                        <h2 className="text-display text-white mb-6 relative z-10">
                             Ready to build your <br />
-                            <span className="text-gradient italic text-glow inline-block pr-6">solution?</span>
+                            <span className="text-gradient inline-block pr-6">solution?</span>
                         </h2>
                         <p className="text-lg text-zinc-300 mb-10 max-w-2xl mx-auto relative z-10 font-medium tracking-wide leading-relaxed">
                             Let&apos;s discuss how our specialized {detailData.title} teams can accelerate your enterprise objectives without compromising security.

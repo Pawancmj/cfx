@@ -114,7 +114,7 @@ export default function SolutionsClient() {
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
+                        className="text-hero text-white mb-8"
                     >
                         Solutions Engineered for <br className="hidden sm:block" />
                         <span className="relative inline-block mt-2 min-w-[300px] sm:min-w-[500px] h-[1.2em]">
@@ -150,17 +150,17 @@ export default function SolutionsClient() {
                         className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
                     >
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">100+</div>
+                            <div className="text-stat text-white">100+</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Gov Projects</div>
                         </div>
                         <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">500+</div>
+                            <div className="text-stat text-white">500+</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Enterprises</div>
                         </div>
                         <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-primary text-glow">99.9%</div>
+                            <div className="text-stat text-primary">99.9%</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Compliance</div>
                         </div>
                     </motion.div>
@@ -183,7 +183,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-8 max-w-2xl mx-auto">
                          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Core Pillars</h2>
-                          <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">The CyberForenX & Associates Advantage</h3>
+                          <h3 className="text-section text-white mb-6">The CyberForenX & Associates Advantage</h3>
                          <p className="text-zinc-400 font-medium">Why world-leading organizations trust us out-of-the-box.</p>
                     </div>
 
@@ -200,7 +200,7 @@ export default function SolutionsClient() {
                                 <div className="mx-auto h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors shadow-lg">
                                     <adv.icon className="h-8 w-8 text-primary group-hover:text-black transition-colors" />
                                 </div>
-                                <h4 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">{adv.title}</h4>
+                                <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors">{adv.title}</h4>
                                 <p className="text-sm text-zinc-400 font-medium">{adv.description}</p>
                             </motion.div>
                         ))}
@@ -214,7 +214,7 @@ export default function SolutionsClient() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Suite</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Tailored Solutions</h3>
+                            <h3 className="text-section text-white">Tailored Solutions</h3>
                          </div>
                          <p className="text-zinc-400 font-medium max-w-md">
                             Select a sector below to explore precision-engineered solutions designed explicitly for your domain's challenges.
@@ -251,7 +251,7 @@ export default function SolutionsClient() {
                             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-white/10">
                                 <div className="flex items-center gap-4">
                                     <Zap className="w-8 h-8 text-primary" />
-                                    <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
+                                    <h3 className="text-section text-white">{activeCategoryData.title}</h3>
                                 </div>
                                 
                                 {/* Add Link to the main Category Page itself */}
@@ -276,7 +276,7 @@ export default function SolutionsClient() {
                                             </div>
                                             <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                                         </div>
-                                        <h4 className="text-xl font-bold text-white mb-2 group-hover:text-glow transition-all">{link.name}</h4>
+                                        <h4 className="text-heading-sm text-white mb-2 group-hover:text-glow transition-all">{link.name}</h4>
                                         <p className="text-sm font-medium text-zinc-400 group-hover:text-zinc-300">
                                             Deploy specialized {link.name.toLowerCase()} infrastructure within your ecosystem.
                                         </p>
@@ -294,7 +294,7 @@ export default function SolutionsClient() {
                 <div className="container mx-auto px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-10 max-w-3xl mx-auto">
                         <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-secondary mb-4">How It Works</h2>
-                        <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic text-glow inline-block pr-6">Seamless Integration Strategy</h3>
+                        <h3 className="text-section text-white mb-6">Seamless Integration Strategy</h3>
                         <p className="text-zinc-400 font-medium">
                             Our battle-tested deployment methodology ensures zero downtime and rapid capability integration for mission-critical environments.
                         </p>
@@ -324,7 +324,7 @@ export default function SolutionsClient() {
                                             {phase.step}
                                         </span>
                                     </div>
-                                    <h4 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors">{phase.title}</h4>
+                                    <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors">{phase.title}</h4>
                                     <p className="text-sm font-medium text-zinc-400 max-w-[200px] mx-auto">{phase.desc}</p>
                                 </motion.div>
                             ))}
@@ -340,7 +340,7 @@ export default function SolutionsClient() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
                          <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Proven Results</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Featured Case Studies</h3>
+                            <h3 className="text-section text-white">Featured Case Studies</h3>
                          </div>
                          <Link href="/case-studies" className="btn-outline w-max inline-flex items-center gap-2 uppercase tracking-[0.2em] text-sm group shrink-0">
                              View All Reports <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -372,13 +372,13 @@ export default function SolutionsClient() {
                                         ))}
                                     </div>
                                     
-                                    <h4 className="text-2xl font-bold text-white mb-8 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all relative z-10">
+                                    <h4 className="text-heading-md text-white mb-8 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all relative z-10">
                                         {study.title}
                                     </h4>
                                     
                                     <div className="mt-auto pt-8 border-t border-white/10 relative z-10 flex items-center justify-between">
                                         <div>
-                                            <div className="text-3xl font-black text-white group-hover:text-glow transition-all">{study.metric}</div>
+                                            <div className="text-stat text-white group-hover:text-glow transition-all">{study.metric}</div>
                                             <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mt-1">{study.metricLabel}</div>
                                         </div>
                                         <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-colors">
@@ -424,7 +424,7 @@ export default function SolutionsClient() {
                         <div className="absolute inset-0 bg-dots opacity-20"></div>
                         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-6">Find Your Solution</h2>
+                        <h2 className="text-display text-white mb-8 relative z-10">Find Your Solution</h2>
                         <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                             Connect with our domain experts to architect a scalable, zero-trust solution tailored directly to your ecosystem's needs.
                         </p>

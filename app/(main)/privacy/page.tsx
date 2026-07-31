@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8">
                                     <Shield className="w-4 h-4" /> Legal Framework
                                 </div>
-                                <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white mb-8 tracking-tight leading-[1.15]">
+                                <h1 className="text-hero text-white mb-8">
                                     Privacy <br /> <span className="text-gradient inline-block text-[calc(1em-3px)]">Policy</span>
                                 </h1>
                                 
@@ -42,21 +42,21 @@ export default function PrivacyPolicy() {
 
                                     <div className="space-y-6">
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-primary/40">01.</span> Information We Collect
                                             </h2>
                                             <p>We collect information that you provide directly to us, such as when you submit a contact form, apply for a job, or subscribe to our newsletter. This includes identifiers like name and email address.</p>
                                         </section>
 
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-primary/40">02.</span> How We Use Data
                                             </h2>
                                             <p>We use the information we collect to provide and improve our services, communicate with you, and comply with legal obligations. Your data is never sold to third parties.</p>
                                         </section>
 
                                         <section>
-                                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+                                            <h2 className="text-heading-md text-white mb-4 flex items-center gap-3">
                                                 <span className="text-primary/40">03.</span> Security Measures
                                             </h2>
                                             <p>We implement military-grade encryption and industry-standard security measures to protect your personal information from unauthorized access, disclosure, or alteration.</p>
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
                         </div>
                         
                         <div className="mt-8 p-8 glass-card rounded-3xl border-primary/20 text-center">
-                            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">Secure Connection</h4>
+                            <h4 className="text-heading-sm text-white mb-2">Secure Connection</h4>
                             <p className="text-zinc-500 text-xs font-medium uppercase tracking-tight">SSL Encrypted & GDPR Compliant Infrastructure</p>
                         </div>
                     </div>

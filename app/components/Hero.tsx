@@ -141,10 +141,10 @@ function SlideContent({ slide, reduced }: { slide: Slide; reduced: boolean }) {
         initial={reduced ? {} : { opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: reduced ? 0 : 0.1, ease: easeOut }}
-        className="flex items-center gap-3 mb-10 sm:mb-14"
+        className="flex items-center gap-3 mb-8 sm:mb-14"
       >
-        <span className="inline-block w-10 h-px bg-primary/40" />
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary/70">
+        <span className="inline-block w-6 sm:w-10 h-px bg-primary/40 shrink-0" />
+        <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-primary/70">
           {slide.badge}
         </span>
       </motion.div>
@@ -162,7 +162,7 @@ function SlideContent({ slide, reduced }: { slide: Slide; reduced: boolean }) {
         initial={reduced ? {} : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: reduced ? 0 : 0.55, duration: 0.7, ease: easeOut }}
-        className="mt-8 sm:mt-10 text-body max-w-2xl leading-relaxed"
+        className="mt-6 sm:mt-10 text-body max-w-2xl leading-relaxed"
       >
         {slide.text}
       </motion.p>
@@ -171,18 +171,52 @@ function SlideContent({ slide, reduced }: { slide: Slide; reduced: boolean }) {
         initial={reduced ? {} : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: reduced ? 0 : 0.8, duration: 0.5, ease: easeOut }}
-        className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-start gap-5"
+        className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-5 w-full sm:w-auto"
       >
-        <Link href={slide.primaryCta.href} className="btn-primary group">
-          <slide.primaryCta.icon className="w-5 h-5" />
+        <Link href={slide.primaryCta.href} className="btn-primary group w-full sm:w-auto justify-center text-center sm:whitespace-nowrap">
+          <slide.primaryCta.icon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
           <span>{slide.primaryCta.label}</span>
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
         </Link>
-        <Link href={slide.secondaryCta.href} className="btn-secondary group">
+        <Link href={slide.secondaryCta.href} className="btn-secondary group w-full sm:w-auto justify-center text-center sm:whitespace-nowrap">
           {slide.secondaryCta.label}
         </Link>
       </motion.div>
     </motion.div>
+  );
+}
+
+function NavControls({
+  goPrev,
+  goNext,
+  current,
+  className,
+}: {
+  goPrev: () => void;
+  goNext: () => void;
+  current: number;
+  className?: string;
+}) {
+  return (
+    <div className={`flex items-center gap-2 sm:gap-3 md:gap-4 ${className ?? ""}`}>
+      <button
+        onClick={goPrev}
+        className="w-8 h-8 sm:w-10 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+        aria-label="Previous slide"
+      >
+        <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover/btn:-translate-x-0.5 transition-transform" />
+      </button>
+      <button
+        onClick={goNext}
+        className="w-8 h-8 sm:w-10 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+        aria-label="Next slide"
+      >
+        <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover/btn:translate-x-0.5 transition-transform" />
+      </button>
+      <span className="text-[10px] sm:text-xs font-bold text-zinc-500 tracking-widest select-none">
+        {String(current + 1).padStart(2, '0')}/{String(slides.length).padStart(2, '0')}
+      </span>
+    </div>
   );
 }
 
@@ -270,7 +304,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate min-h-[90vh] flex items-center overflow-hidden bg-background group"
+      className="relative isolate min-h-[100dvh] md:min-h-[600px] flex items-center bg-background group overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => {
@@ -285,14 +319,14 @@ export default function Hero() {
 
       <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
         <div
-          className="absolute -top-1/4 -left-1/4 w-[80%] h-[80%] rounded-full animate-gradient-1"
+          className="absolute -top-1/4 -left-1/4 w-[min(80%,400px)] aspect-square rounded-full animate-gradient-1"
           style={{
             background:
               "radial-gradient(circle at 30% 50%, rgba(109,40,217,0.08) 0%, transparent 60%)",
           }}
         />
         <div
-          className="absolute -bottom-1/4 -right-1/4 w-[70%] h-[70%] rounded-full animate-gradient-2"
+          className="absolute -bottom-1/4 -right-1/4 w-[min(70%,350px)] aspect-square rounded-full animate-gradient-2"
           style={{
             background:
               "radial-gradient(circle at 70% 50%, rgba(167,139,250,0.05) 0%, transparent 60%)",
@@ -341,38 +375,33 @@ export default function Hero() {
 
       <TechBackground mouseX={mouseX} mouseY={mouseY} reduced={!!reduced} />
 
-      <div className="page-container relative z-10 w-full py-20 sm:py-32">
+      <div className="page-container relative z-10 w-full py-16 sm:py-20 md:py-32">
         <div className="max-w-3xl">
           <AnimatePresence mode="wait">
             <SlideContent key={slide.id} slide={slide} reduced={!!reduced} />
           </AnimatePresence>
         </div>
+
+        {/* Mobile navigation — in flow so it never overlaps or clips content */}
+        <NavControls
+          goPrev={goPrev}
+          goNext={goNext}
+          current={current}
+          className="mt-10 sm:mt-14 md:hidden"
+        />
       </div>
 
-      {/* Navigation controls — fixed position, never shifts */}
-      <div className="absolute bottom-8 sm:bottom-12 left-4 sm:left-10 z-20 flex items-center gap-3 sm:gap-4">
-        <button
-          onClick={goPrev}
-          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
-          aria-label="Previous slide"
-        >
-          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:-translate-x-0.5 transition-transform" />
-        </button>
-        <button
-          onClick={goNext}
-          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
-          aria-label="Next slide"
-        >
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-0.5 transition-transform" />
-        </button>
-        <span className="text-xs font-bold text-zinc-500 tracking-widest select-none">
-          {String(current + 1).padStart(2, '0')}/{String(slides.length).padStart(2, '0')}
-        </span>
-      </div>
+      {/* Desktop navigation — fixed position, never shifts */}
+      <NavControls
+        goPrev={goPrev}
+        goNext={goNext}
+        current={current}
+        className="absolute bottom-4 sm:bottom-8 md:bottom-12 left-3 sm:left-6 md:left-10 z-20 hidden md:flex"
+      />
 
       {/* Scroll indicator — hidden on mobile to avoid overlap */}
       <motion.div
-        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1.5"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1.5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8, ease: easeOut }}

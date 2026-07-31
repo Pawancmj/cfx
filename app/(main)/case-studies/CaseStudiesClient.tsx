@@ -141,7 +141,7 @@ export default function CaseStudiesClient() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight mb-8 leading-[1.15]"
+                        className="text-hero text-white mb-8"
                     >
                         Case Studies For <br className="hidden sm:block" />
                         <span className="relative inline-block mt-2 min-w-[300px] sm:min-w-[500px] h-[1.2em]">
@@ -177,17 +177,17 @@ export default function CaseStudiesClient() {
                         className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 mb-8"
                     >
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">100+</div>
+                            <div className="text-stat text-white">100+</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Gov Projects</div>
                         </div>
                         <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-white group-hover:text-glow transition-all">500+</div>
+                            <div className="text-stat text-white">500+</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Enterprises</div>
                         </div>
                         <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
                         <div className="text-center group">
-                            <div className="text-4xl sm:text-5xl font-extrabold text-primary text-glow">99.9%</div>
+                            <div className="text-stat text-primary">99.9%</div>
                             <div className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-primary/60 mt-2 group-hover:text-primary transition-colors">Compliance</div>
                         </div>
                     </motion.div>
@@ -212,7 +212,7 @@ export default function CaseStudiesClient() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
                         <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Library</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Case Studies</h3>
+                            <h3 className="text-section text-white">Case Studies</h3>
                         </div>
                         <p className="text-zinc-400 font-medium max-w-md">
                             Select a category below to explore precision-engineered solutions designed explicitly for enterprise challenges.
@@ -247,7 +247,7 @@ export default function CaseStudiesClient() {
                         >
                             <div className="flex items-center gap-4 mb-10 pb-6 border-b border-white/10">
                                 <Zap className="w-8 h-8 text-primary" />
-                                <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
+                                <h3 className="text-section text-white">{activeCategoryData.title}</h3>
                             </div>
 
                             {activeFilter === "Clients" ? (
@@ -362,7 +362,7 @@ export default function CaseStudiesClient() {
 
                                                     <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
                                                         <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
-                                                        <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                                                        <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors">
                                                             {link.name}
                                                         </h4>
                                                         <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
@@ -411,7 +411,7 @@ export default function CaseStudiesClient() {
                         <div className="absolute inset-0 bg-dots opacity-20"></div>
                         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-6">Find Your Solution</h2>
+                        <h2 className="text-display text-white mb-8 relative z-10">Find Your Solution</h2>
                         <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                             Connect with our domain experts to architect a scalable, zero-trust solution tailored directly to your ecosystem's needs.
                         </p>

@@ -157,7 +157,7 @@ export default function CareersClient() {
                             <Sparkles className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Join Our Mission</span>
                         </motion.div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
+                        <h1 className="text-hero text-white mb-10">
                             Scale Your <br />
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Potential</span>
                         </h1>
@@ -181,7 +181,7 @@ export default function CareersClient() {
                             <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-inner">
                                 <item.icon className="h-7 w-7 text-primary" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-3 uppercase tracking-tight text-glow">{item.title}</h3>
+                            <h3 className="text-heading-sm text-white mb-3">{item.title}</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed font-medium italic group-hover:text-zinc-200 transition-colors">{item.desc}</p>
                         </motion.div>
                     ))}
@@ -192,7 +192,7 @@ export default function CareersClient() {
                     <div className="flex flex-col md:flex-row items-end justify-between mb-6 gap-6">
                         <div className="flex items-center gap-4">
                             <div className="h-10 w-1.5 bg-primary rounded-full shadow-[0_0_15px_rgba(0,242,255,0.5)]"></div>
-                            <h2 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow">Active Opportunities</h2>
+                            <h2 className="text-section text-white">Active Opportunities</h2>
                         </div>
                         <p className="text-zinc-500 text-xs font-bold uppercase tracking-[0.2em]">Verified by Admin Panel</p>
                     </div>
@@ -213,7 +213,7 @@ export default function CareersClient() {
                                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
                                     <XCircle className="w-10 h-10 text-primary" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-tight">No Active Openings</h3>
+                                <h3 className="text-section text-white mb-3">No Active Openings</h3>
                                 <p className="text-zinc-500 font-medium max-w-sm mx-auto">
                                     We don't have any internship tracks open at the moment. Please check back soon or follow our social channels for updates!
                                 </p>
@@ -235,7 +235,7 @@ export default function CareersClient() {
                                                     <Briefcase className="h-7 w-7 text-primary" />
                                                 </div>
                                                 <div>
-                                                    <h4 className="text-2xl font-bold text-white group-hover:text-primary transition-colors tracking-tight uppercase leading-tight">{role.title}</h4>
+                                                    <h4 className="text-heading-md text-white group-hover:text-primary transition-colors">{role.title}</h4>
                                                     <div className="flex items-center gap-3 mt-1">
                                                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60">{role.type}</span>
                                                         <span className="text-[10px] text-zinc-600">•</span>
@@ -266,7 +266,7 @@ export default function CareersClient() {
                 {/* Hiring Process Section */}
                 <div className="mb-10">
                     <div className="text-center max-w-3xl mx-auto mb-8">
-                        <h2 className="text-3xl font-extrabold text-white uppercase tracking-tight text-glow mb-6">Our Selection Process</h2>
+                        <h2 className="text-section text-white mb-6">Our Selection Process</h2>
                         <p className="text-zinc-500 font-medium tracking-wide">Straightforward, transparent, and focused on finding the next generation of technical leaders.</p>
                     </div>
 
@@ -280,7 +280,7 @@ export default function CareersClient() {
                                     <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-500">
                                         <step.icon className="w-6 h-6" />
                                     </div>
-                                    <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-3">{step.title}</h4>
+                                    <h4 className="text-heading-sm text-white mb-3">{step.title}</h4>
                                     <p className="text-zinc-500 text-xs leading-relaxed font-medium">{step.desc}</p>
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ export default function CareersClient() {
                     <div className="absolute inset-0 bg-dots opacity-20"></div>
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                    <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow">Join the Force</h2>
+                        <h2 className="text-display text-white mb-8 relative z-10">Join the Force</h2>
                     <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                         Ready to kickstart your career at a global technology leader? Reach out to our human resources team today.
                     </p>
@@ -331,7 +331,7 @@ export default function CareersClient() {
                             >
                                 <div className="flex items-center justify-between mb-6 shrink-0">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Apply Now</h3>
+                                        <h3 className="text-heading-md text-white">Apply Now</h3>
                                         <p className="text-primary text-sm font-medium mt-1">{selectedRole}</p>
                                     </div>
                                     <button
@@ -348,7 +348,7 @@ export default function CareersClient() {
                                             <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                                 <GraduationCap className="w-8 h-8 text-primary" />
                                             </div>
-                                            <h4 className="text-xl font-bold text-white mb-2">Application Submitted!</h4>
+                                            <h4 className="text-heading-sm text-white mb-2">Application Submitted!</h4>
                                             <p className="text-zinc-400">Thank you for your interest. We will review your application and get back to you soon.</p>
                                         </div>
                                     ) : (

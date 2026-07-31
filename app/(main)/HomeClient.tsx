@@ -53,13 +53,13 @@ function ProcessSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-20 max-w-3xl mx-auto"
+          className="text-center mb-12 sm:mb-20 max-w-3xl mx-auto"
         >
-          <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Method</h2>
-          <h3 className="text-3xl font-extralight tracking-tight text-white sm:text-5xl leading-[1.1]">
+          <h2 className="text-[0.65rem] sm:text-xs font-bold uppercase tracking-[0.4em] text-primary mb-3 sm:mb-4">Our Method</h2>
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-extralight tracking-tight text-white leading-[1.1]">
             The Strategic <span className="text-gradient pb-1 inline-block pr-6">Delivery Model</span>
           </h3>
-          <p className="text-zinc-400 text-lg font-medium mt-6">
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-medium mt-4 sm:mt-6">
             We follow a battle-tested roadmap to ensure your project moves from vision to reality with absolute security and efficiency.
           </p>
         </MotionDiv>
@@ -225,13 +225,13 @@ function RecentArticlesSection() {
   // Mouse wheel scroll removed — cards scroll only via buttons or mouse drag
 
   return (
-    <section className="relative py-14 md:py-20 section-bg-dark border-b border-white/5 overflow-hidden">
+    <section className="relative py-12 sm:py-14 md:py-20 section-bg-dark border-b border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
-      <div className="page-container relative z-10 w-full mb-8">
+      <div className="page-container relative z-10 w-full mb-6 sm:mb-8">
         <div className="flex justify-between items-end">
           <div>
-            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
-            <h3 className="text-3xl font-extralight text-white uppercase tracking-tight">
+            <h2 className="text-[0.65rem] sm:text-xs font-bold uppercase tracking-[0.4em] text-primary mb-2">Latest Insights</h2>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extralight text-white uppercase tracking-tight">
               Recent Articles
             </h3>
           </div>
@@ -260,12 +260,13 @@ function RecentArticlesSection() {
                   article.color
                 )}
               >
-                <div className="relative h-28 w-full overflow-hidden shrink-0 pointer-events-none">
+                <div className="relative h-24 sm:h-28 w-full overflow-hidden shrink-0 pointer-events-none">
                   <Image
                     src={article.image}
                     alt={article.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
@@ -274,14 +275,14 @@ function RecentArticlesSection() {
                     <span>{article.date}</span>
                     <span>{article.readTime}</span>
                   </div>
-                  <h4 className="text-xl font-light text-white mb-2 tracking-tight">
+                  <h4 className="text-base sm:text-lg md:text-xl font-light text-white mb-2 tracking-tight line-clamp-2">
                     {article.title}
                   </h4>
-                  <p className="text-[11px] text-zinc-400 font-medium leading-relaxed mb-3">
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 font-medium leading-relaxed mb-3 line-clamp-2 sm:line-clamp-3">
                     {article.excerpt}
                   </p>
                   <div className="mt-auto flex flex-wrap items-center gap-2">
-                    <span className={cn("text-xs font-black tracking-widest uppercase flex items-center gap-2", `${article.iconColor}/60`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
+                    <span className={cn("text-[10px] sm:text-xs font-black tracking-widest uppercase flex items-center gap-2", `${article.iconColor}/60`)}>Read Article <ArrowUpRight className="w-3 h-3" /></span>
                   </div>
                 </div>
               </Link>
@@ -291,28 +292,28 @@ function RecentArticlesSection() {
       </div>
 
       <div className="page-container relative z-10 w-full mt-8 shrink-0">
-        <div className="flex justify-center items-center gap-4 sm:gap-6">
+        <div className="flex justify-center items-center gap-3 sm:gap-6">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
             aria-label="Previous article"
           >
-            <ArrowLeft className="w-5 h-5 group-hover/btn:-translate-x-0.5 transition-transform" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:-translate-x-0.5 transition-transform" />
           </button>
 
           <Link
             href="/resources?filter=Articles%20%2F%20Insights"
-            className="mx-2 sm:mx-6 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-widest text-zinc-500 hover:text-white/70 transition-colors whitespace-nowrap flex items-center gap-2"
+            className="mx-1 sm:mx-6 text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-widest text-zinc-500 hover:text-white/70 transition-colors whitespace-nowrap flex items-center gap-1 sm:gap-2 py-2 min-h-[44px]"
           >
-            View All <ArrowUpRight className="w-4 h-4" />
+            View All <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" />
           </Link>
 
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200 group/btn shrink-0"
             aria-label="Next article"
           >
-            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
         </div>
       </div>

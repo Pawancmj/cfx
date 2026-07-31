@@ -51,9 +51,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden max-w-[100vw]">
       <body
-        className={`${inter.variable} antialiased bg-background text-foreground selection:bg-accent/20 selection:text-accent relative`}
+        className={`${inter.variable} antialiased bg-background text-foreground selection:bg-accent/20 selection:text-accent relative overflow-x-hidden max-w-[100vw]`}
         suppressHydrationWarning
       >
         {children}

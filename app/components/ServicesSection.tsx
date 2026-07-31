@@ -25,7 +25,7 @@ export default function ServicesSection() {
   return (
     <section className="relative py-14 md:py-20 section-bg-gradient overflow-hidden border-y border-white/5">
       <div className="absolute inset-0 bg-grid opacity-[0.03] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(180vw,800px)] h-[min(180vw,800px)] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
       <div className="page-container relative z-10">
         <motion.div
@@ -57,32 +57,32 @@ export default function ServicesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "group relative overflow-hidden flex flex-col rounded-2xl pt-6 min-h-[330px] h-full select-none",
+                  "group relative overflow-hidden flex flex-col rounded-2xl pt-5 sm:pt-6 min-h-[280px] sm:min-h-[330px] h-full select-none",
                   "glass-card border border-white/10 transition-all duration-300",
                   "hover:-translate-y-[6px] hover:border-primary/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
                 )}
               >
-                <div className="mb-4 px-6">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <div className="mb-4 px-5 sm:px-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     <Icon className="w-7 h-7 text-primary" />
                   </div>
                 </div>
 
-                <h3 className="text-xl font-light text-white mb-3 tracking-tight px-6">
+                <h3 className="text-heading-sm text-white mb-3 px-5 sm:px-6">
                   {service.title}
                 </h3>
 
-                <p className="text-zinc-400 leading-relaxed text-sm flex-grow px-6">
+                <p className="text-zinc-400 leading-relaxed text-sm flex-grow px-5 sm:px-6">
                   {service.description}
                 </p>
 
-                <Link
+                  <Link
                   href={`/services/${service.id}`}
-                  className="group/footer relative mt-6 pt-5 pb-6 border-t border-white/5 cursor-pointer block overflow-hidden"
+                  className="group/footer relative mt-6 pt-5 pb-6 border-t border-white/5 cursor-pointer block overflow-hidden min-h-[52px]"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-primary/15 to-primary/5 scale-x-0 group-hover/footer:scale-x-100 transition-transform duration-[400ms] ease-out origin-left" />
                   <span className="absolute inset-0 opacity-0 group-hover/footer:opacity-100 transition-opacity duration-[400ms] ease-out shadow-[0_0_25px_rgba(109,40,217,0.12)]" />
-                  <span className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-zinc-400 group-hover/footer:text-white transition-colors duration-300 px-6">
+                  <span className="relative z-10 inline-flex items-center gap-2 text-sm font-medium text-zinc-400 group-hover/footer:text-white transition-colors duration-300 px-5 sm:px-6">
                     <span className="transition-all duration-300 group-hover/footer:text-[0.925rem]">View More</span>
                     <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/footer:translate-x-2 group-hover/footer:text-primary group-hover/footer:scale-110" />
                   </span>

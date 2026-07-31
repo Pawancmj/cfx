@@ -33,9 +33,9 @@ export default function TestimonialStack({ testimonials }: TestimonialStackProps
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-6">Success Stories</h2>
-                    <h3 className="text-4xl md:text-6xl font-extralight text-white mb-8 leading-[1.05]">
+                    <h3 className="text-section text-white mb-8">
                         Real Impact <br />
-                        <span className="text-gradient italic">Unleashed</span>
+                        <span className="text-gradient">Unleashed</span>
                     </h3>
                     <p className="text-lg text-zinc-400 font-medium leading-relaxed mb-10">
                         See how CyberForenX & Associates is transforming enterprise operations and security for industry leaders across the globe.

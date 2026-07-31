@@ -109,7 +109,7 @@ export default function DesktopMegaMenu({
                         {/* Right Pane: Subcategories */}
                         <div className="w-2/3 flex flex-col pt-2">
                             <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-                                <h3 className="text-xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                                <h3 className="text-heading-md text-white flex items-center gap-3">
                                     {activeCategory}
                                 </h3>
                                 <Link

@@ -68,7 +68,7 @@ export default function CertificationClient() {
                             <ShieldCheck className="w-4 h-4 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Global Compliance</span>
                         </motion.div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-extralight tracking-tight text-white mb-10 leading-[1.05]">
+                        <h1 className="text-hero text-white mb-10">
                             Uncompromising <br />
                             <span className="text-gradient inline-block text-[calc(1em-3px)]">Security Standards</span>
                         </h1>
@@ -110,7 +110,7 @@ export default function CertificationClient() {
                                 <div className="absolute -top-12 left-6 w-14 h-14 bg-[#05080a]/80 backdrop-blur-xl rounded-xl flex items-center justify-center border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all duration-500 shadow-lg">
                                     <cert.icon className="w-6 h-6 text-primary" />
                                 </div>
-                                <h4 className="text-xl font-extrabold text-white tracking-widest uppercase mb-3 text-glow mt-1">
+                                <h4 className="text-heading-sm text-white mb-3 mt-1">
                                     {cert.name}
                                 </h4>
                                 <p className="text-xs sm:text-sm text-zinc-400 font-medium leading-relaxed border-l-2 border-primary/20 pl-4 group-hover:border-primary/80 group-hover:text-zinc-200 transition-colors duration-300">

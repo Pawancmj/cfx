@@ -65,12 +65,12 @@ function StatValue({ stat, active }: { stat: Stat; active: boolean }) {
 
   return (
     <>
-      <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight text-foreground tracking-tight tabular-nums leading-none whitespace-nowrap">
+      <span className="text-stat text-foreground">
         {formatted}
         <span className="text-primary">{stat.suffix}</span>
       </span>
       <span className="inline-block w-7 h-0.5 bg-primary/30 mt-0.5 mb-1 md:mt-3 md:mb-2.5 rounded-full" />
-      <span className="text-[11px] lg:text-xs font-semibold text-muted tracking-wider uppercase leading-snug max-w-[160px]">
+      <span className="text-[10px] sm:text-[11px] lg:text-xs font-semibold text-muted tracking-wider uppercase leading-snug max-w-[120px] sm:max-w-[160px]">
         {stat.label}
       </span>
     </>
@@ -146,13 +146,13 @@ export default function StatsSection() {
   return (
     <section
       ref={wrapperRef}
-      className="relative w-full section-bg-secondary border-y border-border/50 min-h-[65vh] md:min-h-screen"
+      className="relative w-full max-w-[100vw] overflow-x-hidden section-bg-secondary border-y border-border/50 min-h-[65vh] md:min-h-screen"
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-dots" />
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.04] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 pointer-events-none max-w-[100vw] overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(70vw,600px)] h-[min(70vw,600px)] bg-primary/[0.04] blur-[120px] rounded-full" />
       </div>
-      <div className="relative z-10 h-full overflow-hidden">
+      <div className="relative z-10 h-full overflow-hidden max-w-[100vw]">
         <div
           ref={trackRef}
           className="flex items-center h-full flex-nowrap w-[450vw] lg:w-[300vw]"
@@ -160,7 +160,7 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="flex-shrink-0 flex items-center justify-center px-1 md:px-2 w-[50vw] lg:w-[33.33vw]"
+              className="flex-shrink-0 flex items-center justify-center px-2 sm:px-3 md:px-2 w-[50vw] lg:w-[33.33vw]"
             >
               <div className="flex flex-col items-center text-center select-none">
                 <StatValue stat={stat} active={i <= activeIndex + groupSize - 1} />

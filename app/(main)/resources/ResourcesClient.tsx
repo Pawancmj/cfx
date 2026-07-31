@@ -128,7 +128,7 @@ function ResourcesContent() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h1 className="text-4xl sm:text-5xl lg:text-[68px] font-bold tracking-tight text-white flex flex-col items-center mb-8 leading-[1.15]">
+                            <h1 className="text-hero text-white flex flex-col items-center mb-8">
                                 Knowledge <br /> <span className="text-gradient inline-block text-[calc(1em-3px)]">Resources</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-3xl mx-auto font-medium">
@@ -156,7 +156,7 @@ function ResourcesContent() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-center md:text-left">
                         <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Our Library</h2>
-                            <h3 className="text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tighter italic text-glow inline-block pr-6">Insight Hub</h3>
+                            <h3 className="text-section text-white">Insight Hub</h3>
                         </div>
                         <p className="text-zinc-400 font-medium max-w-md">
                             Select a category below to explore our deeply researched insights, news, and critical updates.
@@ -191,7 +191,7 @@ function ResourcesContent() {
                         >
                             <div className="flex items-center gap-4 mb-10 pb-6 border-b border-white/10">
                                 <BookOpen className="w-8 h-8 text-primary" />
-                                <h3 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tighter italic text-glow">{activeCategoryData.title}</h3>
+                                <h3 className="text-section text-white">{activeCategoryData.title}</h3>
                             </div>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -243,7 +243,7 @@ function ResourcesContent() {
 
                                             <div className="flex-grow p-6 sm:p-8 flex flex-col justify-center">
                                                 <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 block text-primary">{cardBadge}</span>
-                                                <h4 className="text-xl font-bold text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                                                <h4 className="text-heading-sm text-white mb-3 group-hover:text-primary transition-colors">
                                                     {link.name}
                                                 </h4>
                                                 <p className="text-zinc-400 leading-relaxed font-medium mb-6 text-sm">
@@ -289,7 +289,7 @@ function ResourcesContent() {
                         <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full pointer-events-none"></div>
                         
-                        <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 uppercase tracking-tighter italic relative z-10 text-glow inline-block">Stay Informed</h3>
+                        <h3 className="text-section text-white mb-6 relative z-10">Stay Informed</h3>
                         <p className="text-zinc-300 font-medium mb-12 relative z-10 max-w-2xl mx-auto tracking-[0.1em]">Subscribe to receive our latest insights, comprehensive guides, and critical vulnerability alerts straight to your inbox.</p>
 
                         <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto relative z-10">

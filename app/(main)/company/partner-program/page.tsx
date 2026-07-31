@@ -23,7 +23,7 @@ export default function PartnerProgramPage() {
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
                         <Handshake className="w-4 h-4" /> Global Alliance
                     </div>
-                    <h1 className="text-4xl sm:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight text-glow">
+                    <h1 className="text-hero text-white mb-6">
                         Partner Program
                     </h1>
                     <p className="text-lg text-zinc-400 font-medium leading-relaxed mb-12 max-w-2xl">
@@ -38,7 +38,7 @@ export default function PartnerProgramPage() {
                         { title: "Referral Partners", desc: "Introduce your network to our premium services and benefit from an industry-leading revenue sharing model." }
                     ].map((tier) => (
                         <div key={tier.title} className="glass-card p-10 group hover:border-primary/50 transition-colors">
-                            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{tier.title}</h3>
+                            <h3 className="text-heading-md text-white mb-4 group-hover:text-primary transition-colors">{tier.title}</h3>
                             <p className="text-sm leading-relaxed text-zinc-400">{tier.desc}</p>
                             <button className="mt-8 text-xs font-bold uppercase tracking-widest text-white border-b border-primary/50 pb-1 hover:text-primary transition-colors">Apply Now</button>
                         </div>

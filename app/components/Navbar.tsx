@@ -154,7 +154,7 @@ export default function Navbar() {
                         <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-[60px] rounded-full group-hover/feat:bg-primary/40 transition-colors"></div>
                         <ShieldCheck className="w-12 h-12 text-primary mb-8 relative z-10" />
                         <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/80 mb-3 relative z-10">CYBERFORENX & ASSOCIATES</span>
-                        <h5 className="text-3xl font-extrabold text-white leading-tight mb-6 relative z-10 text-glow">Leadership That Drives Impact</h5>
+                        <h5 className="text-section text-white mb-6 relative z-10">Leadership That Drives Impact</h5>
                         <p className="text-sm font-medium text-zinc-400 italic leading-relaxed relative z-10">
                           Our experts bring decades of cross-industry intelligence to scale and secure your business globally.
                         </p>
@@ -208,7 +208,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="xl:hidden text-zinc-400 hover:text-white/80 transition-colors shrink-0"
+          className="xl:hidden text-zinc-400 hover:text-white/80 transition-colors shrink-0 p-2.5 -mr-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Navigation"
         >
@@ -218,7 +218,14 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="absolute top-full w-[92%] sm:w-[95%] left-1/2 -translate-x-1/2 mt-2 glass-card p-4 sm:p-6 flex flex-col gap-5 xl:hidden shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[75vh] overflow-y-auto section-bg-dark scrollbar-hide pb-20">
+        <>
+          {/* Backdrop for closing on outside tap */}
+          <div
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm xl:hidden"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute top-full left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-[95%] md:max-w-2xl mt-2 glass-card p-5 sm:p-6 flex flex-col gap-5 xl:hidden shadow-2xl border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] max-h-[70vh] overflow-y-auto section-bg-dark scrollbar-hide pb-24 transition-all duration-300">
           {mainNavLinks.map((link) => {
             if (link.name === "Services") {
               return (
@@ -283,10 +290,10 @@ export default function Navbar() {
             }
 
             return (
-              <div key={link.name} className="flex flex-col gap-4 border-b border-white/5 pb-2">
+              <div key={link.name} className="flex flex-col gap-4 border-b border-white/5 pb-3">
                 <Link
                   href={link.href}
-                  className={`text-base sm:text-lg font-bold uppercase tracking-widest transition-colors py-2 ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
+                  className={`text-base sm:text-lg font-bold uppercase tracking-widest transition-colors py-3 min-h-[44px] flex items-center ${isActive(link.href) ? "text-primary" : "text-zinc-300 hover:text-primary"}`}
                   onClick={(e) => {
                     handleLinkClick(e, link.href);
                     setIsOpen(false);
@@ -296,12 +303,12 @@ export default function Navbar() {
                 </Link>
 
                 {link.name === "Company" && (
-                  <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/20 mt-1 pb-2">
+                  <div className="flex flex-col gap-3 pl-4 border-l-2 border-primary/20 mt-2 pb-2">
                     {companySubLinks.map(sub => (
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
+                        className={`text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between py-3 min-h-[44px] ${isActive(sub.href) ? "text-primary" : "text-zinc-400 hover:text-white"}`}
                         onClick={(e) => {
                           handleLinkClick(e, sub.href);
                           setIsOpen(false);
@@ -317,7 +324,7 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-2 py-4 shadow-[0_10px_30px_rgba(0,242,255,0.2)] shrink-0"
+            className="btn-primary text-center w-full text-base uppercase tracking-widest font-bold mt-3 py-4 min-h-[52px] shadow-[0_10px_30px_rgba(0,242,255,0.2)] shrink-0"
             onClick={() => setIsOpen(false)}
           >
             Contact Us
@@ -325,6 +332,7 @@ export default function Navbar() {
           {/* Bottom Spacer for rounded corners */}
           <div className="h-4 w-full shrink-0" />
         </div>
+      </>
       )}
     </nav>
   );

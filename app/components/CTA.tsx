@@ -25,9 +25,9 @@ export default function CTA() {
                             <Sparkles className="w-3 h-3 text-primary" />
                             <span className="text-xs font-bold uppercase tracking-widest text-primary">Limited Availability</span>
                         </motion.div>
-                        <h2 className="text-3xl font-extralight tracking-tight text-white sm:text-5xl leading-[1.15] sm:leading-[1.05]">
+                        <h2 className="text-section text-white">
                             Ready to Elevate Your <br />
-                            <span className="text-gradient italic">Digital Presence?</span>
+                            <span className="text-gradient">Digital Presence?</span>
                         </h2>
                         <p className="mt-8 text-lg leading-relaxed text-zinc-400 font-medium">
                             Securing your digital future with cutting-edge web &amp; app development, digital forensics, and BPO solutions.

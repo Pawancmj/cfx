@@ -55,7 +55,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
     if (!categoryData) {
         return (
             <div className="min-h-screen bg-background pt-32 pb-20 flex flex-col items-center justify-center text-center">
-                <h1 className="text-4xl font-bold text-white mb-4">Under Construction</h1>
+                <h1 className="text-section text-white mb-4">Under Construction</h1>
                 <p className="text-zinc-400 max-w-lg mb-8">We are actively building the detailed Hub page for this service. Please check back later or contact us directly.</p>
                 <Link href="/services" className="btn-primary">View All Services</Link>
             </div>
@@ -97,9 +97,9 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                 <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">Enterprise Service Hub</span>
                             </MotionDiv>
 
-                            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl mb-8 leading-[1.2] lg:leading-[1.1] break-words">
+                            <h1 className="text-hero text-white break-words">
                                 {categoryData.title.split(" ").slice(0, -1).join(" ")}{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary italic drop-shadow-[0_0_15px_rgba(0,242,255,0.4)] pb-1 inline-block pr-4">{categoryData.title.split(" ").slice(-1)}</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary drop-shadow-[0_0_15px_rgba(0,242,255,0.4)] pb-1 inline-block pr-4">{categoryData.title.split(" ").slice(-1)}</span>
                             </h1>
                             <p className="text-xl leading-relaxed text-zinc-400 max-w-2xl font-medium mb-10">
                                 {categoryData.overview}
@@ -168,7 +168,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                         <Code className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors tracking-tight relative z-10">
+                                    <h3 className="text-heading-md text-white mb-4 group-hover:text-primary transition-colors relative z-10">
                                         {sub.title}
                                     </h3>
                                     <p className="text-sm text-zinc-400 mb-8 flex-grow leading-relaxed font-medium italic relative z-10 group-hover:text-zinc-200 transition-colors">
@@ -199,9 +199,9 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
                         <div className="relative z-10">
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Why Choose Us</h2>
-                            <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-16 uppercase tracking-tighter italic text-glow inline-block pr-8">
-                                The <span className="text-gradient">CyberForenX & Associates Advantage</span>
-                            </h3>
+                                <h3 className="text-section text-white mb-16">
+                                    The <span className="text-gradient">CyberForenX & Associates Advantage</span>
+                                </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                                 {categoryData.whyChooseUs?.map((item, idx) => (
@@ -209,7 +209,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 group-hover:bg-primary transition-all duration-500 shadow-xl mx-auto mb-8">
                                             {iconMap[item.icon] || <CheckCircle2 className="h-8 w-8 text-primary group-hover:text-background transition-colors" />}
                                         </div>
-                                        <h4 className="text-xl font-bold text-white mb-4 tracking-tight uppercase group-hover:text-primary transition-colors">{item.title}</h4>
+                                        <h4 className="text-heading-sm text-white mb-4 group-hover:text-primary transition-colors">{item.title}</h4>
                                         <p className="text-sm text-zinc-400 font-medium italic leading-relaxed group-hover:text-zinc-200 transition-colors">{item.desc}</p>
                                     </div>
                                 ))}
@@ -229,8 +229,8 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-primary mb-4">Execution Methodology</h2>
-                                <h3 className="text-3xl font-extrabold text-white sm:text-6xl mb-6 leading-tight">
-                                    Strategic <span className="text-gradient italic pb-1 inline-block pr-8">Delivery Model</span>
+                                <h3 className="text-section text-white mb-6">
+                                    Strategic <span className="text-gradient pb-1 inline-block pr-8">Delivery Model</span>
                                 </h3>
                             </MotionDiv>
                         </div>
@@ -252,7 +252,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                                             {step.step}
                                         </div>
                                     </div>
-                                    <h4 className="text-xl font-bold text-white mb-5 group-hover:text-primary transition-colors uppercase tracking-[0.2em]">{step.title}</h4>
+                                    <h4 className="text-heading-sm text-white mb-5 group-hover:text-primary transition-colors">{step.title}</h4>
                                     <p className="text-zinc-400 leading-relaxed text-sm max-w-[240px] mx-auto group-hover:text-zinc-200 font-medium italic transition-colors">
                                         {step.desc}
                                     </p>
@@ -286,7 +286,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                         >
                             {categoryData.metrics?.map((metric, idx) => (
                                 <div key={idx} className="text-center group p-6 sm:p-10 glass-card hover:bg-white/10 hover:border-primary/30">
-                                    <div className="text-4xl font-extrabold text-white mb-2 tracking-tighter text-glow">
+                                    <div className="text-stat text-white mb-2">
                                         {metric.value}
                                     </div>
                                     <div className="text-xs font-bold uppercase tracking-[0.4em] text-primary/60 group-hover:text-primary transition-colors">
@@ -316,7 +316,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                     <div className="absolute inset-0 bg-dots opacity-20"></div>
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 via-transparent to-secondary/10"></div>
 
-                    <h2 className="text-3xl sm:text-6xl font-extrabold text-white mb-8 uppercase tracking-tighter italic relative z-10 text-glow inline-block pr-8">Ready to Transform?</h2>
+                    <h2 className="text-display text-white mb-8 relative z-10">Ready to Transform?</h2>
                     <p className="text-zinc-300 mb-12 max-w-2xl mx-auto font-medium uppercase tracking-[0.2em] text-xs relative z-10 leading-relaxed">
                         Let&apos;s discuss how our specialized {categoryData.title} teams can accelerate your enterprise objectives without compromising security.
                     </p>
