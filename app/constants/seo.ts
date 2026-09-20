@@ -4,7 +4,7 @@ export const siteConfig = {
     name: "CyberForenX & Associates",
     description: "Enterprise-grade cybersecurity, digital forensics, and strategic tech solutions.",
     url: "https://www.cyberforenx.in",
-    ogImage: "https://www.cyberforenx.in/og-image.webp",
+    ogImage: "/opengraph-image.png",
     links: {
         twitter: "https://twitter.com/cyberforenx",
         github: "https://github.com/cyberforenx",
@@ -33,7 +33,17 @@ export function constructMetadata({
         openGraph: {
             title,
             description,
-            images: [{ url: image }],
+            images: [
+                {
+                    url: image,
+                    width: 1200,
+                    height: 630,
+                    alt: `${siteConfig.name} - Digital Forensics & Web Development`,
+                    type: "image/png",
+                },
+            ],
+            siteName: siteConfig.name,
+            type: "website",
         },
         twitter: {
             card: "summary_large_image",

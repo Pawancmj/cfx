@@ -26,13 +26,23 @@ export const metadata: Metadata = {
     description: "Securing your digital future with cutting-edge web development and forensic intelligence.",
     url: "https://www.cyberforenx.in",
     siteName: "CyberForenX & Associates",
-    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CyberForenX & Associates - Digital Forensics & Web Development",
+        type: "image/png",
+      },
+    ],
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "CyberForenX & Associates | Securing Your Digital Vision",
     description: "Expert Digital Forensics, Web Development, and Cybersecurity solutions.",
+    images: ["/opengraph-image.png"],
     creator: "@cyberforenx",
   },
   robots: {
